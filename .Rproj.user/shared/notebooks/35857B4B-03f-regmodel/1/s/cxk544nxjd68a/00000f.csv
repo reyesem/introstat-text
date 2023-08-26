@@ -1,4 +1,0 @@
-"0","#| label: fig-regmodel-least-squares"
-"0","#| fig-cap: Illustration of two competing estimates of a line which runs through the data."
-"0","#| fig-alt: Scatterplot of hypothetical data with two lines; a blue line follows the center of the trend between the variables while an orange line cuts across the center of the data but does not follow the trend."
-"0","knitr::include_graphics(""./images/RegModel-LeastSquares.jpg"")"

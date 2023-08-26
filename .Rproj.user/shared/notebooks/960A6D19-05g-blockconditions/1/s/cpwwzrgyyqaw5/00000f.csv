@@ -1,2 +1,0 @@
-"0","#| label: blockconditions-fit"
-"0","fit.yogurt <- lm(Taste ~ Type + `Participant ID` - 1, data = yogurt.df)"

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Modeling for Engineers and Scientists - 21&nbsp; Extending the Regression Model</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03k-regrecap.html" rel="next">
+<link href="./03i-regassessment.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="mystyles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03j-regextensions.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Modeling</a> 
+        <div class="sidebar-tools-main">
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01b-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01c-casedeepwater.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01d-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01e-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f-summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01g-samplingdistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01h-nulldistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01i-recaplanguage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02b-casebabies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Case Study: Birth Weights of Babies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02c-meanmodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02d-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02e-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03b-casegreece.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Case Study: Seismic Activity in Greece</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03c-regquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Myriad of Potential Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03d-regdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nature of Collecting Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03e-regsummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarizing Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03f-regmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bulding our Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03g-regconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03h-regquality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03i-regassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03j-regextensions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03k-regrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04b-caseorganic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Case Study: Organic Foods and Superior Morals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04c-anovaquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04d-anovadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04e-anovasummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04f-anovamodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04g-anovaconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04h-anovateststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04i-anovaassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04j-anovarecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05b-caseyogurt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Case Study: Paying a Premium for the Experience</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05c-blockquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05d-blockdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05e-blocksummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Presenting Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05f-blockmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modeling Correlated Responses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05g-blockconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of the Repeated Measures ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05h-blockteststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05i-blockassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in Repeated Measures ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05j-blockrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#using-a-categorical-predictor" id="toc-using-a-categorical-predictor" class="nav-link active" data-scroll-target="#using-a-categorical-predictor"><span class="header-section-number">21.1</span> Using a Categorical Predictor</a></li>
+  <li><a href="#including-multiple-precitors" id="toc-including-multiple-precitors" class="nav-link" data-scroll-target="#including-multiple-precitors"><span class="header-section-number">21.2</span> Including Multiple Precitors</a>
+  <ul class="collapse">
+  <li><a href="#general-model-formulation" id="toc-general-model-formulation" class="nav-link" data-scroll-target="#general-model-formulation"><span class="header-section-number">21.2.1</span> General Model Formulation</a></li>
+  <li><a href="#interpretation-of-parameters" id="toc-interpretation-of-parameters" class="nav-link" data-scroll-target="#interpretation-of-parameters"><span class="header-section-number">21.2.2</span> Interpretation of Parameters</a></li>
+  <li><a href="#inference-for-the-general-formulation" id="toc-inference-for-the-general-formulation" class="nav-link" data-scroll-target="#inference-for-the-general-formulation"><span class="header-section-number">21.2.3</span> Inference for the General Formulation</a></li>
+  </ul></li>
+  <li><a href="#modifying-an-effect" id="toc-modifying-an-effect" class="nav-link" data-scroll-target="#modifying-an-effect"><span class="header-section-number">21.3</span> Modifying an Effect</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-regextensions" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The last several chapters have developed an approach for modeling a quantitative response as a function of a single quantitative predictor using a model of the form:</p>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_i + \varepsilon_i.\]</span></p>
+<p>This model is well suited for addressing questions about the marginal relationship between two variables. However, as we saw in <a href="03c-regquestions.html"><span>Chapter&nbsp;14</span></a>, not all our questions are about the marginal relationship. The real power of the model in <a href="02c-meanmodels.html#eq-general-model">Equation&nbsp;<span>10.1</span></a> is our ability to generalize it to encompass multiple predictors and various types of relationships. In this chapter, we briefly describe how to extend the regression model to address some additional questions of interest.</p>
+<p>While this chapter can be considered optional for an introductory treatment to modeling, the concepts discussed here allow us to easily bridge into the remaining topics covered in later units.</p>
+<section id="using-a-categorical-predictor" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="using-a-categorical-predictor"><span class="header-section-number">21.1</span> Using a Categorical Predictor</h2>
+<p>We have described the simple linear model (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>) as one which relates two quantitative variables. However, this framework can be extended to make use of a categorical predictor. Specifically, we will consider a binary predictor which categorizes units into one of two groups. More general categorical predictors will be considered in the next unit.</p>
+<p>Continuing to work with the data from the Seismic Activity Case Study, <a href="#tbl-regextensions-soil">Table&nbsp;<span>21.1</span></a> summarizes the bracketed duration at locations based on the soil conditions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-regextensions-soil" class="anchored">
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>Table&nbsp;21.1: Numerical summaries of the bracketed duration for locations based on their soil conditions.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Soil Condition</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sample Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sample Standard Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intermediate</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">5.16</td>
+<td style="text-align: right;">4.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rocky</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">4.14</td>
+<td style="text-align: right;">5.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soft</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">5.86</td>
+<td style="text-align: right;">6.73</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+<p>We observe that the bracketed duration appears to differ, on average, for locations with rocky soils compared to other types of location. We would like to consider a model for the data generating process of the form</p>
+<p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1 (\text{Soil Condition})_i + \varepsilon_i,\]</span></p>
+<p>but the problem is that we do not know how to multiply a number <span class="math inline">\(\beta_1\)</span> and a category like “rocky soil,” meaning the above model does not yet even make sense. The key to including a categorical variable in the model for the data generating process is to construct an <strong>indicator variable</strong>.</p>
+<div id="def-indicator-variable" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 21.1 (Indicator Variable) </strong></span>An indicator variable is a binary (takes the value 0 or 1) variable used to represent whether an observation belongs to a specific group defined by a categorical variable.</p>
+</div>
+<p>Indicator variables essentially create a numeric variable which represents a yes/no decision regarding a categorical variable. For example, consider the following variable definition:</p>
+<p><span class="math display">\[
+(\text{Rocky Soil})_i = \begin{cases} 1 &amp; \text{if } i\text{-th location has rocky soil} \\
+0 &amp; \text{if } i\text{-th location has a different soil type}. \end{cases}
+\]</span></p>
+<p>Since this variable is numeric, we can use it in our model for the data generating process. Specifically, consider the following model</p>
+<p><span id="eq-regextensions-ind"><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1 (\text{Rocky Soil})_i + \varepsilon_i \tag{21.1}\]</span></span></p>
+<p>With a variable capturing when the soil is rocky, we might be tempted to include another indicator variable that takes the value 1 when the soil is not rocky. But, this is not necessary. Think of an indicator variable like a “light switch.” The indicator variable turns on when an observation falls into a particular group and turns off otherwise. Just like a single light switch can place a light into the “on” position and into the “off” position, a single indicator variable can capture two groups in the model for the data generating process. If we have a location which has “Intermediate” soil conditions, then that location cannot have “Rocky” soil; therefore, the indicator variable in our model turns off. Setting the indicator to 0 (turning it “off”) then leaves only the intercept in the model. The group which has a 0 for the indicator is encoded in the intercept; this is known as the <strong>reference group</strong>.</p>
+<div id="def-reference-group" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 21.2 (Reference Group) </strong></span>The group defined by setting all indicator variables in a model for the data generating process equal to 0.</p>
+</div>
+<p>Remember, provided that we have imposed the mean-0 condition, we know that the deterministic portion of the model specifies the mean response for a given value of the predictor. In the case of an indicator variable, the predictor variable can only take on two values (0 or 1). Therefore, it only predicts two mean responses:</p>
+<ul>
+<li>When the indicator variable is 0, the model predicts a mean response of <span class="math inline">\(\beta_0\)</span>; and,</li>
+<li>When the indicator variable is 1, the model predicts a mean response of <span class="math inline">\(\beta_0 + \beta_1\)</span>.</li>
+</ul>
+<p>So, the “slope” <span class="math inline">\(\beta_1\)</span> is really capturing the shift in the deterministic portion of the model from one group to the other. This coincides with the interpretation of the slope discussed in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a> — <span class="math inline">\(\beta_1\)</span> represents the change in the mean response when moving from one group to another. That is, the slope represents the difference in the average response between the two groups.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation of the Parameters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we have a simple linear regression model (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>) with a quantitative response and a single indicator variable as the sole predictor. Then, the intercept represents the average response for the reference group, and the slope represents the difference in the average response between the two groups.</p>
+</div>
+</div>
+<p>This shift in the mean response is illustrated in <a href="#fig-regextensions-ind-plot">Figure&nbsp;<span>21.1</span></a>. The “line” is really connecting the sample mean response of each group.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regextensions-ind-plot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regextensions-ind-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Side-by-side boxplots of the bracketed duration for two groups of location based on soil type.  A blue line connects the average response of each group."></p>
+<figcaption class="figure-caption">Figure&nbsp;21.1: Comparison of the bracketed duration between locations with rocky soil and those with other soil types.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="including-multiple-precitors" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="including-multiple-precitors"><span class="header-section-number">21.2</span> Including Multiple Precitors</h2>
+<p>The real power of the model in <a href="02c-meanmodels.html#eq-general-model">Equation&nbsp;<span>10.1</span></a> is our ability to generalize it to encompass multiple predictors and various types of relationships. That is, suppose that instead of being interested in the marginal relationship between the bracketed duration and the magnitude of the corresponding earthquake we are interested in <em>isolating</em> the effect of the magnitude on the bracketed duration:</p>
+<blockquote class="blockquote">
+<p>On average, does the bracketed duration change as the magnitude of the corresponding earthquake changes if the location remains the same distance from the center of the earthquake?</p>
+</blockquote>
+<p>This question is asking if there is an effect of the magnitude of the earthquake above and beyond the impact due to a locations distance from the epicenter. This question requires a model which has multiple predictors. What bracketed duration would we expect given the magnitude and epicentral distance? We extend the simple linear model to include an additional predictor:</p>
+<p><span id="eq-regextensions-mlr"><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Magnitude})_i + \beta_2(\text{Epicentral Distance})_i + \varepsilon_i. \tag{21.2}\]</span></span></p>
+<p>This more complex model is more difficult to visualize, but conceptually it is similar to the simple linear model in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>. Given a value for the magnitude <em>and</em> epicentral distance, we can predict the bracketed duration; the model for the data generating process allows both variables to contribute to the bracketed duration. Our model for the data generating process also allows for random noise to contribute to the bracketed duration; that is, there will still be unexplained variability. One way of envisioning what this model does is to think about taking the linear relationship we previously had and observing that we are now saying that the deterministic portion of the model for the data generating process differs for each group of observations which have a different epicentral distance. For example, consider all locations which were located 10 km away from the center of an earthquake; for this group of earthquakes, <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a> suggests the bracketed duration is generated by</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\text{Bracketed Duration})_i
+  &amp;= \beta_0 + \beta_1(\text{Magnitude})_i + \beta_2(10) + \varepsilon_i \\
+  &amp;= \left(\beta_0 + 10\beta_2\right) + \beta_1(\text{Magnitude})_i + \varepsilon_i.
+\end{aligned}
+\]</span></p>
+<p>Similarly, if we only consider locations which were located 32 km away from the center of an earthquake, then <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a> suggests the bracketed duration is generate by</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\text{Bracketed Duration})_i
+  &amp;= \beta_0 + \beta_1(\text{Magnitude})_i + \beta_2(32) + \varepsilon_i \\
+  &amp;= \left(\beta_0 + 32\beta_2\right) + \beta_1(\text{Magnitude})_i + \varepsilon_i.
+\end{aligned}
+\]</span></p>
+<p><a href="#fig-regextensions-mlr-plot">Figure&nbsp;<span>21.2</span></a> represents this graphically for a range of potential epicentral distances. Essentially, the relationship between the bracketed duration and the magnitude shifts depending on the epicentral distance. The overall trend is similar (the lines are parallel), but where the line is located is really dependent upon the distance of the location from the earthquake. Note that while <a href="#fig-regextensions-mlr-plot">Figure&nbsp;<span>21.2</span></a> chooses particular values for the epicentral distance, we could have easily made an analogous graphic which chooses values for the magnitude and envisions the relationship between the bracketed duration and the epicentral distance for each of these choices.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regextensions-mlr-plot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regextensions-mlr-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; four lines are overlayed, one for each of four different epicentral distance."></p>
+<figcaption class="figure-caption">Figure&nbsp;21.2: Relationship between the bracketed duration and the magnitude of an earthquake after also considering the epicentral distance from an earthquake. Lines estimating this relationship for various values of the epicentral distance are overlayed.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This model has what may appear as an obvious requirement; you cannot use this model to predict the bracketed duration without specifying <em>both</em> the magnitude of the earthquake and the epicentral distance of the location. However, it also isolates the effect of the magnitude above and beyond the epicentral distance.</p>
+<section id="general-model-formulation" class="level3" data-number="21.2.1">
+<h3 data-number="21.2.1" class="anchored" data-anchor-id="general-model-formulation"><span class="header-section-number">21.2.1</span> General Model Formulation</h3>
+<p>Nothing limits us from the inclusion of several predictors. Each predictor is simply added to the model.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Linear Regression Model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a quantitative response and one or more predictors, the general form of the linear regression model is</p>
+<p><span id="eq-mlr"><span class="math display">\[
+\begin{aligned}
+  (\text{Response})_i
+    &amp;= \beta_0 + \beta_1 (\text{Predictor 1})_i + \beta_2(\text{Predictor 2})_i + \dotsb + \beta_p (\text{Predictor } p)_i + \varepsilon_i \\
+    &amp;= \beta_0 + \sum_{j=1}^{p} \beta_j (\text{Predictor j})_i + \varepsilon_i
+\end{aligned}
+\tag{21.3}\]</span></span></p>
+<p>where <span class="math inline">\(\beta_j\)</span> for <span class="math inline">\(j = 0, 1, 2, \dotsc, p\)</span> are the <span class="math inline">\(p + 1\)</span> parameters governing the model for the data generating process.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The predictors in <a href="#eq-mlr">Equation&nbsp;<span>21.3</span></a> can be quantitative variables or indicator variables (<a href="#def-indicator-variable">Definition&nbsp;<span>21.1</span></a>).</p>
+</div>
+</div>
+<p>The problem, of course, is that the parameters (the <span class="math inline">\(\beta\)</span>’s in the model) are unknown. However, we can use the method of least squares to estimate each of the parameters simultaneously.</p>
+<div id="def-mlr-least-squares-estimates" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 21.3 (Least Squares Estimates for General Linear Model) </strong></span>The least squares estimates for a general linear model (<a href="#eq-mlr">Equation&nbsp;<span>21.3</span></a>) are the values of <span class="math inline">\(\beta_0, \beta_1, \beta_2, \dotsc, \beta_p\)</span> which minimize the quantity</p>
+<p><span class="math display">\[\sum_{i=1}^n \left[(\text{Response})_i - \beta_0 - \sum_{j=1}^{p} \beta_j(\text{Predictor } j)_{i}\right]^2.\]</span></p>
+</div>
+<p>This minimization procedure is implemented in any statistical software package.</p>
+</section>
+<section id="interpretation-of-parameters" class="level3" data-number="21.2.2">
+<h3 data-number="21.2.2" class="anchored" data-anchor-id="interpretation-of-parameters"><span class="header-section-number">21.2.2</span> Interpretation of Parameters</h3>
+<p>The same conditions described in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a> can be placed on the stochastic portion of the model for the data generating process. Just as with the simple linear model, assuming the model is correctly specified (imposing the mean-0 condition) provides us with an interpretation of each of the parameters.</p>
+<p>Consider the model for the data generating process defined in <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a>. If we assume that the error in the bracketed duration has an average of 0 regardless of the magnitude of the corresponding earthquake and the distance of the location to the center of the earthquake, then notice that we are saying the expression</p>
+<p><span class="math display">\[\beta_0 + \beta_1(\text{Magnitude}) + \beta_2(\text{Epicentral Distance})\]</span></p>
+<p>defines the average bracketed duration (given the magnitude of the earthquake and epicentral distance of the location).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Big Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we impose the mean-0 condition, the deterministic portion of the general linear regression model specifies the mean response given the value of the predictors.</p>
+</div>
+</div>
+<p>Therefore, we can interpret the value of <span class="math inline">\(\beta_2\)</span> as the change in the average bracketed duration given a 1-kilometer increase in the distance a location is from the center of the earthquake <em>for all locations which experience an earthquake of the same magnitude</em>. This last part is important. In order to interpret one coefficient, we must hold the value of all other predictors fixed.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation of Parameters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the general linear model (<a href="#eq-mlr">Equation&nbsp;<span>21.3</span></a>), the intercept <span class="math inline">\(\beta_0\)</span> is the average response when <em>all</em> predictors are set equal to 0. The <span class="math inline">\(j\)</span>-th coefficient <span class="math inline">\(\beta_j\)</span> represents the average change in the response associated with a 1-unit increase in the <span class="math inline">\(j\)</span>-th predictor holding the value of all other predictors constant.</p>
+</div>
+</div>
+<p>This phrase “holding the value of all other predictors constant” has extreme power. It is because of this phrase that we are able to take our first steps toward addressing confounding. For example, consider the model for the data generating process in <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a>. Using the method of least squares, we estimate that for every kilometer further the epicenter of the earthquake is, we can expect the bracketed duration to decrease by 0.08 seconds, on average. Someone might argue as follows: “This is not a controlled experiment; therefore, while there is an association here, it is possible that what is really happening is that earthquakes which were further away tended to also be smaller in magnitude. Therefore, it is not the distance that is driving this observed association but the magnitude of the earthquake.” Here, this individual is saying that the earthquake’s magnitude is a confounder — related to both the bracketed duration (response) and the variable of interest (distance from the epicenter). If we had fit a marginal model, this would be a valid concern. However, remember our interpretation of <span class="math inline">\(\beta_2\)</span> (and our estimate of it) — our fit suggests that for every kilometer further the epicenter of the earthquake is, we can expect the bracketed duration to decrease by 0.08 seconds, on average, <em>holding the magnitude of the earthquake constant</em>. Therefore, since this estimate is comparing two earthquakes of the same magnitude, magnitude cannot be confounding the relationship observed. We have isolated the effect of the epicentral distance from any effect due to the magnitude.</p>
+<p>Our solution to confounding is to incorporate the relationship between the confounder and the response into our model for the data generating process. Then, any remaining variables cannot be affected by the confounder. Of course this has one major limitation — we cannot account for any variables which are not recorded.</p>
+<p>There are entire texts devoted to the topic of addressing confounding. Here, we simply emphasize that regression models allow us to control for the confounders we have observed. The relationships are “adjusted for” these confounders due to the interpretation that a coefficient is the effect “holding all other predictors constant.” Regression models allow us to compare similar groups, which are balanced on these confounders after the fact (instead of having addressed confounding through the design of the study).</p>
+</section>
+<section id="inference-for-the-general-formulation" class="level3" data-number="21.2.3">
+<h3 data-number="21.2.3" class="anchored" data-anchor-id="inference-for-the-general-formulation"><span class="header-section-number">21.2.3</span> Inference for the General Formulation</h3>
+<p>Above, we estimated the change in the average bracketed duration associated with a 1 kilometer increase in the distance from an earthquake while holding the magnitude of the earthquake fixed. However, as we have noted throughout the text, inference requires that we quantify the variability in those estimates.</p>
+<p>The same processes that allowed us to model the sampling of the least squares estimates for the simple linear regression model, described in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>, are applicable for the general linear regression model as well. In particular, under the classical regression model (imposing all four conditions discussed in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a> on the error term), we can construct an analytical model of the sampling distribution of the least squares estimates (extensions of the results discussed in <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>). And, provided we are willing to impose the mean-0 condition and the independence condition, we can construct an empirical model of the sampling distribution using a bootstrapping algorithm. Once we have a model for the sampling distribution of our estimates, we can construct confidence intervals.</p>
+<p><a href="#tbl-regextensions-ci">Table&nbsp;<span>21.2</span></a> provide a summary of using the data from the Seismic Activity Case Study to fit the model for the data generating process proposed in <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a>; the confidence intervals were computed assuming the data was consistent with all four conditions of the classical regression model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-regextensions-ci" class="anchored">
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>Table&nbsp;21.2: Summary the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event and the distance of the location from the center of the earthquake.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Standard Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lower 95% CI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-30.715</td>
+<td style="text-align: right;">4.887</td>
+<td style="text-align: right;">-40.395</td>
+<td style="text-align: right;">-21.036</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Magnitude</td>
+<td style="text-align: right;">6.991</td>
+<td style="text-align: right;">0.964</td>
+<td style="text-align: right;">5.082</td>
+<td style="text-align: right;">8.900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Epicentral Distance</td>
+<td style="text-align: right;">-0.077</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">-0.118</td>
+<td style="text-align: right;">-0.036</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+<p>From the output, we estimate that for every kilometer further the epicenter of the earthquake is, it is reasonable to expect the bracketed duration to decrease between 0.036 and 0.118 seconds, on average, holding the magnitude of the earthquake fixed.</p>
+<p>If we are interested in comparing two models, we formulate a standardized statistic and model its null distribution. Suppose for the model we have been considering, we are interested in testing</p>
+<p><span class="math display">\[H_0: \beta_1 = \beta_2 = 0 \qquad \text{vs.} \qquad \text{At least one } \beta_j \text{ differs from 0},\]</span></p>
+<p>which corresponds to the following research question:</p>
+<blockquote class="blockquote">
+<p>Does the study provide evidence that the average bracketed duration depends on either the magnitude of the earthquake or the epicentral distance?</p>
+</blockquote>
+<p>Note the complexity of this question and the corresponding hypotheses. We are wanting to drop out two terms from the model for the data generating process. Just as in <a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a>, the key to testing this hypothesis is to partition out the sources of variability. We can define the error sums of squares for the general linear regression model:</p>
+<p><span class="math display">\[SSE = \sum_{i=1}^{n}\left[(\text{Response})_i - \sum_{j=1}^{p} \beta_j (\text{Predictor } j)_i\right]^2.\]</span></p>
+<p>The above hypotheses suggest two alternate models for the data generating process. Under the alternative hypothesis, we have the full unconstrained model presented in <a href="#eq-regextensions-mlr">Equation&nbsp;<span>21.2</span></a> (call that Model 1). Under the null hypothesis, we have a reduced constrained model for the data generating process (call it Model 0):</p>
+<p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \varepsilon_i.\]</span></p>
+<p>If the null hypothesis is true, we would expect the amount of unexplained variability in Model 0 to be the same as the amount of unexplained variability in Model 1 <span class="math inline">\(\left(SSE_0 \approx SSE_1\right)\)</span>. That is, if the model under the null hypothesis is sufficient for explaining the variability in the bracketed duration, then it should perform as well as the full unconstrained model. If, however, Model 1 explains more of the variability in the bracketed duration (therefore leaving less variability unexplained) than Model 0, then this would indicate the null hypothesis is false. This suggests that a metric for quantifying the signal in the data is given by</p>
+<p><span class="math display">\[SSE_0 - SSE_1,\]</span></p>
+<p>where we use the subscript to denote the model from which the sum of squares was computed. As in <a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a>, working with variance terms is easier than working with sums of squares analytically. And, we need to consider the size of the signal relative to the amount of background noise. This leads to a form of our standardized statistic which generalizes our result from <a href="03h-regquality.html#def-standard-f">Definition&nbsp;<span>19.7</span></a>.</p>
+<div id="def-general-f" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 21.4 (Standardized Statistic for General Linear Model) </strong></span>Consider testing a set of hypotheses for a model of the data generating process of the form (<a href="#eq-mlr">Equation&nbsp;<span>21.3</span></a>):</p>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \sum_{j=1}^{p} \beta_j(\text{Predictor } j)_i + \varepsilon_i.\]</span></p>
+<p>Denote this model as Model 1, and denote the model that results from applying the parameter constraints defined under the null hypothesis as Model 0. A standardized statistic, sometimes called the “nested F statistic,” for testing the hypotheses is given by</p>
+<p><span class="math display">\[T^* = \frac{\left(SSE_0 - SSE_1\right) / (p + 1 - r)}{SSE_1 / (n - p - 1)},\]</span></p>
+<p>where <span class="math inline">\(p + 1\)</span> is the number of parameters in the full unconstrained model (including the intercept) and <span class="math inline">\(r\)</span> is the number of parameters in the reduced model. Defining</p>
+<p><span class="math display">\[MSA = \frac{SSE_0 - SSE_1}{p + 1 - r}\]</span></p>
+<p>to be the “mean square for additional terms,” which captures the shift in the error sum of squares from the reduced model to the full unconstrained model, we can write the standardized statistic as</p>
+<p><span class="math display">\[T^* = \frac{MSA}{MSE}\]</span></p>
+<p>where the mean square error in the denominator comes from the full unconstrained model. Just as before, the MSE represents the residual variance — the variance in the response for a particular set of the predictors.</p>
+</div>
+<p>The standardized statistics in <a href="02e-teststat.html"><span>Chapter&nbsp;12</span></a> and in <a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a> are special cases of the one presented here. The numerator captures the signal by examining the difference between what we expect the error sum of squares to be under the null hypothesis and what we actually observe; the denominator captures the background noise (relative to the estimated mean response from the full model). Larger values of this standardized statistic indicate more evidence in the sample against the null hypothesis.</p>
+<p><a href="#tbl-regextensions-p">Table&nbsp;<span>21.3</span></a> provides a summary of partitioning the variability to test the hypotheses described above using the data from the Seismic Activity Case Study; the p-value was computed assuming the data was consistent with all four conditions of the classical regression model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-regextensions-p" class="anchored">
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>Table&nbsp;21.3: Analysis of the sources of variability in the bracketed duration as a function of the magnitude of the earthquake and the epicentral distance.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">DF</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum of Squares</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean Square</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Standardized Statistic</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">P-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Additional Terms</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1297.653</td>
+<td style="text-align: right;">648.827</td>
+<td style="text-align: right;">28.17</td>
+<td style="text-align: left;">&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">2671.787</td>
+<td style="text-align: right;">23.033</td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+<p>Based on the results, the sample provides strong evidence (<span class="math inline">\(p &lt; 0.001\)</span>) that the average bracketed duration is associated with either (or both) the magnitude of the earthquake and the distance the location is from the center of the earthquake. Note that the p-value does not tell us the form of the relationship, or whether it is only one of the predictors that is important or both. Examining the confidence intervals provides that information. The confidence intervals also allow a discipline expert to determine if the signal we are discerning is meaningful in practice.</p>
+</section>
+</section>
+<section id="modifying-an-effect" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="modifying-an-effect"><span class="header-section-number">21.3</span> Modifying an Effect</h2>
+<p>There is one type of question we have not yet addressed — assessing the interplay between two variables on the response.</p>
+<p>Consider the following question:</p>
+<blockquote class="blockquote">
+<p>Is the relationship between the average bracketed distance and the magnitude different depending on whether the soil is rocky where the measurement is taken?</p>
+</blockquote>
+<p>This question explains the bracketed duration in terms of both the magnitude as well as whether the soil is rocky. A first pass at such a model might be</p>
+<p><span class="math display">\[
+(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Magnitude})_i + \beta_2(\text{Rocky Soil})_i + \varepsilon_i
+\]</span></p>
+<p>where we use an indicator variable to capture whether the soil is rocky just as before. Just as we did before, we can graphically represent this model (see <a href="#fig-regextensions-ind-plot2">Figure&nbsp;<span>21.3</span></a>), and we find that it is captured by two parallel lines.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regextensions-ind-plot2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regextensions-ind-plot2-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil."></p>
+<figcaption class="figure-caption">Figure&nbsp;21.3: Relationship between the bracketed duration and magnitude for locations with rocky soil and those with other soil types.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The lines are parallel because the coefficient associated with Magnitude <span class="math inline">\(\left(\beta_1\right)\)</span> is the same regardless of the type of soil. That is, regardless of whether the soil is rocky, the change in the bracketed duration, on average, for each 1-unit increase in the magnitude of an earthquake is the same. Our question of interest is essentially, is there evidence that this is not the case? So, the above model actually represents the model for the data generating process under the null hypothesis of our current question. Under the null hypothesis, the effect of the magnitude on the bracketed duration (which captures the relationship between these two variables) is the same regardless of soil condition. What we posited above is Model 0 which has an embedded constraint. The question is, how do we form the model for the data generating process which allows the slope to look differently depending on soil type? This new model would serve as our full unconstrained model, Model 1.</p>
+<p>Consider adding an additional term to our model above, yielding the following model:</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\text{Bracketed Duration})_i
+    &amp;= \beta_0 + \beta_1 (\text{Magnitude})_i + \beta_2 (\text{Rocky Soil})_i \\
+    &amp;\qquad + \beta_3 (\text{Magnitude})_i (\text{Rocky Soil})_i + \varepsilon_i
+\end{aligned}
+\]</span></p>
+<p>This additional term is formed by taking the product of the indicator variable with the variable magnitude; such a product is known as an <strong>interaction term</strong>.</p>
+<div id="def-interaction-term" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 21.5 (Interaction Term) </strong></span>A variable resulting from taking the product of two predictors in a regression model. The product allows the effect of one predictor to depend on another predictor, essentially modifying the effect.</p>
+</div>
+<p>In order to really see the impact of the interaction term, observe that if we impose the mean-0 condition, our model for the data generating process says the average bracketed duration for locations with rocky soil is given by</p>
+<p><span class="math display">\[\left(\beta_0 + \beta_2\right) + \left(\beta_1 + \beta_3\right) (\text{Magnitude})\]</span></p>
+<p>which comes from plugging in 1 for the indicator variable (representing rocky soils) and then combining terms. The model for the data generating process says the average bracketed duration for locations without rocky soil is given by</p>
+<p><span class="math display">\[\beta_0 + \beta_1 (\text{Magnitude})\]</span></p>
+<p>since we would plug in 0 for the indicator variable (representing soils that are not rocky). Therefore, our revised model for the data generating process that includes the interaction term allows both the intercept and the effect of the magnitude on the bracketed duration to differ for rocky soils and non-rocky soils. That is, the effect of magnitude is allowed to differ across the soil types.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Big Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is common to believe that the interaction term measures the effect between the two variables in the product. However, this is incorrect. The interaction term allows the effect of one predictor to differ across the levels of another predictor.</p>
+</div>
+</div>
+<p>Visually, this revised model allows two completely different associations — depending on the soil type. This is shown in <a href="#fig-regextensions-int-plot">Figure&nbsp;<span>21.4</span></a>. Notice that the lines are no longer parallel. The question of course is which of the two models is more appropriate. Is there actually evidence that the more complex model, which allows the relationship to differ for locations with different soil types, is required? Or, is the more simplistic model, which says the relationship is the same across all locations of different soil types, sufficient?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regextensions-int-plot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regextensions-int-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil."></p>
+<figcaption class="figure-caption">Figure&nbsp;21.4: Relationship between bracketed duration and the magnitude of an earthquake after also considering the soil conditions of the measurement location. The relationship between the bracketed duration and the magnitude is allowed to differ within each type of soil condition.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can capture our question of interest in the following hypotheses:</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_0: \beta_3 = 0\)</span><br>
+<span class="math inline">\(H_1: \beta_3 \neq 0\)</span></p>
+</blockquote>
+<p>Notice that if the null hypothesis were true, then the slope would be the same regardless of whether the soil was rocky because we resort to Model 0 described above which only allows the intercept to vary across soil types. However, if <span class="math inline">\(\beta_3\)</span> is nonzero in Model 1, then the slope will differ for the rocky soil. So, under the null hypothesis, the lines are parallel; under the alternative hypothesis, the lines are not parallel.</p>
+<p>Conceptually, comparing these two models is just like any other hypothesis test. By partitioning the variability as described in the previous section, we are able to compute a signal-to-noise ratio. We can essentially determine how much variability in the response is explained is by the inclusion of the interaction term. That is, we quantify how the unexplained variability decreases when we include the interaction term in the model for the data generating process.</p>
+<p>Specifically, <a href="#tbl-regextensions-fit">Table&nbsp;<span>21.4</span></a> gives the estimates associated with each parameter, and <a href="#tbl-regextensions-anova">Table&nbsp;<span>21.5</span></a> presents the corresponding partitioning of the sources of variability leading to the computation of the p-value. The confidence intervals and p-value are computed assuming the data is consistent with the conditions of the classical regression model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-regextensions-fit" class="anchored">
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>Table&nbsp;21.4: Summary of the model fit explaining the bracketed duration as a function of both magnitude and soil condition at the measurement location. The effect of the magnitude was allowed to differ across soil conditions.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Standard Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% Lower CI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% Upper CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-23.966</td>
+<td style="text-align: right;">4.531</td>
+<td style="text-align: right;">-32.941</td>
+<td style="text-align: right;">-14.991</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Magnitude</td>
+<td style="text-align: right;">5.466</td>
+<td style="text-align: right;">0.834</td>
+<td style="text-align: right;">3.814</td>
+<td style="text-align: right;">7.118</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soil Conditions (Rocky)</td>
+<td style="text-align: right;">11.925</td>
+<td style="text-align: right;">9.181</td>
+<td style="text-align: right;">-6.261</td>
+<td style="text-align: right;">30.112</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interaction: Magnitude &amp; Rocky Soil</td>
+<td style="text-align: right;">-2.614</td>
+<td style="text-align: right;">1.626</td>
+<td style="text-align: right;">-5.835</td>
+<td style="text-align: right;">0.607</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-regextensions-anova" class="anchored">
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>Table&nbsp;21.5: Table partitioning the sources of variability corresponding to testing whether the effect of the magnitude of an earthquake on the resulting bracketed duration differs across soil conditions.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Source</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">DF</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SS</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">MS</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Standardized Statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">P-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Additional Terms</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">62.663</td>
+<td style="text-align: right;">62.663</td>
+<td style="text-align: right;">2.584</td>
+<td style="text-align: right;">0.111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">2788.908</td>
+<td style="text-align: right;">24.251</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+<p>From our analysis, our data is consistent with (<span class="math inline">\(p = 0.111\)</span>) the effect of the magnitude being the same across the various soil conditions. The sample provides no evidence that the association between the average bracketed duration and the magnitude of an earthquake depends on the soil conditions.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03i-regassessment.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03k-regrecap.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

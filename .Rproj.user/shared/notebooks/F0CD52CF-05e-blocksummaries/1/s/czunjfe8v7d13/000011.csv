@@ -1,8 +1,0 @@
-"0","#| label: fig-blocksummaries-bad-plot"
-"0","#| fig-cap: Illustration of a poor graphic summarizing correlated data; the graphic hides the fact that there were repeated measures on the subject.  It is not clear that the responses are in any way correlated."
-"0","#| fig-alt: Side-by-side boxplots of the taste ratings for each of the three vendors."
-"0","ggplot(data = yogurt.df,"
-"0","       mapping = aes(y = Taste, x = Type)) +"
-"0","  geom_boxplot() +"
-"0","  labs(x = ""Yogurt Vendor"","
-"0","       y = ""Taste Rating\n(Higher is Better)"") "

@@ -1,2 +1,0 @@
-"0","#| label: regconditions-slr-fit"
-"0","fig.greece.slr <- lm(BD02 ~ Magnitude, data = greece.df)"

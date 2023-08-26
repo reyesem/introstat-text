@@ -1,4 +1,0 @@
-"0","#| label: fig-data-confounding"
-"0","#| fig-cap: Illustration of a confounding variable.  The confounder, related to both the response and the factor of interest (or treatment) can make it appear as though there is a causal relationship when none exists."
-"0",""
-"0","knitr::include_graphics(""./images/Data-Confounding.jpg"")"

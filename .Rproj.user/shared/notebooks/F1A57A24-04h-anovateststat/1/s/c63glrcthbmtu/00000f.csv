@@ -1,4 +1,0 @@
-"0","#| label: fig-anovateststat-partition-variability"
-"0","#| fig-cap: Illustration of partitioning the variability in the response to assess the strength of a signal."
-"0","#| fig-alt: "
-"0","knitr::include_graphics(""./images/ANOVATestStat-Partition-Variability.jpg"")"

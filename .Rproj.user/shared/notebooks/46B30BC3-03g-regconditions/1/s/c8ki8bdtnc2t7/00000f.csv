@@ -1,4 +1,0 @@
-"0","#| label: fig-regconditions-bootstrap"
-"0","#| fig-cap: Illustration of a single iteration of a bootstrap procedure to construct an empirical estimate of the sampling distribution for the estimates of the coefficients in a regression model."
-"0","#| fig-alt: "
-"0","knitr::include_graphics(""./images/RegConditions-Bootstrap.jpg"")"

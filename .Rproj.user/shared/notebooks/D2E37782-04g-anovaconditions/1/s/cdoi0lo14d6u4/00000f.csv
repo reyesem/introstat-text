@@ -1,2 +1,0 @@
-"0","#| label: anovaconditions-fit"
-"0","fit.organic <- lm(moral_avg ~ Food_Condition - 1, data = organic.df)"

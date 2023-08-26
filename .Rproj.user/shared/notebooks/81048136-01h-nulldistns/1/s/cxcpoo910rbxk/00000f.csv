@@ -1,3 +1,0 @@
-"0","#| label: fig-nulldistns-null-distribution"
-"0","#| fig-cap: Illustration of constructing a null distribution.  Notice the similarity to constructing the sampling distributon."
-"0","knitr::include_graphics(""./images/NullDistns-Null-Distribution.jpg"")"

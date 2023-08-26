@@ -1,5 +1,0 @@
-"0","#| label: blockassessment-augmented"
-"0",""
-"0","fit.yogurt <- lm(Taste ~ Type + `Participant ID` - 1, data = yogurt.df)"
-"0",""
-"0","yogurt.augmented <- augment(fit.yogurt)"

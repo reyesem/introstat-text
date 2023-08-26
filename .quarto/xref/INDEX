@@ -1,0 +1,152 @@
+{
+  "index.qmd": {
+    "index.html": "0feb3566"
+  },
+  "01a-language.qmd": {
+    "01a-language.html": "d15ecec3"
+  },
+  "01b-basics.qmd": {
+    "01b-basics.html": "b2a64d5e"
+  },
+  "01c-casedeepwater.qmd": {
+    "01c-casedeepwater.html": "6c355e18"
+  },
+  "01d-questions.qmd": {
+    "01d-questions.html": "47adfc14"
+  },
+  "01e-data.qmd": {
+    "01e-data.html": "dc7cdc4e"
+  },
+  "01f-summaries.qmd": {
+    "01f-summaries.html": "1a4bea18"
+  },
+  "01g-samplingdistns.qmd": {
+    "01g-samplingdistns.html": "0f10bc55"
+  },
+  "01h-nulldistns.qmd": {
+    "01h-nulldistns.html": "82f212e4"
+  },
+  "01i-recaplanguage.qmd": {
+    "01i-recaplanguage.html": "9100a0a6"
+  },
+  "02a-onesample.qmd": {
+    "02a-onesample.html": "2fc26b59"
+  },
+  "02b-casebabies.qmd": {
+    "02b-casebabies.html": "1f4dbb9b"
+  },
+  "02c-meanmodels.qmd": {
+    "02c-meanmodels.html": "df53dbaa"
+  },
+  "02d-confint.qmd": {
+    "02d-confint.html": "89ccec24"
+  },
+  "02e-teststat.qmd": {
+    "02e-teststat.html": "bae4af7a"
+  },
+  "03a-regression.qmd": {
+    "03a-regression.html": "20e24f90"
+  },
+  "03b-casegreece.qmd": {
+    "03b-casegreece.html": "2f2f8cf6"
+  },
+  "03c-regquestions.qmd": {
+    "03c-regquestions.html": "209e63c3"
+  },
+  "03d-regdata.qmd": {
+    "03d-regdata.html": "9e982742"
+  },
+  "03e-regsummaries.qmd": {
+    "03e-regsummaries.html": "355b2721"
+  },
+  "03f-regmodel.qmd": {
+    "03f-regmodel.html": "9d5022cd"
+  },
+  "03g-regconditions.qmd": {
+    "03g-regconditions.html": "d5cee9ce"
+  },
+  "03h-regquality.qmd": {
+    "03h-regquality.html": "d3b15a47"
+  },
+  "03i-regassessment.qmd": {
+    "03i-regassessment.html": "36bdbb6b"
+  },
+  "03j-regextensions.qmd": {
+    "03j-regextensions.html": "04f8daf2"
+  },
+  "03k-regrecap.qmd": {
+    "03k-regrecap.html": "fc5589b1"
+  },
+  "04a-anova.qmd": {
+    "04a-anova.html": "4197b813"
+  },
+  "04b-caseorganic.qmd": {
+    "04b-caseorganic.html": "51db59a5"
+  },
+  "04c-anovaquestions.qmd": {
+    "04c-anovaquestions.html": "f0084372"
+  },
+  "04d-anovadata.qmd": {
+    "04d-anovadata.html": "4baffe9d"
+  },
+  "04e-anovasummaries.qmd": {
+    "04e-anovasummaries.html": "377a9943"
+  },
+  "04f-anovamodel.qmd": {
+    "04f-anovamodel.html": "3b020889"
+  },
+  "04g-anovaconditions.qmd": {
+    "04g-anovaconditions.html": "0133c0e7"
+  },
+  "04h-anovateststat.qmd": {
+    "04h-anovateststat.html": "c9342e1e"
+  },
+  "04i-anovaassessment.qmd": {
+    "04i-anovaassessment.html": "7e739965"
+  },
+  "04j-anovarecap.qmd": {
+    "04j-anovarecap.html": "91d8fb67"
+  },
+  "05a-blocks.qmd": {
+    "05a-blocks.html": "fc159673"
+  },
+  "05b-caseyogurt.qmd": {
+    "05b-caseyogurt.html": "5ae50b33"
+  },
+  "05c-blockquestions.qmd": {
+    "05c-blockquestions.html": "2cf16da2"
+  },
+  "05d-blockdata.qmd": {
+    "05d-blockdata.html": "97e8a5d8"
+  },
+  "05e-blocksummaries.qmd": {
+    "05e-blocksummaries.html": "38a2edf0"
+  },
+  "05f-blockmodel.qmd": {
+    "05f-blockmodel.html": "9b461c13"
+  },
+  "05g-blockconditions.qmd": {
+    "05g-blockconditions.html": "080bb91c"
+  },
+  "05h-blockteststat.qmd": {
+    "05h-blockteststat.html": "06687795"
+  },
+  "05i-blockassessment.qmd": {
+    "05i-blockassessment.html": "2fc85e77"
+  },
+  "05j-blockrecap.qmd": {
+    "05j-blockrecap.html": "ec521d78"
+  },
+  "references.qmd": {
+    "references.html": "79bee00f"
+  },
+  "app-theory.qmd": {
+    "app-theory.html": "601dd40e"
+  },
+  "app-teststat.qmd": {
+    "app-teststat.html": "93236d7e"
+  },
+  "app-glossary.qmd": {
+    "app-glossary.html": "5b895933"
+  }
+}

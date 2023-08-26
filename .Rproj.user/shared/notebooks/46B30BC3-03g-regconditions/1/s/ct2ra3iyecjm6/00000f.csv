@@ -1,4 +1,0 @@
-"0","#| label: fig-regconditions-assumptions"
-"0","#| fig-cap: Illustration of the conditions on the error term for the classical regression model."
-"0","#| fig-alt: "
-"0","knitr::include_graphics(""./images/RegConditions-Assumptions.jpg"")"

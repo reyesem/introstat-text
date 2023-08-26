@@ -1,8 +1,0 @@
-"0","#| label: fig-anovaassessment-normal-organic"
-"0","#| fig-cap: Normal probability plot of the residuals for the Organic Food Case Study."
-"0","#| fig-alt: "
-"0",""
-"0","ggplot(data = organic.augmented,"
-"0","       mapping = aes(sample = .resid)) +"
-"0","  geom_qq() +"
-"0","  labs(x = ""Theoretical Quantiles"", y = ""Sample Quantiles"")"

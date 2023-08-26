@@ -1,8 +1,0 @@
-"0","#| label: fig-blockrecap-probplot"
-"0","#| fig-cap: Normal probability plot assessing the assumption that the errors for our model comparing the appearance ratings across vendores follow a Normal distribution."
-"0","#| fig-alt: Plot of the sample quantiles against the theoretical quantiles from a Normal distribution; the plot exhibits a linear trend."
-"0",""
-"0","ggplot(data = yogurt.appearance.augmented,"
-"0","       mapping = aes(sample = .resid)) +"
-"0","  geom_qq() +"
-"0","  labs(x = ""Theoretical Quantiles"", y = ""Sample Quantiles"")"

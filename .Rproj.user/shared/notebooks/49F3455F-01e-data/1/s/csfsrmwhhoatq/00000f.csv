@@ -1,4 +1,0 @@
-"0","#| label: fig-data-randomization"
-"0","#| fig-cap: Illustration of the impact of random assignment in study design.  For the observational study, the treatment groups are unbalanced.  For the controlled experiment, the treatment groups are balanced."
-"0",""
-"0","knitr::include_graphics(""./images/Data-Randomization.jpg"")"

@@ -1,4 +1,0 @@
-"0","#| label: fig-casedeepwater-nytclip"
-"0","#| fig-cap: _New York Times_ coverage of the _Deepwater Horizon_ oil spill."
-"0",""
-"0","knitr::include_graphics(""./images/Case-Deepwater-NYTclip.png"")"

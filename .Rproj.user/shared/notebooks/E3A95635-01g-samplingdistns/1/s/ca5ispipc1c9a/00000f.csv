@@ -1,4 +1,0 @@
-"0","#| label: fig-samplingdistns-bootstrap"
-"0","#| fig-cap: Illustration of modeling the sampling distribution via bootstrapping."
-"0",""
-"0","knitr::include_graphics(""./images/SamplingDistns-Bootstrap.jpg"")"
