@@ -1,0 +1,25 @@
+# Myriad of Potential Questions {#sec-regquestions}
+
+{{< include _setupcode.qmd >}}
+
+For the Seismic Activity Case Study, we are primarily interested in characterizing the relationship between the bracketed duration at a location and the magnitude of the corresponding earthquake.  First, note that this question is about the relationship between a quantitative response (bracketed duration; see @def-response) and a quantitative predictor (magnitude).  Also note that the question is quite broad.  We might actually have one of the following more specific questions in mind:
+
+  - In general, does the bracketed duration change as the magnitude changes?
+  - If two earthquakes with different magnitudes occur in the same location, would we expect the same bracketed duration provided the locations have the same soil conditions?
+  - Is the relationship between the bracketed duration and the magnitude different depending on the soil condition of where the measurement is taken?
+
+These illustrate an array of potential questions we could address with the data.  Each represents a different emphasis that we might have in a research question:
+
+  - Marginal Relationship: overall, do two variables tend to move together (are they correlated)?
+  - Isolation of Effect: does a relationship exist after accounting for the effect of additional variables?  Or, what is the effect "above and beyond" the effect of additional variables?
+  - Interplay: how does the relationship between two variables change as a result of a third variable?
+  
+There is no right question to ask; each question examines a different facet of the relationship between two quantitative variables.  In this unit, we will focus on questions of the first type.  However, the framework we introduce is broad enough to be extended to address each of these types of questions.  This may sound daunting, but keep in mind that the fundamental ideas we discussed in Unit I and applied in Unit II will continue to form the foundation of the analyses discussed in this unit; namely,
+
+  - We are using a sample to say something about the underlying population.
+  - In order to make inference, we will need a model for the sampling (or null) distribution of our statistic; as a stepping stone, we model the data generating process.
+  - In order to form a standardized statistic of interest which measures the strength of the signal in the dataset, we think about variability.
+  
+The ideas remain the same; the context has changed.  
+
+There is one more thing we want to point out before moving on: any relationships we observe are overall trends, not guaranteed to hold for any single individual.  Recall that in Unit II we emphasized that our conclusions were about the mean response (the parameter of interest).  Specifically, even if we know the average response within the population, due to variability, we do not expect every individual to have that specific value for the response.  This will continue in this unit.  If we observe, for example, that an increase in the magnitude is associated with an increase in the bracketed duration, we are describing an overall trend.  It is highly likely there is some location for which this trend does not hold, simply due to variability.

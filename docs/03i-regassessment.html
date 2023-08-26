@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Modeling for Engineers and Scientists - 20&nbsp; Assessing the Modeling Conditions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03j-regextensions.html" rel="next">
+<link href="./03h-regquality.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="mystyles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03i-regassessment.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Modeling</a> 
+        <div class="sidebar-tools-main">
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01b-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01c-casedeepwater.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01d-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01e-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f-summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01g-samplingdistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01h-nulldistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01i-recaplanguage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02b-casebabies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Case Study: Birth Weights of Babies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02c-meanmodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02d-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02e-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03b-casegreece.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Case Study: Seismic Activity in Greece</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03c-regquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Myriad of Potential Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03d-regdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nature of Collecting Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03e-regsummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarizing Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03f-regmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bulding our Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03g-regconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03h-regquality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03i-regassessment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03j-regextensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03k-regrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04b-caseorganic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Case Study: Organic Foods and Superior Morals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04c-anovaquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04d-anovadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04e-anovasummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04f-anovamodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04g-anovaconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04h-anovateststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04i-anovaassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04j-anovarecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05b-caseyogurt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Case Study: Paying a Premium for the Experience</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05c-blockquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05d-blockdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05e-blocksummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Presenting Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05f-blockmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modeling Correlated Responses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05g-blockconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of the Repeated Measures ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05h-blockteststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05i-blockassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in Repeated Measures ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05j-blockrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#residuals" id="toc-residuals" class="nav-link active" data-scroll-target="#residuals"><span class="header-section-number">20.1</span> Residuals</a></li>
+  <li><a href="#assessing-the-mean-0-condition" id="toc-assessing-the-mean-0-condition" class="nav-link" data-scroll-target="#assessing-the-mean-0-condition"><span class="header-section-number">20.2</span> Assessing the Mean-0 Condition</a></li>
+  <li><a href="#assessing-the-independence-condition" id="toc-assessing-the-independence-condition" class="nav-link" data-scroll-target="#assessing-the-independence-condition"><span class="header-section-number">20.3</span> Assessing the Independence Condition</a></li>
+  <li><a href="#assessing-homoskedasticity" id="toc-assessing-homoskedasticity" class="nav-link" data-scroll-target="#assessing-homoskedasticity"><span class="header-section-number">20.4</span> Assessing Homoskedasticity</a></li>
+  <li><a href="#assessing-normality" id="toc-assessing-normality" class="nav-link" data-scroll-target="#assessing-normality"><span class="header-section-number">20.5</span> Assessing Normality</a></li>
+  <li><a href="#general-tips-for-assessing-assumptions" id="toc-general-tips-for-assessing-assumptions" class="nav-link" data-scroll-target="#general-tips-for-assessing-assumptions"><span class="header-section-number">20.6</span> General Tips for Assessing Assumptions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-regassessment" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>We have been considering the simple linear model described in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a> for the data generating process of a quantitative response. For example, for the Seismic Activity Case Study, we considered a model that explained the bracketed duration at a location as a function of the magnitude of the earthquake:</p>
+<p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Magnitude})_i + \varepsilon_i.\]</span></p>
+<p>Estimates for the unknown parameters in this model were obtained using the method of least squares (<a href="03f-regmodel.html"><span>Chapter&nbsp;17</span></a>). In order to obtain a model for the sampling distribution of these estimates (or the null distribution as appropriate), and thereby conduct inference, we added conditions to the distribution of the error term (<a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>). For example, under the “classical regression model” (<a href="03g-regconditions.html#def-classical-regression">Definition&nbsp;<span>18.3</span></a>) we require the following four conditions:</p>
+<ol type="1">
+<li>The error in the bracketed duration has an average of 0 regardless of the magnitude of the earthquake.</li>
+<li>The error in the bracketed duration for one location is independent of the error in the bracketed duration for any other location.</li>
+<li>The variability of the error in the bracketed duration is the same regardless of the magnitude of the earthquake.</li>
+<li>The errors in the bracketed duration follow a Normal distribution.</li>
+</ol>
+<p>We also saw in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>, that we could develop an empirical model for the sampling distribution of the least squares estimates only enforcing the first two of these conditions on the distribution of the error. Which of these two models for the sampling distribution should be used? Unfortunately, we cannot simply state conditions and then proceed blindly. In order to rely on the p-values and confidence intervals produced from any modeling procedure, the data must be consistent with these conditions.</p>
+<p>In this section, we discuss how we assess these conditions qualitatively.</p>
+<section id="residuals" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="residuals"><span class="header-section-number">20.1</span> Residuals</h2>
+<p>One of the complications we face is that we are imposing conditions on the error term, but we do not observe the error (since the parameters are unknown). However, we are able to determine the difference between each observation with respect to the <em>estimated</em> model for the data generating process. This difference between each observed response and what we would have predicted for this observation using the least squares estimates, called a <strong>residual</strong>, is analogous to the error term if the parameters were known. Therefore, residuals should behave like a sample of error terms.</p>
+<div id="def-residual" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 20.1 (Residual) </strong></span>The difference between the observed response and the predicted response (estimated deterministic portion of the model). Specifically, the residual for the <span class="math inline">\(i\)</span>-th observation is given by</p>
+<p><span class="math display">\[(\text{Residual})_i = (\text{Response})_i - (\text{Predicted Mean Response})_i\]</span></p>
+<p>where the “predicted mean response” is often called the predicted, or fitted, value.</p>
+<p>Residuals mimic the noise in the data generating process.</p>
+</div>
+<p>For the simple linear regression model, the predicted mean response is computed by plugging into the formula</p>
+<p><span class="math display">\[\widehat{\beta}_0 + \widehat{\beta}_1 (\text{Predictor})_{i},\]</span></p>
+<p>where <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are the least squares estimates. We can use the residuals to qualitatively assess if the observed data is consistent with each of the four potential conditions we might place on the distribution of the error term.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Big Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Residuals, since they mimic the noise in the data generating process, provide a way of assessing the modeling conditions placed on the distribution of the error term. The conditions are placed on the error term, but they are assessed with residuals.</p>
+</div>
+</div>
+</section>
+<section id="assessing-the-mean-0-condition" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="assessing-the-mean-0-condition"><span class="header-section-number">20.2</span> Assessing the Mean-0 Condition</h2>
+<blockquote class="blockquote">
+<p>The error in the bracketed duration has an average of 0 regardless of the magnitude of the earthquake.</p>
+</blockquote>
+<p>It is tempting to read this condition and believe that a rational way to assess this condition is to determine if the average of the residuals is 0. However, while the difference is subtle, the condition is <em>not</em> that the average error is 0; the condition is that the average error is 0 for <em>all values of the predictor</em>. It would seem we need to determine if, for each value of the predictor possible, if the residuals average to 0. This is infeasible numerically because we do not generally have multiple responses for each value of the predictor. We can, however, assess whether the data is consistent with this condition graphically. That is, in order to assess this condition, we need to graphically assess how the average behaves over a range of predictor values. We capture this by looking at the <em>predicted (or fitted) values</em>. <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a> shows the relationship between the residuals and the associated predicted values for the observations in the data set.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-mean0" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.1: Plot of the residuals vs.&nbsp;the predicted values for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If the errors have a mean of 0 for all values of the predictor, then we would expect the residuals to have a mean of 0 for all predicted values. That is, if the data is consistent with the mean-0 condition, then as we move left to right across the plot, the residuals should tend to balance out at 0 everywhere along the x-axis. Imagine a “window” around the residuals (shown in the figure as vertical green rectangles), and imagine moving that window from left to right. If that window has to shift up or down to contain the cloud of residuals (so that the window is no longer centered around 0), that indicates a problem. Any trends in the <em>location</em> of this graphic would indicate the data is <em>not</em> consistent with the mean-0 condition.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Graphically Assessing the Mean-0 Condition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the data is consistent with the mean-0 condition, there should be no trends in the <em>location</em> of the plot of the residuals against the predicted values.</p>
+</div>
+</div>
+<p>As we examine <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a>, the residuals do tend to balance out at 0 everywhere along the x-axis. That is, we do not see a trend in the location of the residuals as the predicted values increase. Therefore, it is reasonable to say the sample is consistent with the mean-0 condition.</p>
+</section>
+<section id="assessing-the-independence-condition" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="assessing-the-independence-condition"><span class="header-section-number">20.3</span> Assessing the Independence Condition</h2>
+<blockquote class="blockquote">
+<p>The error in the bracketed duration for one location is independent of the error in the bracketed duration for any other location.</p>
+</blockquote>
+<p>Generally, independence is assessed by considering the method in which the data was collected and considering the context with a discipline expert. By carefully considering the manner in which the data was collected, we can typically determine whether it is reasonable that the errors in the response are independent of one another. Some key things to consider when examining the data collection process:</p>
+<ul>
+<li>Are there repeated observations of the same variable made on the same subject? This often suggests some type of relationship between the observed responses and therefore would not be consistent with errors being independent (see <a href="05c-blockquestions.html"><span>Chapter&nbsp;33</span></a> and <a href="05d-blockdata.html"><span>Chapter&nbsp;34</span></a>).</li>
+<li>Is the response measured over time, such as daily temperature over the course of a month? Data collected over time often exhibits strong period-to-period relationships suggesting the errors are not independent. For example, if the temperature today is above average, it is more likely to be above average tomorrow as well.</li>
+<li>Is there a learning curve in how the data was collected? Learning curves again suggest some dependence from one observation to the next. For example, a new nurse may become better at collecting pulse readings with more practice over time.</li>
+<li>Measurement devices which are failing over time will introduce a dependence from one observation to the next. Imagine a bathroom scale that begins to add an additional pound each day. Then, being an above average weight one day will most likely lead to an above average weight the next, due primarily to the measurement device.</li>
+</ul>
+<p>These last three points illustrate a particular deviation from our condition of independence in which two observations collected close together in time are related. When we know the order in which the data was collected, we can assess whether the data tends to deviate from the condition of independence in this manner. This is done graphically through a <strong>time-series plot</strong> of the <em>residuals</em>. If two errors were unrelated, then the value of one residual should tell us nothing about the value of the next residual. Therefore, a plot of the residuals over time should look like noise (since residuals are supposed to mimic the noise in the model). If there are any trends, then it suggests the data is not consistent with independence.</p>
+<div id="def-time-series-plot" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 20.2 (Time-Series Plot) </strong></span>A time-series plot of a variable is a line plot with the variable on the y-axis and time on the x-axis.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Graphically Assessing the Independence Condition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the data is consistent with the independence condition, we would not expect to see a trend in the <em>location</em> or <em>spread</em> in a time-series plot of the residuals. Note that this graphic can only be used if the order in which the data was collected is known, and the order indicates some natural timing.</p>
+</div>
+</div>
+<p><a href="#fig-regassessment-independence-violations">Figure&nbsp;<span>20.2</span></a> shows two hypothetical datasets. In Panel A, the residuals display a trend in the location over time. Knowing that a response was below average suggests the next response will also be below average. In Panel B, the results display a trend in the spread over time. This suggests that measurements taken later in the study were less precise. Both panels are examples of patterns which would suggest the data is not consistent with the condition of independence.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-independence-violations" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-independence-violations-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.2: Examples of trends in a time-series plot of the residuals. Such trends indicate the data is not consistent with the condition that the errors are independent of one another.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Instead, if the data were consistent with the condition of independence on the error terms, we would expect to see a plot similar to <a href="#fig-regassessment-independence-reasonable">Figure&nbsp;<span>20.3</span></a>. Notice there are no trends in the location or spread of the residuals.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-independence-reasonable" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-independence-reasonable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time; there are no trends in the location or spread."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.3: Example of a time-series plot of residuals which shows no trends in location or spread. This is consistent with what we would expect if the condition of independence among errors were satisfied.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For the Seismic Activity Case Study, the data was actually collected over time as earthquakes occurred. More, as technology has changed over time, it is reasonable to fear that the errors in our observations are related over time. In order to assess this, consider the time-series plot of the residuals from our model for the data generating process in which the bracketed duration is modeled as a linear function of the magnitude of the earthquake (<a href="#fig-regassessment-independence">Figure&nbsp;<span>20.4</span></a>). Based on the figure, there are no clear trends in either the <em>location</em> or <em>spread</em> of the residuals over time (the figure resembles noise with no patterns). As a result, it is reasonable to assume the data is consistent with the errors being independent of one another.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-independence" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-independence-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals against time; no clear trends in the location or spread are visible."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.4: Time-series plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The condition of independence is another reason we consider randomization when collecting data. Both random sampling and random assignment reduces the likelihood of the errors in two observations being related.</p>
+</section>
+<section id="assessing-homoskedasticity" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="assessing-homoskedasticity"><span class="header-section-number">20.4</span> Assessing Homoskedasticity</h2>
+<blockquote class="blockquote">
+<p>The variability of the error in the bracketed duration is the same regardless of the magnitude of the earthquake.</p>
+</blockquote>
+<p>When assessing the “mean-0 condition” above, we saw that the key phrase was “for all values of the predictor.” Similarly, homoskedasticity suggests the variability in the errors is consistent <em>for all values of the predictor</em>. Therefore, we rely on the same graphical assessment — a plot of the residuals against the predicted values. However, instead of focusing on a trend in the location of the residuals, we are focused on a trend in the <em>spread</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Graphically Assessing the Constant Variance Condition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the data is consistent with the constant variance condition, there should be no trends in the <em>spread</em> of the plot of the residuals against the predicted values.</p>
+</div>
+</div>
+<p>Again, imagine a window (illustrated as vertical green rectangles in <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a>) around the residuals. As we move left to right, if the size of the window has to change in order to keep the residuals inside (the window stretches or compresses vertically), then that is an indication that the spread of the residuals is changing. For our example, there is a clear “fan shape” to the residuals as we move left to right suggesting the precision of the model decreases when making larger predictions. This goes back to something we observed in <a href="03e-regsummaries.html"><span>Chapter&nbsp;16</span></a> when examining a plot of the response and predictor (see <a href="03e-regsummaries.html#fig-regsummaries-magnitude">Figure&nbsp;<span>16.1</span></a>). We observed that for large earthquakes (high magnitudes), the bracketed duration was much more variable than for smaller earthquakes. So, our model is not as precise for some values of the predictor. This is evidence that our data is <em>not</em> consistent with the condition that the errors have the same variability for all values of the predictor.</p>
+<p>This partially explains the differences in the confidence intervals reported in <a href="03g-regconditions.html#tbl-regconditions-slr-summary">Table&nbsp;<span>18.1</span></a> and <a href="03g-regconditions.html#tbl-regconditions-slr-summary-alt">Table&nbsp;<span>18.2</span></a>. Since there is clear evidence that the data is not consistent with the constant variance condition, then it is not safe to assume the classical regression model. That is, the confidence intervals and p-values, as well as the underlying models for the sampling distribution and null distribution that generated them, constructed assuming the data is consistent with all four conditions, are suspect. We should instead rely on an empirical model for the sampling distribution of the least squares estimates when constructing confidence intervals or an empirical model for the null distribution of the standardized statistic if computing a p-value.</p>
+</section>
+<section id="assessing-normality" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="assessing-normality"><span class="header-section-number">20.5</span> Assessing Normality</h2>
+<blockquote class="blockquote">
+<p>The errors in the bracketed duration follow a Normal distribution.</p>
+</blockquote>
+<p>Assessing whether observations adhere to a particular distribution is a large area in statistical research. Many methods have been developed for this purpose. We emphasize a single graphical summary known as a <strong>probability plot</strong>. The construction of the plot is beyond the scope of this text, but the concepts underlying its construction actually tie in nicely to the big themes we have been discussing. Recall that if a sample is representative, then it should be a snapshot of the underlying population. Therefore, if we believe the underlying population has some particular distribution, we would expect the properties of this distribution to be apparent in the sample as well.</p>
+<p>If we believe the errors follow a Normal distribution, then it is reasonable that the residuals should maintain some of those properties. For example, the 10-th percentile of the residuals should roughly equate to the 10-th percentile expected from a Normal distribution. Mapping the percentiles that we observe to those that we expect is the essence of a probability plot.</p>
+<div id="def-probability-plot" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 20.3 (Probability Plot) </strong></span>Also called a “Quantile-Quantile Plot”, a probability plot is a graphic for comparing the distribution of an observed sample with a theoretical probability model for the distribution of the underlying population. The quantiles observed in the sample are plotted against those expected under the theoretical model.</p>
+</div>
+<p>While a probability plot can be constructed for a host of probability distributions, the most common is the Normal probability plot. The plot compares the observed residuals with those we would expect if the residuals were sampled from a Normal distribution. If the residuals closely aligned with our expectations from a Normal distribution, then we would expect to see a straight line if these are plotted against one another. Trends away from a straight line suggest the proposed Normal distribution is not a reasonable model for the distribution of the errors.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Graphically Assessing the Normality Condition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the data is consistent with the normality condition, the Normal probability plot of the residuals should exhibit a straight line with any deviations appearing to be random. Systemic deviations from a straight line indicate the observed distribution does not align with the proposed model.</p>
+</div>
+</div>
+<p><a href="#fig-regassessment-normal">Figure&nbsp;<span>20.5</span></a> shows the Normal probability plot of the residuals from our model for the data generating process of the bracketed duration.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-normal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.5: Probability plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We note there is some systematic departure from a straight line in the graphic. In particular, on the left-hand side of the graphic, from -3 to -1.5 along the x-axis, the points tend to curve upward before changing direction at -1.5 on the x-axis. While we want to avoid over-interpreting small deviations from the linear trend, we should pay attention to clear departures.</p>
+<p>We note that of the conditions considered, Normality is probably the least important as the analytic models for the sampling distributions of the least squares estimates are generally fairly robust to this condition. This is especially true in large samples (see <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>). However, we can always relax this condition by building an empirical model for the sampling distributions of the least squares estimates. Given the curvature we observed in this graphic, we would consider an empirical model, especially given we have already established the data is not consistent with the condition of homoskedasticity.</p>
+<p>For comparison, <a href="#fig-regassessment-normal-comparison">Figure&nbsp;<span>20.6</span></a> illustrates a hypothetical dataset for which the residuals suggest the Normality condition of the errors is unreasonable as well as an example of when the residuals are consistent with the Normality condition on the errors.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regassessment-normal-comparison" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/fig-regassessment-normal-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line."></p>
+<figcaption class="figure-caption">Figure&nbsp;20.6: Two Normal probability plots of the residuals for two hypothetical datasets. The trend away from a straight line in Panel A suggests assuming the errors follow a Normal distribution would be unreasonable. However, the reasonably straight line in Panel B suggests the data is consistent with the errors following a Normal distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="general-tips-for-assessing-assumptions" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="general-tips-for-assessing-assumptions"><span class="header-section-number">20.6</span> General Tips for Assessing Assumptions</h2>
+<p>Each of the methods presented here are qualitative assessments, which means they are subjective. That is okay. As the analyst, in consultation with the discipline expert, it is up to us to determine which conditions we are willing to assume are reasonable to impose. That is, with which conditions do we believe the data are consistent? Here are four overall things to keep in mind.</p>
+<p>First, do not spend an extraordinary amount of time examining any one residual plot. If we stare at a plot too long, we can convince ourselves there is a pattern in anything. We are looking for glaring evidence that the data is not consistent with the conditions we have imposed on our model. This is especially true when we have only a few observations. In these settings, reading plots can be very difficult. Again, it is about what we are comfortable assuming.</p>
+<p>Second, we have chosen the language carefully throughout this chapter. We have never once stated that a condition “was satisfied.” When we perform an analysis, we are making an <em>assumption</em> that the conditions are satisfied. We can never prove that they are; we can only show that the data is consistent with a particular set of conditions. We can, however, provide evidence that a condition is violated. When that is the case, we should be wary of trusting the resulting p-values and confidence intervals which are constructed from imposing that condition. This is not unlike hypothesis testing; just as we can never prove the null hypothesis is true, we cannot prove that a condition is satisfied. The graphics are constructed using residuals, but what we are looking for comes from how we expect the residuals to behave <em>if</em> a particular condition is true. Just because residuals behave a certain way, however, does not guarantee a condition is or is not met. Just like hypothesis testing, we are looking for what we are able to discern given the data.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Big Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We cannot prove a condition is satisfied; we can only hope to show the data is consistent with the condition and it is therefore reasonable to <em>assume</em> it is satisfied.</p>
+</div>
+</div>
+<p>Third, any conditions required for a particular analysis should be assessed. If our sample is not consistent with the necessary conditions, we should choose a different analysis. The inference we obtain from an analysis is only reliable if the data is consistent with any necessary conditions.</p>
+<p>Finally, transparency is crucial. Perhaps more important than which conditions we choose to impose is clearly communicating to our audience our decisions. If our analysis is to be replicated or critiqued fairly (and any good scientist or engineer should welcome such critique), we need to be transparent about the decisions we make along the way, including the assumptions we make on the model for the data generating process.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03h-regquality.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03j-regextensions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

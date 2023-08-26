@@ -1,0 +1,8 @@
+"0","#| fig-anovaassessment-variance-organic-alt2"
+"0","#| fig-cap: Residuals plotted against the predicted the moral expectation scores for college students exposed to different types of food."
+"0","#| fig-alt: Scatterplot of residuals against the fitted values."
+"0",""
+"0","ggplot(data = organic.augmented,"
+"0","       mapping = aes(y = .resid, x = .fitted)) +"
+"0","  geom_point() +"
+"0","  labs(y = 'Residuals', x = 'Predicted Moral Expectation Score') "

@@ -1,0 +1,5 @@
+# Unit I: Language and Logic of Inference {-}
+
+Children learn the alphabet before tackling _The Odyssey_.  Musicians become proficient in scales before playing in a symphony.  And, chefs create world-class culinary experiences because they are experts at working with their ingredients.  Similarly, working with statistical models benefits from understanding the language and logic of statistical inference.
+
+This first unit introduces the key components of any analysis --- asking well-posed questions, collecting useful data, summarizing your data to tell a story, quantifying the strength of a signal.  Once we are familiar with these ingredients, we can begin putting them together to address a range of interesting questions.

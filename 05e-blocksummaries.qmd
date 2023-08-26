@@ -1,0 +1,66 @@
+# Presenting Correlated Data {#sec-blocksummaries}
+
+{{< include _setupcode.qmd >}}
+
+Consider the graphical summary in @fig-blocksummaries-bad-plot of the data from the Frozen Yogurt Case Study.  While this graphic was praised for comparing a quantitative response across multiple groups, when a study makes use of blocking, such graphics are no longer appropriate.  In particular, nothing in the graphic suggests correlation among some observations.
+
+```{r}
+#| label: fig-blocksummaries-bad-plot
+#| fig-cap: Illustration of a poor graphic summarizing correlated data; the graphic hides the fact that there were repeated measures on the participants.  It is not clear that the responses are in any way correlated.
+#| fig-alt: Side-by-side boxplots of the taste ratings for each of the three vendors.
+ggplot(data = yogurt.df,
+       mapping = aes(y = Taste, x = Type)) +
+  geom_boxplot() +
+  labs(x = "Yogurt Vendor",
+       y = "Taste Rating\n(Higher is Better)") 
+```
+
+Summarizing correlated data can be quite difficult.  If there are only a few blocks, indicating which observations correspond to the same block using some aesthetic (color, size, shape, etc.) can be helpful.  For example, @fig-blocksummaries-color-plot uses color to distinguish responses from the same participant.  The color allows you to see that one participant (represented by a blue color) does indeed tend to rate all yogurts highly compared to other participants.  The color draws out the correlation structure.  
+
+```{r}
+#| label: fig-blocksummaries-color-plot
+#| fig-cap: Results from a blind taste test comparing how participants rated the taste of yogurt from three different vendors.  Ratings from the same participant are displayed using the same color.
+#| fig-alt: Jitter plot of taste ratings across three vendors using nine different colors to denote different participants.
+set.seed(20180806)
+ggplot(data = yogurt.df,
+       mapping = aes(y = Taste, x = Type, color=`Participant ID`)) +
+  geom_jitter(width = 0.25, height = 0) +
+  labs(x = "Yogurt Vendor",
+       y = "Taste Rating\n(Higher is Better)",
+       color = "") +
+  guides(color = "none") 
+```
+
+:::{.callout-note}
+When color (or some other aesthetic) is used to denote observations from the same block, we often do not include a corresponding legend since the specific levels are not of interest.  That is, which points correspond to Block 1 or Block 2 is not important; it is only important to know which points correspond to the same block.
+:::
+
+Even with only nine blocks, it can be difficult to distinguish one participant's response from another in @fig-blocksummaries-color-plot.  Another technique is to connect the responses from a single subject; this is illustrated in @fig-blocksummaries-line-plot.  We note that within participants, there was not a universally preferred yogurt; however, most tended to prefer East Side to the Name Brand.
+
+```{r}
+#| label: fig-blocksummaries-line-plot
+#| fig-cap: Results from a blind taste test comparing how participants rated the taste of yogurt from three different vendors.  Ratings from the same participant are connected.
+#| fig-alt: Line plot connecting taste ratings from the same participant across three vendors.
+set.seed(20180806)
+yogurt.df |>
+  mutate(
+    x = Type |> factor() |> as.numeric() |> jitter()
+  ) |>
+  ggplot(
+    mapping = aes(y = Taste,
+                  x = Type,
+                  group = `Participant ID`)) +
+  geom_blank() +
+  geom_line(aes(x = x)) +
+  labs(x = "Yogurt Vendor",
+       y = "Taste Rating\n(Higher is Better)") 
+```
+
+There is no universally adopted gold standard for summarizing correlated data.  The key here is that the correlation in the data should not be ignored and should be illustrated in the summary while still addressing the primary question of interest.
+
+We note that the correlation structure does not impact the average rating for each group.  That is, we can still compute and report the average response within each group; however, the correlation structure is what helps us to properly visualize the variability when examining graphical summaries.
+
+:::{.callout-tip}
+## Big Idea
+A good graphic should aid in partitioning the variability; with correlated responses, this includes indicating values which are related so that we can visually assess the variability between independent groups and within related groups.
+:::

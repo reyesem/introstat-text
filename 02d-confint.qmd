@@ -1,0 +1,86 @@
+# Estimating with Confidence a Single Mean {#sec-confint}
+
+{{< include _setupcode.qmd >}}
+
+Consider the Birth Weight Case Study described in @sec-casebabies.  In the previous chapter, we introduced the following model for how birth weights for infants are generated:
+
+$$(\text{Birth Weight})_i = \mu + \varepsilon_i$$
+
+where $\mu$ represents the average birth weight of infants born in North Carolina.  We also discussed imposing two conditions on the distribution of the random error terms:
+
+  - The error in the birth weight for one infant is independent of the error in the birth weight for any other infant.  
+  - The errors in the birth weight for infants are identically distributed.
+  
+Within this model for the data generating process, $\mu$ is an unknown parameter of interest.  Consider the following research goal associated with this parameter:
+
+  > On average, what is the birth weight of an infant born in North Carolina?
+  
+We can construct a point estimate of the parameter $\mu$ with the average birth weight of infants in our sample: `r round(mean(babies.df$Weight), 2)` g.  The data is graphically summarized in @fig-confint-histogram.
+
+```{r}
+#| label: fig-confint-histogram
+#| fig-cap: Weight of a sample of full-term infants born in North Carolina.
+#| fig-alt: Histogram of the weight, in grams, of infants born in North Carolina; the peak is near 3500 grams.
+
+ggplot(data = babies.df,
+       mapping = aes(x = Weight)) +
+  geom_histogram(binwidth = 200, colour = "black") +
+  labs(x = "Weight (g)", y = "Number of Infants") 
+```
+
+In order to construct an estimate of $\mu$ which incorporates the variability in the sample mean, we must model the sampling distribution of our estimate.  The bootstrap procedure for this case would be
+
+  1.  Randomly sample, with replacement, `r nrow(babies.df)` records from the original sample.
+  2.  For this bootstrap resample, compute the mean birth weight and retain this value.
+  3.  Repeat steps 1 and 2 many (say 5000) times.
+  
+This process is illustrated in @tbl-confint-bootstrap.  Each row represents the birth weights for a single resample taken with replacement from the original data.  The final column is the computed (and retained), sample mean from each resample (the bootstrap statistic).
+
+```{r singleconfint-bootstrap, echo=FALSE}
+#| label: tbl-confint-bootstrap
+#| tbl-cap: Partial printout of first 10 bootstrap resamples and the resulting bootstrap statistic.
+set.seed(20180621)
+
+boot.index <- matrix(sample(seq(nrow(babies.df)), size = 5000*nrow(babies.df),
+                            replace = TRUE),
+                     nrow = nrow(babies.df), ncol = 5000)
+
+boot.means <- apply(boot.index, 2, function(u){
+  mean(babies.df$Weight[u])
+})
+
+boot.print <- tibble(
+  `Value 1` = babies.df$Weight[boot.index[1, ]],
+  `Value 2` = babies.df$Weight[boot.index[2, ]],
+  `Value 3` = babies.df$Weight[boot.index[3, ]],
+  `       ` = "...",
+  `Value 1007` = babies.df$Weight[boot.index[1007, ]],
+  `Value 1008` = babies.df$Weight[boot.index[1008, ]],
+  `Value 1009` = babies.df$Weight[boot.index[1009, ]],
+  `Boostrap Mean` = boot.means
+)
+
+boot.print |>
+  head(10) |>
+  mykable(digits = 2)
+```
+
+A plot of the resulting bootstrap sample means is shown in @fig-confint-samp-distn.  Notice that the x-axis is different from that of @fig-confint-histogram.  While a graphical summary of the raw data is summarizing the weight of individual infants, the model for the sampling distribution is summarizing the statistic we compute in various resamples of the same size.  In @fig-confint-samp-distn, we are not keeping track of individual infant weights but average weights for collections of 1009 infants.
+
+```{r}
+#| label: fig-confint-samp-distn
+#| fig-cap: Bootstrap model for the sampling distribution of the average birth weight for a sample of 1009 infants born in North Carolina.
+#| fig-alt: Histogram of bootstrap statistics centered on 3450 and ranging from 3400 to 3500.
+
+ggplot(data = tibble(mean = boot.means),
+       mapping = aes(x = mean)) +
+  geom_histogram(binwidth = 6, colour = "black") +
+  labs(x = "Sample Mean Weight of 1009 Infants (g)", y = "Number of Samples") 
+```
+
+Using this model for the sampling distribution, we can then grab the middle 95% of values in order to construct a confidence interval for the parameter of interest.  This results in a 95% confidence interval of (`r round(quantile(boot.means, 0.025, names = F), 2)`, `r round(quantile(boot.means, 0.975, names = F), 2)`).  Based on this confidence interval, the data is consistent with the birth weight of infants in North Carolina, on average, being between `r round(quantile(boot.means, 0.025, names = F), 2)` and `r round(quantile(boot.means, 0.975, names = F), 2)`; that is, these are the reasonable values of the mean birth weight.
+
+Notice that we are able to narrow down the reasonable values of the parameter to a relatively small interval (a difference of about 60 grams).  This is not because all babies in North Carolina have an extremely similar birth weight.  It is because we have a relatively large sample, allowing us to have high confidence in our estimate of the _average_ birth weight of an infant.  The confidence interval does not tell us where we expect an individual infant's birth weight to fall; it only communicates what we are estimating the average birth weight of all infants to be based on our observed sample.
+
+Also, notice how much narrower the model for the sampling distribution is compared to the distribution of the variable in the sample.  Remember, statistics have less variability than individual values.  This also illustrates why a confidence interval could never describe the fraction of values in the population which fall within a certain range --- the variability is not comparable because a sampling distribution has a different x-axis than the distribution of the population or sample.
+

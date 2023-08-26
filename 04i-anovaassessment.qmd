@@ -1,0 +1,185 @@
+# Assessing the Modeling Conditions in ANOVA {#sec-anovaassessment}
+
+{{< include _setupcode.qmd >}}
+
+In this unit we have discussed a model relating a quantitative response to a categorical predictor.  For the Organic Food Case Study, our model has had the form
+
+$$(\text{Moral Expectations})_i = \mu_1 (\text{Comfort})_i + \mu_2 (\text{Control})_i + \mu_3 (\text{Organic})_i + \varepsilon_i,$$
+
+where we use the same indicator variables defined in @sec-anovamodel.  Further, we considered three conditions on the distribution of the error term:
+
+  1.  The error in the moral expectation score for one individual is independent of the error in the moral expectation score for all other individuals.  
+  2.  The variability in the error for the moral expectation score within a group is the same for any food exposure group.
+  3.  The error in the moral expectation score follows a Normal distribution.
+  
+However, while we imposed all three of these conditions in @sec-anovateststat, we could have developed an empirical model for the null distribution of the standardized statistic only enforcing the first of these conditions on the distribution of the error.  Unfortunately, we cannot simply state conditions and then proceed blindly.  In order to rely on the p-values and confidence intervals produced from any modeling procedure, the data must be consistent with the conditions imposed.
+
+In this section, we discuss how we assess these conditions qualitatively.  Just as we saw in @sec-regassessment, while the conditions are placed on the error terms, they are assessed using __residuals__.
+
+:::{.theorem.definition}
+```{r}
+#| label: anovaassessment-get-def-residual
+#| output: asis
+
+read_lines('03i-regassessment.qmd') |>
+  repeat_block(pattern = ':::\\{#def-residual') |>
+  get_terms(term = 'fullblock') |>
+  cat()
+```
+:::
+
+For the ANOVA model, the predicted mean response is the observed sample mean of each group.  
+
+:::{.callout-tip}
+## Big Idea
+The conditions are placed on the error term, but they are assessed with residuals.
+:::
+
+```{r}
+#| label: anovaassessment-augmented
+
+fit.organic <- lm(moral_avg ~ Food_Condition - 1, data = organic.df)
+
+organic.augmented <- augment(fit.organic)
+```
+
+
+
+## Assessing the Independence Condition
+  > The error in the moral expectation score for one individual is independent of the error in the moral expectation score for all other individuals.
+  
+Generally, independence is assessed by considering the method in which the data was collected and considering the context with a discipline expert.  By carefully considering the manner in which the data was collected, we can typically determine whether it is reasonable that the errors in the response are independent of one another.  Some key things to consider when examining the data collection process:
+
+  - Are there repeated observations made on the same subject?  This often suggests some type of relationship between the responses and therefore would not be consistent with errors being independent.  In particular, look for blocking.
+  - Is the response measured over time (time-series) such as daily temperature over the course of a month?  Time-series data often exhibits strong period-to-period relationships suggesting the errors are not independent.  For example, if it is hot today, it will probably be hot tomorrow as well.
+  - Is there a learning curve in how the data was collected?  Learning curves again suggest some dependence from one observation to the next.  For example, a new nurse may become better at collecting pulse readings with more practice over time.
+  - Measurement devices which are failing over time will introduce a dependence from one observation to the next.  Imagine a bathroom scale that begins to add an additional pound each day.  Then, being above average weight one day will most likely lead to an above average weight the next, due primarily to the measurement device.
+Generally, independence is assessed through the context of the data collection scheme.  By carefully considering the manner in which the data was collected, we can typically determine whether it is reasonable that the errors in the response are independent of one another.  Some key things to consider when examining the data collection process:
+  
+These last three points illustrate a particular deviation from our condition of independence in which two observations collected close together in time are related.  When we know the order in which the data was collected, we can assess whether the data tends to deviate from the condition of independence in this manner.  This is done graphically through a __time-series plot__ of the _residuals_.  If two errors were unrelated, then the value of one residual should tell us nothing about the value of the next residual.  Therefore, a plot of the residuals over time should look like noise (since residuals are supposed to mimic the noise in the model).  If there are any trends, then it suggests the data is not consistent with independence.
+
+:::{.theorem.definition}
+```{r}
+#| label: anovaassessment-get-def-time-series-plot
+#| output: asis
+
+read_lines('03i-regassessment.qmd') |>
+  repeat_block(pattern = ':::\\{#def-time-series-plot') |>
+  get_terms(term = 'fullblock') |>
+  cat()
+```
+:::
+
+:::{.callout-note}
+## Graphically Assessing the Independence Condition
+If the data is consistent with the independence condition, we would not expect to see a trend in the _location_ or _spread_ in a time-series plot of the residuals.  Note that this graphic can only be used if the order in which the data was collected is known, and the order indicates some natural timing.
+:::
+
+For the Organic Food Case Study, participants were assessed simultaneously within a large lecture.  Therefore, there is no ordering in time to be concerned about, and a time-series plot of the residuals would not be useful here.  Considering the context, students worked individually on the questionnaire; there was nothing in the data description of how the data was collected that would lead us to believe that one student's response would be impacted by any other student's response.  And, no blocking was implemented.  Our review of the data collection methods suggests it is reasonable to assume that the errors in the moral expectation score are unrelated to one another.  
+
+
+## Assessing Homoskedasticity
+  > The variability of the error in the moral expectation within each food exposure group is the same across all food exposure groups.
+  
+We want the variability in the errors within a group to be the same across the groups.  We can do this by examining side-by-side boxplots (or jitter plots, etc.) of the residuals within each of the groups. @fig-anovaassessment-variance-organic shows the residuals for each individual across the various groups.  Notice that the boxes for each group are roughly the same size; that is, the interquartile ranges are similar.  This suggests that the variability within each group is similar from one group to the next.  That is, the data is consistent with the constant variance condition.
+
+```{r}
+#| label: fig-anovaassessment-variance-organic
+#| fig-cap: Comparison of the residuals predicting the moral expectation score for college students exposed to different types of food.
+#| fig-alt: Boxplot of residuals for each food exposure group showing similar spread across the groups.
+ggplot(data = organic.augmented,
+       mapping = aes(y = .resid,
+                     x = Food_Condition)) +
+  geom_boxplot(linewidth = 0.75) +
+  labs(y = "Residuals",
+       x = "Food Exposure Group")
+```
+
+There is a second (equivalent) approach to assessing this condition.  From the model for the data generating process, we see that the response for any individual is some constant plus noise; therefore, the distribution of the responses for any group is simply a shifted version of the distribution of the errors within the same group.  If the variability in the errors for each response is the same, then the variability of the response must be the same for each group.  Therefore, we can also examine the side-by-side boxplots (or jitter plots, etc.) of the response instead of the residuals.  @fig-anovaassessment-variance-organic-alt shows the moral expectation score for each individual across the various groups.  Just as in the previous graphic, the interquartile ranges are similar for each of the three groups indicating the data is consistent with this condition.  The benefit of the first approach is that the residuals will always be centered around 0 within each group; this allows for easy side-by-side comparisons; when looking at the observed response, the data need not be aligned across the groups.
+
+```{r}
+#| label: fig-anovaassessment-variance-organic-alt
+#| fig-cap: Comparison of the moral expectation scores for college students exposed to different types of food.
+#| fig-alt: Boxplot of moral expectation scores for each food exposure group showing similar spread across the groups.
+
+ggplot(data = organic.df,
+       mapping = aes(y = moral_avg, x = Food_Condition)) +
+  geom_jitter(height = 0, width = 0.2, alpha = 0.75, color = 'grey75') +
+  geom_boxplot(alpha = 0.5, linewidth = 0.75) +
+  labs(x = "Food Exposure Group", y = "Moral Expectation Score") 
+```
+
+Finally, there is a third (equivalent) approach to assessing this condition --- assessing it just as we did for linear regression models.  We can create a plot of the residuals against the fitted values.  @fig-anovaassessment-variance-organic-alt2 shows the residuals plotted against the fitted values.  Just as in the previous graphic, the interquartile ranges are similar for each of the three groups indicating the data is consistent with this condition.
+
+```{r}
+#| label: fig-anovaassessment-variance-organic-alt2
+#| fig-cap: Residuals plotted against the predicted the moral expectation scores for college students exposed to different types of food.
+#| fig-alt: Scatterplot of residuals against the fitted values.
+
+ggplot(data = organic.augmented,
+       mapping = aes(y = .resid, x = .fitted)) +
+  geom_point() +
+  labs(y = 'Residuals', x = 'Predicted Moral Expectation Score') 
+```
+
+This does not have the same pattern as what we might have expected from @sec-regassessment.  Remember, our study only had three groups; therefore, the deterministic portion of the model for the data generating process is only comparing three groups, and as a result, it can only predict one of three values for the average response.  Each vertical "slice" in @fig-anovaassessment-variance-organic-alt2 represents the residuals from one of those three predicted responses.  
+
+:::{.callout-warning}
+The order of the groups when plotting the response against the groups need not be the same as the order when plotting the residuals against the fitted values.
+:::
+
+:::{.callout-warning}
+When plotting the residuals against the fitted values in ANOVA, if two groups are similar, but these differ from the other groups, the vertical "slices" can be nearly on top of one another, making it difficult to assess the constant variance condition.  It is for this reason we prefer one of the first two methods discussed in this section.
+:::
+
+:::{.callout-note}
+## Graphically Assessing the Constant Variance Condition
+If the data is consistent with the constant variance condition, there should be no trends in the _spread_ of the residuals (or the response) across each group.
+:::
+
+
+## Assessing Normality
+  > The errors in the moral expectation score follows a Normal distribution.
+
+If the errors follow a Normal distribution, then we would expect the residuals to mimic a sample taken from a Normal distribution.  As introduced in @sec-regassessment, we emphasize the Normal __probability plot__ for assessing the Normality condition.
+
+:::{.theorem.definition}
+```{r}
+#| label: anovaassessment-get-def-probability-plot
+#| output: asis
+
+read_lines('03i-regassessment.qmd') |>
+  repeat_block(pattern = ':::\\{#def-probability-plot') |>
+  get_terms(term = 'fullblock') |>
+  cat()
+```
+:::
+
+:::{.callout-note}
+## Graphically Assessing the Normality Condition
+If the data is consistent with the normality condition, the Normal probability plot of the residuals should exhibit a straight line with any deviations appearing to be random.  Systemic deviations from a straight line indicate the observed distribution does not align with the proposed model.
+:::
+
+@fig-anovaassessment-normal-organic shows the probability plot for the residuals from the Organic Food Case Study.
+
+```{r}
+#| label: fig-anovaassessment-normal-organic
+#| fig-cap: Normal probability plot of the residuals for the Organic Food Case Study.
+#| fig-alt: Plot of the sample quantiles against the theoretical quantiles exhibiting a straight line.
+
+ggplot(data = organic.augmented,
+       mapping = aes(sample = .resid)) +
+  geom_qq() +
+  labs(x = "Theoretical Quantiles", y = "Sample Quantiles")
+```
+
+Overall, the points do tend to follow a straight line.  There are some deviations from a linear relationship at each end of the plot, but the deviations are not extreme and do not appear to be systematic.  Deviations in the tails are common, especially with larger datasets.  And with naturally less data in the tails, it can become more difficult to establish a pattern.  We are generally not concerned unless these tails form a part of a larger pattern of deviating from the linear trend.  We believe these residuals are consistent with the errors having a Normal distribution.
+
+
+## General Tips for Assessing Assumptions
+First discussed in @sec-regassessment, we want to remember four things that should be kept in mind when assessing conditions:
+
+  1. We should not spend an extraordinary amount of time examining any one residual plot; we might convince ourselves of patterns that do not exist.  We are looking for major deviations from our expectations.
+  2. We can never prove a condition is satisfied; we can only determine whether the data is consistent with a condition or whether it is not consistent with a condition.
+  3. Any condition required for a particular analysis should be assessed.
+  4. Transparency is crucial.

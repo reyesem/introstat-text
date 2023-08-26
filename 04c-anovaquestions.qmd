@@ -1,0 +1,64 @@
+# Framing the Question {#sec-anovaquestions}
+
+{{< include _setupcode.qmd >}}
+
+"Does exposure to various food types lead to different moral expectations?"  The primary question from the Organic Food Case Study (@sec-caseorganic) is about the relationship between two variables: the response (moral expectations; see @def-response) and the __factor__ of interest (food type).
+
+:::{#def-factor}
+## Factor
+Also referred to as the "treatment" in some settings, a factor is a categorical predictor.  The categories represented by this categorical variable are called "levels."
+:::
+
+As we saw in Unit III, the majority of interesting research questions involve identifying or quantifying the relationship between two variables.  However, the approach to these questions relies on the same language and logic introduced in Unit I.  We begin with asking good questions, which involves defining the population of interest and characterizing the variable(s) at the population level through well-defined parameters.  
+
+The question posed from the Organic Food Case Study, as stated above, is ill-posed.  Almost certainly, there are individuals for which exposure to organic foods may result in higher moral expectations compared to exposure to comfort foods.  However, there are almost certainly individuals for which the effect is reversed --- higher moral expectations are expected following exposure to comfort foods compared with organic foods.  That is, we expect there to be _variability_ in the effect of food types on the resulting moral expectations.  The question needs to be refined.
+
+While the study was conducted using college students, the original question seems quite broad (we discuss this discrepancy in more detail in the next chapter).  Notice that the original question is not predicated on _consuming_ various foods but simply _exposure_ to various foods.  The question itself is not limited to only those individuals which purchase a specific type of food but concerns all individuals.  More, we really see that there are three groups of interest --- those which are exposed to organic foods, those exposed to comfort foods, and those exposed to the control foods.  We can think of three distinct populations:
+
+  1. All individuals exposed to organic foods.
+  2. All individuals exposed to comfort foods.
+  3. All individuals exposed to control foods.
+  
+We now work to characterize the response within each of these three populations.  Since the response of interest is a numeric variable (taking values between 1 and 7 with higher values indicating higher moral expectations), summarizing the variable using the mean is reasonable.  That is, we might ask "does exposure to various food types lead to different moral expectations, _on average_?"  Our question is looking for some type of difference in this mean response across the groups; our working hypothesis is then that the groups are all equivalent, on average.  This could be framed in the following hypotheses:
+
+  > $H_0:$ the average moral expectations are the same following exposure to each of the three types of food.  
+  > $H_1:$ the average moral expectations following exposure to food differ for at least one of the three types.
+  
+We can represent these hypotheses mathematically as
+
+  > $H_0: \mu_{\text{comfort}} = \mu_{\text{control}} = \mu_{\text{organic}}$  
+  > $H_1:$ At least one $\mu$ differs from the others,
+  
+where $\mu_{\text{comfort}}$ is the mean moral expectation for individuals exposed to comfort foods, $\mu_{\text{control}}$ is the mean moral expectation for individuals exposed to control foods, and $\mu_{\text{organic}}$ is the mean moral expectation for individuals exposed to organic foods.  The question is now well-posed --- it is centered on the population and captured through parameters.  
+
+For this particular setting, there is an alternative way of thinking about the population.  You might argue that there are not three distinct populations; instead, there is only a single population (all individuals) and three different exposures (organic, comfort, and control foods).  This is a reasonable way of characterizing the population.  The hypotheses remain the same:
+
+  > $H_0: \mu_{\text{comfort}} = \mu_{\text{control}} = \mu_{\text{organic}}$  
+  > $H_1:$ At least one $\mu$ differs from the others.
+  
+The difference is in our interpretation of the parameters.  We would describe $\mu_{\text{comfort}}$ as the mean moral expectation when an individual is exposed to comfort foods, $\mu_{\text{control}}$ as the mean moral expectation when an individual is exposed to control foods, and $\mu_{\text{organic}}$ as the mean more expectation when an individual is exposed to organic foods.  The distinction, while subtle, is to place emphasis on switching an individual from one group to another instead of the groups being completely distinct.  In fact, this latter way of thinking is more in line with how the study was conducted.  Individuals were allocated to one of the exposure groups, suggesting that exposure is something that could be changed for an individual.
+
+From an analysis perspective, there is little difference between these two ways of describing the population.  The difference is primarily in our interpretation.  In many cases, we can envision the population either way; however, there are a few instances where that is not possible.  Suppose we were comparing the average number of offspring of mice compared to rats (a lovely thought, we know).  It does not make sense to think about changing a mouse into a rat; here, it only makes sense to think about two distinct populations being compared on some metric.  How we describe the population is often related to the question we are asking.
+
+:::{.callout-note}
+How we describe the population is often connected to the study design we implement.  In a controlled experiment, we envision a single population under various conditions.  For an observational study, we generally consider distinct populations.
+:::
+
+
+## General Setting
+This unit is concerned with comparing the mean response of a numeric variable across $k$ groups.  Let $\mu_1, \mu_2, \dotsc, \mu_k$ represent the mean response for each of the $k$ groups.  Then, we are primarily interested in the following hypotheses:
+
+  > $H_0: \mu_1 = \mu_2 = \dotsb = \mu_k$  
+  > $H_1:$ At least one $\mu$ differs
+  
+When there are only two groups ($k = 2$), then this can be written as
+
+  > $H_0: \mu_1 = \mu_2$  
+  > $H_1: \mu_1 \neq \mu_2$
+  
+  
+:::{.callout-warning}
+When there are two groups, it makes sense for the alternative hypothesis to include "not equal."  While tempting to do something similar when there are more than two groups, it is not possible.  The opposite of "all groups are equal, on average" is _not_ "all groups differ, on average."  Nor is the opposite "exactly one group differs, on average."  The opposite of "all groups equal are equal, on average" is "at least one average differs" which is what we are capturing with the above hypotheses.  Note that this is _not_ saying that one group must differ from all other groups, on average.  It is saying that at least two of the groups have a different average response.  Keep it simple and do not try to get fancy with the notation.
+:::
+  
+Here we are writing things in the mathematical notation, but let's not forget that every hypothesis has a context.  Throughout this unit, we are looking for some signal in the _location_ of the response across the groups.  Our working assumption then states that the groups are all similar, _on average_.  This may not be the only comparison of interest to make in practice.  For example, it may not be the location that is of interest but the spread of a process.  In some applications, managers would prefer to choose the process that is the most precise.  These questions are beyond the scope of this unit, but the concepts are similar to what we discuss here.

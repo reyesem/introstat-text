@@ -1,0 +1,4 @@
+"0","#| label: fig-regquality-ANOVA-table"
+"0","#| fig-cap: Table summarizing the partitioning of variability in a regression model."
+"0","#| fig-alt: "
+"0","knitr::include_graphics(""./images/RegQuality-ANOVA-Table.jpg"")"

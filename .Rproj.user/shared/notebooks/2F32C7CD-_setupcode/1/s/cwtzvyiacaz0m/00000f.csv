@@ -1,0 +1,5 @@
+"0","#| include: false"
+"0",""
+"0","# ---- Case Study Data: Infant Birthweight"
+"0","babies.df <- read_csv(""./data/case-babies.csv"","
+"0","                      col_types = c(""icccciic""))"

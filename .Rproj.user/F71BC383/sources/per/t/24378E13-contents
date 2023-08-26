@@ -1,0 +1,99 @@
+project:
+  type: book
+  output-dir: 'docs'
+
+book:
+  title: 'Statistical Modeling for Engineers and Scientists'
+  output-file: 'ma223-text'
+  author: 'Eric M Reyes'
+  
+  downloads: [pdf]
+  reader-mode: true
+  search: true
+  
+  sidebar: 
+    style: docked
+    title: 'Statistical Modeling'
+    
+  
+  date: last-modified
+  date-format: '[Updated: ] DD MMMM YYYY'
+  
+  chapters:
+    - index.qmd
+    - part: 01a-language.qmd
+      chapters: 
+        - 01b-basics.qmd
+        - 01c-casedeepwater.qmd
+        - 01d-questions.qmd
+        - 01e-data.qmd
+        - 01f-summaries.qmd
+        - 01g-samplingdistns.qmd
+        - 01h-nulldistns.qmd
+        - 01i-recaplanguage.qmd
+    - part: 02a-onesample.qmd
+      chapters: 
+        - 02b-casebabies.qmd
+        - 02c-meanmodels.qmd
+        - 02d-confint.qmd
+        - 02e-teststat.qmd
+    - part: 03a-regression.qmd
+      chapters:
+        - 03b-casegreece.qmd
+        - 03c-regquestions.qmd
+        - 03d-regdata.qmd
+        - 03e-regsummaries.qmd
+        - 03f-regmodel.qmd
+        - 03g-regconditions.qmd
+        - 03h-regquality.qmd
+        - 03i-regassessment.qmd
+        - 03j-regextensions.qmd
+        - 03k-regrecap.qmd
+    - part: 04a-anova.qmd
+      chapters:
+        - 04b-caseorganic.qmd
+        - 04c-anovaquestions.qmd
+        - 04d-anovadata.qmd
+        - 04e-anovasummaries.qmd
+        - 04f-anovamodel.qmd
+        - 04g-anovaconditions.qmd
+        - 04h-anovateststat.qmd
+        - 04i-anovaassessment.qmd
+        - 04j-anovarecap.qmd
+    - part: 05a-blocks.qmd
+      chapters:
+        - 05b-caseyogurt.qmd
+        - 05c-blockquestions.qmd
+        - 05d-blockdata.qmd
+        - 05e-blocksummaries.qmd
+        - 05f-blockmodel.qmd
+        - 05g-blockconditions.qmd
+        - 05h-blockteststat.qmd
+        - 05i-blockassessment.qmd
+        - 05j-blockrecap.qmd
+    - references.qmd
+  appendices: 
+    - app-theory.qmd
+    - app-teststat.qmd
+    - app-glossary.qmd
+
+bibliography: [refs223notes.bib, packages.bib]
+
+comments: 
+  hypothesis: false
+
+format:
+  html:
+    theme: cosmo
+    css: mystyles.css
+  pdf:
+    documentclass: scrreprt
+    keep-tex: true
+
+execute:
+  echo: false
+  warning: false
+  error: false
+  
+fig-align: center
+fig-cap-location: bottom

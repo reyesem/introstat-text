@@ -1,0 +1,4 @@
+"0","#| fig-anovateststat-anova-table"
+"0","#| fig-cap: Layout of an ANOVA table which summarizes the analysis conducted.  Emphasis is on partitioning the variability."
+"0","#| fig-alt: "
+"0","knitr::include_graphics(""./images/ANOVAteststat-Table.jpg"")"

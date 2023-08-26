@@ -1,0 +1,4 @@
+"0","#| label: fig-regquality-partition-variability"
+"0","#| fig-cap: Illustration of partitioning the variability of a response using a regression model."
+"0","#| fig-alt: "
+"0","knitr::include_graphics(""./images/RegQuality-Partitioning-Variability.jpg"")"

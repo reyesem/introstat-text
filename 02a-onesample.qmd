@@ -1,0 +1,3 @@
+# Unit II: Inference on the Overall Mean Response {-}
+
+In Unit I, we developed the language and logic of statistical inference.  In this unit, we apply those concepts toward making statements about the mean response of a variable.  Throughout, we will take a modeling perspective, using this specific context to develop key concepts around statistical models.  This will serve as a bridge between the big ideas in Unit I and the more interesting models in the remainder of the text.

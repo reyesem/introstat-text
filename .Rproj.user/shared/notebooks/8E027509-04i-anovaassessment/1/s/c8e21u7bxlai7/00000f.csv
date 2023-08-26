@@ -1,0 +1,5 @@
+"0","#| label: anovaassessment-augmented"
+"0",""
+"0","fit.organic <- lm(moral_avg ~ Food_Condition - 1, data = organic.df)"
+"0",""
+"0","organic.augmented <- augment(fit.organic)"

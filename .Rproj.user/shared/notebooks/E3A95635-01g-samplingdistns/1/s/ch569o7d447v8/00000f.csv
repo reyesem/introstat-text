@@ -1,0 +1,4 @@
+"0","#| label: fig-samplingdistns-sampling-distribution"
+"0","#| fig-cap: Illustration of repeatedly sampling from a population."
+"0",""
+"0","knitr::include_graphics(""./images/SamplingDistns-Sampling-Distribution.jpg"")"

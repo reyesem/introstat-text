@@ -1,0 +1,9 @@
+# Preface {.unnumbered}
+
+{{< include _setupcode.qmd >}}
+
+Engineers and scientists are routinely asked to make decisions based on observed data.  That data will be subject to variability; that is, measured characteristics will vary from one observation to the next.  Learning to characterize that variability and make decisions in its presence is the idea behind statistics.
+
+This text will introduce statistical concepts in the context of engineering, the physical, and the biological sciences.  The text emphasizes statistical literacy (interpretation and clear communication of statistical concepts, methods, and results) and statistical reasoning (defining the need for data to address questions, modeling variability in a process, and choosing the appropriate methodology to address a question of interest).  We describe approaches to collecting data, summarizing the information contained within the data, building a model to address a question of interest, using the data to estimate the unknowns in the model, assessing the model, and interpreting the results based on the model.
+
+This text is applied, focusing primarily on knowing when various modeling strategies are appropriate and how to interpret their results.  Our aim is to provide a strong foundation in statistical ideas enabling readers to engage with research encountered in their field.

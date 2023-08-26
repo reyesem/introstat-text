@@ -1,0 +1,3 @@
+# Unit V: Comparing the Average Response Across Correlated Groups {-}
+
+Throughout the text, we have developed the language and logic of statistical inference within the context of a model for the data generating process.  In the previous unit, we extended these ideas to comparing the mean response across groups.  The key condition required to perform inference was that the error in the observation from one observation was independent of the error in any other observation.  A consequence of this condition is that the observations from different groups are independent.  In this unit, we consider comparing the mean response across groups under a special case when independence cannot be consumed.

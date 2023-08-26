@@ -1,0 +1,8 @@
+"0","#| label: fig-anovasummaries-organic-boxplot"
+"0","#| fig-cap: Comparison of the moral expectations for college students exposed to different types of food."
+"0","#| fig-alt: Side-by-side boxplots of the moral expectations for three different food categories."
+"0","ggplot(data = organic.df,"
+"0","       mapping = aes(y = moral_avg, x = Food_Condition)) +"
+"0","  geom_boxplot() +"
+"0","  labs(x = ""Food Exposure Group"","
+"0","       y = ""Moral Expectation Score"") "

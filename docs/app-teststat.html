@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Modeling for Engineers and Scientists - Appendix B — Mathematical Results for Standardized Statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./app-glossary.html" rel="next">
+<link href="./app-theory.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="mystyles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-theory.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-teststat.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Modeling</a> 
+        <div class="sidebar-tools-main">
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01b-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01c-casedeepwater.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01d-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01e-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f-summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01g-samplingdistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01h-nulldistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01i-recaplanguage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02b-casebabies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Case Study: Birth Weights of Babies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02c-meanmodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02d-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02e-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03b-casegreece.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Case Study: Seismic Activity in Greece</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03c-regquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Myriad of Potential Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03d-regdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nature of Collecting Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03e-regsummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarizing Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03f-regmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bulding our Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03g-regconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03h-regquality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03i-regassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03j-regextensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03k-regrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04b-caseorganic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Case Study: Organic Foods and Superior Morals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04c-anovaquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04d-anovadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04e-anovasummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04f-anovamodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04g-anovaconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04h-anovateststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04i-anovaassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04j-anovarecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05b-caseyogurt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Case Study: Paying a Premium for the Experience</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05c-blockquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05d-blockdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05e-blocksummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Presenting Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05f-blockmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modeling Correlated Responses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05g-blockconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of the Repeated Measures ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05h-blockteststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05i-blockassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in Repeated Measures ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05j-blockrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-teststat.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#single-mean-response-same-signal" id="toc-single-mean-response-same-signal" class="nav-link active" data-scroll-target="#single-mean-response-same-signal"><span class="header-section-number">B.1</span> Single Mean Response, Same Signal</a></li>
+  <li><a href="#single-mean-response-two-standardized-statistics" id="toc-single-mean-response-two-standardized-statistics" class="nav-link" data-scroll-target="#single-mean-response-two-standardized-statistics"><span class="header-section-number">B.2</span> Single Mean Response, Two Standardized Statistics</a></li>
+  <li><a href="#least-squares-estimate-for-intercept-only-model" id="toc-least-squares-estimate-for-intercept-only-model" class="nav-link" data-scroll-target="#least-squares-estimate-for-intercept-only-model"><span class="header-section-number">B.3</span> Least Squares Estimate for Intercept-Only Model</a></li>
+  <li><a href="#class-of-hypotheses-that-are-testable" id="toc-class-of-hypotheses-that-are-testable" class="nav-link" data-scroll-target="#class-of-hypotheses-that-are-testable"><span class="header-section-number">B.4</span> Class of Hypotheses that are Testable</a></li>
+  <li><a href="#equivalence-of-hypotheses-with-blocking" id="toc-equivalence-of-hypotheses-with-blocking" class="nav-link" data-scroll-target="#equivalence-of-hypotheses-with-blocking"><span class="header-section-number">B.5</span> Equivalence of Hypotheses with Blocking</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-app-teststat" class="quarto-section-identifier">Appendix B — Mathematical Results for Standardized Statistics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Here, we present some mathematical results associated with standardized statistics. The material provided in this appendix is not necessary for understanding the concepts presented in the text. It is provided only for those who are curious about the mathematics underlying some of the claims made throughout.</p>
+<section id="single-mean-response-same-signal" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="single-mean-response-same-signal"><span class="header-section-number">B.1</span> Single Mean Response, Same Signal</h2>
+<p>In <a href="02e-teststat.html"><span>Chapter&nbsp;12</span></a>, we argued that the level of background noise can make it difficult to detect a signal. That is illustrated in the following theorem.</p>
+<div id="thm-app-teststat-same-signal" class="theorem">
+<p><span class="theorem-title"><strong>Theorem B.1 </strong></span>Consider two samples of the same size <span class="math inline">\(n\)</span>. Suppose the sample mean is equivalent in both samples, and consider testing the hypotheses</p>
+<p><span class="math display">\[H_0: \mu = \mu_0 \qquad \text{vs.} \qquad H_1: \mu \neq \mu_0\]</span></p>
+<p>with each sample. The difference in the sum of squares</p>
+<p><span class="math display">\[SS_0 - SS_1 = \sum_{i=1}^{n} \left(y_i - \mu_0\right)^2 - \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2\]</span></p>
+<p>will be the same for each sample.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Observe that the difference in the sums of squares can be written as</p>
+<p><span class="math display">\[
+\begin{aligned}
+  SS_0 - SS_1
+    &amp;= \sum_{i=1}^{n} \left(y_i - \mu_0\right)^2 - \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2 \\
+    &amp;= \sum_{i=1}^{n} \left[\left(y_i - \mu_0\right)^2 - \left(y_i - \bar{y}\right)^2\right] \\
+    &amp;= \sum_{i=1}^{n} \left[y_i^2 - 2y_i \mu_0 + \mu_0^2 - y_i^2 + 2y_i \bar{y} - \bar{y}^2\right] \\
+    &amp;= \sum_{i=1}^{n} \left[\mu_0^2 - 2y_i \left(\mu_0 - \bar{y}\right) - \bar{y}^2\right] \\
+    &amp;= \sum_{i=1}^{n} \mu_0^2 - 2\left(\mu_0 - \bar{y}\right)\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \bar{y}^2 \\
+    &amp;= n\mu_0^2 - 2n\mu_0 \bar{y} + 2n\bar{y}^2 - n\bar{y}^2 \\
+    &amp;= n\mu_0^2 - 2n\mu_0 \bar{y} + n\bar{y}^2 \\
+    &amp;= n \left(\mu_0 - \bar{y}\right)^2.
+\end{aligned}
+\]</span></p>
+<p>That is, the difference in the sum of squares is a function only of the null value and the sample mean. Therefore, if two samples of the same size have the same sample mean, then the difference in the sums of squares will be equivalent for the two samples.</p>
+</div>
+</section>
+<section id="single-mean-response-two-standardized-statistics" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="single-mean-response-two-standardized-statistics"><span class="header-section-number">B.2</span> Single Mean Response, Two Standardized Statistics</h2>
+<p>In <a href="02e-teststat.html"><span>Chapter&nbsp;12</span></a>, we presented the standardized statistic</p>
+<p><span class="math display">\[T_1^* = \frac{SS_0 - SS_1}{s^2}.\]</span></p>
+<p>However, another popular standardized statistic for testing hypotheses for a single mean is</p>
+<p><span class="math display">\[T_2^* = \frac{\sqrt{n} \left(\bar{y} - \mu_0\right)}{s}.\]</span></p>
+<p>However, these two standardized statistics are related.</p>
+<div id="thm-app-teststat-two-statistics" class="theorem">
+<p><span class="theorem-title"><strong>Theorem B.2 </strong></span>Consider a sample of size <span class="math inline">\(n\)</span> collected to test the following hypotheses:</p>
+<p><span class="math display">\[H_0: \mu = \mu_0 \qquad \text{vs.} \qquad H_1: \mu \neq \mu_0.\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[T_1^* = \frac{SS_0 - SS_1}{s^2},\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+  SS_0 &amp;= \sum_{i=1}^{n} \left(y_i - \mu_0\right)^2 \\
+  SS_1 &amp;= \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2.
+\end{aligned}
+\]</span></p>
+<p>And, define</p>
+<p><span class="math display">\[T_2^* = \frac{\sqrt{n} \left(\bar{y} - \mu_0\right)}{s}\]</span></p>
+<p>where <span class="math inline">\(s\)</span> is the sample standard deviation. Then, <span class="math inline">\(T_1^* = \left(T_2^*\right)^2\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>From the proof of <a href="#thm-app-teststat-same-signal">Theorem&nbsp;<span>B.1</span></a>, we have that</p>
+<p><span class="math display">\[SS_0 - SS_1 = n \left(\mu_0 - \bar{y}\right)^2.\]</span></p>
+<p>We can then rewrite <span class="math inline">\(T_1^*\)</span> as</p>
+<p><span class="math display">\[T_1^* = \frac{n\left(\mu_0 - \bar{y}\right)^2}{s^2}.\]</span></p>
+<p>This form of <span class="math inline">\(T_1^*\)</span> then makes the result clear.</p>
+</div>
+</section>
+<section id="least-squares-estimate-for-intercept-only-model" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="least-squares-estimate-for-intercept-only-model"><span class="header-section-number">B.3</span> Least Squares Estimate for Intercept-Only Model</h2>
+<p>In <a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a>, we state that the least squares estimate for the parameter <span class="math inline">\(\mu\)</span> in a model of the data generating process that has the form</p>
+<p><span class="math display">\[(\text{Response})_i = \mu + \varepsilon_i\]</span></p>
+<p>is the sample mean response. While this is the intuitive estimate for <span class="math inline">\(\mu\)</span> we presented in <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a>, we had not yet related that to the method of least squares introduced in <a href="03f-regmodel.html"><span>Chapter&nbsp;17</span></a>.</p>
+<div id="thm-app-teststat-ls-one" class="theorem">
+<p><span class="theorem-title"><strong>Theorem B.3 </strong></span>Consider a sample of size <span class="math inline">\(n\)</span>; suppose we posit the following model for the data generating process:</p>
+<p><span class="math display">\[y_i = \mu + \varepsilon_i\]</span></p>
+<p>where <span class="math inline">\(y_i\)</span> represents the <span class="math inline">\(i\)</span>-th observed value of the response variable and <span class="math inline">\(\mu\)</span> is the sole parameter. The least squares estimate of <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\bar{y}\)</span>, the sample mean.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Observe that, by definition (see <a href="03f-regmodel.html#def-least-squares-estimates">Definition&nbsp;<span>17.2</span></a>), the least squares estimate for this model is the value of <span class="math inline">\(\mu\)</span> which minimizes the quantity</p>
+<p><span class="math display">\[\sum_{i=1}^{n} \left(y_i - \mu\right)^2.\]</span></p>
+<p>Observe that if we add and subtract the sample mean <span class="math inline">\(\bar{y}\)</span> inside the squared quantity, we can rewrite the above quantity as</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sum_{i=1}^{n} \left(y_i - \mu\right)^2
+    &amp;= \sum_{i=1}^{n} \left(y_i - \bar{y} + \bar{y} - \mu\right)^2 \\
+    &amp;= \sum_{i=1}^{n} \left[\left(y_i - \bar{y}\right)^2 + 2\left(y_i - \bar{y}\right)\left(\bar{y} - \mu\right) + \left(\bar{y} - \mu\right)^2\right] \\
+    &amp;= \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2 + 2\left(\bar{y} - \mu\right) \sum_{i=1}^{n}\left(y_i - \bar{y}\right) + \sum_{i=1}^{n}\left(\bar{y} - \mu\right)^2 \\
+    &amp;= \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2 + 2\left(\bar{y} - \mu\right) \left(n\bar{y} - n\bar{y}\right) + n\left(\bar{y} - \mu\right)^2,
+\end{aligned}
+\]</span></p>
+<p>where we make use of the fact that <span class="math inline">\(\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i\)</span> implies that <span class="math inline">\(\sum_{i=1}^{n} y_i = n\bar{y}\)</span>. Now, we notice that the second term in the above expansion resolves to 0. Therefore, we have that</p>
+<p><span class="math display">\[\sum_{i=1}^{n} \left(y_i - \mu\right)^2 = \sum_{i=1}^{n} \left(y_i - \bar{y}\right)^2 + n\left(\bar{y} - \mu\right)^2.\]</span></p>
+<p>Notice that the second term is a squared difference; therefore, the second term must always be non-negative. Therefore, the second term can only make the sum larger; further, the second term will reach 0, the smallest value possible, when <span class="math inline">\(\mu = \bar{y}\)</span>. Therefore, the sum is minimized when we take <span class="math inline">\(\mu = \bar{y}\)</span>. This gives that <span class="math inline">\(\bar{y}\)</span> minimizes the quantity of interest.</p>
+</div>
+<p>This theorem allows us to conclude that the error sum of squares for a model of the form</p>
+<p><span class="math display">\[(\text{Response})_i = \mu + \varepsilon_i\]</span></p>
+<p>is given by</p>
+<p><span class="math display">\[\sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Mean Response})\right]^2,\]</span></p>
+<p>where the overall mean response is the sample mean response observed.</p>
+</section>
+<section id="class-of-hypotheses-that-are-testable" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="class-of-hypotheses-that-are-testable"><span class="header-section-number">B.4</span> Class of Hypotheses that are Testable</h2>
+<p><a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a> developed a general standardized statistic for testing hypotheses in a linear model described by <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>. <a href="03j-regextensions.html"><span>Chapter&nbsp;21</span></a> extended this standardized statistic to all linear models. This standardized statistic allows us to have a unifying testing framework across the text. However, not all hypotheses can be tested using this standardized statistic. This framework applies to linear hypotheses. For example, consider the model (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>):</p>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_i + \varepsilon_i.\]</span></p>
+<p>For this model, we can use the standardized statistic in <a href="03h-regquality.html#def-standard-f">Definition&nbsp;<span>19.7</span></a> to test any null hypothesis of the form</p>
+<p><span class="math display">\[H_0: c_0\beta_0 = c_2, \ c_1\beta_1 = c_3\]</span></p>
+<p>or</p>
+<p><span class="math display">\[H_0: c_0\beta_0 + c_1\beta_1 = c_2,\]</span></p>
+<p>where <span class="math inline">\(c_0, c_1, c_2, c_3\)</span> are known constants. That is, we can test a hypothesis of the form</p>
+<p><span class="math display">\[H_0: \beta_1 = 0 \qquad \text{vs.} \qquad H_1: \beta_1 \neq 0\]</span></p>
+<p>because this can be written by setting <span class="math inline">\(c_1 = 1\)</span> and <span class="math inline">\(c_0 = c_2 = c_3 = 0\)</span> in the first form of the hypothesis given above. We can also test a hypothesis of the form</p>
+<p><span class="math display">\[H_0: \beta_1 = 0, \beta_0 = 3 \qquad \text{vs.} \qquad H_1: \text{At least one } \beta_j \text{ differs}\]</span></p>
+<p>which corresponds to a reduce model of</p>
+<p><span class="math display">\[(\text{Response})_i = 3 + \varepsilon_i\]</span></p>
+<p>because this can be written by setting <span class="math inline">\(c_0 = c_1 = 1\)</span>, <span class="math inline">\(c_2 = 3\)</span>, and <span class="math inline">\(c_3 = 0\)</span> in the first form of the hypothesis given above.</p>
+<p>However, we cannot test a hypothesis of the form <span class="math inline">\(\beta_0\beta_1 = 1\)</span>; while this may be a valid hypothesis, it cannot be written in either of the above forms described above. We would need additional theory to test such a hypothesis.</p>
+</section>
+<section id="equivalence-of-hypotheses-with-blocking" class="level2" data-number="B.5">
+<h2 data-number="B.5" class="anchored" data-anchor-id="equivalence-of-hypotheses-with-blocking"><span class="header-section-number">B.5</span> Equivalence of Hypotheses with Blocking</h2>
+<p>Our model for the data generating process comparing a quantitative response across the <span class="math inline">\(k\)</span> levels of a factor in the presence of <span class="math inline">\(b\)</span> blocks is</p>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j (\text{Group } j)_i + \sum_{m=2}^{b} \beta_m (\text{Block } m)_i + \varepsilon_i\]</span></p>
+<p>where <span class="math inline">\((\text{Group } j)\)</span> and <span class="math inline">\((\text{Block } m)\)</span> are appropriately defined indicator variables. Without loss of generality, consider the case where <span class="math inline">\(k = 2\)</span> and <span class="math inline">\(b = 2\)</span>. Then, our model reduces to</p>
+<p><span class="math display">\[(\text{Response})_i = \mu_1 (\text{Group 1})_i + \mu_2 (\text{Group 2})_i + \beta_2 (\text{Block 2})_i + \varepsilon_i.\]</span></p>
+<p>We argue heuristically in <a href="05f-blockmodel.html"><span>Chapter&nbsp;36</span></a> that testing the hypotheses</p>
+<p><span class="math display">\[H_0: \mu_1 = \mu_2 \qquad \text{vs.} \qquad H_1: \mu_1 \neq \mu_2\]</span></p>
+<p>which are hypotheses about the average response <em>in Block 1</em> is equivalent to testing hypotheses about the overall average response across all blocks. To establish this more formally, note that based on the above model for the data generating process, the overall average response for Group 1, call it <span class="math inline">\(\theta_1\)</span>, is given by</p>
+<p><span class="math display">\[\theta_1 = \frac{1}{2} \mu_1 + \frac{1}{2} \left(\mu_1 + \beta_2\right) = \mu_1 + \frac{\beta_2}{2},\]</span></p>
+<p>where we average the average response from Block 1 with that of Block 2. Similarly, the average response for Group 2, call it <span class="math inline">\(\theta_2\)</span>, is given by</p>
+<p><span class="math display">\[\theta_2 = \frac{1}{2} \mu_2 + \frac{1}{2} \left(\mu_2 + \beta_2\right) = \mu_2 + \frac{\beta_2}{2}.\]</span></p>
+<p>Now, note that <span class="math inline">\(\theta_1 - \theta_2 = \mu_1 - \mu_2\)</span>; therefore, <span class="math inline">\(\theta_1 = \theta_2\)</span> if and only if <span class="math inline">\(\mu_1 = \mu_2\)</span>. That is, testing whether the overall average response across all individuals is equal across groups is equivalent to testing whether the average response within Block 1 is equal across groups.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./app-theory.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./app-glossary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

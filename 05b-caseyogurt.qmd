@@ -1,0 +1,29 @@
+# Case Study: Paying a Premium for the Experience {#sec-caseyogurt}
+
+{{< include _setupcode.qmd >}}
+
+Around 2010, Americans were in love with frozen yogurt.  Self-serve frozen yogurt shops were popping up in towns across the country.  By 2016, the craze had begun to subside[^yogurtcraze].  What happened to this once booming industry?  One possibility is that consumers began to believe that they were paying a premium for the experience; that is, consumers were paying an increased price to purchase a product in a self-serve shop that could be purchased for much less at a local grocery store.  Under this theory, the increased price point reflected the experience of eating at the yogurt shop, not an improvement in the quality of the product purchased.  While we cannot fully determine why self-serve shops began to disappear, we can assess whether consumers identify a difference in the quality of yogurt from self-serve shops compared with their local grocery retailer.
+
+A group of college students taking a Practice of Science class at a small university conducted a study in which nine consumers were given a cup of vanilla yogurt from each of three different locations: 
+
+  - East-Side Yogurt: a local frozen yogurt self-serve shop on the east side of town.
+  - South-Side Yogurt: a local frozen yogurt self-serve shop on the south side of town.
+  - Name Brand: frozen yogurt from a name-brand regional dairy available at local grocery retailers.
+  
+The order in which each participant tasted the yogurt was determined randomly.  Each cup was labeled A, B or C to prevent participants from knowing which location each cup represented.  The participants were asked to rate the taste, the texture, and the appearance of each cup on a 10-point scale (higher values representing a more appetizing score).
+
+The full dataset is presented below.
+
+```{r}
+#| label: tbl-caseyogurt-table
+#| tbl-cap: Subset of data from blind taste test comparing the qualities of frozen yogurt across three vendors.
+
+yogurt.df |>
+  rename(`Taste Rating` = Taste,
+         `Texture Rating` = Texture,
+         `Appearance Rating` = Appearance) |>
+  mutate(Type = str_remove_all(Type, pattern = ' Yogurt')) |>
+  mykable()
+```
+
+[^yogurtcraze]: <https://www.washingtonpost.com/business/economy/baked-goods-coffee-and-cash-rise-from-the-ashes-of-the-frozen-yogurt-craze/2015/12/05/3c1e7d72-99fd-11e5-b499-76cbec161973_story.html?noredirect=on&utm_term=.5012f2fabf08>

@@ -1,0 +1,7 @@
+"0","#| label: fig-blockassessment-normal-yogurt"
+"0","#| fig-cap: Probability plot of the residuals for the Frozen Yogurt Case Study.  If the errors follow a Normal distribution, we would expect the residuals to fall along a straight line."
+"0","#| fig-alt: Plot of the sample quantiles against the theoretical quantiles exhibiting a straight line."
+"0","ggplot(data = yogurt.augmented,"
+"0","       mapping = aes(sample = .resid)) +"
+"0","  geom_qq() +"
+"0","  labs(x = ""Theoretical Quantiles"", y = ""Sample Quantiles"") "

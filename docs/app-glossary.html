@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Modeling for Engineers and Scientists - Appendix C — Glossary and List of Models</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./app-teststat.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="mystyles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-theory.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-glossary.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Modeling</a> 
+        <div class="sidebar-tools-main">
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01b-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01c-casedeepwater.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01d-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01e-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f-summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01g-samplingdistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01h-nulldistns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01i-recaplanguage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02b-casebabies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Case Study: Birth Weights of Babies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02c-meanmodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02d-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02e-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03b-casegreece.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Case Study: Seismic Activity in Greece</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03c-regquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Myriad of Potential Questions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03d-regdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nature of Collecting Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03e-regsummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarizing Multivariable Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03f-regmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bulding our Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03g-regconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03h-regquality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03i-regassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03j-regextensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03k-regrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04b-caseorganic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Case Study: Organic Foods and Superior Morals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04c-anovaquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04d-anovadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04e-anovasummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04f-anovamodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04g-anovaconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04h-anovateststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04i-anovaassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04j-anovarecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05b-caseyogurt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Case Study: Paying a Premium for the Experience</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05c-blockquestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Framing the Question</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05d-blockdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05e-blocksummaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Presenting Correlated Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05f-blockmodel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Modeling Correlated Responses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05g-blockconditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of the Repeated Measures ANOVA Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05h-blockteststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05i-blockassessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in Repeated Measures ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05j-blockrecap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-teststat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-glossary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#models-for-the-data-generating-process" id="toc-models-for-the-data-generating-process" class="nav-link active" data-scroll-target="#models-for-the-data-generating-process"><span class="header-section-number">C.1</span> Models for the Data Generating Process</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">C.2</span> Glossary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix C — Glossary and List of Models</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="models-for-the-data-generating-process" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="models-for-the-data-generating-process"><span class="header-section-number">C.1</span> Models for the Data Generating Process</h2>
+<p>This text takes a modeling approach to inference. The following models are introduced in the text; each model is presented with a link to where the model was fully defined in the text.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Generating Process for Single Mean Response (<a href="02c-meanmodels.html#eq-single-mean">Equation&nbsp;<span>10.2</span></a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In general, given a quantitative response variable and no predictors, our model for the data generating process is</p>
+<p><span class="math display">\[(\text{Response})_i = \mu + \epsilon_i\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> represents the average response in the population, the parameter of interest.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Simple Linear Regression Model (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a quantitative response and a quantitative predictor, the general form of the simple linear regression model is</p>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_i + \varepsilon_i\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters governing the model for the data generating process.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Linear Regression Model (<a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a quantitative response and one or more predictors, the general form of the linear regression model is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\text{Response})_i
+    &amp;= \beta_0 + \beta_1 (\text{Predictor 1})_i + \beta_2(\text{Predictor 2})_i + \dotsb + \beta_p (\text{Predictor } p)_i + \varepsilon_i \\
+    &amp;= \beta_0 + \sum_{j=1}^{p} \beta_j (\text{Predictor j})_i + \varepsilon_i
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\beta_j\)</span> for <span class="math inline">\(j = 0, 1, 2, \dotsc, p\)</span> are the <span class="math inline">\(p + 1\)</span> parameters governing the model for the data generating process.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ANOVA Model (<a href="04f-anovamodel.html#eq-anova">Equation&nbsp;<span>27.2</span></a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a quantitative response and a single categorical predictor (also known as a factor) with <span class="math inline">\(k\)</span> levels, the ANOVA model is</p>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j = 1}^{k} \mu_j (\text{Group } j)_i + \varepsilon_i\]</span></p>
+<p>where</p>
+<p><span class="math display">\[(\text{Group } j)_i = \begin{cases} 1 &amp; \text{i-th unit belongs to group } j \\ 0 &amp; \text{otherwise} \end{cases}\]</span></p>
+<p>is an indicator variable capturing whether a unit belongs to the <span class="math inline">\(j\)</span>-th group and <span class="math inline">\(\mu_1, \mu_2, \dotsc, \mu_k\)</span> are the parameters governing the model for the data generating process.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Repeated Measures ANOVA Model (<a href="05f-blockmodel.html#eq-blocks">Equation&nbsp;<span>36.2</span></a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a quantitative response and a single categorical predictor (also known as a factor) with <span class="math inline">\(k\)</span> levels in the presence of <span class="math inline">\(b\)</span> blocks, the repeated measures ANOVA model is</p>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j = 1}^{k} \mu_j (\text{Group } j)_i + \sum_{m = 2}^{b} \beta_m (\text{Block } m)_i + \varepsilon_i\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\text{Group } j)_i
+    &amp;= \begin{cases} 1 &amp; \text{i-th unit belongs to group } j \\ 0 &amp; \text{otherwise} \end{cases} \\
+  (\text{Block } m)_i
+    &amp;= \begin{cases} 1 &amp; \text{i-th unit belongs to block } m \\ 0 &amp; \text{otherwise} \end{cases}
+\end{aligned}
+\]</span></p>
+<p>are indicator variables capturing whether a unit belongs to the <span class="math inline">\(j\)</span>-th group and <span class="math inline">\(m\)</span>-th block, respectively; and, <span class="math inline">\(\mu_1, \mu_2, \dotsc, \mu_k\)</span> and <span class="math inline">\(\beta_2, \beta_3, \dotsc, \beta_b\)</span> are the parameters governing the model for the data generating process.</p>
+<p>This model assumes any differences between groups are similar across all blocks.</p>
+</div>
+</div>
+</section>
+<section id="glossary" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="glossary"><span class="header-section-number">C.2</span> Glossary</h2>
+<p>The following key terms were defined in the text; each term is presented with a link to where the term was first encountered in the text.</p>
+<dl>
+<dt>Alternative Hypothesis (<a href="01d-questions.html#def-alternative-hypothesis">Definition&nbsp;<span>3.10</span></a>)</dt>
+<dd>
+The statement (or theory) about the parameter capturing what we would like to provide evidence <em>for</em>; this is the opposite of the null hypothesis. This is denoted <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_a\)</span>, read “H-one” and “H-A” respectively.
+</dd>
+<dt>Average (<a href="01f-summaries.html#def-average">Definition&nbsp;<span>5.2</span></a>)</dt>
+<dd>
+Also known as the “mean,” this measure of location represents the balance point for the distribution. If <span class="math inline">\(x_i\)</span> represents the <span class="math inline">\(i\)</span>-th value of the variable <span class="math inline">\(x\)</span> in the sample, the sample mean is typically denoted by <span class="math inline">\(\bar{x}\)</span>.
+</dd>
+</dl>
+<p>For a sample of size <span class="math inline">\(n\)</span>, it is computed by <span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i.\]</span></p>
+<p>When referencing the average for a population, the mean is also called the “Expected Value,” and is often denoted by <span class="math inline">\(\mu\)</span>.</p>
+<dl>
+<dt>Between Group Variability (<a href="04h-anovateststat.html#def-between-group-variability">Definition&nbsp;<span>29.1</span></a>)</dt>
+<dd>
+When comparing a quantitative response across groups, the between group variability is the variability in the average response from one group to another.
+</dd>
+<dt>Bias (<a href="01e-data.html#def-bias">Definition&nbsp;<span>4.1</span></a>)</dt>
+<dd>
+A set of measurements is said to be biased if they are <em>consistently</em> too high (or too low). Similarly, an estimate of a parameter is said to be biased if it is <em>consistently</em> too high (or too low).
+</dd>
+<dt>Blocking (<a href="04d-anovadata.html#def-blocking">Definition&nbsp;<span>25.5</span></a>)</dt>
+<dd>
+Blocking is a way of minimizing the variability contributed by an inherent characteristic that results in dependent observations. In some cases, the blocks are the unit of observation which is sampled from a larger population, and multiple observations are taken on each unit. In other cases, the blocks are formed by grouping the units of observations according to an inherent characteristic; in these cases that shared characteristic can be thought of having a value that was sampled from a larger population.
+</dd>
+</dl>
+<p>In both cases, the observed blocks can be thought of as a random sample; within each block, we have multiple observations, and the observations from the same block are more similar than observations from different blocks.</p>
+<dl>
+<dt>Bootstrapping (<a href="01g-samplingdistns.html#def-bootstrap">Definition&nbsp;<span>6.3</span></a>)</dt>
+<dd>
+A method of modeling the sampling distribution by repeatedly resampling from the original data.
+</dd>
+<dt>Categorical Variable (<a href="01b-basics.html#def-categorical">Definition&nbsp;<span>1.5</span></a>)</dt>
+<dd>
+Also called a “qualitative variable,” a measurement on a subject which denotes a grouping or categorization.
+</dd>
+<dt>Classical ANOVA Model (<a href="04g-anovaconditions.html#def-classical-anova">Definition&nbsp;<span>28.1</span></a>)</dt>
+<dd>
+For a quantitative response and single categorical predictor with <span class="math inline">\(k\)</span> levels, the classical ANOVA model assumes the following data generating process:
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j (\text{Group } j)_i + \varepsilon_i\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+(\text{Group } j)_{i} = \begin{cases}
+  1 &amp; \text{if i-th observation belongs to group } j \\
+  0 &amp; \text{otherwise}
+  \end{cases}
+\]</span></p>
+<p>are indicator variables and where</p>
+<ol type="1">
+<li>The error in the response for one subject is independent of the error in the response for all other subjects.</li>
+<li>The errors are identically distributed for all groups. This is often stated as the variability in the error of the response within each group is the same across all groups.</li>
+<li>The errors follow a Normal Distribution.</li>
+</ol>
+<p>This is the default “ANOVA” analysis implemented in the majority of statistical packages.</p>
+<dl>
+<dt>Classical Regression Model (<a href="03g-regconditions.html#def-classical-regression">Definition&nbsp;<span>18.3</span></a>)</dt>
+<dd>
+For a quantitative response and single predictor, the classical regression model assumes the following data generating process:
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_{i} + \epsilon_i\]</span></p>
+<p>where</p>
+<ol type="1">
+<li>The error in the response has a mean of 0 for all values of the predictor.</li>
+<li>The error in the response for one subject is independent of the error in the response for all other subjects.</li>
+<li>The errors are identically distributed for all values of the predictor. This is often stated as the variability in the error of the response is the same for all values of the predictor.</li>
+<li>The errors follow a Normal Distribution.</li>
+</ol>
+<p>This is the default “regression” analysis implemented in the majority of statistical packages.</p>
+<dl>
+<dt>Classical Repeated Measures ANOVA Model (<a href="05g-blockconditions.html#def-classical-repeated-measures-anova">Definition&nbsp;<span>37.1</span></a>)</dt>
+<dd>
+For a quantitative response and single categorical predictor with <span class="math inline">\(k\)</span> levels in the presence of <span class="math inline">\(b\)</span> blocks, the classical repeated measures ANOVA model assumes the following data generating process:
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j (\text{Group } j)_i + \sum_{m=2}^{b} \beta_m (\text{Block } m)_i + \varepsilon_i\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\text{Group } j)_{i} &amp;= \begin{cases}
+    1 &amp; \text{if i-th observation belongs to group j} \\
+    0 &amp; \text{otherwise}
+    \end{cases} \\
+  (\text{Block } m)_{i} &amp;= \begin{cases}
+    1 &amp; \text{if i-th observation belongs to block m} \\
+    0 &amp; \text{otherwise}
+    \end{cases}
+\end{aligned}
+\]</span></p>
+<p>are indicator variables and where</p>
+<ol type="1">
+<li>The error in the response for one subject is independent of the error in the response for all other subjects.</li>
+<li>The errors are identically distributed for all groups and blocks. This is often stated as the variability in the error of the response is the same across all predictors.</li>
+<li>The errors follow a Normal distribution.</li>
+<li>Any differences between the groups are similar across all blocks. This results from the deterministic portion of the model for the data generating process being correctly specified and is equivalent to saying the error in the response, on average, takes a value of 0 for all predictors.</li>
+<li>The effect of a block on the response is independent of the effect of any other block on the response.</li>
+<li>The effect of a block on the response is independent of the error in the response for all subjects.</li>
+<li>The block effects follow a Normal distribution.</li>
+</ol>
+<p>This is the default “repeated measures ANOVA” analysis implemented in the majority of statistical packages.</p>
+<dl>
+<dt>Codebook (<a href="01b-basics.html#def-codebook">Definition&nbsp;<span>1.7</span></a>)</dt>
+<dd>
+Also called a “data dictionary,” these provide complete information regarding the variables contained within a dataset.
+</dd>
+<dt>Confidence Interval (<a href="01g-samplingdistns.html#def-confidence-interval">Definition&nbsp;<span>6.5</span></a>)</dt>
+<dd>
+An interval (range of values) estimate of a parameter that incorporates the variability in the statistic. The process of constructing a <span class="math inline">\(k\)</span>% confidence interval results in these intervals containing the parameter of interest in <span class="math inline">\(k\)</span>% of repeated studies. The value of <span class="math inline">\(k\)</span> is called the <em>confidence level</em>.
+</dd>
+<dt>Confounding (<a href="01e-data.html#def-confounding">Definition&nbsp;<span>4.6</span></a>)</dt>
+<dd>
+When the effect of a variable on the response is mis-represented due to the presence of a third, potentially unobserved, variable known as a confounder.
+</dd>
+<dt>Controlled Experiment (<a href="01e-data.html#def-controlled-experiment">Definition&nbsp;<span>4.5</span></a>)</dt>
+<dd>
+A study in which each subject is <em>randomly</em> assigned to one of the groups being compared in the study.
+</dd>
+<dt>Correlation Coefficient (<a href="03e-regsummaries.html#def-correlation-coefficient">Definition&nbsp;<span>16.1</span></a>)</dt>
+<dd>
+A numerical measure of the <em>strength</em> and <em>direction</em> of the <em>linear</em> relationship between two quantitative variables.
+</dd>
+</dl>
+<p>The classical Pearson Correlation Coefficient <span class="math inline">\(r\)</span> is given by the following formula:</p>
+<p><span class="math display">\[r = \frac{\sum_{i=1}^{n} \left(x_i - \bar{x}\right)\left(y_i - \bar{y}\right)}{\sqrt{\sum_{i=1}^n \left(x_i - \bar{x}\right)^2 \sum_{i=1}^n \left(y_i - \bar{y}\right)^2}}\]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> represent the sample means of the predictor and response, respectively.</p>
+<dl>
+<dt>Degrees of Freedom (<a href="03h-regquality.html#def-df">Definition&nbsp;<span>19.5</span></a>)</dt>
+<dd>
+A measure of the flexibility in a sum of squares term; when a sum of squares is divided by the corresponding degrees of freedom, the result is a variance term.
+</dd>
+<dt>Deterministic Process (<a href="02c-meanmodels.html#def-deterministic-process">Definition&nbsp;<span>10.1</span></a>)</dt>
+<dd>
+A process for which the output is completely determined by the input(s). That is, the output can be determined with certainty.
+</dd>
+<dt>Distribution (<a href="01d-questions.html#def-distribution">Definition&nbsp;<span>3.3</span></a>)</dt>
+<dd>
+The pattern of variability corresponding to a set of values.
+</dd>
+<dt>Distribution of the Population (<a href="01f-summaries.html#def-distribution-population">Definition&nbsp;<span>5.9</span></a>)</dt>
+<dd>
+The pattern of variability in values of a variable at the population level. Generally, this is impossible to know, but we might model it.
+</dd>
+<dt>Distribution of the Sample (<a href="01f-summaries.html#def-distribution-sample">Definition&nbsp;<span>5.6</span></a>)</dt>
+<dd>
+The pattern of variability in the observed values of a variable.
+</dd>
+<dt>Error Sum of Squares (<a href="03h-regquality.html#def-sse">Definition&nbsp;<span>19.3</span></a>)</dt>
+<dd>
+The Error Sum of Squares, abbreviated SSE and sometimes referred to as the Residual Sum of Squares, is given by
+</dd>
+</dl>
+<p><span class="math display">\[SSE = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Predicted Mean Response})_i\right]^2\]</span></p>
+<p>where the predicted mean response is computed using the least squares estimates.</p>
+<dl>
+<dt>Estimation (<a href="01d-questions.html#def-estimation">Definition&nbsp;<span>3.7</span></a>)</dt>
+<dd>
+Using the sample to approximate the value of a parameter from the underlying population.
+</dd>
+<dt>Extrapolation (<a href="03g-regconditions.html#def-extrapolation">Definition&nbsp;<span>18.1</span></a>)</dt>
+<dd>
+Using a model to predict outside of the region for which data is available.
+</dd>
+<dt>Factor (<a href="04c-anovaquestions.html#def-factor">Definition&nbsp;<span>24.1</span></a>)</dt>
+<dd>
+Also referred to as the “treatment” in some settings, a factor is a categorical predictor. The categories represented by this categorical variable are called “levels.”
+</dd>
+<dt>Frequency (<a href="01d-questions.html#def-frequency">Definition&nbsp;<span>3.4</span></a>)</dt>
+<dd>
+The number of observations in a sample falling into a particular group (level) defined by a categorical variable.
+</dd>
+<dt>Hypothesis Testing (<a href="01d-questions.html#def-hypothesis-testing">Definition&nbsp;<span>3.8</span></a>)</dt>
+<dd>
+Using a sample to determine if the data is consistent with a working theory or if there is evidence to suggest the data is not consistent with the theory.
+</dd>
+<dt>Identically Distributed (<a href="02c-meanmodels.html#def-identically-distributed">Definition&nbsp;<span>10.4</span></a>)</dt>
+<dd>
+A set of random variables is said to be identically distributed if they are from the same population.
+</dd>
+</dl>
+<p>Similarly, a set of observations is said to be identically distributed if they share the same data generating process.</p>
+<dl>
+<dt>Independence (<a href="02c-meanmodels.html#def-independence">Definition&nbsp;<span>10.3</span></a>)</dt>
+<dd>
+Two random variables are said to be independent when the likelihood that one random variable takes on a particular value does not depend on the value of the other random variable.
+</dd>
+</dl>
+<p>Similarly, two observations are said to be independent when the likelihood that one observation takes on a particular value does not depend on the value of the other observation.</p>
+<dl>
+<dt>Indicator Variable (<a href="03j-regextensions.html#def-indicator-variable">Definition&nbsp;<span>21.1</span></a>)</dt>
+<dd>
+An indicator variable is a binary (takes the value 0 or 1) variable used to represent whether an observation belongs to a specific group defined by a categorical variable.
+</dd>
+<dt>Interaction Term (<a href="03j-regextensions.html#def-interaction-term">Definition&nbsp;<span>21.5</span></a>)</dt>
+<dd>
+A variable resulting from taking the product of two predictors in a regression model. The product allows the effect of one predictor to depend on another predictor, essentially modifying the effect.
+</dd>
+<dt>Interquartile Range (<a href="01f-summaries.html#def-interquartile-range">Definition&nbsp;<span>5.5</span></a>)</dt>
+<dd>
+Often abbreviated as IQR, this is the distance between the first and third quartiles. This measure of spread indicates the range over which the middle 50% of the data is spread.
+</dd>
+<dt>Law of Large Numbers (<a href="01g-samplingdistns.html#def-lln">Definition&nbsp;<span>6.1</span></a>)</dt>
+<dd>
+For our purposes, the Law of Large Numbers essentially says that as a sample size gets infinitely large, a statistic will become arbitrarily close (extremely good approximation) of the parameter it estimates.
+</dd>
+<dt>Least Squares Estimates (<a href="03f-regmodel.html#def-least-squares-estimates">Definition&nbsp;<span>17.2</span></a>)</dt>
+<dd>
+Often called the “best fit line,” these are the estimates of the parameters in a regression model chosen to minimize the sum of squared errors. Formally, for <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>, they are the values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> which minimize the quantity
+</dd>
+</dl>
+<p><span class="math display">\[\sum_{i=1}^n \left[(\text{Response})_i - \beta_0 - \beta_1(\text{Predictor})_{i}\right]^2.\]</span></p>
+<p>The resulting estimates are often denoted by <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>.</p>
+<dl>
+<dt>Least Squares Estimates for General Linear Model (<a href="03j-regextensions.html#def-mlr-least-squares-estimates">Definition&nbsp;<span>21.3</span></a>)</dt>
+<dd>
+The least squares estimates for a general linear model (<a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>) are the values of <span class="math inline">\(\beta_0, \beta_1, \beta_2, \dotsc, \beta_p\)</span> which minimize the quantity
+</dd>
+</dl>
+<p><span class="math display">\[\sum_{i=1}^n \left[(\text{Response})_i - \beta_0 - \sum_{j=1}^{p} \beta_j(\text{Predictor } j)_{i}\right]^2.\]</span></p>
+<dl>
+<dt>Mean Square (<a href="03h-regquality.html#def-ms">Definition&nbsp;<span>19.6</span></a>)</dt>
+<dd>
+A mean square is the ratio of a sum of squares and its corresponding degrees of freedom. For a model of the form in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>, we have
+</dd>
+</dl>
+<ul>
+<li><strong>Mean Square Total (MST)</strong>: estimated variance of the responses; this is the same as the sample variance of the response.</li>
+<li><strong>Mean Square for Regression (MSR)</strong>: estimated variance of the predicted responses.</li>
+<li><strong>Mean Square Error (MSE)</strong>: estimated variance of the error terms; this is equivalent to the estimated variance of the response for a given value of the predictor (the variance of the response about the regression line).</li>
+</ul>
+<p>In each case, the mean square is an estimated variance.</p>
+<dl>
+<dt>Mean Square (in ANOVA) (<a href="04h-anovateststat.html#def-ms-anova">Definition&nbsp;<span>29.3</span></a>)</dt>
+<dd>
+A mean square is the ratio of a sum of squares and its corresponding degrees of freedom. For a model of the form in <a href="04f-anovamodel.html#eq-anova">Equation&nbsp;<span>27.2</span></a>, we have
+</dd>
+</dl>
+<ul>
+<li><strong>Mean Square Total (MST)</strong>: estimated variance of the responses; this is the same as the sample variance of the response.</li>
+<li><strong>Mean Square for Regression (MSR)</strong>: estimated variance of the sample mean responses from each group; this is also called the Mean Square for Treatment (MSTrt) in ANOVA.</li>
+<li><strong>Mean Square Error (MSE)</strong>: estimated variance of the error terms; this is equivalent to the estimated variance of the response within a group.</li>
+</ul>
+<p>In each case, the mean square is an estimated variance. These are equivalent to the MST, MSR, and MSE in the regression model (<a href="03h-regquality.html#def-ms">Definition&nbsp;<span>19.6</span></a>).</p>
+<dl>
+<dt>Multivariable (<a href="03d-regdata.html#def-multivariable">Definition&nbsp;<span>15.1</span></a>)</dt>
+<dd>
+This term refers to questions of interest which involve more than a single variable. Often, these questions involve many variables. Multivariable models typically refer to a model with two or more predictors.
+</dd>
+<dt>Normal Distribution (<a href="03g-regconditions.html#def-normal-distribution">Definition&nbsp;<span>18.2</span></a>)</dt>
+<dd>
+Also called the Gaussian Distribution, this probability model is popular for modeling noise within a data generating process. It has the following characteristics:
+</dd>
+</dl>
+<ul>
+<li>It is bell-shaped.</li>
+<li>It is symmetric, meaning the mean is directly at its center, and the lower half of the distribution looks like a mirror image of the upper half of the distribution.</li>
+<li>Often useful for modeling noise due to natural phenomena or sums of measurements.</li>
+</ul>
+<p>The functional form of the Normal distribution is</p>
+<p><span class="math display">\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{1}{2\sigma^2}(x - \mu)^2}\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma^2\)</span> is the variance of the distribution.</p>
+<dl>
+<dt>Null Distribution (<a href="01h-nulldistns.html#def-null-distribution">Definition&nbsp;<span>7.1</span></a>)</dt>
+<dd>
+The sampling distribution of a statistic <em>when</em> the null hypothesis is true.
+</dd>
+<dt>Null Hypothesis (<a href="01d-questions.html#def-null-hypothesis">Definition&nbsp;<span>3.9</span></a>)</dt>
+<dd>
+The statement (or theory) about the parameter that we would like to <em>disprove</em>. This is denoted <span class="math inline">\(H_0\)</span>, read “H-naught” or “H-zero”.
+</dd>
+<dt>Null Value (<a href="01d-questions.html#def-null-value">Definition&nbsp;<span>3.11</span></a>)</dt>
+<dd>
+The value associated with the equality component of the null hypothesis; it forms the threshold or boundary between the hypotheses. Note: not all questions of interest require a null value be specified.
+</dd>
+<dt>Numeric Variable (<a href="01b-basics.html#def-numeric">Definition&nbsp;<span>1.6</span></a>)</dt>
+<dd>
+Also called a “quantitative variable,” a measurement on a subject which takes on a numeric value <em>and</em> for which ordinary arithmetic makes sense.
+</dd>
+<dt>Observational Study (<a href="01e-data.html#def-observational-study">Definition&nbsp;<span>4.4</span></a>)</dt>
+<dd>
+A study in which each subject “self-selects” into one of groups being compared in the study. The phrase “self-selects” is used very loosely here and can include studies for which the groups are defined by an inherent characteristic or are chosen haphazardly.
+</dd>
+<dt>Outlier (<a href="01f-summaries.html#def-outlier">Definition&nbsp;<span>5.7</span></a>)</dt>
+<dd>
+An individual observation which is so extreme, relative to the rest of the observations in the sample, that it does not appear to conform to the same distribution.
+</dd>
+<dt>P-Value (<a href="01h-nulldistns.html#def-pvalue">Definition&nbsp;<span>7.2</span></a>)</dt>
+<dd>
+The probability, assuming the null hypothesis is true, that we would observe a statistic, from sampling variability alone, as extreme or more so as that observed in our sample. The p-value quantifies the strength of evidence against the null hypothesis, with smaller values indicating stronger evidence.
+</dd>
+<dt>Parameter (<a href="01d-questions.html#def-parameter">Definition&nbsp;<span>3.6</span></a>)</dt>
+<dd>
+Numeric quantity which summarizes the distribution of a variable within the <em>population</em> of interest. Generally denoted by Greek letters in statistical formulas.
+</dd>
+<dt>Percentile (<a href="01f-summaries.html#def-percentile">Definition&nbsp;<span>5.1</span></a>)</dt>
+<dd>
+The <span class="math inline">\(k\)</span>-th percentile is the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(k\)</span>% of the values in the distribution are less than or equal to <span class="math inline">\(q\)</span>. For example,
+</dd>
+</dl>
+<ul>
+<li>25% of values in a distribution are less than or equal to the 25-th percentile (known as the “first quartile” and denoted <span class="math inline">\(Q_1\)</span>).</li>
+<li>50% of values in a distribution are less than or equal to the 50-th percentile (known as the “median”).</li>
+<li>75% of values in a distribution are less than or equal to the 75-th percentile (known as the “third quartile” and denoted <span class="math inline">\(Q_3\)</span>).</li>
+</ul>
+<dl>
+<dt>Population (<a href="01b-basics.html#def-population">Definition&nbsp;<span>1.1</span></a>)</dt>
+<dd>
+The collection of subjects we would like to say something about.
+</dd>
+<dt>Power (<a href="04d-anovadata.html#def-power">Definition&nbsp;<span>25.3</span></a>)</dt>
+<dd>
+In statistics, power refers to the probability that a study will discern a signal when one really exists in the data generating process. More technically, it is the probability a study will provide evidence against the null hypothesis when the null hypothesis is false.
+</dd>
+<dt>Probability Plot (<a href="03i-regassessment.html#def-probability-plot">Definition&nbsp;<span>20.3</span></a>)</dt>
+<dd>
+Also called a “Quantile-Quantile Plot”, a probability plot is a graphic for comparing the distribution of an observed sample with a theoretical probability model for the distribution of the underlying population. The quantiles observed in the sample are plotted against those expected under the theoretical model.
+</dd>
+<dt>R-Squared (<a href="03h-regquality.html#def-r-squared">Definition&nbsp;<span>19.4</span></a>)</dt>
+<dd>
+Sometimes reported as a percentage, the R-Squared value measures the proportion of the variability in the response explained by a model. It is given by
+</dd>
+</dl>
+<p><span class="math display">\[\text{R-squared} = \frac{SSR}{SST}.\]</span></p>
+<dl>
+<dt>Randomization (<a href="04d-anovadata.html#def-randomization">Definition&nbsp;<span>25.2</span></a>)</dt>
+<dd>
+Randomization can refer to random <em>selection</em> or random <em>allocation</em>. Random selection refers to the use of a random mechanism (e.g., a simple random sample, <a href="01e-data.html#def-simple-random-sample">Definition&nbsp;<span>4.2</span></a>, or a stratified random sample, <a href="01e-data.html#def-stratified-random-sample">Definition&nbsp;<span>4.3</span></a>) to select units from the population. Random selection minimizes bias.
+</dd>
+</dl>
+<p>Random allocation refers to the use of a random mechanism when assigning units to a specific treatment group in a controlled experiment (<a href="01e-data.html#def-controlled-experiment">Definition&nbsp;<span>4.5</span></a>). Random allocation eliminates confounding and permits causal interpretations.</p>
+<dl>
+<dt>Randomized Complete Block Design (<a href="05d-blockdata.html#def-rcbd">Definition&nbsp;<span>34.1</span></a>)</dt>
+<dd>
+A randomized complete block design is an example of a controlled experiment utilizing blocking. Each treatment is randomized to observations within blocks in such a way that every treatment is present within the block and the same number of observations are assigned to each treatment.
+</dd>
+<dt>Reduction of Noise (<a href="04d-anovadata.html#def-noise-reduction">Definition&nbsp;<span>25.4</span></a>)</dt>
+<dd>
+Reducing extraneous sources of variability can be accomplished by fixing extraneous variables or blocking (<a href="04d-anovadata.html#def-blocking">Definition&nbsp;<span>25.5</span></a>). These actions reduce the number of differences between the units under study.
+</dd>
+<dt>Reference Group (<a href="03j-regextensions.html#def-reference-group">Definition&nbsp;<span>21.2</span></a>)</dt>
+<dd>
+The group defined by setting all indicator variables in a model for the data generating process equal to 0.
+</dd>
+<dt>Regression (<a href="03f-regmodel.html#def-regression">Definition&nbsp;<span>17.1</span></a>)</dt>
+<dd>
+Used broadly, this refers to the process of fitting a statistical model for the data generating process to observed data. More specifically, it is a process of estimating the parameters in a data generating process using observed data.
+</dd>
+<dt>Regression Sum of Squares (<a href="03h-regquality.html#def-ssr">Definition&nbsp;<span>19.2</span></a>)</dt>
+<dd>
+The Regression Sum of Squares, abbreviated SSR, is given by
+</dd>
+</dl>
+<p><span class="math display">\[SSR = \sum_{i=1}^{n} \left[(\text{Predicted Mean Response})_i - (\text{Overall Mean Response})\right]^2\]</span></p>
+<p>where the predicted mean response is computed using the least squares estimates and the overall mean response is the sample mean.</p>
+<dl>
+<dt>Relative Frequency (<a href="01d-questions.html#def-relative-frequency">Definition&nbsp;<span>3.5</span></a>)</dt>
+<dd>
+Also called the “proportion,” the fraction of observations falling into a particular group (level) of a categorical variable.
+</dd>
+<dt>Replication (<a href="04d-anovadata.html#def-replication">Definition&nbsp;<span>25.1</span></a>)</dt>
+<dd>
+Replication results from taking measurements on different units (or subjects), for which you expect the results to be similar. That is, any variability across the units is due to natural variability within the population.
+</dd>
+<dt>Residual (<a href="03i-regassessment.html#def-residual">Definition&nbsp;<span>20.1</span></a>)</dt>
+<dd>
+The difference between the observed response and the predicted response (estimated deterministic portion of the model). Specifically, the residual for the <span class="math inline">\(i\)</span>-th observation is given by
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Residual})_i = (\text{Response})_i - (\text{Predicted Mean Response})_i\]</span></p>
+<p>where the “predicted mean response” is often called the predicted, or fitted, value.</p>
+<p>Residuals mimic the noise in the data generating process.</p>
+<dl>
+<dt>Response (<a href="01d-questions.html#def-response">Definition&nbsp;<span>3.2</span></a>)</dt>
+<dd>
+The primary variable of interest within a study. This is the variable you would either like to explain or estimate.
+</dd>
+<dt>Sample (<a href="01b-basics.html#def-sample">Definition&nbsp;<span>1.2</span></a>)</dt>
+<dd>
+The collection of subjects for which we actually obtain measurements (data).
+</dd>
+<dt>Sampling Distribution (<a href="01g-samplingdistns.html#def-sampling-distribution">Definition&nbsp;<span>6.2</span></a>)</dt>
+<dd>
+The distribution of a <em>statistic</em> across repeated samples (of the same size) from the population.
+</dd>
+<dt>Simple Random Sample (<a href="01e-data.html#def-simple-random-sample">Definition&nbsp;<span>4.2</span></a>)</dt>
+<dd>
+Often abbreviated SRS, this is a sample of size <span class="math inline">\(n\)</span> such that <em>every</em> collection of size <span class="math inline">\(n\)</span> is equally likely to be the resulting sample. This is equivalent to a lottery.
+</dd>
+<dt>Standard Deviation (<a href="01f-summaries.html#def-standard-deviation">Definition&nbsp;<span>5.4</span></a>)</dt>
+<dd>
+A measure of spread, this is the square root of the variance.
+</dd>
+<dt>Standard Error (<a href="01g-samplingdistns.html#def-standard-error">Definition&nbsp;<span>6.4</span></a>)</dt>
+<dd>
+The standard error is the estimated standard deviation of a <em>statistic</em>; that is, it is the standard deviation from a <em>model</em> for the sampling distribution of a statistic. It quantifies the variability in the statistic across repeated samples.
+</dd>
+<dt>Standardized (Test) Statistic (<a href="02e-teststat.html#def-standardized-test-statistic">Definition&nbsp;<span>12.1</span></a>)</dt>
+<dd>
+Also, known as a test statistic, a standardized statistic is a ratio of the signal in the sample to the noise in the sample. The larger the standardized statistic, the stronger the evidence of a signal; said another way, the larger the standardized statistic, the stronger the evidence against the null hypothesis.
+</dd>
+<dt>Standardized Statistic for ANOVA (<a href="04h-anovateststat.html#def-anova-f">Definition&nbsp;<span>29.4</span></a>)</dt>
+<dd>
+Consider testing a set of hypotheses for a model of the data generating process of the form (<a href="04f-anovamodel.html#eq-anova">Equation&nbsp;<span>27.2</span></a>):
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j(\text{Group } j)_i + \varepsilon_i,\]</span></p>
+<p>where</p>
+<p><span class="math display">\[(\text{Group } j)_i = \begin{cases} 1 &amp; \text{i-th unit belongs to group } j \\ 0 &amp; \text{otherwise} \end{cases}\]</span></p>
+<p>is an indicator variable. Denote this model as Model 1, and denote the model that results from applying the parameter constraints defined under the null hypothesis as Model 0. A standardized statistic, sometimes called the “standardized F statistic,” for testing the hypotheses is given by</p>
+<p><span class="math display">\[T^* = \frac{\left(SSE_0 - SSE_1\right) / (k - r)}{SSE_1 / (n - k)},\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the number of parameters in the full unconstrained model and <span class="math inline">\(r\)</span> is the number of parameters in the reduced model. Defining</p>
+<p><span class="math display">\[MSA = \frac{SSE_0 - SSE_1}{k - r}\]</span></p>
+<p>to be the “mean square for additional terms,” which captures the shift in the error sum of squares from the reduced model to the full unconstrained model, we can write the standardized statistic as</p>
+<p><span class="math display">\[T^* = \frac{MSA}{MSE}\]</span></p>
+<p>where the mean square error in the denominator comes from the full unconstrained model. Just as before, the MSE represents the residual variance — the variance in the response for a particular set of the predictors.</p>
+<dl>
+<dt>Standardized Statistic for General Linear Model (<a href="03j-regextensions.html#def-general-f">Definition&nbsp;<span>21.4</span></a>)</dt>
+<dd>
+Consider testing a set of hypotheses for a model of the data generating process of the form (<a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>):
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \sum_{j=1}^{p} \beta_j(\text{Predictor } j)_i + \varepsilon_i.\]</span></p>
+<p>Denote this model as Model 1, and denote the model that results from applying the parameter constraints defined under the null hypothesis as Model 0. A standardized statistic, sometimes called the “nested F statistic,” for testing the hypotheses is given by</p>
+<p><span class="math display">\[T^* = \frac{\left(SSE_0 - SSE_1\right) / (p + 1 - r)}{SSE_1 / (n - p - 1)},\]</span></p>
+<p>where <span class="math inline">\(p + 1\)</span> is the number of parameters in the full unconstrained model (including the intercept) and <span class="math inline">\(r\)</span> is the number of parameters in the reduced model. Defining</p>
+<p><span class="math display">\[MSA = \frac{SSE_0 - SSE_1}{p + 1 - r}\]</span></p>
+<p>to be the “mean square for additional terms,” which captures the shift in the error sum of squares from the reduced model to the full unconstrained model, we can write the standardized statistic as</p>
+<p><span class="math display">\[T^* = \frac{MSA}{MSE}\]</span></p>
+<p>where the mean square error in the denominator comes from the full unconstrained model. Just as before, the MSE represents the residual variance — the variance in the response for a particular set of the predictors.</p>
+<dl>
+<dt>Standardized Statistic for Repeated Measures ANOVA (<a href="05h-blockteststat.html#def-blocks-f">Definition&nbsp;<span>38.1</span></a>)</dt>
+<dd>
+Consider testing a set of hypotheses for a model of the data generating process of the form (<a href="05f-blockmodel.html#eq-blocks">Equation&nbsp;<span>36.2</span></a>):
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j (\text{Group } j)_i + \sum_{m=2}^{b} \beta_m (\text{Block } m)_i + \varepsilon_i\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\text{Group } j)_i
+    &amp;= \begin{cases} 1 &amp; \text{if i-th observation corresponds to group } j \\ 0 &amp; \text{otherwise} \end{cases} \\
+  (\text{Block } m)_i
+    &amp;= \begin{cases} 1 &amp; \text{if i-th observation corresponds to block } m \\ 0 &amp; \text{otherwise} \end{cases}
+\end{aligned}
+\]</span></p>
+<p>are indicator variables. Denote this model as Model 1, and denote the model that results from applying the parameter constraints defined under the null hypothesis as Model 0. A standardized statistic, sometimes called the “standardized F statistic,” for testing the hypotheses is given by</p>
+<p><span class="math display">\[T^* = \frac{\left(SSE_0 - SSE_1\right) / (k + b - 1 - r)}{SSE_1 / (n - k - b + 1)},\]</span></p>
+<p>where <span class="math inline">\(k + b - 1\)</span> is the number of parameters in the full unconstrained model and <span class="math inline">\(r\)</span> is the number of parameters in the reduced model. Defining</p>
+<p><span class="math display">\[MSA = \frac{SSE_0 - SSE_1}{k + b - 1 - r}\]</span></p>
+<p>to be the “mean square for additional terms,” which captures the shift in the error sum of squares from the reduced model to the full unconstrained model, we can write the standardized statistic as</p>
+<p><span class="math display">\[T^* = \frac{MSA}{MSE}\]</span></p>
+<p>where the mean square error in the denominator comes from the full unconstrained model. Just as before, the MSE represents the residual variance — the variance in the response for a particular set of predictors.</p>
+<dl>
+<dt>Standardized Statistic for Simple Linear Regression (<a href="03h-regquality.html#def-standard-f">Definition&nbsp;<span>19.7</span></a>)</dt>
+<dd>
+Consider testing a set of hypotheses for a model of the data generating process of the form (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>):
+</dd>
+</dl>
+<p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1(\text{Predictor})_i + \varepsilon_i.\]</span></p>
+<p>Denote this model as Model 1, and denote the model that results from applying the parameter constraints defined under the null hypothesis as Model 0[^Fcaveat]. A standardized statistic, sometimes called the “standardized F statistic,” for testing the hypotheses is given by</p>
+<p><span class="math display">\[T^* = \frac{\left(SSE_0 - SSE_1\right) / (2 - r)}{SSE_1 / (n - 2)},\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the number of parameters in the reduced model. Defining</p>
+<p><span class="math display">\[MSA = \frac{SSE_0 - SSE_1}{2 - r}\]</span></p>
+<p>to be the “mean square for additional terms,” which captures the shift in the error sum of squares from the reduced model to the full unconstrained model, we can write the standardized statistic as</p>
+<p><span class="math display">\[T^* = \frac{MSA}{MSE}\]</span></p>
+<p>where the mean square error in the denominator comes from the full unconstrained model.</p>
+<dl>
+<dt>Statistic (<a href="01f-summaries.html#def-statistic">Definition&nbsp;<span>5.8</span></a>)</dt>
+<dd>
+Numeric quantity which summarizes the distribution of a variable within a <em>sample</em>.
+</dd>
+<dt>Statistical Inference (<a href="01b-basics.html#def-inference">Definition&nbsp;<span>1.3</span></a>)</dt>
+<dd>
+The process of using a sample to characterize some aspect of the underlying population.
+</dd>
+<dt>Stochastic Process (<a href="02c-meanmodels.html#def-stochastic-process">Definition&nbsp;<span>10.2</span></a>)</dt>
+<dd>
+A process for which the output cannot be predicted with certainty.
+</dd>
+<dt>Stratified Random Sample (<a href="01e-data.html#def-stratified-random-sample">Definition&nbsp;<span>4.3</span></a>)</dt>
+<dd>
+A sample in which the population is first divided into groups, or strata, based on a characteristic of interest; a simple random sample is then taken within each group.
+</dd>
+<dt>Time-Series Plot (<a href="03i-regassessment.html#def-time-series-plot">Definition&nbsp;<span>20.2</span></a>)</dt>
+<dd>
+A time-series plot of a variable is a line plot with the variable on the y-axis and time on the x-axis.
+</dd>
+<dt>Total Sum of Squares (<a href="03h-regquality.html#def-sst">Definition&nbsp;<span>19.1</span></a>)</dt>
+<dd>
+The Total Sum of Squares, abbreviated SST, is given by
+</dd>
+</dl>
+<p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})_i\right]^2\]</span></p>
+<p>where the overall average response is the sample mean.</p>
+<dl>
+<dt>Variability (<a href="01d-questions.html#def-variability">Definition&nbsp;<span>3.1</span></a>)</dt>
+<dd>
+The notion that measurements differ from one observation to another.
+</dd>
+<dt>Variable (<a href="01b-basics.html#def-variable">Definition&nbsp;<span>1.4</span></a>)</dt>
+<dd>
+A measurement, or category, describing some aspect of the subject.
+</dd>
+<dt>Variance (<a href="01f-summaries.html#def-variance">Definition&nbsp;<span>5.3</span></a>)</dt>
+<dd>
+A measure of spread, this roughly captures the average distance values in the distribution are from the mean.
+</dd>
+</dl>
+<p>For a sample of size <span class="math inline">\(n\)</span>, it is computed by <span class="math display">\[s^2 = \frac{1}{n-1}\sum_{i=1}^{n} \left(x_i - \bar{x}\right)^2\]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean and <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i\)</span>-th value in the sample. The division by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span> removes bias in the statistic.</p>
+<p>The symbol <span class="math inline">\(\sigma^2\)</span> is often used to denote the variance in the population.</p>
+<dl>
+<dt>Within Group Variability (<a href="04h-anovateststat.html#def-within-group-variability">Definition&nbsp;<span>29.2</span></a>)</dt>
+<dd>
+When comparing a quantitative response across groups, the within group variability is the variability in the response within each group.
+</dd>
+</dl>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./app-teststat.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,38 @@
+# Case Study: Birth Weights of Babies {#sec-casebabies}
+
+{{< include _setupcode.qmd >}}
+
+The Centers for Disease Control and Prevention (CDC) --- using data provided by the U.S. Department of Health and Human Services, National Center for Health Statistics, the Division of Vital Statistics and the CDC --- maintains a database on all babies born in a given year[^cdclink].  This database contains key metrics on each child born, including the weight of the infant.  Low birth weight can be indicative of poor health or illness in children; and, high birth weight can be indicative of obesity later in life.  Researchers, therefore, use the database to examine links between lifestyle choices of the parents (such as whether the mother consumed alcohol during pregnancy) and birth weight of the infant.  
+
+@Chihara2011 describe a random sample from this database; specifically, the sample consists of 1009 babies born in North Carolina during 2004.  The babies each had a gestation period of at least 37 weeks (full term) and were single births (no twins, triplets, etc.).  For each birth in the sample, we have the following information:
+
+  - Age of the mother (in years).
+  - Whether the mother is a current smoker.
+  - Whether the mother used tobacco during the pregnancy.
+  - Whether the mother used alcohol during the pregnancy.
+  - Sex assigned to the child at birth (male or female).
+  - Weight of the child at birth (grams).
+  - Length of gestation (length of pregnancy, weeks).
+  
+A subset of the collected data is shown in @tbl-casebabies-table.
+
+```{r}
+#| label: tbl-casebabies-table
+#| tbl-cap: Subset of a sample of 1009 babies born in North Carolina during 2004.
+
+babies.df |>
+  select(`Subject ID` = ID,
+         `Age Range (years)` = MothersAge,
+         `Assigned Sex of Baby` = Gender,
+         `Weight of Baby (g)` = Weight,
+         `Gestation (weeks)` = Gestation) |>
+  slice(1:10) |>
+  mykable() |>
+  kableExtra::kable_styling(
+    latex_options = c('striped', 'scale_down')
+  )
+```
+
+We might be interested in using this data to estimate the average birth weight of an infant (carried to full term) born in North Carolina.
+
+[^cdclink]: <http://wonder.cdc.gov/natality-current.html>

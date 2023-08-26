@@ -1,0 +1,114 @@
+# Glossary and List of Models
+
+{{< include _setupcode.qmd >}}
+
+## Models for the Data Generating Process
+This text takes a modeling approach to inference.  The following models are introduced in the text; each model is presented with a link to where the model was fully defined in the text.
+
+:::{.callout-important}
+## Data Generating Process for Single Mean Response (@eq-single-mean)
+In general, given a quantitative response variable and no predictors, our model for the data generating process is
+
+$$(\text{Response})_i = \mu + \epsilon_i$$
+  
+where $\mu$ represents the average response in the population, the parameter of interest.
+:::
+
+:::{.callout-important}
+## Simple Linear Regression Model (@eq-slr)
+For a quantitative response and a quantitative predictor, the general form of the simple linear regression model is
+
+$$(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_i + \varepsilon_i$$
+
+where $\beta_0$ and $\beta_1$ are parameters governing the model for the data generating process.
+:::
+
+
+:::{.callout-important}
+## General Linear Regression Model (@eq-mlr)
+For a quantitative response and one or more predictors, the general form of the linear regression model is
+
+$$
+\begin{aligned}
+  (\text{Response})_i 
+    &= \beta_0 + \beta_1 (\text{Predictor 1})_i + \beta_2(\text{Predictor 2})_i + \dotsb + \beta_p (\text{Predictor } p)_i + \varepsilon_i \\
+    &= \beta_0 + \sum_{j=1}^{p} \beta_j (\text{Predictor j})_i + \varepsilon_i
+\end{aligned}
+$$
+
+where $\beta_j$ for $j = 0, 1, 2, \dotsc, p$ are the $p + 1$ parameters governing the model for the data generating process.
+:::
+
+
+:::{.callout-important}
+## ANOVA Model (@eq-anova)
+For a quantitative response and a single categorical predictor (also known as a factor) with $k$ levels, the ANOVA model is
+
+$$(\text{Response})_i = \sum_{j = 1}^{k} \mu_j (\text{Group } j)_i + \varepsilon_i$$
+
+where
+
+$$(\text{Group } j)_i = \begin{cases} 1 & \text{i-th unit belongs to group } j \\ 0 & \text{otherwise} \end{cases}$$
+
+is an indicator variable capturing whether a unit belongs to the $j$-th group and $\mu_1, \mu_2, \dotsc, \mu_k$ are the parameters governing the model for the data generating process.
+:::
+
+
+:::{.callout-important}
+## Repeated Measures ANOVA Model (@eq-blocks)
+For a quantitative response and a single categorical predictor (also known as a factor) with $k$ levels in the presence of $b$ blocks, the repeated measures ANOVA model is
+
+$$(\text{Response})_i = \sum_{j = 1}^{k} \mu_j (\text{Group } j)_i + \sum_{m = 2}^{b} \beta_m (\text{Block } m)_i + \varepsilon_i$$ 
+
+where
+
+$$
+\begin{aligned}
+  (\text{Group } j)_i 
+    &= \begin{cases} 1 & \text{i-th unit belongs to group } j \\ 0 & \text{otherwise} \end{cases} \\
+  (\text{Block } m)_i 
+    &= \begin{cases} 1 & \text{i-th unit belongs to block } m \\ 0 & \text{otherwise} \end{cases}
+\end{aligned}
+$$ 
+
+are indicator variables capturing whether a unit belongs to the $j$-th group and $m$-th block, respectively; and, $\mu_1, \mu_2, \dotsc, \mu_k$ and $\beta_2, \beta_3, \dotsc, \beta_b$ are the parameters governing the model for the data generating process.
+
+This model assumes any differences between groups are similar across all blocks.
+:::
+
+
+## Glossary
+The following key terms were defined in the text; each term is presented with a link to where the term was first encountered in the text.
+
+```{r}
+#| label: create-glossary
+#| output: asis
+
+# Create a list of definitions from a QMD file.
+determine_terms <- function(x) {
+  defns <- repeat_block(x, pattern = ':::\\{#def-')
+  
+  tibble(
+    labels = get_terms(defns, 'reference'),
+    terms = get_terms(defns, 'title'),
+    defn = str_trim(get_terms(defns, 'text'))
+  )
+}
+
+
+# Obtain definitions from all files
+defns <- list.files() |>
+  str_subset(pattern = fixed('.qmd')) |>
+  str_subset(pattern = 'glossary', negate = TRUE) |>
+  map(~ determine_terms(read_lines(.x))) |>
+  list_rbind() |>
+  arrange(terms)
+
+
+# Create readable table
+for (i in 1:nrow(defns)) {
+  cat(defns$terms[i], ' (@', defns$labels[i], ') \n',
+      ': ', defns$defn[i], '\n\n', sep = '')
+}
+```
+
