@@ -1,6 +1,45 @@
-# Glossary and List of Models
+# Glossary
 
 {{< include _setupcode.qmd >}}
+
+## Five Fundamental Ideas of Inference
+This text revolves around five fundamental ideas of inference.  These were introduced in the text, and they are provided here for quick reference along with a link to where they were first introduced.
+
+:::{.callout-important}
+## Fundamental Idea I (@sec-questions)
+A research question can often be framed in terms of a parameter that characterizes the population.  Framing the question should then guide our analysis.
+:::
+
+:::{.callout-important}
+## Fundamental Idea II (@sec-data)
+If data is to be useful for making conclusions about the population, a process referred to as drawing inference, proper data collection is crucial.  Randomization can play an important role ensuring a sample is representative and that inferential conclusions are appropriate.
+:::
+
+:::{.callout-important}
+## Fundamental Idea III (@sec-summaries)
+The use of data for decision making requires that the data be summarized and presented in ways that address the question of interest and represent the variability present.
+:::
+
+:::{.callout-important}
+## Fundamental Idea IV (sec-samplingdistns)
+Variability is inherent in any process, and as a result, our estimates are subject to sampling variability.  However, these estimates often vary across samples in a predictable way; that is, they have a distribution that can be modeled.
+:::
+
+:::{.callout-important}
+## Fundamental Idea V (@sec-nulldistns)
+With a model for the distribution of a statistic under a proposed model, we can quantify the the likelihood of an observed sample under that proposed model.  This allows us to draw conclusions about the corresponding parameter, and therefore the population, of interest.
+:::
+
+
+## Distributional Quartet
+This text refers to what we call the "distributional quartet" --- the four key distributions that are central to nearly any analysis.  These are introduced early in the text and are 
+
+  - The distribution of the population; this characterizes the pattern of variability of a variable across individual units in the population.  While this is not directly observed, we sometimes posit a model for this distribution.
+  - The distribution of the sample; this characterizes the pattern of variability of a variable across individual units in the sample.  This is what we summarize (graphically/numerically) using the available data.
+  - The sampling distribution of the statistic; this characterizes the pattern of variability of a statistic across repeated samples.  While this is not directly observed, we model it by applying conditions on the stochastic portion of the model for the data generating process.
+  - The null distribution of a (often standardized) statistic; this is the sampling distribution of a statistic when a specified null hypothesis is enforced. 
+
+
 
 ## Models for the Data Generating Process
 This text takes a modeling approach to inference.  The following models are introduced in the text; each model is presented with a link to where the model was fully defined in the text.

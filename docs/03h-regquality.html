@@ -462,7 +462,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./app-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary and List of Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
       </ul>
@@ -564,7 +564,7 @@ div.csl-indent {
 <p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})_i\right]^2\]</span></p>
 <p>where the overall average response is the sample mean.</p>
 </div>
-<p>We now have a way of quantifying the total variability in the bracketed duration; we now want to partition (or separate) out this variability into its two components: the variability due to the epicentral distance, and the variability due to noise. In order to capture the variability due epicentral distance, we consider how epicentral distance plays a role in the model for the data generating process: it forms the line which dictates the mean response. That is, the linear portion in the model for the data generating process <span class="math inline">\(\beta_0 + \beta_1 (\text{Epicentral Distance})\)</span> is the model’s attempt to explain how changes in the epicentral distance explain changes in the bracketed duration; further, this explanation comes in the form of the average response. That is, plugging into the deterministic portion of the model for the data generating process provides a mean response, and if we use the least squares estimates in place of the parameters, we are computing an estimate of the mean response. Finding the variability in the bracketed duration due to the epicentral distance is then equivalent to finding the variability in these estimated (or predicted) mean responses:</p>
+<p>We now have a way of quantifying the total variability in the bracketed duration; we now want to partition (or separate) out this variability into its two components: the variability due to the epicentral distance, and the variability due to noise. In order to capture the variability due to epicentral distance, we consider how epicentral distance plays a role in the model for the data generating process: it forms the line which dictates the mean response. That is, the linear portion in the model for the data generating process <span class="math inline">\(\beta_0 + \beta_1 (\text{Epicentral Distance})\)</span> is the model’s attempt to explain how changes in the epicentral distance explain changes in the bracketed duration; further, this explanation comes in the form of the average response. That is, plugging into the deterministic portion of the model for the data generating process provides a mean response, and if we use the least squares estimates in place of the parameters, we are computing an estimate of the mean response. Finding the variability in the bracketed duration due to the epicentral distance is then equivalent to finding the variability in these estimated (or predicted) mean responses:</p>
 <p><span id="eq-regquality-ssr"><span class="math display">\[\sum_{i=1}^{n} \left[(\text{Predicted Bracketed Duration})_i - (\text{Overall Mean Bracketed Duration})\right]^2. \tag{19.2}\]</span></span></p>
 <p>This is known as the <strong>Regression Sum of Squares</strong> as it captures the variability explained by the regression line.</p>
 <div id="def-ssr" class="theorem definition">
