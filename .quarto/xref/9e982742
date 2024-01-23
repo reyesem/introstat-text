@@ -1,1 +1,1 @@
-{"options":{"chapter-id":"sec-regdata","chapters":true},"entries":[{"order":{"section":[15,0,0,0,0,0,0],"number":1},"key":"sec-regdata"},{"order":{"section":[15,0,0,0,0,0,0],"number":1},"caption":"Multivariable","key":"def-multivariable"}],"headings":["multivariable","sec-regdata"]}
+{"headings":["multivariable","sec-regdata"],"options":{"chapters":true,"chapter-id":"sec-regdata"},"entries":[{"key":"sec-regdata","order":{"number":1,"section":[15,0,0,0,0,0,0]}},{"caption":"Multivariable","key":"def-multivariable","order":{"number":1,"section":[15,0,0,0,0,0,0]}}]}

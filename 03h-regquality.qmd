@@ -55,7 +55,7 @@ Notice this quantity is related to, but not equivalent to, the sample variance. 
 ## Total Sum of Squares
 The Total Sum of Squares, abbreviated SST, is given by
 
-$$SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})_i\right]^2$$
+$$SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Mean Response})\right]^2$$
 
 where the overall average response is the sample mean.
 :::
@@ -243,13 +243,13 @@ A measure of the flexibility in a sum of squares term; when a sum of squares is 
 ## Rationale for Degrees of Freedom
 Degrees of freedom are a very difficult concept to grasp, even for those who have been studying statistics for a while.  Here is our way of thinking about them --- they are the difference of available terms to work with.  For example, think about the total sum of squares associated with a full unconstrained linear regression model described in @eq-slr:
   
-$$SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})\right]^2.$$
+$$SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Mean Response})\right]^2.$$
   
 The first term of the difference has $n$ different values (one response for each observation).  However, the sample mean is just one value.  Therefore, there are $n - 1$ degrees of freedom associated with the total sum of squares.  This is often described as starting out with $n$ estimates (the data), but needing to estimate one parameter (the mean) along the way, leading to $n - 1$.
 
 Similarly, consider the regression sum of squares for the full unconstrained model:
 
-$$SSR = \sum_{i=1}^{n} \left[(\text{Predicted Mean Response})_i - (\text{Overall Average Response})\right]^2.$$
+$$SSR = \sum_{i=1}^{n} \left[(\text{Predicted Mean Response})_i - (\text{Overall Mean Response})\right]^2.$$
   
 While there are $n$ predicted values, they are all generated from the same least squares fit $\widehat{\beta}_0 + \widehat{\beta}_1 (\text{Predictor})_i$ which can be computed from two estimates (that for the intercept and slope).  Therefore, we begin with only 2 unique values.  Again, the sample mean has just one value, leading to $2 - 1 = 1$ degree of freedom associated with the regression sum of squares.
 

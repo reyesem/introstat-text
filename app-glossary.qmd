@@ -21,7 +21,7 @@ The use of data for decision making requires that the data be summarized and pre
 :::
 
 :::{.callout-important}
-## Fundamental Idea IV (sec-samplingdistns)
+## Fundamental Idea IV (@sec-samplingdistns)
 Variability is inherent in any process, and as a result, our estimates are subject to sampling variability.  However, these estimates often vary across samples in a predictable way; that is, they have a distribution that can be modeled.
 :::
 

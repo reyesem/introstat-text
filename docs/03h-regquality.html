@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,7 +76,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -101,7 +102,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03h-regquality.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -115,7 +116,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -561,7 +562,7 @@ div.csl-indent {
 <p>Notice this quantity is related to, but not equivalent to, the sample variance. It measures the distance each response is from the sample mean and then adds these distances up. This is known as the <strong>Total Sum of Squares</strong> since it captures the total variability in the response.</p>
 <div id="def-sst" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19.1 (Total Sum of Squares) </strong></span>The Total Sum of Squares, abbreviated SST, is given by</p>
-<p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})_i\right]^2\]</span></p>
+<p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Mean Response})\right]^2\]</span></p>
 <p>where the overall average response is the sample mean.</p>
 </div>
 <p>We now have a way of quantifying the total variability in the bracketed duration; we now want to partition (or separate) out this variability into its two components: the variability due to the epicentral distance, and the variability due to noise. In order to capture the variability due to epicentral distance, we consider how epicentral distance plays a role in the model for the data generating process: it forms the line which dictates the mean response. That is, the linear portion in the model for the data generating process <span class="math inline">\(\beta_0 + \beta_1 (\text{Epicentral Distance})\)</span> is the model’s attempt to explain how changes in the epicentral distance explain changes in the bracketed duration; further, this explanation comes in the form of the average response. That is, plugging into the deterministic portion of the model for the data generating process provides a mean response, and if we use the least squares estimates in place of the parameters, we are computing an estimate of the mean response. Finding the variability in the bracketed duration due to the epicentral distance is then equivalent to finding the variability in these estimated (or predicted) mean responses:</p>
@@ -717,10 +718,10 @@ Rationale for Degrees of Freedom
 </div>
 <div class="callout-body-container callout-body">
 <p>Degrees of freedom are a very difficult concept to grasp, even for those who have been studying statistics for a while. Here is our way of thinking about them — they are the difference of available terms to work with. For example, think about the total sum of squares associated with a full unconstrained linear regression model described in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>:</p>
-<p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Average Response})\right]^2.\]</span></p>
+<p><span class="math display">\[SST = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Overall Mean Response})\right]^2.\]</span></p>
 <p>The first term of the difference has <span class="math inline">\(n\)</span> different values (one response for each observation). However, the sample mean is just one value. Therefore, there are <span class="math inline">\(n - 1\)</span> degrees of freedom associated with the total sum of squares. This is often described as starting out with <span class="math inline">\(n\)</span> estimates (the data), but needing to estimate one parameter (the mean) along the way, leading to <span class="math inline">\(n - 1\)</span>.</p>
 <p>Similarly, consider the regression sum of squares for the full unconstrained model:</p>
-<p><span class="math display">\[SSR = \sum_{i=1}^{n} \left[(\text{Predicted Mean Response})_i - (\text{Overall Average Response})\right]^2.\]</span></p>
+<p><span class="math display">\[SSR = \sum_{i=1}^{n} \left[(\text{Predicted Mean Response})_i - (\text{Overall Mean Response})\right]^2.\]</span></p>
 <p>While there are <span class="math inline">\(n\)</span> predicted values, they are all generated from the same least squares fit <span class="math inline">\(\widehat{\beta}_0 + \widehat{\beta}_1 (\text{Predictor})_i\)</span> which can be computed from two estimates (that for the intercept and slope). Therefore, we begin with only 2 unique values. Again, the sample mean has just one value, leading to <span class="math inline">\(2 - 1 = 1\)</span> degree of freedom associated with the regression sum of squares.</p>
 <p>Finally, consider the error sum of squares for the full unconstrained model:</p>
 <p><span class="math display">\[SSE = \sum_{i=1}^{n} \left[(\text{Response})_i - (\text{Predicted Mean Response})_i\right]^2.\]</span></p>
