@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01e-data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01e-data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -466,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01e-data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-data" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span></h1>
 </div>
@@ -481,31 +515,41 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>Consider again the goal of statistical inference — to use a sample as a snapshot to say something about the underlying population (see <a href="#fig-data-statistical-process">Figure&nbsp;<span>4.1</span></a>). This generally provokes unease in people, leading to a distrust of statistical results. In this section we attack that distrust head on.</p>
+
+<p>Consider again the goal of statistical inference — to use a sample as a snapshot to say something about the underlying population (see <a href="#fig-data-statistical-process" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>). This generally provokes unease in people, leading to a distrust of statistical results. In this section we attack that distrust head on.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-data-statistical-process" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/Basics-Stat-Process.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Reprint of @fig-basics-statistical-process."></p>
-<figcaption class="figure-caption">Figure&nbsp;4.1: Illustration of the statistical process (reprint of <a href="01b-basics.html#fig-basics-statistical-process">Figure&nbsp;<span>1.2</span></a>).</figcaption>
+<div id="fig-data-statistical-process" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Reprint of @fig-basics-statistical-process.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-statistical-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Basics-Stat-Process.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Reprint of @fig-basics-statistical-process.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-statistical-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Illustration of the statistical process (reprint of <a href="01b-basics.html#fig-basics-statistical-process" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>).
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <section id="what-makes-a-sample-reliable" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="what-makes-a-sample-reliable"><span class="header-section-number">4.1</span> What Makes a Sample Reliable</h2>
-<p>If we are going to have some amount of faith in the statistical results we produce, we must have data in which we can place our trust. <em>The Treachery of Images</em> (<a href="#fig-data-pipe-img">Figure&nbsp;<span>4.2</span></a>) is a canvas painting depicting a pipe, below which the artist wrote the French phrase “This is not a pipe.” Regarding the painting, the artist said</p>
+<p>If we are going to have some amount of faith in the statistical results we produce, we must have data in which we can place our trust. <em>The Treachery of Images</em> (<a href="#fig-data-pipe-img" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>) is a canvas painting depicting a pipe, below which the artist wrote the French phrase “This is not a pipe.” Regarding the painting, the artist said</p>
 <blockquote class="blockquote">
 <p>The famous pipe. How people reproached me for it! And yet, could you stuff my pipe? No, it’s just a representation, is it not? So if I had written on my picture “This is a pipe,” I’d have been lying!</p>
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-data-pipe-img" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/Data-Pipe.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Image of a pipe that is captioned _this is not a pipe_."></p>
-<figcaption class="figure-caption">Figure&nbsp;4.2: <em>The Treachery of Images</em> by René Magritte.</figcaption>
+<div id="fig-data-pipe-img" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Image of a pipe that is captioned _this is not a pipe_.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-pipe-img-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/Data-Pipe.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Image of a pipe that is captioned _this is not a pipe_.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-pipe-img-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: <em>The Treachery of Images</em> by René Magritte.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -526,7 +570,7 @@ Big Idea
 </div>
 <p>We need to be careful to not get carried away in our expectations. What constitutes “representative” really depends on the question, just as an artist chooses their depiction based on how they want to represent the object. Let’s consider the following example.</p>
 <div id="exm-data-school-debt" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.1 (School Debt) </strong></span>In addition to a degree, college graduates also tend to leave with a large amount of debt due to college loans. In 2012, a graduate with a student loan had an average debt of $29,400; for graduates from private non-profit institutions, the average debt was $32,300<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p><span class="theorem-title"><strong>Example 4.1 (School Debt)</strong></span> In addition to a degree, college graduates also tend to leave with a large amount of debt due to college loans. In 2012, a graduate with a student loan had an average debt of $29,400; for graduates from private non-profit institutions, the average debt was $32,300<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>Suppose we are interested in determining the average amount of debt in student loans carried by a graduating senior from Rose-Hulman Institute of Technology, a small private non-profit engineering school. There are many faculty at Rose-Hulman who choose to send their children to the institute. Suppose we were to ask 25 such faculty members who have a child that attended the institute to report the amount of student loans their children carried upon graduation from Rose-Hulman. Further, suppose we compile the responses and compute the average amount of debt. Using the data, we might report that based on our study, there is significant evidence the average debt carried by a graduate of Rose-Hulman is far below the $32,300 reported above (great news for this year’s graduating class)!</p>
 <p>Why should we be hesitant to trust the results from our study?</p>
 </div>
@@ -546,7 +590,7 @@ Note
 <p>When thinking about whether a sample is representative, focus your attention to the characteristics specific to your research question or with regard to how you intend to generalize the results.</p>
 </div>
 </div>
-<p>Does that mean the sample we collected in <a href="#exm-data-school-debt">Example&nbsp;<span>4.1</span></a> is useless? Yes and no. The sample collected cannot be used to answer our initial question of interest since it is not representative of our population. No statistical method can fix bad data; statistics adheres to the “garbage-in, garbage-out” phenomena. If the data is bad, no analysis will undo that. However, while the sample cannot be used to answer our initial question, it could be used to address a different question:</p>
+<p>Does that mean the sample we collected in <a href="#exm-data-school-debt" class="quarto-xref">Example&nbsp;<span>4.1</span></a> is useless? Yes and no. The sample collected cannot be used to answer our initial question of interest since it is not representative of our population. No statistical method can fix bad data; statistics adheres to the “garbage-in, garbage-out” phenomena. If the data is bad, no analysis will undo that. However, while the sample cannot be used to answer our initial question, it could be used to address a different question:</p>
 <blockquote class="blockquote">
 <p>What is the average amount of debt in student loans carried by graduating seniors from Rose-Hulman whose parent is a faculty member at the institute?</p>
 </blockquote>
@@ -554,19 +598,23 @@ Note
 </section>
 <section id="poor-methods-of-data-collection" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="poor-methods-of-data-collection"><span class="header-section-number">4.2</span> Poor Methods of Data Collection</h2>
-<p><a href="#exm-data-school-debt">Example&nbsp;<span>4.1</span></a> is an example of a “convenience sample,” when the subjects in the sample are chosen simply due to ease of collection. Examples include surveying students only in your sorority when you are interested in all students who are part of a sorority on campus; taking soil samples from only your city when you are interested in the soil for the entire state; and, obtaining measurements from only one brand of phone, because it was the only one you could afford on your budget, when you are interested in studying all cell phones on the market. A convenience sample is unlikely to be representative if there is a relationship between the ease of collection and the variable under study. This was true in the School Debt example; the relationship of a student to a faculty member, which is what increased the ease of collection, was directly related to the amount of debt they carried. As a result, the resulting sample was not representative of the population.</p>
+<p><a href="#exm-data-school-debt" class="quarto-xref">Example&nbsp;<span>4.1</span></a> is an example of a “convenience sample,” when the subjects in the sample are chosen simply due to ease of collection. Examples include surveying students only in your sorority when you are interested in all students who are part of a sorority on campus; taking soil samples from only your city when you are interested in the soil for the entire state; and, obtaining measurements from only one brand of phone, because it was the only one you could afford on your budget, when you are interested in studying all cell phones on the market. A convenience sample is unlikely to be representative if there is a relationship between the ease of collection and the variable under study. This was true in the School Debt example; the relationship of a student to a faculty member, which is what increased the ease of collection, was directly related to the amount of debt they carried. As a result, the resulting sample was not representative of the population.</p>
 <p>When conducting a survey with human subjects, it is common to only illicit responses from volunteers. Such “volunteer samples” tend to draw in those with extreme opinions. Consider product ratings on Amazon. Individual ratings tend to cluster around 5’s and 1’s. This is because those customers who take time to submit a review (which is voluntary) tend to be those who are really thrilled with their product (and want to encourage others to purchase it) and those who are really disappointed with their purchase (and want to encourage others to avoid it). Such surveys often fail to capture those individuals in the population who have “middle of the road” opinions.</p>
 <p>We could not possibly name all the poor methods for collecting a sample; but, poor methods all share something in common — it is much more likely the resulting sample is not representative. Failing to be representative results in <strong>biased</strong> estimates of the parameter.</p>
 <div id="def-bias" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.1 (Bias) </strong></span>A set of measurements is said to be biased if they are <em>consistently</em> too high (or too low). Similarly, an estimate of a parameter is said to be biased if it is <em>consistently</em> too high (or too low).</p>
+<p><span class="theorem-title"><strong>Definition 4.1 (Bias)</strong></span> A set of measurements is said to be biased if they are <em>consistently</em> too high (or too low). Similarly, an estimate of a parameter is said to be biased if it is <em>consistently</em> too high (or too low).</p>
 </div>
-<p>To illustrate the concept of bias, consider shooting at a target as in <a href="#fig-data-bias">Figure&nbsp;<span>4.3</span></a>. We can consider the center of our target to be the parameter we would like to estimate within the population; in this case, some measure of center. The values in our sample (the strikes on the target) will vary around the parameter; while we do not expect any one value to hit the target precisely, a “representative” sample is one in which the values tend to be clustered about the parameter (unbiased). When the sample is not representative, the values in the sample tend to cluster off the mark (biased). Notice that to be unbiased, it may be that not a single value in the sample is perfect, but aggregated together, they point in the right direction. So, bias is not about an individual measurement being an “outlier,” (more on those in <a href="01f-summaries.html"><span>Chapter&nbsp;5</span></a>) but about <em>consistently</em> shooting in the wrong direction.</p>
+<p>To illustrate the concept of bias, consider shooting at a target as in <a href="#fig-data-bias" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. We can consider the center of our target to be the parameter we would like to estimate within the population; in this case, some measure of center. The values in our sample (the strikes on the target) will vary around the parameter; while we do not expect any one value to hit the target precisely, a “representative” sample is one in which the values tend to be clustered about the parameter (unbiased). When the sample is not representative, the values in the sample tend to cluster off the mark (biased). Notice that to be unbiased, it may be that not a single value in the sample is perfect, but aggregated together, they point in the right direction. So, bias is not about an individual measurement being an “outlier,” (more on those in <a href="01f-summaries.html" class="quarto-xref"><span>Chapter 5</span></a>) but about <em>consistently</em> shooting in the wrong direction.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-data-bias" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/Data-Bias.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Four targets, the first with all markings clustered in the center, the second with all markings clustered above and right of the center, the third with markings spread out around the center, and the fourth with markings spread out below and left of the center."></p>
-<figcaption class="figure-caption">Figure&nbsp;4.3: Illustration of bias and precision.</figcaption>
+<div id="fig-data-bias" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Four targets, the first with all markings clustered in the center, the second with all markings clustered above and right of the center, the third with markings spread out around the center, and the fourth with markings spread out below and left of the center.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/Data-Bias.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Four targets, the first with all markings clustered in the center, the second with all markings clustered above and right of the center, the third with markings spread out around the center, and the fourth with markings spread out below and left of the center.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Illustration of bias and precision.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -615,13 +663,13 @@ Fundamental Idea II
 <p>If data is to be useful for making conclusions about the population, a process referred to as drawing inference, proper data collection is crucial. Randomization can play an important role ensuring a sample is representative and that inferential conclusions are appropriate.</p>
 </div>
 </div>
-<p>Consider the School Debt example (<a href="#exm-data-school-debt">Example&nbsp;<span>4.1</span></a>) again. Suppose instead of the data collection strategy described there, we had done the following:</p>
+<p>Consider the School Debt example (<a href="#exm-data-school-debt" class="quarto-xref">Example&nbsp;<span>4.1</span></a>) again. Suppose instead of the data collection strategy described there, we had done the following:</p>
 <blockquote class="blockquote">
 <p>We constructed a list of all graduating seniors from the institute. We placed the name of each student on an index card; then, we thoroughly shuffled the cards and chose the top 25 cards. For these 25 individuals, we recorded the amount of debt in student loans each carried.</p>
 </blockquote>
 <p>This essentially describes using a lottery to select the sample. This popular method is known as taking a <strong>simple random sample</strong>. By conducting a lottery, we make it very unlikely that our sample consists of only students with a very small amount of student debt (as occurred when we used a convenience sample).</p>
 <div id="def-simple-random-sample" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.2 (Simple Random Sample) </strong></span>Often abbreviated SRS, this is a sample of size <span class="math inline">\(n\)</span> such that <em>every</em> collection of size <span class="math inline">\(n\)</span> is equally likely to be the resulting sample. This is equivalent to a lottery.</p>
+<p><span class="theorem-title"><strong>Definition 4.2 (Simple Random Sample)</strong></span> Often abbreviated SRS, this is a sample of size <span class="math inline">\(n\)</span> such that <em>every</em> collection of size <span class="math inline">\(n\)</span> is equally likely to be the resulting sample. This is equivalent to a lottery.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -639,7 +687,7 @@ Note
 <p>The primary benefit of a simple random sample is that it removes bias. More specifically, the <em>process</em> of simple random sampling is unbiased; that is, this process does <em>not</em> produce values which are <em>consistently</em> too high or low.</p>
 <p>There are situations in which a simple random sample does not suffice. Again, consider our School Debt example. The Rose-Hulman student body is predominantly domestic, with only about 3% of the student body being international students. But, suppose we are interested in comparing the average debt carried between international and domestic students. It is very likely, by chance alone, that in a simple random sample of 25 students none will be international. Instead of a simple random sample, we might consider taking a sample of 13 domestic students and a sample of 12 international students; this is an example of a <strong>stratified random sample</strong>. This approach is useful when there is a natural grouping of interest within the population.</p>
 <div id="def-stratified-random-sample" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.3 (Stratified Random Sample) </strong></span>A sample in which the population is first divided into groups, or strata, based on a characteristic of interest; a simple random sample is then taken within each group.</p>
+<p><span class="theorem-title"><strong>Definition 4.3 (Stratified Random Sample)</strong></span> A sample in which the population is first divided into groups, or strata, based on a characteristic of interest; a simple random sample is then taken within each group.</p>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -655,14 +703,14 @@ Warning
 </div>
 </div>
 <p>There are countless sampling techniques used in practice. The two described above can be very useful starting points for developing a custom method suitable for a particular application. Their benefit stems from their use of randomization as it limits researcher influence on the composition of the sample and therefore minimizes bias.</p>
-<p>This section is entitled “Preferred Methods” because while these methods are ideal, they are not always practical. Consider the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html"><span>Chapter&nbsp;2</span></a>; conceptually, we can take a simple random sample of the volunteers for our study. However, as with any study involving human subjects, researchers would be required to obtain consent from each subject in the study. That is, any individual has the right to refuse to participate in the study. Therefore, it is unlikely that a simple random sample as described above could be obtained. While random selection is a nice tool, the goal is a sample which is <em>representative</em> of the population. While random sampling is helpful for accomplishing this, we may need to appeal to the composition of the sample itself to justify its use. <em>Based on the characteristics of those willing to participate in the study, do we feel the study participants form a representative group of all volunteers?</em> That is the essential question. This is often why studies report a table summarizing participant demographics such as age, gender, etc. It is also why it is extremely important for researchers to describe how observations were obtained so that readers may make the judgement for themselves whether the sample is representative.</p>
+<p>This section is entitled “Preferred Methods” because while these methods are ideal, they are not always practical. Consider the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html" class="quarto-xref"><span>Chapter 2</span></a>; conceptually, we can take a simple random sample of the volunteers for our study. However, as with any study involving human subjects, researchers would be required to obtain consent from each subject in the study. That is, any individual has the right to refuse to participate in the study. Therefore, it is unlikely that a simple random sample as described above could be obtained. While random selection is a nice tool, the goal is a sample which is <em>representative</em> of the population. While random sampling is helpful for accomplishing this, we may need to appeal to the composition of the sample itself to justify its use. <em>Based on the characteristics of those willing to participate in the study, do we feel the study participants form a representative group of all volunteers?</em> That is the essential question. This is often why studies report a table summarizing participant demographics such as age, gender, etc. It is also why it is extremely important for researchers to describe how observations were obtained so that readers may make the judgement for themselves whether the sample is representative.</p>
 </section>
 <section id="two-types-of-studies" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="two-types-of-studies"><span class="header-section-number">4.4</span> Two Types of Studies</h2>
-<p>Thinking about how the data was collected helps us determine how the results generalize beyond the sample itself (to what population the results apply). When our question of interest is about the relationship between two variables (as most questions are), we must also carefully consider the study design. Too often separated from the statistical analysis that follows, keeping the study design in mind should guide the analysis as well as inform us about the conclusions we can draw. While we will discuss study design more fully in <a href="04d-anovadata.html"><span>Chapter&nbsp;25</span></a>, we introduce some of the concepts here.</p>
+<p>Thinking about how the data was collected helps us determine how the results generalize beyond the sample itself (to what population the results apply). When our question of interest is about the relationship between two variables (as most questions are), we must also carefully consider the study design. Too often separated from the statistical analysis that follows, keeping the study design in mind should guide the analysis as well as inform us about the conclusions we can draw. While we will discuss study design more fully in <a href="04d-anovadata.html" class="quarto-xref"><span>Chapter 25</span></a>, we introduce some of the concepts here.</p>
 <p>In order to illustrate how study design can impact the results, consider the following example.</p>
 <div id="exm-data-kangaroo" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.2 (Kangaroo Care) </strong></span>At birth, infants have low levels of Vitamin K, a vitamin needed in order to form blood clots. Though rare, without the ability for her blood to clot, an infant could develop a serious bleed. In order to prevent this, the American Academy of Pediatrics recommends that all infants be given a Vitamin K shot shortly after birth in order to raise Vitamin K levels. As with any shot, there is typically discomfort to the infant, which can be very discomforting to new parents.</p>
+<p><span class="theorem-title"><strong>Example 4.2 (Kangaroo Care)</strong></span> At birth, infants have low levels of Vitamin K, a vitamin needed in order to form blood clots. Though rare, without the ability for her blood to clot, an infant could develop a serious bleed. In order to prevent this, the American Academy of Pediatrics recommends that all infants be given a Vitamin K shot shortly after birth in order to raise Vitamin K levels. As with any shot, there is typically discomfort to the infant, which can be very discomforting to new parents.</p>
 <p>Kangaroo Care is a method of holding a baby which emphasizes skin-to-skin contact. The child, who is dressed only in a diaper, is placed upright on the parent’s bare chest; a light blanket is draped over the child. Suppose we are interested in determining if utilizing the method while giving the child a Vitamin K shot reduces the discomfort in the infant, as measured by the total amount of time the child cries following the shot.</p>
 <p>Within this context, contrast the following two potential study designs:</p>
 <ol type="A">
@@ -685,10 +733,10 @@ Warning
 </ul>
 <p>Design (A) is an example of an <strong>observational study</strong>; design (B) is a an example of a <strong>controlled experiment</strong>.</p>
 <div id="def-observational-study" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.4 (Observational Study) </strong></span>A study in which each subject “self-selects” into one of groups being compared in the study. The phrase “self-selects” is used very loosely here and can include studies for which the groups are defined by an inherent characteristic or are chosen haphazardly.</p>
+<p><span class="theorem-title"><strong>Definition 4.4 (Observational Study)</strong></span> A study in which each subject “self-selects” into one of groups being compared in the study. The phrase “self-selects” is used very loosely here and can include studies for which the groups are defined by an inherent characteristic or are chosen haphazardly.</p>
 </div>
 <div id="def-controlled-experiment" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.5 (Controlled Experiment) </strong></span>A study in which each subject is <em>randomly</em> assigned to one of the groups being compared in the study.</p>
+<p><span class="theorem-title"><strong>Definition 4.5 (Controlled Experiment)</strong></span> A study in which each subject is <em>randomly</em> assigned to one of the groups being compared in the study.</p>
 </div>
 <p>It is common to think that anytime the environment is “controlled” by the researcher that a controlled experiment is taking place, but the defining characteristic is the random assignment to groups (sometimes referred to as the <em>factor</em> under study or <em>treatment</em> groups). In the example above, both study designs involved a controlled setting (the delivery room of a hospital) in which trained staff (the nurse) deliver the shot. However, only design (B) is a controlled experiment because the researchers randomly determined which treatment the infant would receive.</p>
 <p>To understand the impact of random allocation, suppose that we had conducted a study using design (A); further, the results of the study suggest that those infants who were given a shot while using Kangaroo Care cried for a shorter time period, on average. Can we conclude that it was the Kangaroo Care that led to the shorter crying time? Maybe. Consider the following two potential explanations for the resulting data:</p>
@@ -699,7 +747,7 @@ Warning
 </ol>
 <p>The problem is that we are unable to determine which of the explanations is correct under study design (A). Given the data we have collected, we are unable to tease out the effect of the Kangaroo Care from that of the nurse’s bedside manner. As a result, we are able to say we observed an <em>association</em> between the use of Kangaroo Care and reduced crying time, but we are unable to conclude that Kangaroo Care <em>caused</em> a reduction in the crying time (that is, the reduced crying time may be due to something else, like the bedside manner of the nurse). In this hypothetical scenario, the nurse’s bedside manner is called a <strong>confounder</strong>.</p>
 <div id="def-confounding" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.6 (Confounding) </strong></span>When the effect of a variable on the response is mis-represented due to the presence of a third, potentially unobserved, variable known as a confounder.</p>
+<p><span class="theorem-title"><strong>Definition 4.6 (Confounding)</strong></span> When the effect of a variable on the response is mis-represented due to the presence of a third, potentially unobserved, variable known as a confounder.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -714,13 +762,17 @@ Note
 <p>While both result in estimates we may not trust, confounding is not equivalent to a biased sample.</p>
 </div>
 </div>
-<p>Confounders can mask the relationship between the factor under study and the response. Did you know there is a documented association between ice cream sales and the risk of shark attacks? As ice cream sales increase, the risk of a shark attack also tends to increase. This does not mean that if a small city in the Midwest increases its ice cream sales that the citizens are at higher risk of being attacked by a shark. As <a href="#fig-data-confounding">Figure&nbsp;<span>4.4</span></a> illustrates, there is a confounder — temperature. As the temperatures increase, people tend to buy more ice cream; as the temperature increases, people tend to go to the beach, thereby increasing the risk of a shark attack. The two variables, ice cream sales and shark attacks, appear to be related as a result of the confounder of temperature.</p>
+<p>Confounders can mask the relationship between the factor under study and the response. Did you know there is a documented association between ice cream sales and the risk of shark attacks? As ice cream sales increase, the risk of a shark attack also tends to increase. This does not mean that if a small city in the Midwest increases its ice cream sales that the citizens are at higher risk of being attacked by a shark. As <a href="#fig-data-confounding" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> illustrates, there is a confounder — temperature. As the temperatures increase, people tend to buy more ice cream; as the temperature increases, people tend to go to the beach, thereby increasing the risk of a shark attack. The two variables, ice cream sales and shark attacks, appear to be related as a result of the confounder of temperature.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-data-confounding" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/Data-Confounding.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Three bubbles in a triangle with the top, labeled confounder, pointing towards the other two; the lower left corner is labeled factor of interest and points toward the one on the lower right corner; the lower right corner is labeled response of interest."></p>
-<figcaption class="figure-caption">Figure&nbsp;4.4: Illustration of a confounding variable. The confounder, related to both the response and the factor of interest (or treatment) can make it appear as though there is a causal relationship when none exists.</figcaption>
+<div id="fig-data-confounding" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Three bubbles in a triangle with the top, labeled confounder, pointing towards the other two; the lower left corner is labeled factor of interest and points toward the one on the lower right corner; the lower right corner is labeled response of interest.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-confounding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/Data-Confounding.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Three bubbles in a triangle with the top, labeled confounder, pointing towards the other two; the lower left corner is labeled factor of interest and points toward the one on the lower right corner; the lower right corner is labeled response of interest.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-confounding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Illustration of a confounding variable. The confounder, related to both the response and the factor of interest (or treatment) can make it appear as though there is a causal relationship when none exists.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -738,13 +790,17 @@ Big Idea
 <p>Confounders are variables that influence <em>both</em> the factor of interest and the response.</p>
 </div>
 </div>
-<p>Observational studies are subject to confounding; thus, controlled experiments are often considered the gold standard in research because they allow us to infer cause-and-effect relationships from the data. Controlled experiments allow for causal interpretations because the random allocation to the levels of the factor removes the impact of confounders. Let’s return to the hypothetical Vitamin-K study in <a href="#exm-data-kangaroo">Example&nbsp;<span>4.2</span></a>. Suppose there are nurses with a gentle bedside manner and those who are a little less gentle. If we randomly determine which infants receive Kangaroo Care, then for every gentle nurse who is told to implement Kangaroo Care while giving the shot, there tends to be a gentle nurse who is told to not implement Kangaroo Care. Similarly, for every less-gentle nurse who is told to implement Kangaroo Care while giving a shot, there tends to be a less-gentle nurse who is told to not implement Kangaroo Care. This is illustrated in <a href="#fig-data-randomization">Figure&nbsp;<span>4.5</span></a>. For an observational study, the treatment groups can be unbalanced; for example, <a href="#fig-data-randomization">Figure&nbsp;<span>4.5</span></a> illustrates a case in which there is a higher fraction (11/12 compared to 1/4) of friendly nurses in the Kangaroo Care group compared to the No Kangaroo Care group. For the controlled experiment however, the treatment groups tend to be balanced with respect to this confounder; there is approximately the same fraction of friendly nurses in both groups. Random assignment is the great equalizer. It tends to result in groups which are similar in all respects; therefore, since we have eliminated all other differences between the groups (other than the treatment they receive), any differences we observe between the groups <em>must</em> be due to the grouping and not an underlying confounding variable.</p>
+<p>Observational studies are subject to confounding; thus, controlled experiments are often considered the gold standard in research because they allow us to infer cause-and-effect relationships from the data. Controlled experiments allow for causal interpretations because the random allocation to the levels of the factor removes the impact of confounders. Let’s return to the hypothetical Vitamin-K study in <a href="#exm-data-kangaroo" class="quarto-xref">Example&nbsp;<span>4.2</span></a>. Suppose there are nurses with a gentle bedside manner and those who are a little less gentle. If we randomly determine which infants receive Kangaroo Care, then for every gentle nurse who is told to implement Kangaroo Care while giving the shot, there tends to be a gentle nurse who is told to not implement Kangaroo Care. Similarly, for every less-gentle nurse who is told to implement Kangaroo Care while giving a shot, there tends to be a less-gentle nurse who is told to not implement Kangaroo Care. This is illustrated in <a href="#fig-data-randomization" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>. For an observational study, the treatment groups can be unbalanced; for example, <a href="#fig-data-randomization" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> illustrates a case in which there is a higher fraction (11/12 compared to 1/4) of friendly nurses in the Kangaroo Care group compared to the No Kangaroo Care group. For the controlled experiment however, the treatment groups tend to be balanced with respect to this confounder; there is approximately the same fraction of friendly nurses in both groups. Random assignment is the great equalizer. It tends to result in groups which are similar in all respects; therefore, since we have eliminated all other differences between the groups (other than the treatment they receive), any differences we observe between the groups <em>must</em> be due to the grouping and not an underlying confounding variable.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-data-randomization" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/Data-Randomization.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Two panels labeled observational study and controlled experiment.  Each panel contains symbols indicating whether the nurse has gentle or poor bedside manner and whether they use kangaroo care.  The panel labeled observational study illustrates confounding."></p>
-<figcaption class="figure-caption">Figure&nbsp;4.5: Illustration of the impact of random assignment in study design. For the observational study, the treatment groups are unbalanced. For the controlled experiment, the treatment groups are balanced.</figcaption>
+<div id="fig-data-randomization" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two panels labeled observational study and controlled experiment.  Each panel contains symbols indicating whether the nurse has gentle or poor bedside manner and whether they use kangaroo care.  The panel labeled observational study illustrates confounding.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-randomization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/Data-Randomization.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Two panels labeled observational study and controlled experiment.  Each panel contains symbols indicating whether the nurse has gentle or poor bedside manner and whether they use kangaroo care.  The panel labeled observational study illustrates confounding.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-randomization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: Illustration of the impact of random assignment in study design. For the observational study, the treatment groups are unbalanced. For the controlled experiment, the treatment groups are balanced.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -762,7 +818,7 @@ Big Idea
 <p>Randomly assigning subjects to groups balances the groups with respect to any confounders; that is, the groups being compared are similar. Therefore, any differences between the two groups can be attributed to the grouping itself, leading to cause-and-effect conclusions.</p>
 </div>
 </div>
-<p>While controlled experiments are a fantastic study design, we should not discount the use of observational studies. Consider the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html"><span>Chapter&nbsp;2</span></a>; suppose we are interested in the following question:</p>
+<p>While controlled experiments are a fantastic study design, we should not discount the use of observational studies. Consider the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html" class="quarto-xref"><span>Chapter 2</span></a>; suppose we are interested in the following question:</p>
 <blockquote class="blockquote">
 <p>Is there evidence that volunteers who are directly exposed to oil have an increased risk of developing adverse respiratory symptoms compared to those who are not directly exposed to oil?</p>
 </blockquote>
@@ -858,10 +914,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -871,8 +944,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -884,7 +966,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -928,6 +1133,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -953,6 +1159,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1014,17 +1246,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01d-questions.html" class="pagination-link">
+      <a href="./01d-questions.html" class="pagination-link" aria-label="Asking the Right Questions">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01f-summaries.html" class="pagination-link">
+      <a href="./01f-summaries.html" class="pagination-link" aria-label="Presenting the Evidence (Summarizing Data)">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

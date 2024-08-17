@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,12 +79,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05d-blockdata.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05d-blockdata.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -87,12 +94,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -447,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -461,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05d-blockdata.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-blockdata" class="quarto-section-identifier"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Correlated Data</span></span></h1>
 </div>
@@ -476,9 +483,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p><a href="04d-anovadata.html"><span>Chapter&nbsp;25</span></a> discussed three aspects of a well-designed study: replication, randomization, and reduction of noise. Of particular interest for us in this unit is the concept of blocking for creating groups which are as similar as possible to reduce external variability.</p>
+
+<p><a href="04d-anovadata.html" class="quarto-xref"><span>Chapter 25</span></a> discussed three aspects of a well-designed study: replication, randomization, and reduction of noise. Of particular interest for us in this unit is the concept of blocking for creating groups which are as similar as possible to reduce external variability.</p>
 <section id="blocking" class="level2 theorem.definition" data-number="34.1">
 <h2 data-number="34.1" class="anchored" data-anchor-id="blocking"><span class="header-section-number">34.1</span> Blocking</h2>
 <p>Blocking is a way of minimizing the variability contributed by an inherent characteristic that results in dependent observations. In some cases, the blocks are the unit of observation which is sampled from a larger population, and multiple observations are taken on each unit. In other cases, the blocks are formed by grouping the units of observations according to an inherent characteristic; in these cases that shared characteristic can be thought of having a value that was sampled from a larger population.</p>
@@ -505,21 +514,21 @@ Note
 <p>Suppose one of the participants in the study does not really enjoy frozen yogurt (more of an ice cream fan); then, their rating on the taste will tend to be lower than that given by other participants <em>for each of the vendors</em>. Similarly, a huge frozen yogurt fan will tend to have taste ratings (for each vendor) which are higher than other participants. If you are told the taste rating for the Name Brand vendor given by the anti-frozen-yogurt participant, you have a pretty good guess of what their rating will be for the other vendors. There is a <em>correlation</em> between that participant’s responses across the factor levels; that is, those three responses are not independent of one another. This relationship is what provides power in the study, but it is also what prevents us from using the methods previously discussed in this text to analyze the data.</p>
 <p>In the Frozen Yogurt Case Study, the order in which the yogurt from each vendor was given to a participant was randomized. That is, participants were not randomly assigned to vendors (randomization at the unit-level); instead, the order of the vendors was assigned within each participant (randomization within the unit). When randomization occurs within the block, and the blocks are balanced with respect to the treatment groups, the study is referred to as a <strong>randomized complete block design</strong>.</p>
 <div id="def-rcbd" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 34.1 (Randomized Complete Block Design) </strong></span>A randomized complete block design is an example of a controlled experiment utilizing blocking. Each treatment is randomized to observations within blocks in such a way that every treatment is present within the block and the same number of observations are assigned to each treatment.</p>
+<p><span class="theorem-title"><strong>Definition 34.1 (Randomized Complete Block Design)</strong></span> A randomized complete block design is an example of a controlled experiment utilizing blocking. Each treatment is randomized to observations within blocks such that within each block every treatment is present and the same number of observations are assigned to each treatment.</p>
 </div>
-<p>In the Frozen Yogurt Case Study, the blocks are formed by taking repeated measurements (multiple ratings) on each participant. <a href="04d-anovadata.html#exm-anovadata-golf">Example&nbsp;<span>25.1</span></a> provides an example of a randomized complete block design where the blocks are not formed by taking repeated measurements on the same units; instead, the blocks were composed of separate units (golf greens) which had a similar characteristic (slope of green) which created the block.</p>
+<p>In the Frozen Yogurt Case Study, the blocks are formed by taking repeated measurements (multiple ratings) on each participant. <a href="04d-anovadata.html#exm-anovadata-golf" class="quarto-xref">Example&nbsp;<span>25.1</span></a> provides an example of a randomized complete block design where the blocks are not formed by taking repeated measurements on the same units; instead, the blocks were composed of separate units (golf greens) which had a similar characteristic (slope of green) which created the block.</p>
 <p>While a randomized complete block design is a controlled experiment that uses blocking, we can also have observational studies that make use of blocks. For example, pre-post tests are an example of a block design in which each participant is tested prior to and following some intervention. The participants act as the blocks; however, the “treatment” groups (pre and post) are not randomized; instead, they occur in a specific order (pre measurement taken, treatment applied, post measurement taken). This would be an example of an observational study with blocks.</p>
 <div id="exm-blockdata-jumpheight" class="theorem example">
-<p><span class="theorem-title"><strong>Example 34.1 (Jump Height) </strong></span>Biomedical Engineering students conducted a study investigating how vertical jump height changes with age. They hypothesized that jump height would increase with age. The students enrolled 19 participants into their study. Each participant was asked to perform a vertical jump, the height of which was recorded using the Qualisys Motion Capture system. The participant’s age and height were also recorded.</p>
+<p><span class="theorem-title"><strong>Example 34.1 (Jump Height)</strong></span> Biomedical Engineering students conducted a study investigating how vertical jump height changes with age. They hypothesized that jump height would increase with age. The students enrolled 19 participants into their study. Each participant was asked to perform a vertical jump, the height of which was recorded using the Qualisys Motion Capture system. The participant’s age and height were also recorded.</p>
 <p>Students noted that the 19 participants represented 6 families (2 families of 3 individuals, 2 families of 4 individuals, and 1 family of 5 individuals). The engineering students believed that athletic ability (and therefore jump height) may have both a genetic and environmental component common among families.</p>
 <p>The primary goal of the study was to quantify the change in the average vertical jump height as the age of subjects increase while accounting for similarities among members of the same family.</p>
 </div>
-<p><a href="#exm-blockdata-jumpheight">Example&nbsp;<span>34.1</span></a> is another example of an observational study using blocks. Notice that participants are not assigned to their age; so, no random allocation occurs. However, there are still blocks that pertain to an inherent characteristic among units. The jump heights from members of the same family are correlated.</p>
-<p>In each of the examples given, we can think of the blocks as being a sample from some larger population. In the Frozen Yogurt Case Study, the participants form the blocks; we can imagine these college students are a sample from among all college students. In <a href="04d-anovadata.html#exm-anovadata-golf">Example&nbsp;<span>25.1</span></a>, the blocks are formed by the slope of the green; we can imagine these slopes form a sample from among all potential slopes a green could have. And, in <a href="#exm-blockdata-jumpheight">Example&nbsp;<span>34.1</span></a>, the blocks are created by families; we can imagine the families being a sample from among all families in the world, for example. Blocks are distinguished from secondary factors of interest because comparing the blocks themselves is not relevant to the question; instead, the blocks are a nuisance that result in correlated responses, and that correlation must be accounted for.</p>
+<p><a href="#exm-blockdata-jumpheight" class="quarto-xref">Example&nbsp;<span>34.1</span></a> is another example of an observational study using blocks. Notice that participants are not assigned to their age; so, no random allocation occurs. However, there are still blocks that pertain to an inherent characteristic among units. The jump heights from members of the same family are correlated.</p>
+<p>In each of the examples given, we can think of the blocks as being a sample from some larger population. In the Frozen Yogurt Case Study, the participants form the blocks; we can imagine these college students are a sample from among all college students. In <a href="04d-anovadata.html#exm-anovadata-golf" class="quarto-xref">Example&nbsp;<span>25.1</span></a>, the blocks are formed by the slope of the green; we can imagine these slopes form a sample from among all potential slopes a green could have. And, in <a href="#exm-blockdata-jumpheight" class="quarto-xref">Example&nbsp;<span>34.1</span></a>, the blocks are created by families; we can imagine the families being a sample from among all families in the world, for example. Blocks are distinguished from secondary factors of interest because comparing the blocks themselves is not relevant to the question; instead, the blocks are a nuisance that result in correlated responses, and that correlation must be accounted for.</p>
 <div id="exm-blockdata-greenhouse" class="theorem example">
-<p><span class="theorem-title"><strong>Example 34.2 (Greenhouse Study) </strong></span>A greenhouse study was conducted to determine the effects of two types of environmental conditions (amount of light and daily temperature) on the growth of a certain species of plant. Specifically, two amounts of light were considered: 10 hours and 12 hours. And, two temperatures were considered: 70 degrees and 80 degrees Fahrenheit. Researchers ultimately wanted to decide which of the four possible combinations of these conditions resulted in the maximum growth of the plant. A total of twelve plants were randomized to be grown under one of the four combinations of light and temperature (with three plants being randomized to each of the four combinations). After 10 weeks of exposure, the measured dry weight of the plant material for each of the twelve plants was recorded.</p>
+<p><span class="theorem-title"><strong>Example 34.2 (Greenhouse Study)</strong></span> A greenhouse study was conducted to determine the effects of two types of environmental conditions (amount of light and daily temperature) on the growth of a certain species of plant. Specifically, two amounts of light were considered: 10 hours and 12 hours. And, two temperatures were considered: 70 degrees and 80 degrees Fahrenheit. Researchers ultimately wanted to decide which of the four possible combinations of these conditions resulted in the maximum growth of the plant. A total of twelve plants were randomized to be grown under one of the four combinations of light and temperature (with three plants being randomized to each of the four combinations). After 10 weeks of exposure, the measured dry weight of the plant material for each of the twelve plants was recorded.</p>
 </div>
-<p>For <a href="#exm-blockdata-greenhouse">Example&nbsp;<span>34.2</span></a>, there are two grouping variables: amount of light and temperature. However, neither variable represents a block. In this example, researchers are particularly interested in comparing the specific levels of each variable. That is, both variables represent factors of interest. Instead of being a “nuisance,” both the amount of light and the daily temperature are important variables in examining the response. While the method for addressing a second factor and addressing a block are similar in practice, conceptually, the a secondary factor is very different from a block.</p>
+<p>For <a href="#exm-blockdata-greenhouse" class="quarto-xref">Example&nbsp;<span>34.2</span></a>, there are two grouping variables: amount of light and temperature. However, neither variable represents a block. In this example, researchers are particularly interested in comparing the specific levels of each variable. That is, both variables represent factors of interest. Instead of being a “nuisance,” both the amount of light and the daily temperature are important variables in examining the response. While the method for addressing a second factor and addressing a block are similar in practice, conceptually, the a secondary factor is very different from a block.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -622,10 +631,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -635,8 +661,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -648,7 +683,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -692,6 +850,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -717,6 +876,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -778,17 +963,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05c-blockquestions.html" class="pagination-link">
+      <a href="./05c-blockquestions.html" class="pagination-link" aria-label="Framing the Question">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Framing the Question</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05e-blocksummaries.html" class="pagination-link">
+      <a href="./05e-blocksummaries.html" class="pagination-link" aria-label="Presenting Correlated Data">
         <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Presenting Correlated Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

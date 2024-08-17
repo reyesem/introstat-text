@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04f-anovamodel.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04f-anovamodel.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -464,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04f-anovamodel.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-anovamodel" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span></h1>
 </div>
@@ -479,9 +513,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>In <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a>, we introduced the statistical modeling framework. In particular, our general model (see <a href="02c-meanmodels.html#eq-general-model">Equation&nbsp;<span>10.1</span></a>) for the data generating process was</p>
+
+<p>In <a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>, we introduced the statistical modeling framework. In particular, our general model (see <a href="02c-meanmodels.html#eq-general-model" class="quarto-xref">Equation&nbsp;<span>10.1</span></a>) for the data generating process was</p>
 <p><span class="math display">\[\text{Response} = \text{function}(\text{predictor variables, parameters}) + \text{noise}.\]</span></p>
 <p>Recall that this model has two components:</p>
 <ul>
@@ -499,23 +535,27 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For those that felt comfortable with <a href="03j-regextensions.html"><span>Chapter&nbsp;21</span></a>, you may notice that much of what we discuss is a special case of the concepts discussed for the general linear regression model. However, we have tried to make this unit stand alone; that is, <a href="03j-regextensions.html"><span>Chapter&nbsp;21</span></a> (indeed, none of Unit III) is required prior to reading the material discussed in Unit IV, though we may occasionally make references to Unit III to draw connections between the material.</p>
+<p>For those that felt comfortable with <a href="03j-regextensions.html" class="quarto-xref"><span>Chapter 21</span></a>, you may notice that much of what we discuss is a special case of the concepts discussed for the general linear regression model. However, we have tried to make this unit stand alone; that is, <a href="03j-regextensions.html" class="quarto-xref"><span>Chapter 21</span></a> (indeed, none of Unit III) is required prior to reading the material discussed in Unit IV, though we may occasionally make references to Unit III to draw connections between the material.</p>
 </div>
 </div>
 <section id="statistical-model-for-a-quantitative-response-and-a-categorical-predictor" class="level2" data-number="27.1">
 <h2 data-number="27.1" class="anchored" data-anchor-id="statistical-model-for-a-quantitative-response-and-a-categorical-predictor"><span class="header-section-number">27.1</span> Statistical Model for A Quantitative Response and a Categorical Predictor</h2>
-<p>For the Organic Food Case Study, we are comparing the moral expectations (quantitative response) for different food exposures (levels of a categorical variable). Our model for the data generating process is best understood in light of the graphic we used to display the data (see <a href="#fig-anovamodel-organic-plot">Figure&nbsp;<span>27.1</span></a>).</p>
+<p>For the Organic Food Case Study, we are comparing the moral expectations (quantitative response) for different food exposures (levels of a categorical variable). Our model for the data generating process is best understood in light of the graphic we used to display the data (see <a href="#fig-anovamodel-organic-plot" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anovamodel-organic-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-anovamodel-organic-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Jitter plot of moral expectation scores overlayed on corresponding boxplots for each of three food types.  A single point within the organic food type is labeled in red."></p>
-<figcaption class="figure-caption">Figure&nbsp;27.1: Moral expectation scores for students following exposure to one of three food types.</figcaption>
+<div id="fig-anovamodel-organic-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Jitter plot of moral expectation scores overlayed on corresponding boxplots for each of three food types.  A single point within the organic food type is labeled in red.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anovamodel-organic-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-anovamodel-organic-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Jitter plot of moral expectation scores overlayed on corresponding boxplots for each of three food types.  A single point within the organic food type is labeled in red.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anovamodel-organic-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Moral expectation scores for students following exposure to one of three food types.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Let’s consider how the value 3.67, highlighted red in <a href="#fig-anovamodel-organic-plot">Figure&nbsp;<span>27.1</span></a>, was generated. As we mentioned in the previous chapter, there are two sources of variability that contribute to the moral expectation scores (two reasons that the values are not all the same). One reason the moral expectations differ across participants is the fact that some participants were exposed to different food groups. That is, one reason the value 3.67 differs from others observed is because this subject belongs to the organic group and not the comfort or control groups. In order to incorporate the food type into the model for the data generating process, we might initially consider something like the simple linear model (<a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>) discussed in <a href="03f-regmodel.html"><span>Chapter&nbsp;17</span></a>:</p>
+<p>Let’s consider how the value 3.67, highlighted red in <a href="#fig-anovamodel-organic-plot" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>, was generated. As we mentioned in the previous chapter, there are two sources of variability that contribute to the moral expectation scores (two reasons that the values are not all the same). One reason the moral expectations differ across participants is the fact that some participants were exposed to different food groups. That is, one reason the value 3.67 differs from others observed is because this subject belongs to the organic group and not the comfort or control groups. In order to incorporate the food type into the model for the data generating process, we might initially consider something like the simple linear model (<a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>) discussed in <a href="03f-regmodel.html" class="quarto-xref"><span>Chapter 17</span></a>:</p>
 <p><span class="math display">\[(\text{Moral Expectation Score})_i = \beta_0 + \beta_1 (\text{Food Exposure Group})_i + \varepsilon_i.\]</span></p>
 <p>However, the food exposure group is not a quantitative variable. That is, we cannot multiply <span class="math inline">\(\beta_1\)</span> (a number) and “comfort” (a word) together as the model suggests. Our solution is to consider the deterministic portion of the data generating process to be a piecewise function:</p>
 <p><span class="math display">\[
@@ -526,7 +566,7 @@ Note
   \mu_3 &amp; \text{if i-th participant exposed to organic foods.}
 \end{cases}
 \]</span></p>
-<p>This is a completely acceptable function; it involves both the parameters, the mean response <span class="math inline">\(\mu_1, \mu_2, \mu_3\)</span> for each of the three groups, and the factor of interest (which good group participants are exposed to). However, this function is cumbersome to write, and it is not necessarily easy to communicate to the computer or generalize to more complex settings. In order to create something that is a bit easier to work with, observe how the function works: it receives an input regarding which group a participant belongs to, and it directs you to the appropriate parameter to represent the mean response for their group (the output of the function). We can recreate this through a clever use of indicator variables (<a href="03j-regextensions.html#def-indicator-variable">Definition&nbsp;<span>21.1</span></a>).</p>
+<p>This is a completely acceptable function; it involves both the parameters, the mean response <span class="math inline">\(\mu_1, \mu_2, \mu_3\)</span> for each of the three groups, and the factor of interest (which good group participants are exposed to). However, this function is cumbersome to write, and it is not necessarily easy to communicate to the computer or generalize to more complex settings. In order to create something that is a bit easier to work with, observe how the function works: it receives an input regarding which group a participant belongs to, and it directs you to the appropriate parameter to represent the mean response for their group (the output of the function). We can recreate this through a clever use of indicator variables (<a href="03j-regextensions.html#def-indicator-variable" class="quarto-xref">Definition&nbsp;<span>21.1</span></a>).</p>
 </section>
 <section id="indicator-variable" class="level2 theorem.definition" data-number="27.2">
 <h2 data-number="27.2" class="anchored" data-anchor-id="indicator-variable"><span class="header-section-number">27.2</span> Indicator Variable</h2>
@@ -557,7 +597,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In <a href="03j-regextensions.html"><span>Chapter&nbsp;21</span></a>, a single indicator variable was used to capture two groups; this was possible because the model for the data generating process included an intercept term — a parameter not associated with any predictor variable. In this chapter, there is no intercept term.</p>
+<p>In <a href="03j-regextensions.html" class="quarto-xref"><span>Chapter 21</span></a>, a single indicator variable was used to capture two groups; this was possible because the model for the data generating process included an intercept term — a parameter not associated with any predictor variable. In this chapter, there is no intercept term.</p>
 </div>
 </div>
 <p>Consider the group of individuals exposed to comfort foods; for this group, the “comfort” indicator variable takes the value 1, and the “control” and “organic” indicator variables take the value 0. Therefore, the model suggests the average moral expectations for individuals exposed to comfort foods is</p>
@@ -576,7 +616,7 @@ Big Idea
 <p>The deterministic component of a statistical model for the data generating process incorporates the parameters which govern the question of interest. It is built to explain differences in the mean response of the units of observation.</p>
 </div>
 </div>
-<p>The deterministic portion of <a href="#eq-anovamodel-model">Equation&nbsp;<span>27.1</span></a> says that every single person exposed to the same food group should have the same moral expectations, and the stochastic portion of <a href="#eq-anovamodel-model">Equation&nbsp;<span>27.1</span></a> allows individuals within the same group to vary because of random noise.</p>
+<p>The deterministic portion of <a href="#eq-anovamodel-model" class="quarto-xref">Equation&nbsp;<span>27.1</span></a> says that every single person exposed to the same food group should have the same moral expectations, and the stochastic portion of <a href="#eq-anovamodel-model" class="quarto-xref">Equation&nbsp;<span>27.1</span></a> allows individuals within the same group to vary because of random noise.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -619,10 +659,10 @@ ANOVA Model
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notice that <a href="#eq-anova">Equation&nbsp;<span>27.2</span></a> has a very similar form to <a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>. The primary difference is the presence of an intercept term in <a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>. Each indicator is acting as a predictor in the model for the data generating process. If we were to add an intercept to <a href="#eq-anova">Equation&nbsp;<span>27.2</span></a>, and then remove one of the indicator variables to construct a reference group, then we would completely fall under the general linear regression model framework. This means that as we move forward, we can adopt results established for the general linear regression model.</p>
+<p>Notice that <a href="#eq-anova" class="quarto-xref">Equation&nbsp;<span>27.2</span></a> has a very similar form to <a href="03j-regextensions.html#eq-mlr" class="quarto-xref">Equation&nbsp;<span>21.3</span></a>. The primary difference is the presence of an intercept term in <a href="03j-regextensions.html#eq-mlr" class="quarto-xref">Equation&nbsp;<span>21.3</span></a>. Each indicator is acting as a predictor in the model for the data generating process. If we were to add an intercept to <a href="#eq-anova" class="quarto-xref">Equation&nbsp;<span>27.2</span></a>, and then remove one of the indicator variables to construct a reference group, then we would completely fall under the general linear regression model framework. This means that as we move forward, we can adopt results established for the general linear regression model.</p>
 </div>
 </div>
-<p>As each parameter in <a href="#eq-anovamodel-model">Equation&nbsp;<span>27.1</span></a> represents the mean response of a particular food exposure group, it is intuitive that we would estimate the parameter with the observed sample mean of the corresponding food exposure group. This turns out to be equivalent to estimating the parameters through the method of least squares (<a href="03f-regmodel.html#def-least-squares-estimates">Definition&nbsp;<span>17.2</span></a>).</p>
+<p>As each parameter in <a href="#eq-anovamodel-model" class="quarto-xref">Equation&nbsp;<span>27.1</span></a> represents the mean response of a particular food exposure group, it is intuitive that we would estimate the parameter with the observed sample mean of the corresponding food exposure group. This turns out to be equivalent to estimating the parameters through the method of least squares (<a href="03f-regmodel.html#def-least-squares-estimates" class="quarto-xref">Definition&nbsp;<span>17.2</span></a>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -633,7 +673,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The least squares estimate of <span class="math inline">\(\mu_j\)</span> in <a href="#eq-anova">Equation&nbsp;<span>27.2</span></a> is the sample mean response from the <span class="math inline">\(j\)</span>-th group. That is, we use the observed mean response from each group as an estimate of the mean response for each group.</p>
+<p>The least squares estimate of <span class="math inline">\(\mu_j\)</span> in <a href="#eq-anova" class="quarto-xref">Equation&nbsp;<span>27.2</span></a> is the sample mean response from the <span class="math inline">\(j\)</span>-th group. That is, we use the observed mean response from each group as an estimate of the mean response for each group.</p>
 </div>
 </div>
 <p>Just as before, while point estimates are helpful, inference requires that we quantify the variability in our estimates. And, just as before, we need to distinguish between the model for the data generating process and the model for the sampling distribution of the parameter estimates and the model for the null distribution of a standardized statistic. And, just as before, to move from the model for the data generating process to a model for the sampling distribution of the parameter estimates, we impose conditions on the stochastic component.</p>
@@ -720,10 +760,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -733,8 +790,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -746,7 +812,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -790,6 +979,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -815,6 +1005,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -876,17 +1092,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04e-anovasummaries.html" class="pagination-link">
+      <a href="./04e-anovasummaries.html" class="pagination-link" aria-label="Presenting the Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04g-anovaconditions.html" class="pagination-link">
+      <a href="./04g-anovaconditions.html" class="pagination-link" aria-label="Conditions on the Error Term of an ANOVA Model">
         <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

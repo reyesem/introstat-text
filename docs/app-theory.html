@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-theory.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-theory.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-theory.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-theory.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -469,7 +503,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-theory.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-theory.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Approaches for Modeling Sampling Distributions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-app-theory" class="quarto-section-identifier">Appendix A — Approaches for Modeling Sampling Distributions</span></h1>
 </div>
@@ -484,7 +518,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Throughout the text, we have alluded to various strategies for modeling the sampling distribution of a statistic. Here, we sketch out these methods in the context of a regression model. As modeling the data generating process provides a unifying framework, the approaches discussed in this appendix generalize to each of the models discussed in this text.</p>
 <p>Throughout this appendix, we will assume the simple linear regression model</p>
@@ -495,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
 <li>the error in one observation is independent of the error for all other observations.</li>
 </ul>
 <p>Additional constraints will be discussed as needed. We further assume we have a sample of size <span class="math inline">\(n\)</span> from the population.</p>
-<p>We note that all methods described in this section extend directly to the general linear regression model (<a href="03j-regextensions.html#eq-mlr">Equation&nbsp;<span>21.3</span></a>) and therefore extend to all models presented in the text.</p>
+<p>We note that all methods described in this section extend directly to the general linear regression model (<a href="03j-regextensions.html#eq-mlr" class="quarto-xref">Equation&nbsp;<span>21.3</span></a>) and therefore extend to all models presented in the text.</p>
 <section id="residual-bootstrap" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="residual-bootstrap"><span class="header-section-number">A.1</span> Residual Bootstrap</h2>
 <p>There are several bootstrap algorithms; a very efficient and foundational algorithm for regression models is the “residual bootstrap.” In addition to the mean-0 and independence conditions, it also requires the constant variance condition.</p>
@@ -503,7 +539,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Compute the residuals <span class="math display">\[(\text{Residuals})_i = (\text{Response})_i - (\text{Predicted Response})_i\]</span><br>
 </li>
-<li>Take a random sample of size <span class="math inline">\(n\)</span> (with replacement) of the residuals; call these values <span class="math inline">\(e_1^*, e_2^*, \dotsc, e_n^*\)</span>.<br>
+<li>Take a random sample of size <span class="math inline">\(n\)</span> (with replacement) of the residuals; call these values <span class="math inline">\(e_1^*, e_2^*,  \dotsc, e_n^*\)</span>.<br>
 </li>
 <li>Form “new” responses <span class="math inline">\(y_1^*, y_2^*, \dotsc, y_n^*\)</span> according to the formula <span class="math display">\[y_i^* = \widehat{\beta}_0 + \widehat{\beta}_1 (\text{Predictor})_i + e_i^*.\]</span><br>
 </li>
@@ -549,25 +585,29 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="classical-theory" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="classical-theory"><span class="header-section-number">A.3</span> Classical Theory</h2>
-<p>In general, classical theory comes from making an additional assumption about the functional form of the distribution of the error terms. In doing so, we are able to rely on statistical theory (or probability theory) in order to determine an analytical model for the sampling distribution. Before stating our result of interest, we first introduce a new analytical model. In <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>, we introduced the idea of specifying the functional form of the density of a distribution, and we gave the Normal distribution (<a href="03g-regconditions.html#def-normal-distribution">Definition&nbsp;<span>18.2</span></a>) as an example. There are countless analytical models we might posit for a distribution; we are particularly interested in two such distributions.</p>
+<p>In general, classical theory comes from making an additional assumption about the functional form of the distribution of the error terms. In doing so, we are able to rely on statistical theory (or probability theory) in order to determine an analytical model for the sampling distribution. Before stating our result of interest, we first introduce a new analytical model. In <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>, we introduced the idea of specifying the functional form of the density of a distribution, and we gave the Normal distribution (<a href="03g-regconditions.html#def-normal-distribution" class="quarto-xref">Definition&nbsp;<span>18.2</span></a>) as an example. There are countless analytical models we might posit for a distribution; we are particularly interested in two such distributions.</p>
 <p>The location-scale t-distribution, also known as the non-standardized t-distribution, is a probability model that has the following functional form:</p>
 <p><span class="math display">\[f(x) = \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right) \tau \sqrt{\pi \nu}} \left(1 + \frac{1}{\nu}\left(\frac{x - \theta}{\tau}\right)^2\right)^{-(\nu + 1)/2}\]</span></p>
 <p>where <span class="math inline">\(\nu\)</span>, <span class="math inline">\(\tau\)</span>, and <span class="math inline">\(\theta\)</span> are parameters that govern the shape of the distribution, and <span class="math inline">\(\Gamma(\cdot)\)</span> represents the Gamma function<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The parameter <span class="math inline">\(\theta\)</span> represents the mean of the distribution; <span class="math inline">\(\nu\)</span> represents the “degrees of freedom,” which impacts the shape and spread of the distribution, and <span class="math inline">\(\tau\)</span> is the scale parameter that governs the spread of the distribution.</p>
 <p>The F-distribution is a probability model that has the following functional form:</p>
 <p><span class="math display">\[f(x) = \frac{\Gamma\left(\frac{\nu_1}{2} + \frac{\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{2}\right)\Gamma\left(\frac{\nu_2}{2}\right)} \left(\frac{\nu_1}{\nu_2}\right)^{\nu_1/2} x^{\left(\nu_1/2\right)-1} \left(1 + \frac{\nu_1}{\nu_2}x\right)^{-\left(\nu_1 + \nu_2\right)/2}\]</span></p>
 <p>where <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span> are parameters that govern the shape of the distribution, and <span class="math inline">\(\Gamma(\cdot)\)</span> represents the Gamma function. The parameter <span class="math inline">\(\nu_1\)</span> represents the “numerator degrees of freedom,” and <span class="math inline">\(\nu_2\)</span> represents the “denominator degrees of freedom.” These parameters work together to determine the spread of the distribution; the mean of this distribution is essentially 1 for nearly any value of <span class="math inline">\(\nu_2\)</span> seen in practice.</p>
-<p>The location-scale t-distribution and F-distribution are graphically illustrated in <a href="#fig-app-theory-tf">Figure&nbsp;<span>A.1</span></a> for various choices of their parameters.</p>
+<p>The location-scale t-distribution and F-distribution are graphically illustrated in <a href="#fig-app-theory-tf" class="quarto-xref">Figure&nbsp;<span>A.1</span></a> for various choices of their parameters.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-app-theory-tf" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-app-theory-tf-1.png" class="img-fluid figure-img" style="width:80.0%" alt="The first panel shows various bell-shaped curves corresponding to different t-distributions, and the second panel shows various curves skewed right corresponding to different F-distributions."></p>
-<figcaption class="figure-caption">Figure&nbsp;A.1: Illustration of the location-scale t-distribution and F-distribution for various choices of their parameters.</figcaption>
+<div id="fig-app-theory-tf" class="quarto-figure quarto-figure-center quarto-float anchored" alt="The first panel shows various bell-shaped curves corresponding to different t-distributions, and the second panel shows various curves skewed right corresponding to different F-distributions.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-app-theory-tf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-app-theory-tf-1.png" class="img-fluid figure-img" style="width:80.0%" alt="The first panel shows various bell-shaped curves corresponding to different t-distributions, and the second panel shows various curves skewed right corresponding to different F-distributions.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-app-theory-tf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.1: Illustration of the location-scale t-distribution and F-distribution for various choices of their parameters.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>We are now ready to present our two primary results. Suppose that in addition to the mean-0 and independence conditions, we are willing to assume the constant variance condition and the Normality condition; that is, we are willing to assume the Classical Regression Model (<a href="03g-regconditions.html#def-classical-regression">Definition&nbsp;<span>18.3</span></a>). Then, we have that the least squares estimates can be modeled by the location-scale t-distribution with degrees of freedom <span class="math inline">\(\nu = n - 2\)</span>, mean <span class="math inline">\(\theta = \widehat{\beta}_j\)</span>, and scale <span class="math inline">\(\tau = \widehat{\eta}_j\sqrt{\frac{n - 4}{n - 2}}\)</span> where <span class="math inline">\(\widehat{\eta}_j\)</span> represents the standard error of the estimate <span class="math inline">\(\widehat{\beta}_j\)</span>. And, we have that the null distribution of the standardized statistic in <a href="03h-regquality.html#def-standard-f">Definition&nbsp;<span>19.7</span></a> can be modeled by the F-distribution with numerator degrees of freedom <span class="math inline">\(\nu_1 = 1\)</span> and denominator degrees of freedom <span class="math inline">\(\nu_2 = n - 2\)</span>.</p>
+<p>We are now ready to present our two primary results. Suppose that in addition to the mean-0 and independence conditions, we are willing to assume the constant variance condition and the Normality condition; that is, we are willing to assume the Classical Regression Model (<a href="03g-regconditions.html#def-classical-regression" class="quarto-xref">Definition&nbsp;<span>18.3</span></a>). Then, we have that the least squares estimates can be modeled by the location-scale t-distribution with degrees of freedom <span class="math inline">\(\nu = n - 2\)</span>, mean <span class="math inline">\(\theta = \widehat{\beta}_j\)</span>, and scale <span class="math inline">\(\tau = \widehat{\eta}_j\sqrt{\frac{n - 4}{n - 2}}\)</span> where <span class="math inline">\(\widehat{\eta}_j\)</span> represents the standard error of the estimate <span class="math inline">\(\widehat{\beta}_j\)</span>. And, we have that the null distribution of the standardized statistic in <a href="03h-regquality.html#def-standard-f" class="quarto-xref">Definition&nbsp;<span>19.7</span></a> can be modeled by the F-distribution with numerator degrees of freedom <span class="math inline">\(\nu_1 = 1\)</span> and denominator degrees of freedom <span class="math inline">\(\nu_2 = n - 2\)</span>.</p>
 </section>
 <section id="asymptotic-theory" class="level2" data-number="A.4">
 <h2 data-number="A.4" class="anchored" data-anchor-id="asymptotic-theory"><span class="header-section-number">A.4</span> Asymptotic Theory</h2>
@@ -670,10 +710,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -683,8 +740,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -696,7 +762,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -740,6 +929,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -765,6 +955,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -826,17 +1042,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link">
+      <a href="./references.html" class="pagination-link" aria-label="References">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./app-teststat.html" class="pagination-link">
+      <a href="./app-teststat.html" class="pagination-link" aria-label="Mathematical Results for Standardized Statistics">
         <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical Results for Standardized Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

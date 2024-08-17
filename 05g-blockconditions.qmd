@@ -52,11 +52,11 @@ The idea of assuming independence may seem counterintuitive; this entire unit ex
 
 
 ### Same Degree of Precision
-The third condition that is typically placed on the distribution of the errors is that the errors are identically distributed.  Again, we encountered this condition in @sec-meanmodels, @sec-regconditions, and @sec-anovaconditions.  As in the context of regression, this is often described in terms of the variance.  Specifically, if the errors are not identically distributed, it is typically because the variability of the error differs for one value combination of the factor/block levels compared to another.  Practically, this reveals itself as our response being more precise for some collection of the predictors.  As a result of focusing on the variability of the response for each predictor, this condition is often referred to as _homoskedasticity_ (constant variance) instead of the errors being identically distributed.
+The third condition that is typically placed on the distribution of the errors is that the variability of the errors is the same for all combination of the predictors.  Again, we encountered this condition in @sec-regconditions and @sec-anovaconditions.  As our model includes both the group comparisons of interest as well as the block terms, violating this condition happens if the response is more precise for one group/block combination than another.
 
 :::{.callout-note}
 ## Constant Variance
-Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups.  While technically, the phrase "identically distributed" (@def-identically-distributed) is broader, in the context of repeated measures ANOVA, "identically distributed" is used interchangeably with "constant variance."
+Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups.  
 :::
 
 With this additional condition imposed, we are able to modify our bootstrap algorithm when constructing a model for the sampling distribution of the least squares estimates.
@@ -136,7 +136,7 @@ $$
 are indicator variables and where
 
   1. The error in the response for one subject is independent of the error in the response for all other subjects.
-  2. The errors are identically distributed for all groups and blocks.  This is often stated as the variability in the error of the response is the same across all predictors.
+  2. The variability in the error of the response is the same across all predictors.
   3. The errors follow a Normal distribution.
   4. Any differences between the groups are similar across all blocks.  This results from the deterministic portion of the model for the data generating process being correctly specified and is equivalent to saying the error in the response, on average, takes a value of 0 for all predictors.
   5. The effect of a block on the response is independent of the effect of any other block on the response.
@@ -144,6 +144,10 @@ are indicator variables and where
   7. The block effects follow a Normal distribution.
 
 This is the default "repeated measures ANOVA" analysis implemented in the majority of statistical packages.
+:::
+
+:::{.callout-warning}
+A "hidden" (typically unstated but should not be ignored) condition is that the sample is representative of the underlying population.  In the one sample case (@sec-meanmodels), we referred to this as the errors being "identically distributed."  We no longer use the "identically distributed" language for technical reasons; however, we still require that the sample be representative of the underlying population.
 :::
 
 We note that "repeated measures ANOVA" need not require all four conditions on the error distribution imposed in @def-classical-repeated-measures-anova.  Placing all four conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates.  Changing the conditions changes the way we model the sampling distribution.
@@ -188,7 +192,7 @@ fit.yogurt <- lm(Taste ~ Type + `Participant ID` - 1, data = yogurt.df)
 
 fit.yogurt |>
   estimate_parameters(confidence.level = 0.95,
-                      assume.identically.distributed = TRUE,
+                      assume.constant.variance = TRUE,
                       assume.normality = TRUE) |>
   rename(Term = term,
          Estimate = point.estimate,

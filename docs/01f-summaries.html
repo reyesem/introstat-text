@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,17 +82,46 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -96,12 +132,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01f-summaries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01f-summaries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -111,12 +147,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -471,7 +507,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -486,7 +522,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01f-summaries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-summaries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Presenting the Evidence (Summarizing Data)</span></span></h1>
 </div>
@@ -501,7 +537,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>If you open any search engine and look up “data visualization,” you will quickly be overwhelmed by a host of pages, texts, and software filled with tools for summarizing your data. Here is the bottom line: a good visualization is one that helps you answer your question of interest. It is both that simple and that complicated.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -520,13 +558,17 @@ Fundamental Idea III
 <p>Whether simple or complex, all graphical and numerical summaries should help turn the data into usable information. Pretty pictures for the sake of pretty pictures are not helpful. In this chapter, we will consider various simple graphical and numerical summaries to help build a case for addressing the question of interest. The majority of the chapter is focused on summarizing a single variable; more complex graphics are presented in future chapters within a context that requires them.</p>
 <section id="characteristics-of-a-distribution-summarizing-a-single-variable" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="characteristics-of-a-distribution-summarizing-a-single-variable"><span class="header-section-number">5.1</span> Characteristics of a Distribution (Summarizing a Single Variable)</h2>
-<p>Remember that because of <em>variability</em>, the key to asking good questions is to not ask questions about individual values but to characterize the underlying <em>distribution</em> (see <a href="01d-questions.html#def-distribution">Definition&nbsp;<span>3.3</span></a>). Therefore, characterizing the underlying distribution is also the key to a good visualization or numeric summary. For the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html"><span>Chapter&nbsp;2</span></a>, the response (whether a volunteer experienced adverse respiratory symptoms) is categorical. As we stated previously, summarizing the distribution of a categorical variable reduces to showing the proportion of individual subjects that fall into each of the various groups defined by the categorical variable. <a href="#fig-summaries-deepwater-barchart">Figure&nbsp;<span>5.1</span></a>) displays a <em>bar chart</em> summarizing the rate of respiratory symptoms for volunteers cleaning wildlife.</p>
+<p>Remember that because of <em>variability</em>, the key to asking good questions is to not ask questions about individual values but to characterize the underlying <em>distribution</em> (see <a href="01d-questions.html#def-distribution" class="quarto-xref">Definition&nbsp;<span>3.3</span></a>). Therefore, characterizing the underlying distribution is also the key to a good visualization or numeric summary. For the Deepwater Horizon Case Study described in <a href="01c-casedeepwater.html" class="quarto-xref"><span>Chapter 2</span></a>, the response (whether a volunteer experienced adverse respiratory symptoms) is categorical. As we stated previously, summarizing the distribution of a categorical variable reduces to showing the proportion of individual subjects that fall into each of the various groups defined by the categorical variable. <a href="#fig-summaries-deepwater-barchart" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>) displays a <em>bar chart</em> summarizing the rate of respiratory symptoms for volunteers cleaning wildlife.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-deepwater-barchart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-summaries-deepwater-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the number of volunteers cleaning wildlife that did and did not report adverse respiratory symptoms; 39 did not report symptoms and 15 did."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.1: Frequency of adverse respiratory symptoms for volunteers cleaning wildlife following the Deepwater Horizon oil spill.</figcaption>
+<div id="fig-summaries-deepwater-barchart" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Bar chart of the number of volunteers cleaning wildlife that did and did not report adverse respiratory symptoms; 39 did not report symptoms and 15 did.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-deepwater-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-summaries-deepwater-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the number of volunteers cleaning wildlife that did and did not report adverse respiratory symptoms; 39 did not report symptoms and 15 did.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-deepwater-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Frequency of adverse respiratory symptoms for volunteers cleaning wildlife following the Deepwater Horizon oil spill.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -547,17 +589,21 @@ Note
 </div>
 <p>While a single type of graphic (bar charts) are helpful for looking at categorical data, summarizing the distribution of a numeric variable requires a bit more thought. Consider the following example.</p>
 <div id="exm-summaries-paper" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1 (Paper Strength) </strong></span>While electronic records have become the predominant means of storing information, we do not yet live in a paperless society. Paper products are still used in a variety of applications ranging from printing reports and photography to packaging and bathroom tissue. In manufacturing paper for a particular application, the strength of the resulting paper product is a key characteristic.</p>
+<p><span class="theorem-title"><strong>Example 5.1 (Paper Strength)</strong></span> While electronic records have become the predominant means of storing information, we do not yet live in a paperless society. Paper products are still used in a variety of applications ranging from printing reports and photography to packaging and bathroom tissue. In manufacturing paper for a particular application, the strength of the resulting paper product is a key characteristic.</p>
 <p>There are several metrics for the strength of paper. A conventional metric for assessing the inherent (not dependent upon the physical characteristics, such as the weight of the paper, which might have an effect) strength of paper is the <em>breaking length</em>. This is the length of a paper strip, if suspended vertically from one end, that would break under its own weight. Typically reported in kilometers, the breaking length is computed from other common measurements. For more information on paper strength measurements and standards, see the following website: <a href="http://www.paperonweb.com" class="uri">http://www.paperonweb.com</a></p>
-<p>A study was conducted at the University of Toronto to investigate the relationship between pulp fiber properties and the resulting paper properties <span class="citation" data-cites="Lee1992">(<a href="references.html#ref-Lee1992" role="doc-biblioref">Lee 1992</a>)</span>. The breaking length was obtained for each of the 62 paper specimens, the first 5 measurements of which are shown in <a href="#tbl-summaries-paper-table">Table&nbsp;<span>5.1</span></a>. The complete dataset is available online at the following website: <a href="https://vincentarelbundock.github.io/Rdatasets/doc/robustbase/pulpfiber.html" class="uri">https://vincentarelbundock.github.io/Rdatasets/doc/robustbase/pulpfiber.html</a></p>
+<p>A study was conducted at the University of Toronto to investigate the relationship between pulp fiber properties and the resulting paper properties <span class="citation" data-cites="Lee1992">(<a href="references.html#ref-Lee1992" role="doc-biblioref">Lee 1992</a>)</span>. The breaking length was obtained for each of the 62 paper specimens, the first 5 measurements of which are shown in <a href="#tbl-summaries-paper-table" class="quarto-xref">Table&nbsp;<span>5.1</span></a>. The complete dataset is available online at the following website: <a href="https://vincentarelbundock.github.io/Rdatasets/doc/robustbase/pulpfiber.html" class="uri">https://vincentarelbundock.github.io/Rdatasets/doc/robustbase/pulpfiber.html</a></p>
 <p>While there are several questions one might ask with the available data, here we are primarily interested in characterizing the breaking length of these paper specimens.</p>
 </div>
 <div class="cell">
+<div id="tbl-summaries-paper-table" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summaries-paper-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: Breaking length (km) for first 5 specimens in the Paper Strength study.
+</figcaption>
+<div aria-describedby="tbl-summaries-paper-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-summaries-paper-table" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;5.1: Breaking length (km) for first 5 specimens in the Paper Strength study.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Specimen</th>
@@ -588,18 +634,24 @@ Note
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p><a href="#fig-summaries-paper-dotplot">Figure&nbsp;<span>5.2</span></a> presents the breaking length for all 62 paper specimens in the sample through a <em>dot plot</em> in which the breaking length for each observed specimen is represented on a number line using a single dot.</p>
+</figure>
+</div>
+</div>
+<p><a href="#fig-summaries-paper-dotplot" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> presents the breaking length for all 62 paper specimens in the sample through a <em>dot plot</em> in which the breaking length for each observed specimen is represented on a number line using a single dot.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-paper-dotplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-summaries-paper-dotplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Dot plot of the breaking length in kilometers for paper specimens; clusters near 20 kilometers and 25 kilometers."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.2: Breaking Length (km) for 62 paper specimens.</figcaption>
+<div id="fig-summaries-paper-dotplot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Dot plot of the breaking length in kilometers for paper specimens; clusters near 20 kilometers and 25 kilometers.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-paper-dotplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-summaries-paper-dotplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Dot plot of the breaking length in kilometers for paper specimens; clusters near 20 kilometers and 25 kilometers.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-paper-dotplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Breaking Length (km) for 62 paper specimens.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -612,7 +664,7 @@ Note
 </ul>
 <p>Notice that about half of the paper specimens in the sample had a breaking length longer than 21.26 km. Only about 25% of paper specimens had a breaking length less than 19.33 km. These are measures of <em>location</em>. In particular, these are known as <strong>percentiles</strong>, of which the <strong>median</strong>, <strong>first quartile</strong> and <strong>third quartile</strong> are commonly used examples.</p>
 <div id="def-percentile" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.1 (Percentile) </strong></span>The <span class="math inline">\(k\)</span>-th percentile is the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(k\)</span>% of the values in the distribution are less than or equal to <span class="math inline">\(q\)</span>. For example,</p>
+<p><span class="theorem-title"><strong>Definition 5.1 (Percentile)</strong></span> The <span class="math inline">\(k\)</span>-th percentile is the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(k\)</span>% of the values in the distribution are less than or equal to <span class="math inline">\(q\)</span>. For example,</p>
 <ul>
 <li>25% of values in a distribution are less than or equal to the 25-th percentile (known as the “first quartile” and denoted <span class="math inline">\(Q_1\)</span>).</li>
 <li>50% of values in a distribution are less than or equal to the 50-th percentile (known as the “median”).</li>
@@ -621,23 +673,23 @@ Note
 </div>
 <p>The <strong>average</strong> is also a common measure of location. The breaking length of a paper specimen is 21.72 km, on average. In this case, the average breaking length and median breaking length are very close; this need not be the case. The average is not describing the “center” of the data in the same way as the median; they capture different properties.</p>
 <div id="def-average" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.2 (Average) </strong></span>Also known as the “mean,” this measure of location represents the balance point for the distribution. If <span class="math inline">\(x_i\)</span> represents the <span class="math inline">\(i\)</span>-th value of the variable <span class="math inline">\(x\)</span> in the sample, the sample mean is typically denoted by <span class="math inline">\(\bar{x}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 5.2 (Average)</strong></span> Also known as the “mean,” this measure of location represents the balance point for the distribution. If <span class="math inline">\(x_i\)</span> represents the <span class="math inline">\(i\)</span>-th value of the variable <span class="math inline">\(x\)</span> in the sample, the sample mean is typically denoted by <span class="math inline">\(\bar{x}\)</span>.</p>
 <p>For a sample of size <span class="math inline">\(n\)</span>, it is computed by <span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i.\]</span></p>
 <p>When referencing the average for a population, the mean is also called the “Expected Value,” and is often denoted by <span class="math inline">\(\mu\)</span>.</p>
 </div>
 <p>Clearly, the breaking length is not equivalent for all paper specimens; that is, there is variability in the measurements. Measures of <em>spread</em> quantify the variability of values within a distribution. Common examples include the <strong>standard deviation</strong> (related to <strong>variance</strong>) and <strong>interquartile range</strong>. For the Paper Strength example, the breaking length varies with a standard deviation of 2.88 km; the interquartile range for the breaking length is 5.2 km.</p>
 <p>The standard deviation is often reported more often than the variance since it is on the same scale as the original data; however, as we will see later, the variance is useful from a mathematical perspective for derivations. Neither of these values has a natural interpretation; instead, larger values of these measures simply indicate a higher degree of variability in the data.</p>
 <div id="def-variance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.3 (Variance) </strong></span>A measure of spread, this roughly captures the average distance values in the distribution are from the mean.</p>
+<p><span class="theorem-title"><strong>Definition 5.3 (Variance)</strong></span> A measure of spread, this roughly captures the average distance values in the distribution are from the mean.</p>
 <p>For a sample of size <span class="math inline">\(n\)</span>, it is computed by <span class="math display">\[s^2 = \frac{1}{n-1}\sum_{i=1}^{n} \left(x_i - \bar{x}\right)^2\]</span></p>
 <p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean and <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i\)</span>-th value in the sample. The division by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span> removes bias in the statistic.</p>
 <p>The symbol <span class="math inline">\(\sigma^2\)</span> is often used to denote the variance in the population.</p>
 </div>
 <div id="def-standard-deviation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.4 (Standard Deviation) </strong></span>A measure of spread, this is the square root of the variance.</p>
+<p><span class="theorem-title"><strong>Definition 5.4 (Standard Deviation)</strong></span> A measure of spread, this is the square root of the variance.</p>
 </div>
 <div id="def-interquartile-range" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.5 (Interquartile Range) </strong></span>Often abbreviated as IQR, this is the distance between the first and third quartiles. This measure of spread indicates the range over which the middle 50% of the data is spread.</p>
+<p><span class="theorem-title"><strong>Definition 5.5 (Interquartile Range)</strong></span> Often abbreviated as IQR, this is the distance between the first and third quartiles. This measure of spread indicates the range over which the middle 50% of the data is spread.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -652,13 +704,17 @@ Note
 <p>The IQR is often incorrectly reported as the interval <span class="math inline">\(\left(Q_1, Q_3\right)\)</span>. The IQR is actually the width of this interval, not the interval itself.</p>
 </div>
 </div>
-<p>The measures we have discussed so far are illustrated in <a href="#fig-summaries-summaries">Figure&nbsp;<span>5.3</span></a>. While some authors suggest the summaries you choose to report depend on the shape of the distribution, we argue that it is best to report the values that align with the question of interest. It is the question that should be shaped by the beliefs about the underlying distribution.</p>
+<p>The measures we have discussed so far are illustrated in <a href="#fig-summaries-summaries" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>. While some authors suggest the summaries you choose to report depend on the shape of the distribution, we argue that it is best to report the values that align with the question of interest. It is the question that should be shaped by the beliefs about the underlying distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-summaries" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/Summaries-Summaries.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Hypothetical boxplot above a dotplot; below the dotplot are lines illustrating each value's deviation from the mean.  To the right of these graphics are equations for summary statistics."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.3: Illustration of measures of location and spread for a distribution of values.</figcaption>
+<div id="fig-summaries-summaries" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Hypothetical boxplot above a dotplot; below the dotplot are lines illustrating each value's deviation from the mean.  To the right of these graphics are equations for summary statistics.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-summaries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/Summaries-Summaries.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Hypothetical boxplot above a dotplot; below the dotplot are lines illustrating each value's deviation from the mean.  To the right of these graphics are equations for summary statistics.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-summaries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: Illustration of measures of location and spread for a distribution of values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -666,7 +722,7 @@ Note
 <p>Finally, consider the <em>shape</em> of the distribution of breaking length we have observed. The breaking length tends to be clustered in two locations; we call this <em>bimodal</em> (each mode is a “hump” in the distribution). Other terms used to describe the shape of a distribution are <em>symmetric</em> and <em>skewed</em>. Symmetry refers to cutting a distribution in half (at the median) and the lower half being a mirror image of the upper half; skewed distributions are those which are not symmetric.</p>
 <p>Observe that the dot plot above gives us some idea of the location, spread, and shape of the distribution, in a way that the table of values could not. This makes it a useful graphic as it is characterizing the <strong>distribution of the sample</strong> we have observed. This is one of the four components of what we call the <em>Distributional Quartet</em>.</p>
 <div id="def-distribution-sample" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.6 (Distribution of the Sample) </strong></span>The pattern of variability in the observed values of a variable.</p>
+<p><span class="theorem-title"><strong>Definition 5.6 (Distribution of the Sample)</strong></span> The pattern of variability in the observed values of a variable.</p>
 </div>
 <p>When the sample is not large, a dot plot is reasonable. Other common visualizations for a single numeric variable include:</p>
 <ul>
@@ -676,26 +732,30 @@ Note
 <li><em>density plot</em>: a smoothed histogram in which the y-axis has been standardized so that the area under the curve has value 1. The y-axis is not interpretable directly, but higher values along the y-axis indicate that the corresponding values on along the x-axis are more likely to occur.</li>
 </ul>
 <div id="def-outlier" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.7 (Outlier) </strong></span>An individual observation which is so extreme, relative to the rest of the observations in the sample, that it does not appear to conform to the same distribution.</p>
+<p><span class="theorem-title"><strong>Definition 5.7 (Outlier)</strong></span> An individual observation which is so extreme, relative to the rest of the observations in the sample, that it does not appear to conform to the same distribution.</p>
 </div>
-<p>To illustrate these graphics, the breaking length for the Paper Strength example is summarized using various methods in <a href="#fig-summaries-univariate">Figure&nbsp;<span>5.4</span></a>. The latter three visualizations are more helpful when the dataset is very large and plotting the raw values actually hides the distribution. There is no right or wrong graphic; it is about choosing the graphic which addresses the question and adequately portrays the distribution.</p>
+<p>To illustrate these graphics, the breaking length for the Paper Strength example is summarized using various methods in <a href="#fig-summaries-univariate" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. The latter three visualizations are more helpful when the dataset is very large and plotting the raw values actually hides the distribution. There is no right or wrong graphic; it is about choosing the graphic which addresses the question and adequately portrays the distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-univariate" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-summaries-univariate-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A jitter plot (top left), a histogram (top right), a boxplot (bottom left), and a density plot (bottom right) of the breaking length of paper in kilometers.  All images display the same data."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.4: Four graphical summaries of the breaking length for the Paper Strength example.</figcaption>
+<div id="fig-summaries-univariate" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A jitter plot (top left), a histogram (top right), a boxplot (bottom left), and a density plot (bottom right) of the breaking length of paper in kilometers.  All images display the same data.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-univariate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-summaries-univariate-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A jitter plot (top left), a histogram (top right), a boxplot (bottom left), and a density plot (bottom right) of the breaking length of paper in kilometers.  All images display the same data.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-univariate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: Four graphical summaries of the breaking length for the Paper Strength example.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>The numeric summaries of a distribution are known as <strong>statistics</strong>. While parameters characterize a variable at the population level, statistics characterize a variable at the sample level.</p>
 <div id="def-statistic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.8 (Statistic) </strong></span>Numeric quantity which summarizes the distribution of a variable within a <em>sample</em>.</p>
+<p><span class="theorem-title"><strong>Definition 5.8 (Statistic)</strong></span> Numeric quantity which summarizes the distribution of a variable within a <em>sample</em>.</p>
 </div>
 <p>Why would we compute numerical summaries in the sample if we are interested in the population? Remember the goal of this discipline is to use the sample to say something about the underlying population. As long as the sample is representative, the distribution of the sample should reflect the <strong>distribution of the population</strong>; therefore, summaries of the sample should be close to the analogous summaries of the population (statistics estimate their corresponding parameters). Now we see the real importance of having a representative sample; it allows us to say that what we observe in the sample is a good proxy for what is happening in the population.</p>
 <div id="def-distribution-population" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.9 (Distribution of the Population) </strong></span>The pattern of variability in values of a variable at the population level. Generally, this is impossible to know, but we might model it.</p>
+<p><span class="theorem-title"><strong>Definition 5.9 (Distribution of the Population)</strong></span> The pattern of variability in values of a variable at the population level. Generally, this is impossible to know, but we might model it.</p>
 </div>
 <p>Statistics being a proxy for the corresponding parameter implies the mean in the sample should approximate (estimate) the mean in the population; the standard deviation of the sample should estimate the standard deviation in the population; and, the shape of the sample should approximate the shape of the population, etc. The sample is acting as a representation in all possible ways of the population.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -732,24 +792,32 @@ Note
 <blockquote class="blockquote">
 <p>What is the increased risk of developing adverse respiratory symptoms for volunteers cleaning wildlife compared to those volunteers who do not have direct exposure to oil?</p>
 </blockquote>
-<p>Consider the graphic in <a href="#fig-summaries-bad-barchart">Figure&nbsp;<span>5.5</span></a>; this is <em>not</em> a useful graphic. While it compares the number of volunteers with symptoms in each group, we cannot adequately address the question because the research question involves comparing the rates for the two groups; that is, we are lacking a sense of how many volunteers in each group did not report symptoms.</p>
+<p>Consider the graphic in <a href="#fig-summaries-bad-barchart" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>; this is <em>not</em> a useful graphic. While it compares the number of volunteers with symptoms in each group, we cannot adequately address the question because the research question involves comparing the rates for the two groups; that is, we are lacking a sense of how many volunteers in each group did not report symptoms.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-bad-barchart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-summaries-bad-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the number of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are very similar."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.5: Illustration of a poor graphic; the graphic does not give us a sense of the rate within each group at which volunteers reported symptoms.</figcaption>
+<div id="fig-summaries-bad-barchart" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Bar chart of the number of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are very similar.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-bad-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-summaries-bad-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the number of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are very similar.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-bad-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Illustration of a poor graphic; the graphic does not give us a sense of the rate within each group at which volunteers reported symptoms.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Instead, <a href="#fig-summaries-good-barchart">Figure&nbsp;<span>5.6</span></a> compares the rates within each group. Note that the graphic is still reporting frequency along the y-axis; that was not the primary problem with <a href="#fig-summaries-bad-barchart">Figure&nbsp;<span>5.5</span></a>. However, by reporting frequencies for both those with respiratory symptoms and those without, we get a sense of the relative frequency with which respiratory symptoms occur.</p>
+<p>Instead, <a href="#fig-summaries-good-barchart" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> compares the rates within each group. Note that the graphic is still reporting frequency along the y-axis; that was not the primary problem with <a href="#fig-summaries-bad-barchart" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>. However, by reporting frequencies for both those with respiratory symptoms and those without, we get a sense of the relative frequency with which respiratory symptoms occur.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-summaries-good-barchart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-summaries-good-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the percentage of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are quite different."></p>
-<figcaption class="figure-caption">Figure&nbsp;5.6: Comparison of the rate of adverse respiratory symptoms among volunteers assigned to different tasks.</figcaption>
+<div id="fig-summaries-good-barchart" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Bar chart of the percentage of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are quite different.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summaries-good-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-summaries-good-barchart-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the percentage of volunteers doing wildlife clean up reporting respiratory symptoms and the number of volunteers without oil exposure doing wildlife clean up; the two values are quite different.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summaries-good-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: Comparison of the rate of adverse respiratory symptoms among volunteers assigned to different tasks.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -758,7 +826,7 @@ Note
 <p>The key to a good summary is understanding the question of interest and addressing this question through a useful characterization of the variability.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Lee1992" class="csl-entry" role="listitem">
 Lee, J. 1992. <span>“Relationships Between Properties of Pulp-Fibre and Paper.”</span>
 </div>
@@ -845,10 +913,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -858,8 +943,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -871,7 +965,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -915,6 +1132,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -940,6 +1158,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1001,17 +1245,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01e-data.html" class="pagination-link">
+      <a href="./01e-data.html" class="pagination-link" aria-label="Gathering the Evidence (Data Collection)">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01g-samplingdistns.html" class="pagination-link">
+      <a href="./01g-samplingdistns.html" class="pagination-link" aria-label="Assessing the Evidence (Quantifying the Variability in Estimates)">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

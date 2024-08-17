@@ -32,7 +32,7 @@ In the Frozen Yogurt Case Study, the order in which the yogurt from each vendor 
 
 :::{#def-rcbd}
 ## Randomized Complete Block Design
-A randomized complete block design is an example of a controlled experiment utilizing blocking.  Each treatment is randomized to observations within blocks in such a way that every treatment is present within the block and the same number of observations are assigned to each treatment.
+A randomized complete block design is an example of a controlled experiment utilizing blocking.  Each treatment is randomized to observations within blocks such that within each block every treatment is present and the same number of observations are assigned to each treatment.
 :::
 
 In the Frozen Yogurt Case Study, the blocks are formed by taking repeated measurements (multiple ratings) on each participant.  @exm-anovadata-golf provides an example of a randomized complete block design where the blocks are not formed by taking repeated measurements on the same units; instead, the blocks were composed of separate units (golf greens) which had a similar characteristic (slope of green) which created the block.

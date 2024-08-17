@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03i-regassessment.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03i-regassessment.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -468,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03i-regassessment.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-regassessment" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></span></h1>
 </div>
@@ -483,24 +517,26 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>We have been considering the simple linear model described in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a> for the data generating process of a quantitative response. For example, for the Seismic Activity Case Study, we considered a model that explained the bracketed duration at a location as a function of the magnitude of the earthquake:</p>
+
+<p>We have been considering the simple linear model described in <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a> for the data generating process of a quantitative response. For example, for the Seismic Activity Case Study, we considered a model that explained the bracketed duration at a location as a function of the magnitude of the earthquake:</p>
 <p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Magnitude})_i + \varepsilon_i.\]</span></p>
-<p>Estimates for the unknown parameters in this model were obtained using the method of least squares (<a href="03f-regmodel.html"><span>Chapter&nbsp;17</span></a>). In order to obtain a model for the sampling distribution of these estimates (or the null distribution as appropriate), and thereby conduct inference, we added conditions to the distribution of the error term (<a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>). For example, under the “classical regression model” (<a href="03g-regconditions.html#def-classical-regression">Definition&nbsp;<span>18.3</span></a>) we require the following four conditions:</p>
+<p>Estimates for the unknown parameters in this model were obtained using the method of least squares (<a href="03f-regmodel.html" class="quarto-xref"><span>Chapter 17</span></a>). In order to obtain a model for the sampling distribution of these estimates (or the null distribution as appropriate), and thereby conduct inference, we added conditions to the distribution of the error term (<a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>). For example, under the “classical regression model” (<a href="03g-regconditions.html#def-classical-regression" class="quarto-xref">Definition&nbsp;<span>18.3</span></a>) we require the following four conditions:</p>
 <ol type="1">
 <li>The error in the bracketed duration has an average of 0 regardless of the magnitude of the earthquake.</li>
 <li>The error in the bracketed duration for one location is independent of the error in the bracketed duration for any other location.</li>
 <li>The variability of the error in the bracketed duration is the same regardless of the magnitude of the earthquake.</li>
 <li>The errors in the bracketed duration follow a Normal distribution.</li>
 </ol>
-<p>We also saw in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>, that we could develop an empirical model for the sampling distribution of the least squares estimates only enforcing the first two of these conditions on the distribution of the error. Which of these two models for the sampling distribution should be used? Unfortunately, we cannot simply state conditions and then proceed blindly. In order to rely on the p-values and confidence intervals produced from any modeling procedure, the data must be consistent with these conditions.</p>
+<p>We also saw in <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>, that we could develop an empirical model for the sampling distribution of the least squares estimates only enforcing the first two of these conditions on the distribution of the error. Which of these two models for the sampling distribution should be used? Unfortunately, we cannot simply state conditions and then proceed blindly. In order to rely on the p-values and confidence intervals produced from any modeling procedure, the data must be consistent with these conditions.</p>
 <p>In this section, we discuss how we assess these conditions qualitatively.</p>
 <section id="residuals" class="level2" data-number="20.1">
 <h2 data-number="20.1" class="anchored" data-anchor-id="residuals"><span class="header-section-number">20.1</span> Residuals</h2>
 <p>One of the complications we face is that we are imposing conditions on the error term, but we do not observe the error (since the parameters are unknown). However, we are able to determine the difference between each observation with respect to the <em>estimated</em> model for the data generating process. This difference between each observed response and what we would have predicted for this observation using the least squares estimates, called a <strong>residual</strong>, is analogous to the error term if the parameters were known. Therefore, residuals should behave like a sample of error terms.</p>
 <div id="def-residual" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.1 (Residual) </strong></span>The difference between the observed response and the predicted response (estimated deterministic portion of the model). Specifically, the residual for the <span class="math inline">\(i\)</span>-th observation is given by</p>
+<p><span class="theorem-title"><strong>Definition 20.1 (Residual)</strong></span> The difference between the observed response and the predicted response (estimated deterministic portion of the model). Specifically, the residual for the <span class="math inline">\(i\)</span>-th observation is given by</p>
 <p><span class="math display">\[(\text{Residual})_i = (\text{Response})_i - (\text{Predicted Mean Response})_i\]</span></p>
 <p>where the “predicted mean response” is often called the predicted, or fitted, value.</p>
 <p>Residuals mimic the noise in the data generating process.</p>
@@ -527,13 +563,17 @@ Big Idea
 <blockquote class="blockquote">
 <p>The error in the bracketed duration has an average of 0 regardless of the magnitude of the earthquake.</p>
 </blockquote>
-<p>It is tempting to read this condition and believe that a rational way to assess this condition is to determine if the average of the residuals is 0. However, while the difference is subtle, the condition is <em>not</em> that the average error is 0; the condition is that the average error is 0 for <em>all values of the predictor</em>. It would seem we need to determine if, for each value of the predictor possible, if the residuals average to 0. This is infeasible numerically because we do not generally have multiple responses for each value of the predictor. We can, however, assess whether the data is consistent with this condition graphically. That is, in order to assess this condition, we need to graphically assess how the average behaves over a range of predictor values. We capture this by looking at the <em>predicted (or fitted) values</em>. <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a> shows the relationship between the residuals and the associated predicted values for the observations in the data set.</p>
+<p>It is tempting to read this condition and believe that a rational way to assess this condition is to determine if the average of the residuals is 0. However, while the difference is subtle, the condition is <em>not</em> that the average error is 0; the condition is that the average error is 0 for <em>all values of the predictor</em>. It would seem we need to determine if, for each value of the predictor possible, if the residuals average to 0. This is infeasible numerically because we do not generally have multiple responses for each value of the predictor. We can, however, assess whether the data is consistent with this condition graphically. That is, in order to assess this condition, we need to graphically assess how the average behaves over a range of predictor values. We capture this by looking at the <em>predicted (or fitted) values</em>. <a href="#fig-regassessment-mean0" class="quarto-xref">Figure&nbsp;<span>20.1</span></a> shows the relationship between the residuals and the associated predicted values for the observations in the data set.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-mean0" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.1: Plot of the residuals vs.&nbsp;the predicted values for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+<div id="fig-regassessment-mean0" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Plot of the residuals vs.&nbsp;the predicted values for a model predicting bracketed duration as a function of the magnitude of an earthquake.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -552,7 +592,7 @@ Graphically Assessing the Mean-0 Condition
 <p>If the data is consistent with the mean-0 condition, there should be no trends in the <em>location</em> of the plot of the residuals against the predicted values.</p>
 </div>
 </div>
-<p>As we examine <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a>, the residuals do tend to balance out at 0 everywhere along the x-axis. That is, we do not see a trend in the location of the residuals as the predicted values increase. Therefore, it is reasonable to say the sample is consistent with the mean-0 condition.</p>
+<p>As we examine <a href="#fig-regassessment-mean0" class="quarto-xref">Figure&nbsp;<span>20.1</span></a>, the residuals do tend to balance out at 0 everywhere along the x-axis. That is, we do not see a trend in the location of the residuals as the predicted values increase. Therefore, it is reasonable to say the sample is consistent with the mean-0 condition.</p>
 </section>
 <section id="assessing-the-independence-condition" class="level2" data-number="20.3">
 <h2 data-number="20.3" class="anchored" data-anchor-id="assessing-the-independence-condition"><span class="header-section-number">20.3</span> Assessing the Independence Condition</h2>
@@ -561,14 +601,14 @@ Graphically Assessing the Mean-0 Condition
 </blockquote>
 <p>Generally, independence is assessed by considering the method in which the data was collected and considering the context with a discipline expert. By carefully considering the manner in which the data was collected, we can typically determine whether it is reasonable that the errors in the response are independent of one another. Some key things to consider when examining the data collection process:</p>
 <ul>
-<li>Are there repeated observations of the same variable made on the same subject? This often suggests some type of relationship between the observed responses and therefore would not be consistent with errors being independent (see <a href="05c-blockquestions.html"><span>Chapter&nbsp;33</span></a> and <a href="05d-blockdata.html"><span>Chapter&nbsp;34</span></a>).</li>
+<li>Are there repeated observations of the same variable made on the same subject? This often suggests some type of relationship between the observed responses and therefore would not be consistent with errors being independent (see <a href="05c-blockquestions.html" class="quarto-xref"><span>Chapter 33</span></a> and <a href="05d-blockdata.html" class="quarto-xref"><span>Chapter 34</span></a>).</li>
 <li>Is the response measured over time, such as daily temperature over the course of a month? Data collected over time often exhibits strong period-to-period relationships suggesting the errors are not independent. For example, if the temperature today is above average, it is more likely to be above average tomorrow as well.</li>
 <li>Is there a learning curve in how the data was collected? Learning curves again suggest some dependence from one observation to the next. For example, a new nurse may become better at collecting pulse readings with more practice over time.</li>
 <li>Measurement devices which are failing over time will introduce a dependence from one observation to the next. Imagine a bathroom scale that begins to add an additional pound each day. Then, being an above average weight one day will most likely lead to an above average weight the next, due primarily to the measurement device.</li>
 </ul>
 <p>These last three points illustrate a particular deviation from our condition of independence in which two observations collected close together in time are related. When we know the order in which the data was collected, we can assess whether the data tends to deviate from the condition of independence in this manner. This is done graphically through a <strong>time-series plot</strong> of the <em>residuals</em>. If two errors were unrelated, then the value of one residual should tell us nothing about the value of the next residual. Therefore, a plot of the residuals over time should look like noise (since residuals are supposed to mimic the noise in the model). If there are any trends, then it suggests the data is not consistent with independence.</p>
 <div id="def-time-series-plot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.2 (Time-Series Plot) </strong></span>A time-series plot of a variable is a line plot with the variable on the y-axis and time on the x-axis.</p>
+<p><span class="theorem-title"><strong>Definition 20.2 (Time-Series Plot)</strong></span> A time-series plot of a variable is a line plot with the variable on the y-axis and time on the x-axis.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -583,35 +623,47 @@ Graphically Assessing the Independence Condition
 <p>If the data is consistent with the independence condition, we would not expect to see a trend in the <em>location</em> or <em>spread</em> in a time-series plot of the residuals. Note that this graphic can only be used if the order in which the data was collected is known, and the order indicates some natural timing.</p>
 </div>
 </div>
-<p><a href="#fig-regassessment-independence-violations">Figure&nbsp;<span>20.2</span></a> shows two hypothetical datasets. In Panel A, the residuals display a trend in the location over time. Knowing that a response was below average suggests the next response will also be below average. In Panel B, the results display a trend in the spread over time. This suggests that measurements taken later in the study were less precise. Both panels are examples of patterns which would suggest the data is not consistent with the condition of independence.</p>
+<p><a href="#fig-regassessment-independence-violations" class="quarto-xref">Figure&nbsp;<span>20.2</span></a> shows two hypothetical datasets. In Panel A, the residuals display a trend in the location over time. Knowing that a response was below average suggests the next response will also be below average. In Panel B, the results display a trend in the spread over time. This suggests that measurements taken later in the study were less precise. Both panels are examples of patterns which would suggest the data is not consistent with the condition of independence.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence-violations" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-independence-violations-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.2: Examples of trends in a time-series plot of the residuals. Such trends indicate the data is not consistent with the condition that the errors are independent of one another.</figcaption>
+<div id="fig-regassessment-independence-violations" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-independence-violations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-independence-violations-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-independence-violations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.2: Examples of trends in a time-series plot of the residuals. Such trends indicate the data is not consistent with the condition that the errors are independent of one another.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Instead, if the data were consistent with the condition of independence on the error terms, we would expect to see a plot similar to <a href="#fig-regassessment-independence-reasonable">Figure&nbsp;<span>20.3</span></a>. Notice there are no trends in the location or spread of the residuals.</p>
+<p>Instead, if the data were consistent with the condition of independence on the error terms, we would expect to see a plot similar to <a href="#fig-regassessment-independence-reasonable" class="quarto-xref">Figure&nbsp;<span>20.3</span></a>. Notice there are no trends in the location or spread of the residuals.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence-reasonable" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-independence-reasonable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time; there are no trends in the location or spread."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.3: Example of a time-series plot of residuals which shows no trends in location or spread. This is consistent with what we would expect if the condition of independence among errors were satisfied.</figcaption>
+<div id="fig-regassessment-independence-reasonable" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals over time; there are no trends in the location or spread.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-independence-reasonable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-independence-reasonable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time; there are no trends in the location or spread.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-independence-reasonable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.3: Example of a time-series plot of residuals which shows no trends in location or spread. This is consistent with what we would expect if the condition of independence among errors were satisfied.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>For the Seismic Activity Case Study, the data was actually collected over time as earthquakes occurred. More, as technology has changed over time, it is reasonable to fear that the errors in our observations are related over time. In order to assess this, consider the time-series plot of the residuals from our model for the data generating process in which the bracketed duration is modeled as a linear function of the magnitude of the earthquake (<a href="#fig-regassessment-independence">Figure&nbsp;<span>20.4</span></a>). Based on the figure, there are no clear trends in either the <em>location</em> or <em>spread</em> of the residuals over time (the figure resembles noise with no patterns). As a result, it is reasonable to assume the data is consistent with the errors being independent of one another.</p>
+<p>For the Seismic Activity Case Study, the data was actually collected over time as earthquakes occurred. More, as technology has changed over time, it is reasonable to fear that the errors in our observations are related over time. In order to assess this, consider the time-series plot of the residuals from our model for the data generating process in which the bracketed duration is modeled as a linear function of the magnitude of the earthquake (<a href="#fig-regassessment-independence" class="quarto-xref">Figure&nbsp;<span>20.4</span></a>). Based on the figure, there are no clear trends in either the <em>location</em> or <em>spread</em> of the residuals over time (the figure resembles noise with no patterns). As a result, it is reasonable to assume the data is consistent with the errors being independent of one another.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-independence-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals against time; no clear trends in the location or spread are visible."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.4: Time-series plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+<div id="fig-regassessment-independence" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals against time; no clear trends in the location or spread are visible.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-independence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-independence-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals against time; no clear trends in the location or spread are visible.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-independence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.4: Time-series plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -637,8 +689,8 @@ Graphically Assessing the Constant Variance Condition
 <p>If the data is consistent with the constant variance condition, there should be no trends in the <em>spread</em> of the plot of the residuals against the predicted values.</p>
 </div>
 </div>
-<p>Again, imagine a window (illustrated as vertical green rectangles in <a href="#fig-regassessment-mean0">Figure&nbsp;<span>20.1</span></a>) around the residuals. As we move left to right, if the size of the window has to change in order to keep the residuals inside (the window stretches or compresses vertically), then that is an indication that the spread of the residuals is changing. For our example, there is a clear “fan shape” to the residuals as we move left to right suggesting the precision of the model decreases when making larger predictions. This goes back to something we observed in <a href="03e-regsummaries.html"><span>Chapter&nbsp;16</span></a> when examining a plot of the response and predictor (see <a href="03e-regsummaries.html#fig-regsummaries-magnitude">Figure&nbsp;<span>16.1</span></a>). We observed that for large earthquakes (high magnitudes), the bracketed duration was much more variable than for smaller earthquakes. So, our model is not as precise for some values of the predictor. This is evidence that our data is <em>not</em> consistent with the condition that the errors have the same variability for all values of the predictor.</p>
-<p>This partially explains the differences in the confidence intervals reported in <a href="03g-regconditions.html#tbl-regconditions-slr-summary">Table&nbsp;<span>18.1</span></a> and <a href="03g-regconditions.html#tbl-regconditions-slr-summary-alt">Table&nbsp;<span>18.2</span></a>. Since there is clear evidence that the data is not consistent with the constant variance condition, then it is not safe to assume the classical regression model. That is, the confidence intervals and p-values, as well as the underlying models for the sampling distribution and null distribution that generated them, constructed assuming the data is consistent with all four conditions, are suspect. We should instead rely on an empirical model for the sampling distribution of the least squares estimates when constructing confidence intervals or an empirical model for the null distribution of the standardized statistic if computing a p-value.</p>
+<p>Again, imagine a window (illustrated as vertical green rectangles in <a href="#fig-regassessment-mean0" class="quarto-xref">Figure&nbsp;<span>20.1</span></a>) around the residuals. As we move left to right, if the size of the window has to change in order to keep the residuals inside (the window stretches or compresses vertically), then that is an indication that the spread of the residuals is changing. For our example, there is a clear “fan shape” to the residuals as we move left to right suggesting the precision of the model decreases when making larger predictions. This goes back to something we observed in <a href="03e-regsummaries.html" class="quarto-xref"><span>Chapter 16</span></a> when examining a plot of the response and predictor (see <a href="03e-regsummaries.html#fig-regsummaries-magnitude" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>). We observed that for large earthquakes (high magnitudes), the bracketed duration was much more variable than for smaller earthquakes. So, our model is not as precise for some values of the predictor. This is evidence that our data is <em>not</em> consistent with the condition that the errors have the same variability for all values of the predictor.</p>
+<p>This partially explains the differences in the confidence intervals reported in <a href="03g-regconditions.html#tbl-regconditions-slr-summary" class="quarto-xref">Table&nbsp;<span>18.1</span></a> and <a href="03g-regconditions.html#tbl-regconditions-slr-summary-alt" class="quarto-xref">Table&nbsp;<span>18.2</span></a>. Since there is clear evidence that the data is not consistent with the constant variance condition, then it is not safe to assume the classical regression model. That is, the confidence intervals and p-values, as well as the underlying models for the sampling distribution and null distribution that generated them, constructed assuming the data is consistent with all four conditions, are suspect. We should instead rely on an empirical model for the sampling distribution of the least squares estimates when constructing confidence intervals or an empirical model for the null distribution of the standardized statistic if computing a p-value.</p>
 </section>
 <section id="assessing-normality" class="level2" data-number="20.5">
 <h2 data-number="20.5" class="anchored" data-anchor-id="assessing-normality"><span class="header-section-number">20.5</span> Assessing Normality</h2>
@@ -648,7 +700,7 @@ Graphically Assessing the Constant Variance Condition
 <p>Assessing whether observations adhere to a particular distribution is a large area in statistical research. Many methods have been developed for this purpose. We emphasize a single graphical summary known as a <strong>probability plot</strong>. The construction of the plot is beyond the scope of this text, but the concepts underlying its construction actually tie in nicely to the big themes we have been discussing. Recall that if a sample is representative, then it should be a snapshot of the underlying population. Therefore, if we believe the underlying population has some particular distribution, we would expect the properties of this distribution to be apparent in the sample as well.</p>
 <p>If we believe the errors follow a Normal distribution, then it is reasonable that the residuals should maintain some of those properties. For example, the 10-th percentile of the residuals should roughly equate to the 10-th percentile expected from a Normal distribution. Mapping the percentiles that we observe to those that we expect is the essence of a probability plot.</p>
 <div id="def-probability-plot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.3 (Probability Plot) </strong></span>Also called a “Quantile-Quantile Plot”, a probability plot is a graphic for comparing the distribution of an observed sample with a theoretical probability model for the distribution of the underlying population. The quantiles observed in the sample are plotted against those expected under the theoretical model.</p>
+<p><span class="theorem-title"><strong>Definition 20.3 (Probability Plot)</strong></span> Also called a “Quantile-Quantile Plot”, a probability plot is a graphic for comparing the distribution of an observed sample with a theoretical probability model for the distribution of the underlying population. The quantiles observed in the sample are plotted against those expected under the theoretical model.</p>
 </div>
 <p>While a probability plot can be constructed for a host of probability distributions, the most common is the Normal probability plot. The plot compares the observed residuals with those we would expect if the residuals were sampled from a Normal distribution. If the residuals closely aligned with our expectations from a Normal distribution, then we would expect to see a straight line if these are plotted against one another. Trends away from a straight line suggest the proposed Normal distribution is not a reasonable model for the distribution of the errors.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -664,26 +716,34 @@ Graphically Assessing the Normality Condition
 <p>If the data is consistent with the normality condition, the Normal probability plot of the residuals should exhibit a straight line with any deviations appearing to be random. Systemic deviations from a straight line indicate the observed distribution does not align with the proposed model.</p>
 </div>
 </div>
-<p><a href="#fig-regassessment-normal">Figure&nbsp;<span>20.5</span></a> shows the Normal probability plot of the residuals from our model for the data generating process of the bracketed duration.</p>
+<p><a href="#fig-regassessment-normal" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> shows the Normal probability plot of the residuals from our model for the data generating process of the bracketed duration.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-normal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.5: Probability plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.</figcaption>
+<div id="fig-regassessment-normal" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.5: Probability plot of the residuals for a model predicting bracketed duration as a function of the magnitude of an earthquake.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>We note there is some systematic departure from a straight line in the graphic. In particular, on the left-hand side of the graphic, from -3 to -1.5 along the x-axis, the points tend to curve upward before changing direction at -1.5 on the x-axis. While we want to avoid over-interpreting small deviations from the linear trend, we should pay attention to clear departures.</p>
-<p>We note that of the conditions considered, Normality is probably the least important as the analytic models for the sampling distributions of the least squares estimates are generally fairly robust to this condition. This is especially true in large samples (see <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>). However, we can always relax this condition by building an empirical model for the sampling distributions of the least squares estimates. Given the curvature we observed in this graphic, we would consider an empirical model, especially given we have already established the data is not consistent with the condition of homoskedasticity.</p>
-<p>For comparison, <a href="#fig-regassessment-normal-comparison">Figure&nbsp;<span>20.6</span></a> illustrates a hypothetical dataset for which the residuals suggest the Normality condition of the errors is unreasonable as well as an example of when the residuals are consistent with the Normality condition on the errors.</p>
+<p>We note that of the conditions considered, Normality is probably the least important as the analytic models for the sampling distributions of the least squares estimates are generally fairly robust to this condition. This is especially true in large samples (see <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>). However, we can always relax this condition by building an empirical model for the sampling distributions of the least squares estimates. Given the curvature we observed in this graphic, we would consider an empirical model, especially given we have already established the data is not consistent with the condition of homoskedasticity.</p>
+<p>For comparison, <a href="#fig-regassessment-normal-comparison" class="quarto-xref">Figure&nbsp;<span>20.6</span></a> illustrates a hypothetical dataset for which the residuals suggest the Normality condition of the errors is unreasonable as well as an example of when the residuals are consistent with the Normality condition on the errors.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-normal-comparison" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regassessment-normal-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line."></p>
-<figcaption class="figure-caption">Figure&nbsp;20.6: Two Normal probability plots of the residuals for two hypothetical datasets. The trend away from a straight line in Panel A suggests assuming the errors follow a Normal distribution would be unreasonable. However, the reasonably straight line in Panel B suggests the data is consistent with the errors following a Normal distribution.</figcaption>
+<div id="fig-regassessment-normal-comparison" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regassessment-normal-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regassessment-normal-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regassessment-normal-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.6: Two Normal probability plots of the residuals for two hypothetical datasets. The trend away from a straight line in Panel A suggests assuming the errors follow a Normal distribution would be unreasonable. However, the reasonably straight line in Panel B suggests the data is consistent with the errors following a Normal distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -793,10 +853,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -806,8 +883,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -819,7 +905,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -863,6 +1072,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -888,6 +1098,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -949,17 +1185,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03h-regquality.html" class="pagination-link">
+      <a href="./03h-regquality.html" class="pagination-link" aria-label="Quantifying the Quality of a Model Fit">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03j-regextensions.html" class="pagination-link">
+      <a href="./03j-regextensions.html" class="pagination-link" aria-label="Extending the Regression Model">
         <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

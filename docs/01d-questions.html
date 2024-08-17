@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,6 +82,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -83,6 +91,33 @@ div.csl-indent {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -93,12 +128,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01d-questions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01d-questions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -108,12 +143,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -468,7 +503,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -483,7 +518,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01d-questions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-questions" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Asking the Right Questions</span></span></h1>
 </div>
@@ -498,12 +533,14 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p>The discipline of statistics is about turning data into information in order to address some question. While there may be no such thing as a stupid question, there are ill-posed questions — those which cannot be answered as stated. Consider the <a href="./01c-casedeepwater.html">Deepwater Horizon Case Study</a> (<a href="01c-casedeepwater.html"><span>Chapter&nbsp;2</span></a>). It might seem natural to ask “if a volunteer cleans wildlife, will she develop adverse respiratory symptoms?” Let’s consider the data. Of the 54 volunteers assigned to wildlife cleaning and rehabilitation, 15 reported experiencing adverse respiratory symptoms (“nose irritation, sinus problems, or sore throat”); while some volunteers developed symptoms, others did not. It seems the answer to our question is then “it depends” or “maybe.” This is an example of an <em>ill-posed question</em>. Such questions exist because of <strong>variability</strong>, the fact that every subject in the population does not behave in exactly the same way; that is, the value of a variable potentially differs from one observation to the next. In our example not every volunteer had the same reaction when directly exposed to oil.</p>
+
+<p>The discipline of statistics is about turning data into information in order to address some question. While there may be no such thing as a stupid question, there are ill-posed questions — those which cannot be answered as stated. Consider the <a href="./01c-casedeepwater.html">Deepwater Horizon Case Study</a> (<a href="01c-casedeepwater.html" class="quarto-xref"><span>Chapter 2</span></a>). It might seem natural to ask “if a volunteer cleans wildlife, will she develop adverse respiratory symptoms?” Let’s consider the data. Of the 54 volunteers assigned to wildlife cleaning and rehabilitation, 15 reported experiencing adverse respiratory symptoms (“nose irritation, sinus problems, or sore throat”); while some volunteers developed symptoms, others did not. It seems the answer to our question is then “it depends” or “maybe.” This is an example of an <em>ill-posed question</em>. Such questions exist because of <strong>variability</strong>, the fact that every subject in the population does not behave in exactly the same way; that is, the value of a variable potentially differs from one observation to the next. In our example not every volunteer had the same reaction when directly exposed to oil.</p>
 <p>It is variability that creates a need for the discipline of statistics; in fact, you could think of statistics as the study and characterization of variability. We must therefore learn to ask the <em>right</em> questions — those which can be answered in the presence of variability.</p>
 <div id="def-variability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.1 (Variability) </strong></span>The notion that measurements differ from one observation to another.</p>
+<p><span class="theorem-title"><strong>Definition 3.1 (Variability)</strong></span> The notion that measurements differ from one observation to another.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -536,21 +573,21 @@ Note
 </div>
 <p>Since we expect that the reaction to oil exposure — the primary variable of interest for this study, sometimes called the <strong>response</strong> — to vary from one individual to another, we cannot ask a question about the <em>value</em> of the reaction (whether they experienced symptoms or not). Instead, we want to characterize the <strong>distribution</strong> of the response.</p>
 <div id="def-response" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 (Response) </strong></span>The primary variable of interest within a study. This is the variable you would either like to explain or estimate.</p>
+<p><span class="theorem-title"><strong>Definition 3.2 (Response)</strong></span> The primary variable of interest within a study. This is the variable you would either like to explain or estimate.</p>
 </div>
 <div id="def-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.3 (Distribution) </strong></span>The pattern of variability corresponding to a set of values.</p>
+<p><span class="theorem-title"><strong>Definition 3.3 (Distribution)</strong></span> The pattern of variability corresponding to a set of values.</p>
 </div>
 <p>Notice that in this case, the response is a categorical variable; describing the distribution of such a variable is equivalent to describing how individuals are divided among the possible groups. With a finite number of observations, we could present the number of observations, the <strong>frequency</strong>, within each group. For example, of the 54 volunteers, 15 experienced adverse symptoms and 39 did not. This works well within the sample; however, as our population is infinitely large (all volunteers cleaning wildlife following an oil spill), reporting the frequencies is not appropriate. In this case, we report the fraction of observations, the <strong>relative frequency</strong>, falling within each group; this helps convey information about the distribution of this variable. That is, the relative frequencies give us a sense of which values of the variable are more or less common in the sample.</p>
 <div id="def-frequency" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.4 (Frequency) </strong></span>The number of observations in a sample falling into a particular group (level) defined by a categorical variable.</p>
+<p><span class="theorem-title"><strong>Definition 3.4 (Frequency)</strong></span> The number of observations in a sample falling into a particular group (level) defined by a categorical variable.</p>
 </div>
 <div id="def-relative-frequency" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.5 (Relative Frequency) </strong></span>Also called the “proportion,” the fraction of observations falling into a particular group (level) of a categorical variable.</p>
+<p><span class="theorem-title"><strong>Definition 3.5 (Relative Frequency)</strong></span> Also called the “proportion,” the fraction of observations falling into a particular group (level) of a categorical variable.</p>
 </div>
 <p>Numeric quantities, like the proportion, which summarize the distribution of a variable within the population are known as <strong>parameters</strong>.</p>
 <div id="def-parameter" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.6 (Parameter) </strong></span>Numeric quantity which summarizes the distribution of a variable within the <em>population</em> of interest. Generally denoted by Greek letters in statistical formulas.</p>
+<p><span class="theorem-title"><strong>Definition 3.6 (Parameter)</strong></span> Numeric quantity which summarizes the distribution of a variable within the <em>population</em> of interest. Generally denoted by Greek letters in statistical formulas.</p>
 </div>
 <p>While the <em>value</em> of a variable may vary across the population, the <em>parameter</em> is a single fixed constant which summarizes the variable for that population. For example, the grade received on an exam varies from one student to another in a class; but, the <em>average exam grade</em> is a fixed number which summarizes the class as a whole. Well-posed questions can be constructed if we limit ourselves to questions about the parameter. The second step in constructing well-posed questions is then to identify the parameter of interest.</p>
 <p>The questions we ask generally fall into one of two categories:</p>
@@ -559,10 +596,10 @@ Note
 <li>Hypothesis Testing: is it reasonable no more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms; or, is there evidence more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?</li>
 </ul>
 <div id="def-estimation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.7 (Estimation) </strong></span>Using the sample to approximate the value of a parameter from the underlying population.</p>
+<p><span class="theorem-title"><strong>Definition 3.7 (Estimation)</strong></span> Using the sample to approximate the value of a parameter from the underlying population.</p>
 </div>
 <div id="def-hypothesis-testing" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.8 (Hypothesis Testing) </strong></span>Using a sample to determine if the data is consistent with a working theory or if there is evidence to suggest the data is not consistent with the theory.</p>
+<p><span class="theorem-title"><strong>Definition 3.8 (Hypothesis Testing)</strong></span> Using a sample to determine if the data is consistent with a working theory or if there is evidence to suggest the data is not consistent with the theory.</p>
 </div>
 <p>Since we do not get to observe the population (we only see the sample), we cannot observe the value of the parameter. That is, we will never know the true proportion of volunteers who experience symptoms. However, we can determine what the data suggests about the population (that is what inference is all about).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -631,10 +668,10 @@ Note
 </div>
 <p>Consider the above question for the <a href="./01c-casedeepwater.html">Deepwater Horizon Case Study</a>. We want to find evidence that the proportion experiencing adverse symptoms exceeds 0.20 (1 in 5). Therefore, we would like to <em>disprove</em> (or provide evidence <em>against</em>) the statement that the proportion experiencing adverse symptoms is no more than 0.20. This statement that we would like to disprove is known as the <strong>null hypothesis</strong>; the opposite of this statement, called the <strong>alternative hypothesis</strong>, captures what we as the researchers would like to establish.</p>
 <div id="def-null-hypothesis" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.9 (Null Hypothesis) </strong></span>The statement (or theory) about the parameter that we would like to <em>disprove</em>. This is denoted <span class="math inline">\(H_0\)</span>, read “H-naught” or “H-zero”.</p>
+<p><span class="theorem-title"><strong>Definition 3.9 (Null Hypothesis)</strong></span> The statement (or theory) about the parameter that we would like to <em>disprove</em>. This is denoted <span class="math inline">\(H_0\)</span>, read “H-naught” or “H-zero”.</p>
 </div>
 <div id="def-alternative-hypothesis" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.10 (Alternative Hypothesis) </strong></span>The statement (or theory) about the parameter capturing what we would like to provide evidence <em>for</em>; this is the opposite of the null hypothesis. This is denoted <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_a\)</span>, read “H-one” and “H-A” respectively.</p>
+<p><span class="theorem-title"><strong>Definition 3.10 (Alternative Hypothesis)</strong></span> The statement (or theory) about the parameter capturing what we would like to provide evidence <em>for</em>; this is the opposite of the null hypothesis. This is denoted <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_a\)</span>, read “H-one” and “H-A” respectively.</p>
 </div>
 <p>For the <a href="./01c-casedeepwater.html">Deepwater Horizon Case Study</a>, we write:</p>
 <blockquote class="blockquote">
@@ -666,7 +703,7 @@ Consistent vs.&nbsp;Evidence
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The term “consistent” and “reasonable” will be used interchangeably throughout the text; however, these terms differ substantially from the term “evidence.” The data is said to be consistent with a statement if the data is aligned with that statement. We have evidence for a statement when the data is aligned with that statement <em>and</em> it is not aligned with the opposite of the statement (when we can disprove something). We will see this develop more in Chapters <a href="01g-samplingdistns.html"><span>6</span></a> and <a href="01h-nulldistns.html"><span>7</span></a>.</p>
+<p>The term “consistent” and “reasonable” will be used interchangeably throughout the text; however, these terms differ substantially from the term “evidence.” The data is said to be consistent with a statement if the data is aligned with that statement. We have evidence for a statement when the data is aligned with that statement <em>and</em> it is not aligned with the opposite of the statement (when we can disprove something). We will see this develop more in Chapters <a href="01g-samplingdistns.html" class="quarto-xref"><span>6</span></a> and <a href="01h-nulldistns.html" class="quarto-xref"><span>7</span></a>.</p>
 </div>
 </div>
 <p>Often these statements are written in a bit more of a mathematical structure in which a Greek letter is used to represent the parameter of interest. For example, we might write</p>
@@ -677,7 +714,7 @@ Consistent vs.&nbsp;Evidence
 </blockquote>
 <p>In the above statements, <span class="math inline">\(\theta\)</span> represents the parameter of interest; the value 0.20 is known as the <strong>null value</strong>.</p>
 <div id="def-null-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.11 (Null Value) </strong></span>The value associated with the equality component of the null hypothesis; it forms the threshold or boundary between the hypotheses. Note: not all questions of interest require a null value be specified.</p>
+<p><span class="theorem-title"><strong>Definition 3.11 (Null Value)</strong></span> The value associated with the equality component of the null hypothesis; it forms the threshold or boundary between the hypotheses. Note: not all questions of interest require a null value be specified.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -720,7 +757,7 @@ Process for Framing a Question
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Doyle1890" class="csl-entry" role="listitem">
 Doyle, Sir Arthur Conan. 1890. <em>The Sign of the Four</em>. Spencer Blackett.
 </div>
@@ -807,10 +844,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -820,8 +874,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -833,7 +896,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -877,6 +1063,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -902,6 +1089,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -963,17 +1176,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01c-casedeepwater.html" class="pagination-link">
+      <a href="./01c-casedeepwater.html" class="pagination-link" aria-label="Case Study: Health Effects of the Deepwater Horizon Oil Spill">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01e-data.html" class="pagination-link">
+      <a href="./01e-data.html" class="pagination-link" aria-label="Gathering the Evidence (Data Collection)">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gathering the Evidence (Data Collection)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

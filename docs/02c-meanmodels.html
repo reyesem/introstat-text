@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02c-meanmodels.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02c-meanmodels.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -465,7 +499,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02c-meanmodels.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-meanmodels" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Model for the Data Generating Process</span></span></h1>
 </div>
@@ -480,9 +514,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>The numerical summaries of any study are subject to sampling variability. That is, if we were to repeat the study with new subjects, the statistics we compute would almost certainly change to some degree. The key to feeling confident in our results is to quantify the variability in our estimates; this was the rationale for developing a model of the sampling distribution of a statistic (<a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a>) and a model for the null distribution of a statistic under a specified hypothesis (<a href="01h-nulldistns.html"><span>Chapter&nbsp;7</span></a>). Often times, constructing such models requires modeling the data-generating process as a precursor. As in any other discipline, statistical models simplify the actual process being modeled by making certain assumptions. In this chapter, we develop a model for the data generating process that will help us make inference about the mean of a single population. This will also serve as the foundation for how we approach problems in other contexts moving forward in the text.</p>
+
+<p>The numerical summaries of any study are subject to sampling variability. That is, if we were to repeat the study with new subjects, the statistics we compute would almost certainly change to some degree. The key to feeling confident in our results is to quantify the variability in our estimates; this was the rationale for developing a model of the sampling distribution of a statistic (<a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a>) and a model for the null distribution of a statistic under a specified hypothesis (<a href="01h-nulldistns.html" class="quarto-xref"><span>Chapter 7</span></a>). Often times, constructing such models requires modeling the data-generating process as a precursor. As in any other discipline, statistical models simplify the actual process being modeled by making certain assumptions. In this chapter, we develop a model for the data generating process that will help us make inference about the mean of a single population. This will also serve as the foundation for how we approach problems in other contexts moving forward in the text.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -502,14 +538,14 @@ Note
 <p><span class="math display">\[\text{time} = \sqrt{\frac{2(\text{distance})}{9.8}}\]</span></p>
 <p>where <span class="math inline">\(9.8 m/s^2\)</span> is the acceleration due to gravity; further, this formula works regardless of the mass of the object. Plugging 50 meters into the equation yields a time of 10.2 seconds. If we were to drop a second tennis ball from the same building, the formula tells us that it will also take 10.2 seconds to hit the ground below. This is known as a <strong>deterministic</strong> system since entering the same input results in the same output each time.</p>
 <div id="def-deterministic-process" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10.1 (Deterministic Process) </strong></span>A process for which the output is completely determined by the input(s). That is, the output can be determined with certainty.</p>
+<p><span class="theorem-title"><strong>Definition 10.1 (Deterministic Process)</strong></span> A process for which the output is completely determined by the input(s). That is, the output can be determined with certainty.</p>
 </div>
 <p>While we often think of the above formula as a “law,” we should recognize that it is just a model. It simplifies extremely complex processes involving the gravitational pull between objects; it makes simplifying assumptions, such as the gravitational pull of your hand when you release the ball is negligible compared to the gravitational pull of the earth. More, the model works really well. Despite how well it works, it does not always match reality. If we were to repeatedly drop tennis balls from the same 50-meter building and record the time before hitting the ground, we might find that the time differs slightly from one ball to the next (it is true that these differences may be negligible, but they would exist nonetheless).</p>
 <p>There are several reasons why our observed responses do not line up directly with those predicted by the above equation; for example, our device for measuring time may be subject to some measurement error, a strong gust of wind could alter the results (while the above equation assumes no air resistance), or the person dropping the ball may have inadvertently increased the initial velocity of the ball. These reasons, and others, contribute to the observations not lining up exactly with the model. That is, there is associated noise in the resulting measurements. A model which incorporates this noise might be written as</p>
 <p><span class="math display">\[\text{time} = \sqrt{\frac{2(\text{distance})}{9.8}} + \text{noise}\]</span></p>
 <p>where the noise is not a known quantity. In fact, the noise is not a constant as it varies from one observation to the next! As a result, the output of the model (time) is no longer fully determined by the input (distance); the output also depends on a random component, meaning the same input could result in different outputs. This is known as a <strong>stochastic</strong> model.</p>
 <div id="def-stochastic-process" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10.2 (Stochastic Process) </strong></span>A process for which the output cannot be predicted with certainty.</p>
+<p><span class="theorem-title"><strong>Definition 10.2 (Stochastic Process)</strong></span> A process for which the output cannot be predicted with certainty.</p>
 </div>
 <p>In the above example, the deterministic model was extended to include a stochastic component. This extension leads to our general formulation for a statistical model used in this text:</p>
 <p><span id="eq-general-model"><span class="math display">\[
@@ -521,7 +557,7 @@ Note
 <li>A stochastic component that captures the unexplained variability in the data generating process.</li>
 </ul>
 <p>Since the noise is a random element which varies from one observation to another, it has a distribution. We often place conditions on the structure of this distribution to enable inference on the deterministic component of the model. We discuss this later in the chapter.</p>
-<p>This general model introduces what we will see as a theme in statistical modeling — partitioning the variability in the response. The model says that part of the reason the response differs across units (or subjects) is because those units have different values of the predictor, and part of the reason the response differs across units is unexplained random noise. Notice that the response is also governed by the value of the parameters; however, as discussed in <a href="01d-questions.html"><span>Chapter&nbsp;3</span></a>, parameters are numeric constants, so do they not vary from one unit to another. The above model just makes explicit how the parameters characterize the population — through the model for the data generating process. As before, while the parameters are constants, they are unknown. Our goal is to use data to make inference on the parameters and therefore make inference on how the data is generated.</p>
+<p>This general model introduces what we will see as a theme in statistical modeling — partitioning the variability in the response. The model says that part of the reason the response differs across units (or subjects) is because those units have different values of the predictor, and part of the reason the response differs across units is unexplained random noise. Notice that the response is also governed by the value of the parameters; however, as discussed in <a href="01d-questions.html" class="quarto-xref"><span>Chapter 3</span></a>, parameters are numeric constants, so do they not vary from one unit to another. The above model just makes explicit how the parameters characterize the population — through the model for the data generating process. As before, while the parameters are constants, they are unknown. Our goal is to use data to make inference on the parameters and therefore make inference on how the data is generated.</p>
 <p>The overall goal of a statistical model is to give an explanation for why the value of the response is what it is. How did it come to be? What process generated the values we have observed? Our statistical model says that these values have some deterministic component plus some additional random noise we cannot explain.</p>
 <p>We now simplify this general formulation for the specific case of making inference on the population mean.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -542,9 +578,9 @@ Note
 </section>
 <section id="statistical-model-for-a-quantitative-response-with-no-predictors" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="statistical-model-for-a-quantitative-response-with-no-predictors"><span class="header-section-number">10.2</span> Statistical Model for a Quantitative Response with No Predictors</h2>
-<p>Consider the Birth Weights Case Study described in <a href="02b-casebabies.html"><span>Chapter&nbsp;9</span></a>.. Suppose we are interested in estimating the average birth weight of infants (carried to full term) born in North Carolina, the population from which our sample was taken. Our response variable is the birth weight of the infant. Our question of interest is not about the relationship of the birth weight to any other variable; that is, there are no predictor variables being considered. But, that does not mean the deterministic portion of our model is empty. We have a parameter of interest: the average birth weight. This parameter lives in the deterministic portion of the model. In particular, consider the following model for the data generating process:</p>
+<p>Consider the Birth Weights Case Study described in <a href="02b-casebabies.html" class="quarto-xref"><span>Chapter 9</span></a>.. Suppose we are interested in estimating the average birth weight of infants (carried to full term) born in North Carolina, the population from which our sample was taken. Our response variable is the birth weight of the infant. Our question of interest is not about the relationship of the birth weight to any other variable; that is, there are no predictor variables being considered. But, that does not mean the deterministic portion of our model is empty. We have a parameter of interest: the average birth weight. This parameter lives in the deterministic portion of the model. In particular, consider the following model for the data generating process:</p>
 <p><span class="math display">\[(\text{Birth Weight})_i = \mu + \varepsilon_i\]</span></p>
-<p>where <span class="math inline">\(\mu\)</span> represents the average birth weight of infants born in North Carolina. In this model for the data generating process, the function that represents deterministic component of <a href="#eq-general-model">Equation&nbsp;<span>10.1</span></a> takes the value <span class="math inline">\(\mu\)</span>, a constant. The term <span class="math inline">\(\varepsilon_i\)</span> is used to capture the random noise in the <span class="math inline">\(i\)</span>-th measurement; the subscript indexes the individual infants in the sample, indicating that the noise in the birth weight for each infant potentially differs. This <span class="math inline">\(\varepsilon_i\)</span> captures the difference between the birth weight for the <span class="math inline">\(i\)</span>-th infant and the overall mean birth weight of all infants. This model says that the birth weight for the <span class="math inline">\(i\)</span>-th infant is shifted (as a result of the noise term) from the overall average birth weight <span class="math inline">\(\mu\)</span>. Notice that if there were no noise in the system, the data generating process would say that all infants have the same birth weight <span class="math inline">\(\mu\)</span>. However, due to genetic variability, differences in the lifestyle of each mother, and measurement error, <span class="math inline">\(\varepsilon_i\)</span> is not a constant (noise does exist), resulting in each subject having a different response.</p>
+<p>where <span class="math inline">\(\mu\)</span> represents the average birth weight of infants born in North Carolina. In this model for the data generating process, the function that represents deterministic component of <a href="#eq-general-model" class="quarto-xref">Equation&nbsp;<span>10.1</span></a> takes the value <span class="math inline">\(\mu\)</span>, a constant. The term <span class="math inline">\(\varepsilon_i\)</span> is used to capture the random noise in the <span class="math inline">\(i\)</span>-th measurement; the subscript indexes the individual infants in the sample, indicating that the noise in the birth weight for each infant potentially differs. This <span class="math inline">\(\varepsilon_i\)</span> captures the difference between the birth weight for the <span class="math inline">\(i\)</span>-th infant and the overall mean birth weight of all infants. This model says that the birth weight for the <span class="math inline">\(i\)</span>-th infant is shifted (as a result of the noise term) from the overall average birth weight <span class="math inline">\(\mu\)</span>. Notice that if there were no noise in the system, the data generating process would say that all infants have the same birth weight <span class="math inline">\(\mu\)</span>. However, due to genetic variability, differences in the lifestyle of each mother, and measurement error, <span class="math inline">\(\varepsilon_i\)</span> is not a constant (noise does exist), resulting in each subject having a different response.</p>
 <p>Notice that the deterministic portion of the model describes the <em>mean response</em> through the parameter. This will be a running theme in the models we consider in this text.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -556,7 +592,7 @@ Big Idea
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The deterministic portion of the data generating process for <a href="#eq-general-model">Equation&nbsp;<span>10.1</span></a> describes the mean response; naturally, it is often referred to as the mean response function. Note that the mean response function is governed by parameters.</p>
+<p>The deterministic portion of the data generating process for <a href="#eq-general-model" class="quarto-xref">Equation&nbsp;<span>10.1</span></a> describes the mean response; naturally, it is often referred to as the mean response function. Note that the mean response function is governed by parameters.</p>
 </div>
 </div>
 <p>Certainly, this model for the data generating process is a simplified version of reality. Instead of capturing the impact of genetics or the impacts of lifestyle choices made by the infant’s mother on the infant’s birth weight, we simply allow those impacts to enter the random noise component of the model. This does not make the model for the data generating process incorrect; instead, it simply means our model will not explain the variability in the response. In later chapters we will begin to address this limitation. However, it is worth noting now that all models for the data generating process are simplified versions of reality, but that does not mean they are not helpful.</p>
@@ -609,28 +645,28 @@ Note
 </div>
 <p>The first condition we consider is that the noise attributed to one observed unit is <strong>independent</strong> of the noise attributed to any other unit observed. That is, the amount of error <span class="math inline">\(\varepsilon\)</span> in any one response is unrelated to the error in any other response observed. In context, the error in the birth weight of one infant is unrelated to the error in the birth weight of any other infant. It is easiest to understand this condition by examining a case when the condition would not hold.</p>
 <div id="def-independence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10.3 (Independence) </strong></span>Two random variables are said to be independent when the likelihood that one random variable takes on a particular value does not depend on the value of the other random variable.</p>
+<p><span class="theorem-title"><strong>Definition 10.3 (Independence)</strong></span> Two random variables are said to be independent when the likelihood that one random variable takes on a particular value does not depend on the value of the other random variable.</p>
 <p>Similarly, two observations are said to be independent when the likelihood that one observation takes on a particular value does not depend on the value of the other observation.</p>
 </div>
 <div id="exm-tire-rotation" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.1 (Tire Rotation Timing) </strong></span>Suppose we are conducting a study to estimate the amount of time, on average, required for a novice technician to complete a tire rotation on an automobile. We gather a sample of 25 novice technicians. We have the first technician complete a tire rotation, allowing the other technicians to watch, and record the time required to complete the task. We then have the second technician complete a tire rotation, again allowing the other technicians to watch, and record the time required to complete the task. We continue in this way until we have recorded the time required to complete a tire rotation for each of the 25 technicians.</p>
+<p><span class="theorem-title"><strong>Example 10.1 (Tire Rotation Timing)</strong></span> Suppose we are conducting a study to estimate the amount of time, on average, required for a novice technician to complete a tire rotation on an automobile. We gather a sample of 25 novice technicians. We have the first technician complete a tire rotation, allowing the other technicians to watch, and record the time required to complete the task. We then have the second technician complete a tire rotation, again allowing the other technicians to watch, and record the time required to complete the task. We continue in this way until we have recorded the time required to complete a tire rotation for each of the 25 technicians.</p>
 <p>We could model the data generating process for this as</p>
 <p><span class="math display">\[(\text{Time})_i = \mu + \varepsilon_i\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is the average time required to complete a tire rotation for a novice technician. We might estimate the parameter <span class="math inline">\(\mu\)</span> with <span class="math inline">\(\frac{1}{25}\sum_{i=1}^{25} (\text{Time})_i\)</span>, the sample mean time for the 25 observed technicians.</p>
 </div>
-<p>In <a href="#exm-tire-rotation">Example&nbsp;<span>10.1</span></a>, it would <em>not</em> be reasonable to assume the errors are independent of one another. Since each technician is able to observe the prior technicians, it is plausible that each technician’s performance is dependent on their observations (they are learning tricks by watching others go before them). As a result, the amount of noise in one technician’s time is related to the amount of noise in the next technician’s time. Requiring independence among observations prohibits these types of situations.</p>
+<p>In <a href="#exm-tire-rotation" class="quarto-xref">Example&nbsp;<span>10.1</span></a>, it would <em>not</em> be reasonable to assume the errors are independent of one another. Since each technician is able to observe the prior technicians, it is plausible that each technician’s performance is dependent on their observations (they are learning tricks by watching others go before them). As a result, the amount of noise in one technician’s time is related to the amount of noise in the next technician’s time. Requiring independence among observations prohibits these types of situations.</p>
 <p>A second condition we consider is that the error for each subject is <strong>identically distributed</strong>. This ensures that every student essentially belongs to the same population.</p>
 <div id="def-identically-distributed" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10.4 (Identically Distributed) </strong></span>A set of random variables is said to be identically distributed if they are from the same population.</p>
+<p><span class="theorem-title"><strong>Definition 10.4 (Identically Distributed)</strong></span> A set of random variables is said to be identically distributed if they are from the same population.</p>
 <p>Similarly, a set of observations is said to be identically distributed if they share the same data generating process.</p>
 </div>
-<p>Practically, this condition means that we do not have a systematic component which is causing our population to be different from what we expected. As an example, let’s return to <a href="#exm-tire-rotation">Example&nbsp;<span>10.1</span></a>.</p>
+<p>Practically, this condition means that we do not have a systematic component which is causing our population to be different from what we expected. As an example, let’s return to <a href="#exm-tire-rotation" class="quarto-xref">Example&nbsp;<span>10.1</span></a>.</p>
 <div id="exm-tire-rotation-alt" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.2 (Tire Rotation Timing, Continued) </strong></span>Suppose we are conducting a study to estimate the amount of time, on average, required for a novice technician to complete a tire rotation on an automobile. We gather a sample of 25 novice technicians. All technicians are permitted to begin training in the facility. During the first week of training, we have the first technician complete a tire rotation and record the time required to complete the task. During the second week of training, we have the second technician complete a tire rotation and record the time required to complete the task. We continue in this way until we have recorded the time required to complete a tire rotation for each of the 25 technicians.</p>
-<p>Again, we might posit the same model for the data generating process as in <a href="#exm-tire-rotation">Example&nbsp;<span>10.1</span></a>, and we might estimate the average time in the same way.</p>
+<p><span class="theorem-title"><strong>Example 10.2 (Tire Rotation Timing, Continued)</strong></span> Suppose we are conducting a study to estimate the amount of time, on average, required for a novice technician to complete a tire rotation on an automobile. We gather a sample of 25 novice technicians. All technicians are permitted to begin training in the facility. During the first week of training, we have the first technician complete a tire rotation and record the time required to complete the task. During the second week of training, we have the second technician complete a tire rotation and record the time required to complete the task. We continue in this way until we have recorded the time required to complete a tire rotation for each of the 25 technicians.</p>
+<p>Again, we might posit the same model for the data generating process as in <a href="#exm-tire-rotation" class="quarto-xref">Example&nbsp;<span>10.1</span></a>, and we might estimate the average time in the same way.</p>
 </div>
-<p>It would <em>not</em> be reasonable to assume the errors across all observations are from the same underlying population in <a href="#exm-tire-rotation-alt">Example&nbsp;<span>10.2</span></a>. As the technicians are continuing their training over time, the group under study is changing over time. A technician with 10 weeks of training should not be expected to perform in the same way as a technician with 1 week of training. The observations are being drawn from a population that is changing over time. Therefore, we could not say that the underlying distribution is identical for each observation.</p>
-<p>While there are many other conditions we might consider imposing on the data generating process, these two conditions (independence and identically distributed) are sufficient for modeling the sampling distribution of the sample mean (our statistic of interest here) using the bootstrap process we described in <a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a>. In future chapters, we will consider the impact of adding additional conditions or relaxing these conditions.</p>
+<p>It would <em>not</em> be reasonable to assume the errors across all observations are from the same underlying population in <a href="#exm-tire-rotation-alt" class="quarto-xref">Example&nbsp;<span>10.2</span></a>. As the technicians are continuing their training over time, the group under study is changing over time. A technician with 10 weeks of training should not be expected to perform in the same way as a technician with 1 week of training. The observations are being drawn from a population that is changing over time. Therefore, we could not say that the underlying distribution is identical for each observation.</p>
+<p>While there are many other conditions we might consider imposing on the data generating process, these two conditions (independence and identically distributed) are sufficient for modeling the sampling distribution of the sample mean (our statistic of interest here) using the bootstrap process we described in <a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a>. In future chapters, we will consider the impact of adding additional conditions or relaxing these conditions.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -645,13 +681,17 @@ Note
 <p>As a result, we will need to make certain <em>assumptions</em> about the data generating process. In future units, we will see how we determine which assumptions are reasonable. At this point, we simply emphasize that the assumptions we make govern the process by which we model the sampling distribution.</p>
 </div>
 </div>
-<p>Throughout this section, we have been discussing the conditions placed on distribution of the error term — the stochastic portion of the model. We emphasize that these conditions are placed on the <em>distribution</em>, not the values themselves. Further, notice that <a href="#eq-single-mean">Equation&nbsp;<span>10.2</span></a> states the response is formed by taking the error and shifting it by the constant <span class="math inline">\(\mu\)</span>; as a result, the distribution of the responses is simply a shifted version of the distribution of the error terms. <a href="#fig-meanmodels-shift">Figure&nbsp;<span>10.1</span></a> illustrates this for a hypothetical population. Since the distribution of the response is just a shifted version of the distribution on the errors, any conditions placed on the distribution of the errors can be translated to statements on the distribution of the response.</p>
+<p>Throughout this section, we have been discussing the conditions placed on distribution of the error term — the stochastic portion of the model. We emphasize that these conditions are placed on the <em>distribution</em>, not the values themselves. Further, notice that <a href="#eq-single-mean" class="quarto-xref">Equation&nbsp;<span>10.2</span></a> states the response is formed by taking the error and shifting it by the constant <span class="math inline">\(\mu\)</span>; as a result, the distribution of the responses is simply a shifted version of the distribution of the error terms. <a href="#fig-meanmodels-shift" class="quarto-xref">Figure&nbsp;<span>10.1</span></a> illustrates this for a hypothetical population. Since the distribution of the response is just a shifted version of the distribution on the errors, any conditions placed on the distribution of the errors can be translated to statements on the distribution of the response.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-meanmodels-shift" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-meanmodels-shift-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two boxplots are shown for a hypothetical variable; the two boxplots are identical except for their location."></p>
-<figcaption class="figure-caption">Figure&nbsp;10.1: Relationship between the distribution of the response and the distribution of the error term in the model for the data generating process involving a single mean response.</figcaption>
+<div id="fig-meanmodels-shift" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two boxplots are shown for a hypothetical variable; the two boxplots are identical except for their location.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meanmodels-shift-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-meanmodels-shift-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two boxplots are shown for a hypothetical variable; the two boxplots are identical except for their location.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meanmodels-shift-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Relationship between the distribution of the response and the distribution of the error term in the model for the data generating process involving a single mean response.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -666,7 +706,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For the model described in <a href="#eq-single-mean">Equation&nbsp;<span>10.2</span></a>, stating</p>
+<p>For the model described in <a href="#eq-single-mean" class="quarto-xref">Equation&nbsp;<span>10.2</span></a>, stating</p>
 <ul>
 <li>the errors in the response for one observation is independent of the error in the response for all other observations, and</li>
 <li>the errors in the response are identically distributed</li>
@@ -763,10 +803,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -776,8 +833,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -789,7 +855,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -833,6 +1022,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -858,6 +1048,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -919,17 +1135,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02b-casebabies.html" class="pagination-link">
+      <a href="./02b-casebabies.html" class="pagination-link" aria-label="Case Study: Birth Weights of Babies">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Case Study: Birth Weights of Babies</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02d-confint.html" class="pagination-link">
+      <a href="./02d-confint.html" class="pagination-link" aria-label="Estimating with Confidence a Single Mean">
         <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

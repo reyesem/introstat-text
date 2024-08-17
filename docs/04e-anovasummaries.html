@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,12 +79,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04e-anovasummaries.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04e-anovasummaries.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -87,12 +94,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -447,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -455,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04e-anovasummaries.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-anovasummaries" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Presenting the Data</span></span></h1>
 </div>
@@ -470,45 +477,59 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p><a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a> introduced the importance of partitioning sources of variability in the response. This theme impacts both the manner in which we summarize data and the analysis we conduct. We keep this idea in mind as we also construct graphical and numerical summaries which address our research objective.</p>
+
+<p><a href="03h-regquality.html" class="quarto-xref"><span>Chapter 19</span></a> introduced the importance of partitioning sources of variability in the response. This theme impacts both the manner in which we summarize data and the analysis we conduct. We keep this idea in mind as we also construct graphical and numerical summaries which address our research objective.</p>
 <p>We have already argued that variability makes addressing questions difficult. If every subject in the Organic Food Case Study had the same moral expectation when exposed to the same food type, there would be no need for statistics. We would simply evaluate one subject and determine which treatment to give. Statistics exists because of the ambiguity created by variability in the responses. As a result of this variability, our statistical graphics (and later our model for the data generating process) must distinguish the various sources of variability. That is, with any analysis, we try to answer the question “why aren’t all the values the same? What are the reasons for the difference we are observing?”</p>
 <p>From the Organic Food Case Study, consider the primary question of interest:</p>
 <blockquote class="blockquote">
 <p>Is there evidence of a relationship between the type of food a person is exposed to and their moral expectations, on average, following exposure?</p>
 </blockquote>
 <p>We are really asking “does the food exposure help explain the differences in the moral expectations of individuals?” We know that there are differences in moral expectations between individuals. But, are these differences solely due to natural variability (some people are just inherently, possibly due to how they were raised, more or less strict in terms of their moral beliefs); or, is there some systematic component that explains at least a portion of the differences between individuals?</p>
-<p>A good graphic must then tease out how much of the difference in the moral expectations is from subject-to-subject variability and how much is due to the food exposure. When our response and predictor were both quantitative, a scatterplot was appropriate (<a href="03e-regsummaries.html"><span>Chapter&nbsp;16</span></a>). When our response is categorical, we may turn to other options, but the goal is the same — address the research objective and tease out the various sources of variability in the response. Consider a common graphic which is <strong>not</strong> useful in this situation (<a href="#fig-anovasummaries-bad-bar">Figure&nbsp;<span>26.1</span></a>).</p>
+<p>A good graphic must then tease out how much of the difference in the moral expectations is from subject-to-subject variability and how much is due to the food exposure. When our response and predictor were both quantitative, a scatterplot was appropriate (<a href="03e-regsummaries.html" class="quarto-xref"><span>Chapter 16</span></a>). When our response is categorical, we may turn to other options, but the goal is the same — address the research objective and tease out the various sources of variability in the response. Consider a common graphic which is <strong>not</strong> useful in this situation (<a href="#fig-anovasummaries-bad-bar" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anovasummaries-bad-bar" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-anovasummaries-bad-bar-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the average moral expectations for individuals exposed to one of three types of food types; no sense of variability is given."></p>
-<figcaption class="figure-caption">Figure&nbsp;26.1: Illustration of a poor graphic using the Organic Food Case Study; the graphic does not give us a sense of variability. As a result, it is not clear how different these means really are.</figcaption>
+<div id="fig-anovasummaries-bad-bar" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Bar chart of the average moral expectations for individuals exposed to one of three types of food types; no sense of variability is given.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anovasummaries-bad-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-anovasummaries-bad-bar-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the average moral expectations for individuals exposed to one of three types of food types; no sense of variability is given.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anovasummaries-bad-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.1: Illustration of a poor graphic using the Organic Food Case Study; the graphic does not give us a sense of variability. As a result, it is not clear how different these means really are.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>To determine an appropriate graphic, we need to remember that we want to partition the variability. So, we must not only compare the differences between the groups but also allow the viewer to get a sense of the variability within the group. A common way of doing this within engineering and scientific disciplines is to construct side-by-side boxplots, as illustrated in <a href="#fig-anovasummaries-organic-boxplot">Figure&nbsp;<span>26.2</span></a>.</p>
+<p>To determine an appropriate graphic, we need to remember that we want to partition the variability. So, we must not only compare the differences between the groups but also allow the viewer to get a sense of the variability within the group. A common way of doing this within engineering and scientific disciplines is to construct side-by-side boxplots, as illustrated in <a href="#fig-anovasummaries-organic-boxplot" class="quarto-xref">Figure&nbsp;<span>26.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anovasummaries-organic-boxplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-anovasummaries-organic-boxplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Side-by-side boxplots of the moral expectations for three different food categories."></p>
-<figcaption class="figure-caption">Figure&nbsp;26.2: Comparison of the moral expectations for college students exposed to different types of food.</figcaption>
+<div id="fig-anovasummaries-organic-boxplot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Side-by-side boxplots of the moral expectations for three different food categories.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anovasummaries-organic-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-anovasummaries-organic-boxplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Side-by-side boxplots of the moral expectations for three different food categories.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anovasummaries-organic-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.2: Comparison of the moral expectations for college students exposed to different types of food.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>From the graphic, we see that the moral expectation scores seem to have nearly the same pattern in each of the exposure groups. More, the center of each of the groups is roughly the same. That is, there does not appear to be any evidence that the type of food to which a subject is exposed is associated with moral expectations, on average.</p>
-<p>Side-by-side boxplots can be helpful in comparing large samples as they summarize the location and spread of the data. When the sample is smaller, it can be helpful to overlay the raw data on the graphic in addition to the summary provided by the boxplot. We might also consider adding additional information, like the mean within each group. An alternative to boxplots is to use violin plots which emphasize the shape of the distribution instead of summarizing it like boxplots; again, this is most helpful when the sample size is large. Yet another option is to construct density plots which are overlayed on one another; again, this is most appropriate for larger samples. This works when there are only a small number of groups; if the number of groups is large, then placing the distributions side-by-side is much more effective. A comparison of these approaches is in <a href="#fig-anovasummaries-organic-comparison">Figure&nbsp;<span>26.3</span></a>.</p>
+<p>Side-by-side boxplots can be helpful in comparing large samples as they summarize the location and spread of the data. When the sample is smaller, it can be helpful to overlay the raw data on the graphic in addition to the summary provided by the boxplot. We might also consider adding additional information, like the mean within each group. An alternative to boxplots is to use violin plots which emphasize the shape of the distribution instead of summarizing it like boxplots; again, this is most helpful when the sample size is large. Yet another option is to construct density plots which are overlayed on one another; again, this is most appropriate for larger samples. This works when there are only a small number of groups; if the number of groups is large, then placing the distributions side-by-side is much more effective. A comparison of these approaches is in <a href="#fig-anovasummaries-organic-comparison" class="quarto-xref">Figure&nbsp;<span>26.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anovasummaries-organic-comparison" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-anovasummaries-organic-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Four visualizations of the same data; side-by-side boxplots with means overlayed, side-by-side boxplots with the raw data overlayed, side-by-side violin plots, and overlayed density plots."></p>
-<figcaption class="figure-caption">Figure&nbsp;26.3: Multiple ways to effectively compare a quantitative response (in this case, the moral expectation score) across multiple groups (in this case, the type of food to which the participant was exposed).</figcaption>
+<div id="fig-anovasummaries-organic-comparison" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Four visualizations of the same data; side-by-side boxplots with means overlayed, side-by-side boxplots with the raw data overlayed, side-by-side violin plots, and overlayed density plots.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anovasummaries-organic-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-anovasummaries-organic-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Four visualizations of the same data; side-by-side boxplots with means overlayed, side-by-side boxplots with the raw data overlayed, side-by-side violin plots, and overlayed density plots.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anovasummaries-organic-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.3: Multiple ways to effectively compare a quantitative response (in this case, the moral expectation score) across multiple groups (in this case, the type of food to which the participant was exposed).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -526,7 +547,7 @@ Warning
 <p>If you have smaller than 10 observations in a group, it is more appropriate to use an individual value plot (equivalent to a scatterplot when one axis is a categorical variable) or a jitter plot. Having the raw data is important in these cases.</p>
 </div>
 </div>
-<p>Each of the plots in <a href="#fig-anovasummaries-organic-comparison">Figure&nbsp;<span>26.3</span></a> is reasonable. What makes them useful in addressing the research question is that in each plot, we can compare the degree to which the groups differ relative to the variability within a group. That is, we partition the variability. With each plot, we can say that one of the reasons the groups differ is because of exposure to different food types; however, this difference is extremely small relative to the fact that regardless of which food group you were exposed to, the variability in moral expectations with that group is quite large. Since the predominant variability in the moral exposure is the variability within the groups, we would say there is no signal here. That is, the graphics do not indicate there is any evidence that the average moral expectation scores differ across food exposure groups.</p>
+<p>Each of the plots in <a href="#fig-anovasummaries-organic-comparison" class="quarto-xref">Figure&nbsp;<span>26.3</span></a> is reasonable. What makes them useful in addressing the research question is that in each plot, we can compare the degree to which the groups differ relative to the variability within a group. That is, we partition the variability. With each plot, we can say that one of the reasons the groups differ is because of exposure to different food types; however, this difference is extremely small relative to the fact that regardless of which food group you were exposed to, the variability in moral expectations with that group is quite large. Since the predominant variability in the moral exposure is the variability within the groups, we would say there is no signal here. That is, the graphics do not indicate there is any evidence that the average moral expectation scores differ across food exposure groups.</p>
 <p>The key to a good summary is understanding the question of interest and building a graphic which addresses this question through a useful characterization of the variability.</p>
 
 
@@ -611,10 +632,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -624,8 +662,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -637,7 +684,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -681,6 +851,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -706,6 +877,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -767,17 +964,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04d-anovadata.html" class="pagination-link">
+      <a href="./04d-anovadata.html" class="pagination-link" aria-label="Study Design">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Study Design</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04f-anovamodel.html" class="pagination-link">
+      <a href="./04f-anovamodel.html" class="pagination-link" aria-label="Building the Statistical Model">
         <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

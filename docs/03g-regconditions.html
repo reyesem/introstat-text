@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,17 +62,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -77,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03g-regconditions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03g-regconditions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -452,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -480,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03g-regconditions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-regconditions" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></span></h1>
 </div>
@@ -495,7 +530,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>In the previous chapter we developed a general model for the data generating process of a quantitative response as a linear function of a quantitative predictor:</p>
 <p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_{i} + \varepsilon_i.\]</span></p>
@@ -516,8 +553,8 @@ Mean-0 Condition
 <p>The “mean-0 condition” states that for every value of the predictor, the average error is 0.</p>
 </div>
 </div>
-<p>In practice, this condition implies that the deterministic portion of the model for the data generating process that we have posited is accurate; that is, it implies the <em>form</em> of the model is appropriate. For <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>, this condition states that the response is linearly related to the predictor.</p>
-<p>There is a subtlety to this condition; the phrase “for every value of the predictor” is crucial. Without this phrase, the condition would simply state that the model may overestimate for some values of the predictor, but that is balanced out by underestimating for other values of the predictor. That is, the model for the deterministic portion can be wrong everywhere, but those “wrongs” cancel each other out (consider the orange line again in <a href="03f-regmodel.html#fig-regmodel-least-squares">Figure&nbsp;<span>17.2</span></a>). Instead, we want the deterministic portion of the model to be correct everywhere, for all values of the predictor (consider the blue line again in <a href="03f-regmodel.html#fig-regmodel-least-squares">Figure&nbsp;<span>17.2</span></a>).</p>
+<p>In practice, this condition implies that the deterministic portion of the model for the data generating process that we have posited is accurate; that is, it implies the <em>form</em> of the model is appropriate. For <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>, this condition states that the response is linearly related to the predictor.</p>
+<p>There is a subtlety to this condition; the phrase “for every value of the predictor” is crucial. Without this phrase, the condition would simply state that the model may overestimate for some values of the predictor, but that is balanced out by underestimating for other values of the predictor. That is, the model for the deterministic portion can be wrong everywhere, but those “wrongs” cancel each other out (consider the orange line again in <a href="03f-regmodel.html#fig-regmodel-least-squares" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>). Instead, we want the deterministic portion of the model to be correct everywhere, for all values of the predictor (consider the blue line again in <a href="03f-regmodel.html#fig-regmodel-least-squares" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>).</p>
 <p>There are two reasons we say that this is the most important condition:</p>
 <ol type="1">
 <li>If this condition is violated, it says your model for the data generating process is fundamentally incorrect in its form. Generally, this is the result of ignoring some curvature in the relationship between the response and predictor or some important additional feature. If the functional form of the model for the deterministic portion is incorrect, you have to begin your modeling process over again.</li>
@@ -526,9 +563,9 @@ Mean-0 Condition
 <p>That is, instead of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> representing solely the intercept and slope, we can interpret these parameters in the context of the research objective.</p>
 <section id="interpreting-the-parameters" class="level3" data-number="18.1.1">
 <h3 data-number="18.1.1" class="anchored" data-anchor-id="interpreting-the-parameters"><span class="header-section-number">18.1.1</span> Interpreting the Parameters</h3>
-<p>In <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a>, we posited a model of the form</p>
+<p>In <a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>, we posited a model of the form</p>
 <p><span class="math display">\[(\text{Response})_i = \mu + \varepsilon_i\]</span></p>
-<p>where we said that <span class="math inline">\(\mu\)</span> represented the average response. When we impose the mean-0 condition in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>, we are stating that given a value of the predictor, the average response is given by</p>
+<p>where we said that <span class="math inline">\(\mu\)</span> represented the average response. When we impose the mean-0 condition in <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>, we are stating that given a value of the predictor, the average response is given by</p>
 <p><span class="math display">\[\beta_0 + \beta_1 (\text{Predictor}).\]</span></p>
 <p>That is, instead of considering the overall average response, we are acknowledging that the average response may depend on the value of the predictor. The mean-0 condition essentially tells us that the deterministic portion of the model for the data generating process represents the <em>average</em> response for a specified value of the predictor.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -544,7 +581,7 @@ Big Idea
 <p>The deterministic portion of a simple linear regression model specifies the <em>average</em> value of the response given the value of the predictor.</p>
 </div>
 </div>
-<p>As an example, consider our model for the Seismic Activity Case Study developed in <a href="03f-regmodel.html"><span>Chapter&nbsp;17</span></a>, which considered the bracketed duration at a location as a function of the magnitude of the earthquake:</p>
+<p>As an example, consider our model for the Seismic Activity Case Study developed in <a href="03f-regmodel.html" class="quarto-xref"><span>Chapter 17</span></a>, which considered the bracketed duration at a location as a function of the magnitude of the earthquake:</p>
 <p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Magnitude})_i + \varepsilon_i.\]</span></p>
 <p>If we are willing to assume that for earthquakes of any magnitude, the average error in the bracketed duration is 0 (the mean-0 condition), then earthquakes with a 5.0 magnitude have an <em>average</em> bracketed duration of</p>
 <p><span class="math display">\[\beta_0 + \beta_1(5).\]</span></p>
@@ -564,13 +601,13 @@ Interpretation of the Intercept
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider a regression model of the form <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>; if we impose the mean-0 condition, the intercept <span class="math inline">\(\beta_0\)</span> represents the <em>average</em> response when the predictor is equal to 0. Note that the resulting estimate may not be feasible; indeed, considering a predictor of 0 may not even make sense in every context (e.g., an earthquake with a magnitude of 0 is not an earthquake).</p>
+<p>Consider a regression model of the form <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>; if we impose the mean-0 condition, the intercept <span class="math inline">\(\beta_0\)</span> represents the <em>average</em> response when the predictor is equal to 0. Note that the resulting estimate may not be feasible; indeed, considering a predictor of 0 may not even make sense in every context (e.g., an earthquake with a magnitude of 0 is not an earthquake).</p>
 </div>
 </div>
 <p>For our particular example, our intercept is estimated to be -19.19; this estimates the average bracketed duration for an earthquake with a magnitude of 0. An earthquake with no magnitude is not an earthquake at all; and, if there is no earthquake, we would not expect the ground to undergo any duration of extreme motion. Further, even if a magnitude of 0 made sense, a negative duration does not.</p>
 <p>When predictions for a model do not make logical sense, it is often the result of <strong>extrapolation</strong>. We do not have any data on the bracketed duration for locations which experienced an earthquake with a magnitude less than 4.5. Therefore, we are using a model to predict for a region over which the model was not constructed to operate. This is a lot like using a screw driver to hammer a nail — we are using a tool to accomplish a task for which it was not designed. We should therefore not be surprised when the tool fails. The primary reason extrapolation is dangerous is that without data in a particular region, we have nothing supporting that the posited model for the data generating process will continue to hold in that region. We have illustrated this when discussing the intercept, but extrapolation can occur in any region for which there is no data. For this reason, unless you have strong scientific justification for why a model will hold over all values of the predictor, extrapolation should be avoided.</p>
 <div id="def-extrapolation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18.1 (Extrapolation) </strong></span>Using a model to predict outside of the region for which data is available.</p>
+<p><span class="theorem-title"><strong>Definition 18.1 (Extrapolation)</strong></span> Using a model to predict outside of the region for which data is available.</p>
 </div>
 <p>With an interpretation of the intercept <span class="math inline">\(\beta_0\)</span>, we now turn our attention to the slope <span class="math inline">\(\beta_1\)</span>. Notice that based on our estimates above, the average bracketed duration is 4.48 seconds longer for those locations which experience a 6.0 magnitude earthquake compared to those which experience a 5.0 magnitude earthquake, and this difference is the value of the estimated slope. This is not a coincidence; 4.48 seconds is the change in the average bracketed duration that is associated with a 1-unit increase in the magnitude of an earthquake. The slope is essentially comparing the average response for two values of the predictor that differ by 1 unit.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -583,7 +620,7 @@ Interpretation of the Slope
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider a regression model of the form <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a>; if we impose the mean-0 condition, the slope <span class="math inline">\(\beta_1\)</span> represents the <em>average</em> change in the response associated with a 1 unit <em>increase</em> in the predictor.</p>
+<p>Consider a regression model of the form <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>; if we impose the mean-0 condition, the slope <span class="math inline">\(\beta_1\)</span> represents the <em>average</em> change in the response associated with a 1 unit <em>increase</em> in the predictor.</p>
 </div>
 </div>
 </section>
@@ -614,7 +651,7 @@ Big Idea
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Setting the slope parameter to 0 in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a> is associated with saying that the predictor is not associated with the average response in a linear fashion — that it does not belong in the model.</p>
+<p>Setting the slope parameter to 0 in <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a> is associated with saying that the predictor is not associated with the average response in a linear fashion — that it does not belong in the model.</p>
 </div>
 </div>
 <p>The interpretation of our parameters allows us to see that our research questions are characterizing the relationship between the response and the predictor, <em>on average</em>. As in the previous unit, our questions are about the average response; instead of looking at the overall average, however, we are allowing it to depend upon a predictor.</p>
@@ -623,7 +660,7 @@ Big Idea
 </section>
 <section id="independent-errors" class="level2" data-number="18.2">
 <h2 data-number="18.2" class="anchored" data-anchor-id="independent-errors"><span class="header-section-number">18.2</span> Independent Errors</h2>
-<p>The second condition we consider is that the noise attributed to one observed individual is independent of the noise attributed to any other individual observed. That is, the amount of error in any one individual’s response is unrelated to the error in any other response observed. This is the same condition we introduced in <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a>.</p>
+<p>The second condition we consider is that the noise attributed to one observed individual is independent of the noise attributed to any other individual observed. That is, the amount of error in any one individual’s response is unrelated to the error in any other response observed. This is the same condition we introduced in <a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -634,14 +671,14 @@ Independence Condition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The independence condition states that the error in one observation is independent (see <a href="02c-meanmodels.html#def-independence">Definition&nbsp;<span>10.3</span></a>) of the error in all other observations.</p>
+<p>The independence condition states that the error in one observation is independent (see <a href="02c-meanmodels.html#def-independence" class="quarto-xref">Definition&nbsp;<span>10.3</span></a>) of the error in all other observations.</p>
 </div>
 </div>
-<p>With just these first two conditions (that the average error is 0 for all values of the predictors and the errors are independent of one another), we can use a bootstrap algorithm in order to model the sampling distribution of the least squares estimates of our parameters (see <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>). However, additional conditions are often considered.</p>
+<p>With just these first two conditions (that the average error is 0 for all values of the predictors and the errors are independent of one another), we can use a bootstrap algorithm in order to model the sampling distribution of the least squares estimates of our parameters (see <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>). However, additional conditions are often considered.</p>
 </section>
 <section id="same-degree-of-precision" class="level2" data-number="18.3">
 <h2 data-number="18.3" class="anchored" data-anchor-id="same-degree-of-precision"><span class="header-section-number">18.3</span> Same Degree of Precision</h2>
-<p>The third condition that is typically placed on the distribution of the errors is that the errors are identically distributed. Again, we introduced this condition in <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a>. However, in the context of regression, this is often described a bit differently. Specifically, if the errors are not identically distributed, it is typically because the variability of the error differs for one value of the predictor compared to another. Practically, this reveals itself as our response being more precise in one region than in another. As a result of focusing on the variability of the response for each predictor, this condition is often referred to as <em>homoskedasticity</em> (constant variance) instead of the errors being identically distributed.</p>
+<p>The third condition that is typically placed on the distribution of the errors is that the variability of the errors is the same for all values of the predictor. Practically, if this condition does not hold, our response will be more precise in one region than in another. The technical term for this condition is <em>homoskedasticity</em>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -652,7 +689,7 @@ Constant Variance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Also called homoskedasticity, the constant variance condition states that the variability of the errors is the same for all values of the predictor. While technically, the phrase “identically distributed” (<a href="02c-meanmodels.html#def-identically-distributed">Definition&nbsp;<span>10.4</span></a>) is broader, in the context of regression, “identically distributed” is used interchangeably with “constant variance.”</p>
+<p>Also called homoskedasticity, the constant variance condition states that the variability of the errors is the same for all values of the predictor.</p>
 </div>
 </div>
 <p>With this additional condition imposed, we are able to modify our bootstrap algorithm when constructing a model for the sampling distribution of the least squares estimates.</p>
@@ -693,27 +730,35 @@ Big Idea
 <h3 data-number="18.4.2" class="anchored" data-anchor-id="the-normal-distribution"><span class="header-section-number">18.4.2</span> The Normal Distribution</h3>
 <p>Probability, a sub-field of mathematics which is used heavily in statistical theory, is the discipline of modeling randomness. In statistical theory, we make use of probability to model a distribution. In order to get a feel for probability models, consider the following example.</p>
 <div id="exm-iris" class="theorem example">
-<p><span class="theorem-title"><strong>Example 18.1 (Iris Characteristics) </strong></span>The discipline of statistics began in the early 1900’s primarily within the context of agricultural research. Edgar Anderson was a researcher investigating the characteristics of the iris. He had collected measurements on over one hundred iris flowers, including their petal length and width and their sepal length and width. The sepal is the area (typically green) beneath the petal of a flower. It offers protection while the flower is budding and then support for the petals after the flower blooms.</p>
+<p><span class="theorem-title"><strong>Example 18.1 (Iris Characteristics)</strong></span> The discipline of statistics began in the early 1900’s primarily within the context of agricultural research. Edgar Anderson was a researcher investigating the characteristics of the iris. He had collected measurements on over one hundred iris flowers, including their petal length and width and their sepal length and width. The sepal is the area (typically green) beneath the petal of a flower. It offers protection while the flower is budding and then support for the petals after the flower blooms.</p>
 </div>
-<p><a href="#fig-regconditions-iris-histogram">Figure&nbsp;<span>18.1</span></a> is a histogram of the sepal width for the iris plants observed by Edgar Anderson; overlayed is the density plot for the same dataset, which we have described as a smoothed histogram. Both the histogram and the density plot are empirical models of the distribution of the sepal width.</p>
+<p><a href="#fig-regconditions-iris-histogram" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> is a histogram of the sepal width for the iris plants observed by Edgar Anderson; overlayed is the density plot for the same dataset, which we have described as a smoothed histogram. Both the histogram and the density plot are empirical models of the distribution of the sepal width.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-histogram" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regconditions-iris-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; overlayed is a density plot."></p>
-<figcaption class="figure-caption">Figure&nbsp;18.1: Summary of the distribution of sepal widths for a sample of irises.</figcaption>
+<div id="fig-regconditions-iris-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of sepal widths for irises; overlayed is a density plot.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regconditions-iris-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regconditions-iris-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; overlayed is a density plot.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regconditions-iris-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.1: Summary of the distribution of sepal widths for a sample of irises.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Probability models are analytical models for the distribution of a variable. Instead of constructing a density using data alone, we posit a functional form for the density. For example, <a href="#fig-regconditions-iris-normal">Figure&nbsp;<span>18.2</span></a> overlays the following function on top of the the iris data:</p>
+<p>Probability models are analytical models for the distribution of a variable. Instead of constructing a density using data alone, we posit a functional form for the density. For example, <a href="#fig-regconditions-iris-normal" class="quarto-xref">Figure&nbsp;<span>18.2</span></a> overlays the following function on top of the the iris data:</p>
 <p><span class="math display">\[f(x) = \frac{1}{\sqrt{0.380\pi}} e^{-\frac{1}{0.380}(x - 3.057)^2}.\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-normal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regconditions-iris-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; a specific functional model is overlayed."></p>
-<figcaption class="figure-caption">Figure&nbsp;18.2: Summary of the distribution of the sepal widths for a sample of irises with an analytical model of the distribution overlayed.</figcaption>
+<div id="fig-regconditions-iris-normal" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of sepal widths for irises; a specific functional model is overlayed.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regconditions-iris-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regconditions-iris-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; a specific functional model is overlayed.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regconditions-iris-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: Summary of the distribution of the sepal widths for a sample of irises with an analytical model of the distribution overlayed.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -723,20 +768,24 @@ Big Idea
 <li>The density is non-negative for all values of the variable.</li>
 <li>The area under the density function must equal 1.</li>
 </ol>
-<p>While the value on the y-axis is not directly meaningful, density functions provide a link between the value of the variable and the likelihood of it occurring. Specifically, the probability that a variable falls in a specific range corresponds to the area under the curve in that region. For example, based on the analytical model described above (the blue curve in <a href="#fig-regconditions-iris-normal">Figure&nbsp;<span>18.2</span></a>), the probability that an iris has a sepal width between 3.5 and 4 centimeters is 0.14, illustrated in <a href="#fig-regconditions-iris-prob">Figure&nbsp;<span>18.3</span></a>. That is, there is a 14% chance a randomly selected iris will have a sepal width between 3.5 and 4 centimeters based on this model.</p>
+<p>While the value on the y-axis is not directly meaningful, density functions provide a link between the value of the variable and the likelihood of it occurring. Specifically, the probability that a variable falls in a specific range corresponds to the area under the curve in that region. For example, based on the analytical model described above (the blue curve in <a href="#fig-regconditions-iris-normal" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>), the probability that an iris has a sepal width between 3.5 and 4 centimeters is 0.14, illustrated in <a href="#fig-regconditions-iris-prob" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>. That is, there is a 14% chance a randomly selected iris will have a sepal width between 3.5 and 4 centimeters based on this model.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-prob" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regconditions-iris-prob-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded."></p>
-<figcaption class="figure-caption">Figure&nbsp;18.3: Using the model for a density function to compute a probability.</figcaption>
+<div id="fig-regconditions-iris-prob" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regconditions-iris-prob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regconditions-iris-prob-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regconditions-iris-prob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.3: Using the model for a density function to compute a probability.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>While the above model for the population is not a perfect fit to the data, it does capture many of the characteristics present in the sample. Similar to empirical models, analytical models for distributions are just that — <em>models</em>. As stated previously, the term “analytical” does not mean the model does not rely on the data. It is the <em>form</em> of the model that is predetermined; specific components of the model were estimated based on the available data. The particular model illustrated in <a href="#fig-regconditions-iris-normal">Figure&nbsp;<span>18.2</span></a>, characterized by the bell-shape density, is known as the <strong>Normal Distribution</strong>.</p>
+<p>While the above model for the population is not a perfect fit to the data, it does capture many of the characteristics present in the sample. Similar to empirical models, analytical models for distributions are just that — <em>models</em>. As stated previously, the term “analytical” does not mean the model does not rely on the data. It is the <em>form</em> of the model that is predetermined; specific components of the model were estimated based on the available data. The particular model illustrated in <a href="#fig-regconditions-iris-normal" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>, characterized by the bell-shape density, is known as the <strong>Normal Distribution</strong>.</p>
 <div id="def-normal-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18.2 (Normal Distribution) </strong></span>Also called the Gaussian Distribution, this probability model is popular for modeling noise within a data generating process. It has the following characteristics:</p>
+<p><span class="theorem-title"><strong>Definition 18.2 (Normal Distribution)</strong></span> Also called the Gaussian Distribution, this probability model is popular for modeling noise within a data generating process. It has the following characteristics:</p>
 <ul>
 <li>It is bell-shaped.</li>
 <li>It is symmetric, meaning the mean is directly at its center, and the lower half of the distribution looks like a mirror image of the upper half of the distribution.</li>
@@ -757,7 +806,7 @@ Normality
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The normality condition states that the distribution of the errors follows the functional form of a Normal distribution (<a href="#def-normal-distribution">Definition&nbsp;<span>18.2</span></a>).</p>
+<p>The normality condition states that the distribution of the errors follows the functional form of a Normal distribution (<a href="#def-normal-distribution" class="quarto-xref">Definition&nbsp;<span>18.2</span></a>).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -770,7 +819,7 @@ Big Idea
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If we are willing to assume the distribution of the errors in <a href="03f-regmodel.html#eq-slr">Equation&nbsp;<span>17.3</span></a> follows a Normal distribution, then we have an analytical model for the sampling distribution of the least squares estimates.</p>
+<p>If we are willing to assume the distribution of the errors in <a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a> follows a Normal distribution, then we have an analytical model for the sampling distribution of the least squares estimates.</p>
 </div>
 </div>
 <p>Let’s think about what this condition means for the responses. Given the shape of the Normal distribution, imposing this condition (in addition to the other conditions) implies that some errors are positive and some are negative. This in turn implies that some responses will tend to fall above the line (we will under-predict for these observations), and some response will tend to fall below the line (we will over-predict for these observations).</p>
@@ -780,18 +829,31 @@ Big Idea
 <h2 data-number="18.5" class="anchored" data-anchor-id="classical-regression-model"><span class="header-section-number">18.5</span> Classical Regression Model</h2>
 <p>We have discussed four conditions we could place on the stochastic portion of the data generating process. Placing all four conditions on the error term is what we refer to as the “Classical Regression Model.”</p>
 <div id="def-classical-regression" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18.3 (Classical Regression Model) </strong></span>For a quantitative response and single predictor, the classical regression model assumes the following data generating process:</p>
+<p><span class="theorem-title"><strong>Definition 18.3 (Classical Regression Model)</strong></span> For a quantitative response and single predictor, the classical regression model assumes the following data generating process:</p>
 <p><span class="math display">\[(\text{Response})_i = \beta_0 + \beta_1 (\text{Predictor})_{i} + \epsilon_i\]</span></p>
 <p>where</p>
 <ol type="1">
 <li>The error in the response has a mean of 0 for all values of the predictor.</li>
 <li>The error in the response for one subject is independent of the error in the response for all other subjects.</li>
-<li>The errors are identically distributed for all values of the predictor. This is often stated as the variability in the error of the response is the same for all values of the predictor.</li>
+<li>The variability in the error of the response is the same for all values of the predictor.</li>
 <li>The errors follow a Normal Distribution.</li>
 </ol>
 <p>This is the default “regression” analysis implemented in the majority of statistical packages.</p>
 </div>
-<p>We note that “regression” need not require all four conditions imposed in <a href="#def-classical-regression">Definition&nbsp;<span>18.3</span></a>. Placing all four conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates. Changing the conditions changes the way we model the sampling distribution.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A “hidden” (typically unstated but should not be ignored) condition is that the sample is representative of the underlying population. In the one sample case (<a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>), we referred to this as the errors being “identically distributed.” We no longer use the “identically distributed” language for technical reasons; however, we still require that the sample be representative of the underlying population.</p>
+</div>
+</div>
+<p>We note that “regression” need not require all four conditions imposed in <a href="#def-classical-regression" class="quarto-xref">Definition&nbsp;<span>18.3</span></a>. Placing all four conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates. Changing the conditions changes the way we model the sampling distribution.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -805,13 +867,17 @@ Big Idea
 <p>The model for the sampling distribution of a statistic is determined by the conditions you place on the stochastic portion of the model for the data generating process.</p>
 </div>
 </div>
-<p>We have stressed the implications of each condition individually. <a href="#fig-regconditions-assumptions">Figure&nbsp;<span>18.4</span></a> illustrates these conditions working together. The mean-0 condition implies that for a given value of the predictor, the average response is given by the line (shown as the dark green dot in the figure). The Normality condition implies that for a given value of the predictor, the response is distributed evenly about the regression line according to a Normal distribution; further, the shape of the Normal distribution implies that these responses will cluster about the line. The constant variance condition implies that while the responses vary around the line, they do so to the same degree, regardless of the value of the predictor; therefore, the model is just as precise for all values of the predictor. Finally, the independence condition implies the amount one observation deviates from the line is unrelated to the amount any other observation deviates from the line.</p>
+<p>We have stressed the implications of each condition individually. <a href="#fig-regconditions-assumptions" class="quarto-xref">Figure&nbsp;<span>18.4</span></a> illustrates these conditions working together. The mean-0 condition implies that for a given value of the predictor, the average response is given by the line (shown as the dark green dot in the figure). The Normality condition implies that for a given value of the predictor, the response is distributed evenly about the regression line according to a Normal distribution; further, the shape of the Normal distribution implies that these responses will cluster about the line. The constant variance condition implies that while the responses vary around the line, they do so to the same degree, regardless of the value of the predictor; therefore, the model is just as precise for all values of the predictor. Finally, the independence condition implies the amount one observation deviates from the line is unrelated to the amount any other observation deviates from the line.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-assumptions" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/RegConditions-Assumptions.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points."></p>
-<figcaption class="figure-caption">Figure&nbsp;18.4: Illustration of the conditions on the error term for the classical regression model.</figcaption>
+<div id="fig-regconditions-assumptions" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regconditions-assumptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/RegConditions-Assumptions.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regconditions-assumptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.4: Illustration of the conditions on the error term for the classical regression model.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -832,13 +898,17 @@ Big Idea
 </blockquote>
 <p>Using the method of least squares, we constructed point estimates of the parameters in the model; this leads to the following equation for estimating the average bracketed duration given the magnitude:</p>
 <p><span class="math display">\[(\text{Brackted Duration}) = -19.19 + 4.48(\text{Magnitude}).\]</span></p>
-<p>If we are willing to assume the data is consistent with the conditions for the classical regression model, we are able to model the sampling distribution (see <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>) of these estimates analytically and therefore construct confidence intervals. <a href="#tbl-regconditions-slr-summary">Table&nbsp;<span>18.1</span></a> summarizes the fit for the above model. In addition to the least squares estimates, it also contains the standard error (see <a href="01g-samplingdistns.html#def-standard-error">Definition&nbsp;<span>6.4</span></a>) of each statistic, quantifying the variability in the estimates. Finally, there is a 95% confidence interval for each parameter. Notice that based on the confidence interval for the slope, 0 is not a reasonable value for this parameter. Therefore, we have evidence that the slope coefficient associated with the magnitude differs from 0; that is, the sample provides evidence the average bracketed duration depends on the magnitude of the corresponding earthquake.</p>
+<p>If we are willing to assume the data is consistent with the conditions for the classical regression model, we are able to model the sampling distribution (see <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>) of these estimates analytically and therefore construct confidence intervals. <a href="#tbl-regconditions-slr-summary" class="quarto-xref">Table&nbsp;<span>18.1</span></a> summarizes the fit for the above model. In addition to the least squares estimates, it also contains the standard error (see <a href="01g-samplingdistns.html#def-standard-error" class="quarto-xref">Definition&nbsp;<span>6.4</span></a>) of each statistic, quantifying the variability in the estimates. Finally, there is a 95% confidence interval for each parameter. Notice that based on the confidence interval for the slope, 0 is not a reasonable value for this parameter. Therefore, we have evidence that the slope coefficient associated with the magnitude differs from 0; that is, the sample provides evidence the average bracketed duration depends on the magnitude of the corresponding earthquake.</p>
 <div class="cell">
+<div id="tbl-regconditions-slr-summary" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regconditions-slr-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;18.1: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event.
+</figcaption>
+<div aria-describedby="tbl-regconditions-slr-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-regconditions-slr-summary" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;18.1: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
@@ -866,12 +936,14 @@ Big Idea
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p><a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a> described, in general, how confidence intervals are constructed. Under the classical regression model, there is an analytical model for the sampling distribution, and it is known. As a result, the confidence interval can be computed from a formula.</p>
+</figure>
+</div>
+</div>
+<p><a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a> described, in general, how confidence intervals are constructed. Under the classical regression model, there is an analytical model for the sampling distribution, and it is known. As a result, the confidence interval can be computed from a formula.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -891,24 +963,32 @@ Formula for Confidence Interval Under Classical Regression Model
 <li>The error in the bracketed duration is 0, on average, for earthquakes of any magnitude.</li>
 <li>The error in the bracketed duration for one earthquake is independent of the error in the bracketed duration for any other earthquake.</li>
 </ul>
-<p>Since the conditions for the model of the data generating process have been altered, the model for the sampling distribution of the estimates will change, and therefore the corresponding confidence intervals will also change. Under these reduced conditions, we can appeal to a bootstrapping algorithm. Specifically, we could resample (with replacement) 119 earthquakes from the original data; for each resample, we compute the least squares fit (<a href="#fig-regconditions-bootstrap">Figure&nbsp;<span>18.5</span></a>). Since the observations selected change with each resample, the least squares estimates will also change. By repeating this process over and over again, we can obtain a model for how the estimates would change in repeated sampling.</p>
+<p>Since the conditions for the model of the data generating process have been altered, the model for the sampling distribution of the estimates will change, and therefore the corresponding confidence intervals will also change. Under these reduced conditions, we can appeal to a bootstrapping algorithm. Specifically, we could resample (with replacement) 119 earthquakes from the original data; for each resample, we compute the least squares fit (<a href="#fig-regconditions-bootstrap" class="quarto-xref">Figure&nbsp;<span>18.5</span></a>). Since the observations selected change with each resample, the least squares estimates will also change. By repeating this process over and over again, we can obtain a model for how the estimates would change in repeated sampling.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-bootstrap" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/RegConditions-Bootstrap.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations."></p>
-<figcaption class="figure-caption">Figure&nbsp;18.5: Illustration of a single iteration of a bootstrap procedure to construct an empirical estimate of the sampling distribution for the estimates of the coefficients in a regression model.</figcaption>
+<div id="fig-regconditions-bootstrap" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regconditions-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/RegConditions-Bootstrap.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regconditions-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.5: Illustration of a single iteration of a bootstrap procedure to construct an empirical estimate of the sampling distribution for the estimates of the coefficients in a regression model.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Using the empirical model of the sampling distribution for each estimate, we can construct a confidence interval for each parameter. These updated confidence intervals are shown in <a href="#tbl-regconditions-slr-summary-alt">Table&nbsp;<span>18.2</span></a>.</p>
+<p>Using the empirical model of the sampling distribution for each estimate, we can construct a confidence interval for each parameter. These updated confidence intervals are shown in <a href="#tbl-regconditions-slr-summary-alt" class="quarto-xref">Table&nbsp;<span>18.2</span></a>.</p>
 <div class="cell">
+<div id="tbl-regconditions-slr-summary-alt" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regconditions-slr-summary-alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;18.2: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event. This summary only assumes the mean-0 and independence conditions.
+</figcaption>
+<div aria-describedby="tbl-regconditions-slr-summary-alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-regconditions-slr-summary-alt" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;18.2: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event. This summary only assumes the mean-0 and independence conditions.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
@@ -936,18 +1016,20 @@ Formula for Confidence Interval Under Classical Regression Model
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p>While the exact interval differs from what we computed previously, our overall conclusion remains the same — the sample provides evidence that the average bracketed duration depends on the magnitude of the corresponding earthquake. It is natural to ask, which confidence interval should we use? That depends on the conditions you are willing to assume, which is an issue we will tackle in <a href="03i-regassessment.html"><span>Chapter&nbsp;20</span></a>.</p>
+</figure>
+</div>
+</div>
+<p>While the exact interval differs from what we computed previously, our overall conclusion remains the same — the sample provides evidence that the average bracketed duration depends on the magnitude of the corresponding earthquake. It is natural to ask, which confidence interval should we use? That depends on the conditions you are willing to assume, which is an issue we will tackle in <a href="03i-regassessment.html" class="quarto-xref"><span>Chapter 20</span></a>.</p>
 </section>
 <section id="recap" class="level2" data-number="18.7">
 <h2 data-number="18.7" class="anchored" data-anchor-id="recap"><span class="header-section-number">18.7</span> Recap</h2>
 <p>We have covered a lot of ground in this chapter, and it is worth taking a moment to summarize the big ideas. In order to construct a model for the sampling distribution of the least squares estimates, we took a step back and modeled the data generating process. Such a model consists of two components: a deterministic component explaining the response as a function of the predictor, and a stochastic component capturing the noise in the system.</p>
 <p>Certain conditions are placed on the distribution of the noise in our model. With a full set of conditions (classical regression model), we are able to model the sampling distribution of the least squares estimates analytically. We can also construct an empirical model for the sampling distribution of the least squares estimates assuming the data is consistent with fewer conditions.</p>
-<p>In general, the more conditions we are willing to impose on the data-generating process, the more tractable the analysis; however, the most important aspect is that the data come from a process which is consistent with the conditions we impose, which is discussed in <a href="03i-regassessment.html"><span>Chapter&nbsp;20</span></a>.</p>
+<p>In general, the more conditions we are willing to impose on the data-generating process, the more tractable the analysis; however, the most important aspect is that the data come from a process which is consistent with the conditions we impose, which is discussed in <a href="03i-regassessment.html" class="quarto-xref"><span>Chapter 20</span></a>.</p>
 
 
 </section>
@@ -1032,10 +1114,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1045,8 +1144,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1058,7 +1166,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1102,6 +1333,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1127,6 +1359,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1188,17 +1446,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03f-regmodel.html" class="pagination-link">
+      <a href="./03f-regmodel.html" class="pagination-link" aria-label="Bulding our Statistical Model">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bulding our Statistical Model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03h-regquality.html" class="pagination-link">
+      <a href="./03h-regquality.html" class="pagination-link" aria-label="Quantifying the Quality of a Model Fit">
         <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

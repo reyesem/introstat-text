@@ -240,7 +240,7 @@ The same processes that allowed us to model the sampling of the least squares es
 
 fit.greece.mlr |>
   estimate_parameters(confidence.level = 0.95,
-                      assume.identically.distributed = TRUE,
+                      assume.constant.variance = TRUE,
                       assume.normality = TRUE) |>
   rename(Term = term,
          Estimate = point.estimate,

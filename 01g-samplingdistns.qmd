@@ -162,6 +162,14 @@ ggplot(data = dice.df,
   labs(x = "Proportion of Rolls Resulting in 1", y = "Relative Frequency") 
 ```
 
+:::{.callout-warning}
+When looking at a graphical representation of a sampling distribution (such as @fig-samplingdistns-dice-histogram), there is a tendency to describe the "data" in the graphic.  However, the use of the word "data" here is inappropriate.  We restrict the word "data" to refer to information/measurements observed on each subject; this includes numeric and categorical variables directly measured and any transformations of these variables.
+
+For example, the total number of credit hours a student has completed is part of the data observed (quantitative variable).  Similarly, using the total number of credit hours to determine class standing (Freshman, Sophomore, Junior, Senior) would also be a part of the data observed (categorical variable).
+
+However, the word "data" should not be used to describe the statistics computed from the sample, or from repeated sampling such as when constructing a sampling distribution, as these quantities are not characterizing the individual units under study.
+:::
+
 Notice that the sampling distribution is centered around the true value of the parameter ($\theta = 1/6$).  In general, the sampling distribution of a statistic, when taken from a random sample, is centered on the true value of the parameter.  This is the unbiased nature of the data coming out; random samples are representative of the population.  Similarly, note that while no one sample (remember, each value in the distribution represents a statistic from a sample of 20 values) is perfect, none of the samples produced a statistic which is really far from the true parameter.  That is, a representative sample may not be perfect, but it will give a _reasonable_ estimate of the parameter.  Notice that these properties hold even though we had a relatively small sample size (only rolling the die $n = 20$ times).  
 
 :::{.callout-tip}
@@ -414,7 +422,202 @@ Confidence intervals specify _reasonable_ values of the parameter based on the d
 Other texts will interpret confidence intervals with statements like "we are 95% confident that the parameter is inside the interval."  We do not recommend this language because the word "confident" is interpreted as "sure" in practice, and that leads to an incorrect interpretation.
 :::
 
-This is a difficult concept to wrap our heads around; it seems natural to associate the percentage with the values we have obtained.  However, our confidence is in the _process_, not the resulting interval itself.  That is, 95% confidence intervals work 95% of the time; however, this statement is about the process of constructing confidence intervals.  Once we have computed a confidence interval, it has either worked or not; the problem is of course, that since we do not know the parameter, we will never know if it worked or not.  For this reason, we prefer the interpretation of a confidence interval which avoids these subtleties: a confidence interval specifies the reasonable values of the parameter.  The percentage (95% vs 99% for example) then just specifies what we mean by "reasonable."
+This is a difficult concept to wrap our heads around; it seems natural to associate the percentage with the values we have obtained.  However, our confidence is in the _process_, not the resulting interval itself (@fig-samplingdistns-ci-process).  That is, 95% confidence intervals work 95% of the time; however, this statement is about the process of constructing confidence intervals.  Once we have computed a confidence interval, it has either worked or not; the problem is of course, that since we do not know the parameter, we will never know if it worked or not.  For this reason, we prefer the interpretation of a confidence interval which avoids these subtleties: a confidence interval specifies the reasonable values of the parameter.  The percentage (95% vs 99% for example) then just specifies what we mean by "reasonable."
+
+
+```{r}
+#| label: fig-samplingdistns-ci-process
+#| fig-cap: Performance of the confidence interval process (for the sample mean) across repeated samples.  Our idea of "confidence" requires repeated sampling.  The process of constructing a 95% confidence interval captures the parameter in 95% of repeated samples; it is not the specific interval, but the process that works 95% of the time.
+#| fig-alt: Density plot representing population, several histograms representing different samples, and several histograms representing different models for sampling distributions.
+#| fig-asp: 1.67
+
+set.seed(202403)
+
+popn <- tibble(
+  x = seq(0.01, 5, length.out = 1000),
+  y = dexp(x)
+) |>
+  ggplot() +
+  aes(y = y, x = x) +
+  geom_line() +
+  geom_vline(xintercept = 1, color = 'blue', linetype = 2) +
+  annotate('label', x = 1, y = 0, label = 'mu', parse = TRUE, color = 'blue') +
+  coord_cartesian(xlim = c(0, 6)) +
+  labs(x = 'Value of Variable',
+       y = NULL,
+       subtitle = 'Distribution of the Population') +
+  theme(
+    axis.ticks = element_blank(),
+    axis.text = element_blank()
+  )
+  
+
+samp1 <- tibble(
+  x = rexp(25, rate = 1)
+) |>
+  mutate(
+    x = x - mean(x) + 1.1
+  )
+
+samp2 <- tibble(
+  x = rexp(25, rate = 1)
+) |>
+  mutate(
+    x = x - mean(x) + 2.2
+  )
+
+samp3 <- tibble(
+  x = rexp(25, rate = 1)
+) |>
+  mutate(
+    x = x - mean(x) + 0.7
+  )
+
+psamp1 <- samp1 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.2) +
+  geom_vline(xintercept = mean(samp1$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp1$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  coord_cartesian(xlim = c(0, 6)) +
+  labs(x = 'Value of Variable',
+       y = NULL,
+       subtitle = 'Distribution of the Sample') +
+  theme(
+    axis.ticks = element_blank(),
+    axis.text = element_blank()
+  )
+
+psamp2 <- samp2 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.2) +
+  geom_vline(xintercept = mean(samp2$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp2$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  coord_cartesian(xlim = c(0, 6)) +
+  labs(x = 'Value of Variable',
+       y = NULL) +
+  theme(
+    axis.ticks = element_blank(),
+    axis.text = element_blank()
+  )
+
+psamp3 <- samp3 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.2) +
+  geom_vline(xintercept = mean(samp3$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp3$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  coord_cartesian(xlim = c(0, 6)) +
+  labs(x = 'Value of Variable',
+       y = NULL) +
+  theme(
+    axis.ticks = element_blank(),
+    axis.text = element_blank()
+  )
+
+sd1 <- tibble(
+  x = rnorm(1000)
+) |>
+  mutate(
+    x = (1/5)*scale(x) + 1.1
+  )
+
+sd2 <- tibble(
+  x = rnorm(1000)
+) |>
+  mutate(
+    x = (1/5)*scale(x) + 2.2
+  )
+
+sd3 <- tibble(
+  x = rnorm(1000)
+) |>
+  mutate(
+    x = (1/5)*scale(x) + 0.7
+  )
+
+
+psd1 <- sd1 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.05) +
+  geom_vline(xintercept = 1, color = 'blue', linetype = 2) +
+  annotate('label', x = 1, y = 0, label = 'mu', parse = TRUE, color = 'blue') +
+  geom_vline(xintercept = mean(samp1$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp1$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  geom_vline(xintercept = 1.1 - 2/5, colour = "red", linewidth = 1.5) +
+  geom_vline(xintercept = 1.1 + 2/5, colour = "red", linewidth = 1.5) +
+  annotate("segment", x = 1.1 - 2/5, y = 10, 
+           xend = 1.1 + 2/5, yend = 10, 
+           arrow = arrow(ends = "both"),
+           colour = "red", linewidth = 1.5) +
+  annotate("label", x = 1.1, y = 10, label = '95% CI') +
+  labs(x = 'Value of Sample Mean',
+       y = NULL,
+       subtitle = 'Model of the Sampling Distribution') +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank())
+
+psd2 <- sd2 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.05) +
+  geom_vline(xintercept = 1, color = 'blue', linetype = 2) +
+  annotate('label', x = 1, y = 0, label = 'mu', parse = TRUE, color = 'blue') +
+  geom_vline(xintercept = mean(samp2$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp2$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  geom_vline(xintercept = 2.2 - 2/5, colour = "red", linewidth = 1.5) +
+  geom_vline(xintercept = 2.2 + 2/5, colour = "red", linewidth = 1.5) +
+  annotate("segment", x = 2.2 - 2/5, y = 10, 
+           xend = 2.2 + 2/5, yend = 10, 
+           arrow = arrow(ends = "both"),
+           colour = "red", linewidth = 1.5) +
+  annotate("label", x = 2.2, y = 10, label = '95% CI') +
+  labs(x = 'Value of Sample Mean',
+       y = NULL) +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank())
+
+psd3 <- sd3 |>
+  ggplot() +
+  aes(x = x) +
+  geom_histogram(fill = 'grey75', color = 'black', binwidth = 0.05) +
+  geom_vline(xintercept = 1, color = 'blue', linetype = 2) +
+  annotate('label', x = 1, y = 0, label = 'mu', parse = TRUE, color = 'blue') +
+  geom_vline(xintercept = mean(samp3$x), color = 'darkgreen', linetype = 2) +
+  annotate('label', x = mean(samp3$x), y = 0, label = 'bar(x)', parse = TRUE, color = 'darkgreen') +
+  geom_vline(xintercept = 0.7 - 2/5, colour = "red", linewidth = 1.5) +
+  geom_vline(xintercept = 0.7 + 2/5, colour = "red", linewidth = 1.5) +
+  annotate("segment", x = 0.7 - 2/5, y = 10, 
+           xend = 0.7 + 2/5, yend = 10, 
+           arrow = arrow(ends = "both"),
+           colour = "red", linewidth = 1.5) +
+  annotate("label", x = 0.7, y = 10, label = '95% CI') +
+  labs(x = 'Value of Sample Mean',
+       y = NULL) +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank())
+
+
+blank <- ggplot() +
+  theme_void()
+
+vdots <- ggplot() +
+  theme_void() +
+  annotate('point', x = 0, y = 0, size = 2) +
+  annotate('point', x = 0, y = 1, size = 2) +
+  annotate('point', x = 0, y = -1, size = 2) +
+  ylim(-1.5, 1.5)
+
+cowplot::plot_grid(
+  popn, psamp1, psd1,
+  blank, psamp2, psd2,
+  blank, vdots, vdots,
+  blank, psamp3, psd3,
+  nrow = 4, ncol = 3
+)
+```
 
 It may seem like a good idea to make a 100% confidence interval to be sure we always capture the parameter.  But, such intervals are not helpful in practice.  For example, a 100% confidence interval for the proportion of volunteers experiencing adverse symptoms would be (0, 1).  But, this is useless; it essentially says that the proportion has to be a number between 0 and 1, but we already knew that since all proportions are between 0 and 1 by definition.  Therefore, we must balance the confidence we desire with the amount of information the interval conveys.  
 

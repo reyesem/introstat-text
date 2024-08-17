@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,17 +62,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -77,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05j-blockrecap.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05j-blockrecap.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -452,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -471,7 +506,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05a-blocks.html">Unit V: Comparing the Average Response Across Correlated Groups</a></li><li class="breadcrumb-item"><a href="./05j-blockrecap.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-blockrecap" class="quarto-section-identifier"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span></h1>
 </div>
@@ -486,7 +521,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>This unit introduced a framework for determining if there is an association between a quantitative response and a categorical predictor in the presence of blocking. We formed a standardized statistic for measuring the signal, and developed a model for the data generating process incorporating the block effect which allowed us to model the null distribution of the standardized statistic. In this chapter, we pull these tools together once more to answer a research question.</p>
 <p>For the Frozen Yogurt Case Study, we found no evidence that college students rated the taste differently, on average, for any of the vendors. However, the students conducting the study also recorded how the participants rated the texture and appearance of the yogurt. In this chapter, we will use the data to answer the following question:</p>
@@ -510,17 +547,21 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="40.2" class="anchored" data-anchor-id="getting-good-data-fundamental-idea-ii"><span class="header-section-number">40.2</span> Getting Good Data (Fundamental Idea II)</h2>
 <p>As we are working with previously collected data, our goal in this discussion is not how best to collect the data but making note of the limitations of the data as a result of how it was collected. As before, each participant sampled yogurt from each of the three vendors, creating natural blocks. That is, each participant forms a unique block. Since it is quite reasonable that appearance preferences vary substantially between individuals, forming blocks out of the participants should allow us to increase the power of the study because we are accounting for a substantial source of variability in the appearance ratings.</p>
 <p>The study was was a controlled experiment since the order in which the samples from each vendor were presented to the participants was randomized. While the study made use of random allocation, it did not make use of random selection. The participants were students taking a particular course; however, it may be reasonable to assume they are representative of college students in the area. The sample size was also limited as only students in this course were included in the study.</p>
-<p>If you compare the above paragraph to the corresponding section in <a href="04j-anovarecap.html"><span>Chapter&nbsp;31</span></a>, you might be confused because in that section, we described that changing the question resulted in the study no longer being a controlled experiment. However, here, we changed the question of interest and retained the fact that the study was a controlled experiment. The question of whether a study is a controlled experiment is always in regard to whether random allocation was used. In general, if you change the response but keep the primary factor of interest unchanged, the study will remain a controlled experiment. If you change the factor under study, it will become an observational study.</p>
+<p>If you compare the above paragraph to the corresponding section in <a href="04j-anovarecap.html" class="quarto-xref"><span>Chapter 31</span></a>, you might be confused because in that section, we described that changing the question resulted in the study no longer being a controlled experiment. However, here, we changed the question of interest and retained the fact that the study was a controlled experiment. The question of whether a study is a controlled experiment is always in regard to whether random allocation was used. In general, if you change the response but keep the primary factor of interest unchanged, the study will remain a controlled experiment. If you change the factor under study, it will become an observational study.</p>
 </section>
 <section id="presenting-the-data-fundamental-idea-iii" class="level2" data-number="40.3">
 <h2 data-number="40.3" class="anchored" data-anchor-id="presenting-the-data-fundamental-idea-iii"><span class="header-section-number">40.3</span> Presenting the Data (Fundamental Idea III)</h2>
-<p>Our question here is examining the relationship between a quantitative response (appearance rating) and a categorical predictor (vendor) in the presence of blocks (participants). <a href="#fig-blockrecap-plot">Figure&nbsp;<span>40.1</span></a> compares the distribution of the appearance rating for the three vendors.</p>
+<p>Our question here is examining the relationship between a quantitative response (appearance rating) and a categorical predictor (vendor) in the presence of blocks (participants). <a href="#fig-blockrecap-plot" class="quarto-xref">Figure&nbsp;<span>40.1</span></a> compares the distribution of the appearance rating for the three vendors.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-blockrecap-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-blockrecap-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of appearance ratings across yogurt vendors.  Ratings from the same participant share the same color and are connected."></p>
-<figcaption class="figure-caption">Figure&nbsp;40.1: Comparison of the appearance ratings for yogurt from three vendors. Color is used to distinguish ratings from the same participant.</figcaption>
+<div id="fig-blockrecap-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of appearance ratings across yogurt vendors.  Ratings from the same participant share the same color and are connected.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blockrecap-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-blockrecap-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of appearance ratings across yogurt vendors.  Ratings from the same participant share the same color and are connected.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blockrecap-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40.1: Comparison of the appearance ratings for yogurt from three vendors. Color is used to distinguish ratings from the same participant.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -564,14 +605,18 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 = \mu_3\]</span></p>
 <p>is equivalent to testing</p>
 <p><span class="math display">\[H_0: \theta_1 = \theta_2 = \theta_3\]</span></p>
-<p>as discussed in <a href="05f-blockmodel.html"><span>Chapter&nbsp;36</span></a> (also see <a href="app-teststat.html"><span>Appendix&nbsp;B</span></a>). <a href="#tbl-blockrecap-anova-table">Table&nbsp;<span>40.1</span></a> reports the standardized statistic from our study corresponding to testing the hypotheses</p>
+<p>as discussed in <a href="05f-blockmodel.html" class="quarto-xref"><span>Chapter 36</span></a> (also see <a href="app-teststat.html" class="quarto-xref"><span>Appendix B</span></a>). <a href="#tbl-blockrecap-anova-table" class="quarto-xref">Table&nbsp;<span>40.1</span></a> reports the standardized statistic from our study corresponding to testing the hypotheses</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 = \mu_3 \qquad \text{vs.} \qquad H_1: \text{at least one } \mu_j \text{ differs.}\]</span></p>
 <div class="cell">
+<div id="tbl-blockrecap-anova-table" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-blockrecap-anova-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;40.1: ANOVA table summarizing the comparison of the appearance ratings of frozen yogurt across three vendors from the Frozen Yogurt Case Study.
+</figcaption>
+<div aria-describedby="tbl-blockrecap-anova-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-blockrecap-anova-table" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;40.1: ANOVA table summarizing the comparison of the appearance ratings of frozen yogurt across three vendors from the Frozen Yogurt Case Study.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
@@ -599,9 +644,11 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
+
+
 </div>
-
-
+</div>
+</figure>
 </div>
 </div>
 <p>Of course, if we were to collect a new sample, we would expect our standardized statistic to change. If we want to conduct inference and determine the strength of evidence in this study, we need a model for its null distribution. In order to construct a model for the null distribution of the standardized statistic, we need to place appropriate conditions on the error term, which can include:</p>
@@ -616,40 +663,52 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Before creating a model for the null distribution and computing a p-value, we need to assess whether the data is consistent with these assumptions. This requires examining the residuals from the model. First, we discuss the assumption of independence. Since the data was collected at a single point in time, known as a <em>cross-sectional study</em>, constructing a time-series plot of the residuals would not provide any information regarding this assumption. Instead, we rely on the context of the problem to make some statements regarding whether the data is consistent with this condition (whether making this assumption is reasonable). It is reasonable that the errors are independent. The primary source of correlation was the repeated measures on each participant, which has been accounted for with the incorporation of the block terms. Additionally, as students were interested in preserving the integrity of the data, they did not influence one another during data collection. We feel it is reasonable to assume independence.</p>
 <p>Again, note that there is a condition of independence; we are simply saying whether we are willing to assume the condition is satisfied. There is no way to ensure the condition holds.</p>
-<p>In order to assess the constant variance condition, let us examine a plot of the residuals against the predicted values. <a href="#fig-blockrecap-resids">Figure&nbsp;<span>40.2</span></a> shows a plot of the residuals against the predicted values for our model; the plot does not exhibit any trends in the spread of the residuals as we move across the fitted values. So, it seems reasonable to impose the constant variance condition.</p>
+<p>In order to assess the constant variance condition, let us examine a plot of the residuals against the predicted values. <a href="#fig-blockrecap-resids" class="quarto-xref">Figure&nbsp;<span>40.2</span></a> shows a plot of the residuals against the predicted values for our model; the plot does not exhibit any trends in the spread of the residuals as we move across the fitted values. So, it seems reasonable to impose the constant variance condition.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-blockrecap-resids" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-blockrecap-resids-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatter plot of residuals against predicted values revealing no trend in the spread of the residuals."></p>
-<figcaption class="figure-caption">Figure&nbsp;40.2: Plot of the residuals against the predicted values from a model comparing the appearance ratings across yogurt vendors accounting for subject-variability.</figcaption>
+<div id="fig-blockrecap-resids" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatter plot of residuals against predicted values revealing no trend in the spread of the residuals.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blockrecap-resids-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-blockrecap-resids-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatter plot of residuals against predicted values revealing no trend in the spread of the residuals.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blockrecap-resids-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40.2: Plot of the residuals against the predicted values from a model comparing the appearance ratings across yogurt vendors accounting for subject-variability.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>To assess the Normality condition, we consider a Normal probability plot of the residuals (<a href="#fig-blockrecap-probplot">Figure&nbsp;<span>40.3</span></a>). Given that the residuals tend to display a linear relationship, it is reasonable that the errors follow a Normal Distribution.</p>
+<p>To assess the Normality condition, we consider a Normal probability plot of the residuals (<a href="#fig-blockrecap-probplot" class="quarto-xref">Figure&nbsp;<span>40.3</span></a>). Given that the residuals tend to display a linear relationship, it is reasonable that the errors follow a Normal Distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-blockrecap-probplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-blockrecap-probplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Plot of the sample quantiles against the theoretical quantiles from a Normal distribution; the plot exhibits a linear trend."></p>
-<figcaption class="figure-caption">Figure&nbsp;40.3: Normal probability plot assessing the assumption that the errors for our model comparing the appearance ratings across vendores follow a Normal distribution.</figcaption>
+<div id="fig-blockrecap-probplot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Plot of the sample quantiles against the theoretical quantiles from a Normal distribution; the plot exhibits a linear trend.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blockrecap-probplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-blockrecap-probplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Plot of the sample quantiles against the theoretical quantiles from a Normal distribution; the plot exhibits a linear trend.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blockrecap-probplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40.3: Normal probability plot assessing the assumption that the errors for our model comparing the appearance ratings across vendores follow a Normal distribution.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Looking at <a href="#fig-blockrecap-resids">Figure&nbsp;<span>40.2</span></a>, the residuals tend to balance around 0 across all values of the x-axis. This suggests the data is consistent with the deterministic portion of our model for the data generating process being correctly specified. That is, the sample is consistent with the belief that any differences in appearance across vendors is similar for all individuals. Thinking about the context, this seems reasonable; we don’t have any reason to believe that preferences in the <em>appearance</em> of frozen yogurt might differ wildly across individuals.</p>
-<p>As is common in practice, while we are not able to assess the conditions placed on the block effects, we are willing to assume them. Given the discussion above, we are comfortable assuming the data is consistent with all conditions from the classical repeated measures ANOVA model (<a href="05g-blockconditions.html#def-classical-repeated-measures-anova">Definition&nbsp;<span>37.1</span></a>); therefore, we can make use of an analytical model for the null distribution.</p>
+<p>Looking at <a href="#fig-blockrecap-resids" class="quarto-xref">Figure&nbsp;<span>40.2</span></a>, the residuals tend to balance around 0 across all values of the x-axis. This suggests the data is consistent with the deterministic portion of our model for the data generating process being correctly specified. That is, the sample is consistent with the belief that any differences in appearance across vendors is similar for all individuals. Thinking about the context, this seems reasonable; we don’t have any reason to believe that preferences in the <em>appearance</em> of frozen yogurt might differ wildly across individuals.</p>
+<p>As is common in practice, while we are not able to assess the conditions placed on the block effects, we are willing to assume them. Given the discussion above, we are comfortable assuming the data is consistent with all conditions from the classical repeated measures ANOVA model (<a href="05g-blockconditions.html#def-classical-repeated-measures-anova" class="quarto-xref">Definition&nbsp;<span>37.1</span></a>); therefore, we can make use of an analytical model for the null distribution.</p>
 </section>
 <section id="quantifying-the-evidence-fundamental-idea-v" class="level2" data-number="40.5">
 <h2 data-number="40.5" class="anchored" data-anchor-id="quantifying-the-evidence-fundamental-idea-v"><span class="header-section-number">40.5</span> Quantifying the Evidence (Fundamental Idea V)</h2>
-<p>Now that we have a model for the null distribution of our standardized statistic, we can determine how extreme our particular sample was by comparing the standardized statistic for our sample with this model for the null distribution (<a href="#fig-blockrecap-null-distribution">Figure&nbsp;<span>40.4</span></a>).</p>
+<p>Now that we have a model for the null distribution of our standardized statistic, we can determine how extreme our particular sample was by comparing the standardized statistic for our sample with this model for the null distribution (<a href="#fig-blockrecap-null-distribution" class="quarto-xref">Figure&nbsp;<span>40.4</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-blockrecap-null-distribution" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-blockrecap-null-distribution-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the null distribution of the standardized statistic; a red dashed line represents the observed standardized statistic, and the p-value is overlayed."></p>
-<figcaption class="figure-caption">Figure&nbsp;40.4: Analytical model of the null distribution of the standardized statistic computed from the Frozen Yogurt Case Study comparing the appearance rating of frozen yogurt across three vendors.</figcaption>
+<div id="fig-blockrecap-null-distribution" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Density plot of the null distribution of the standardized statistic; a red dashed line represents the observed standardized statistic, and the p-value is overlayed.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blockrecap-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-blockrecap-null-distribution-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the null distribution of the standardized statistic; a red dashed line represents the observed standardized statistic, and the p-value is overlayed.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blockrecap-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40.4: Analytical model of the null distribution of the standardized statistic computed from the Frozen Yogurt Case Study comparing the appearance rating of frozen yogurt across three vendors.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -749,10 +808,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -762,8 +838,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -775,7 +860,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -819,6 +1027,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -844,6 +1053,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -905,17 +1140,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05i-blockassessment.html" class="pagination-link">
+      <a href="./05i-blockassessment.html" class="pagination-link" aria-label="Assessing the Modeling Conditions in Repeated Measures ANOVA">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions in Repeated Measures ANOVA</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
+      <a href="./references.html" class="pagination-link" aria-label="References">
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

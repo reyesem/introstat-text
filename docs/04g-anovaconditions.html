@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,17 +62,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -77,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04g-anovaconditions.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04g-anovaconditions.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -452,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -471,7 +506,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04a-anova.html">Unit IV: Comparing the Average Response Across Groups</a></li><li class="breadcrumb-item"><a href="./04g-anovaconditions.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-anovaconditions" class="quarto-section-identifier"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of an ANOVA Model</span></span></h1>
 </div>
@@ -486,7 +521,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>In the previous chapter we developed a general model for the data generating process of a quantitative response as a function of a categorical predictor:</p>
 <p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_k (\text{Group } j)_{i} + \varepsilon_i,\]</span></p>
@@ -496,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We also discussed a common method for estimating the parameters of this model from a sample — the method of least squares. However, if we are to construct a model for the sampling distribution of these estimates we must add some structure to the stochastic component <span class="math inline">\(\varepsilon\)</span> in the model. In this chapter, we focus on the most common conditions we might impose and how those conditions impact the model for the sampling and null distributions (and therefore the computation of a confidence interval or p-value).</p>
 <section id="independent-errors" class="level2" data-number="28.1">
 <h2 data-number="28.1" class="anchored" data-anchor-id="independent-errors"><span class="header-section-number">28.1</span> Independent Errors</h2>
-<p>The first condition we consider is that the noise attributed to one observed individual is independent of the noise attributed to any other individual observed. That is, the amount of error in any one individual’s response is unrelated to the error in any other response observed. This is the same condition we introduced in <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a> and <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>.</p>
+<p>The first condition we consider is that the noise attributed to one observed individual is independent of the noise attributed to any other individual observed. That is, the amount of error in any one individual’s response is unrelated to the error in any other response observed. This is the same condition we introduced in <a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a> and <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -507,14 +544,14 @@ Independence Condition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The independence condition states that the error in one observation is independent (see <a href="02c-meanmodels.html#def-independence">Definition&nbsp;<span>10.3</span></a>) of the error in all other observations.</p>
+<p>The independence condition states that the error in one observation is independent (see <a href="02c-meanmodels.html#def-independence" class="quarto-xref">Definition&nbsp;<span>10.3</span></a>) of the error in all other observations.</p>
 </div>
 </div>
-<p>With just this condition, we can use a bootstrap algorithm in order to model the sampling distribution of the least squares estimates of our parameters (see <a href="app-theory.html"><span>Appendix&nbsp;A</span></a>). However, additional conditions are often considered.</p>
+<p>With just this condition, we can use a bootstrap algorithm in order to model the sampling distribution of the least squares estimates of our parameters (see <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>). However, additional conditions are often considered.</p>
 </section>
 <section id="same-degree-of-precision" class="level2" data-number="28.2">
 <h2 data-number="28.2" class="anchored" data-anchor-id="same-degree-of-precision"><span class="header-section-number">28.2</span> Same Degree of Precision</h2>
-<p>The second condition that is typically placed on the distribution of the errors is that the errors are identically distributed. Again, we introduced this condition in <a href="02c-meanmodels.html"><span>Chapter&nbsp;10</span></a> and <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>. As in the context of regression, this is often described in terms of the variance. Specifically, if the errors are not identically distributed, it is typically because the variability of the error differs for one value of the predictor compared to another. Practically, this reveals itself as our response being more precise in one group than in another. As a result of focusing on the variability of the response for each predictor, this condition is often referred to as <em>homoskedasticity</em> (constant variance) instead of the errors being identically distributed.</p>
+<p>The second condition that is typically placed on the distribution of the errors is that the variability of the errors is the same in each group. We introduced this condition in <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>. Practically, this condition implies that the variability of the response within each group is the same for all groups.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -525,14 +562,15 @@ Constant Variance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups. While technically, the phrase “identically distributed” (<a href="02c-meanmodels.html#def-identically-distributed">Definition&nbsp;<span>10.4</span></a>) is broader, in the context of ANOVA, “identically distributed” is used interchangeably with “constant variance.”</p>
+<p>Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups.</p>
 </div>
 </div>
 <p>With this additional condition imposed, we are able to modify our bootstrap algorithm when constructing a model for the sampling distribution of the least squares estimates.</p>
+<p>At this point, you might ask “if we assume constant variance in the classical ANOVA model and in the classical regression model, why did we not consider this assumption in the single response case (<a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>)?” Remember, the condition is not that the errors are the same; the condition is that the <em>variability</em> of the errors <em>within each group</em> is the <em>same for every group</em>. In <a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>, our model for the data generating response did not have a predictor; therefore, there was only a single group to which the response belonged. The variability in the response cannot vary across the predictor if there is no predictor; so, this condition could not be violated in that setting!</p>
 </section>
 <section id="specific-form-of-the-error-distribution" class="level2" data-number="28.3">
 <h2 data-number="28.3" class="anchored" data-anchor-id="specific-form-of-the-error-distribution"><span class="header-section-number">28.3</span> Specific Form of the Error Distribution</h2>
-<p>The third condition that is typically placed on the distribution of the errors is that the errors follow a Normal distribution, as discussed in <a href="03g-regconditions.html"><span>Chapter&nbsp;18</span></a>. Here, we are assuming a particular structure on the distribution of the error population.</p>
+<p>The third condition that is typically placed on the distribution of the errors is that the errors follow a Normal distribution, as discussed in <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>. Here, we are assuming a particular structure on the distribution of the error population.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -543,7 +581,7 @@ Normality
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The normality condition states that the distribution of the errors follows the functional form of a Normal distribution (<a href="03g-regconditions.html#def-normal-distribution">Definition&nbsp;<span>18.2</span></a>).</p>
+<p>The normality condition states that the distribution of the errors follows the functional form of a Normal distribution (<a href="03g-regconditions.html#def-normal-distribution" class="quarto-xref">Definition&nbsp;<span>18.2</span></a>).</p>
 </div>
 </div>
 <p>Let’s think about what this condition means for the responses. Given the shape of the Normal distribution, imposing this condition (in addition to the other conditions) implies that some errors are positive and some are negative. This in turn implies that some responses will be above average for their group, and some responses will be below average for their group. More, because the distribution of the response within each group is just a shifted version of the distribution of the errors, we know that the distribution of the response variable itself follows a Normal distribution.</p>
@@ -553,7 +591,7 @@ Normality
 <h2 data-number="28.4" class="anchored" data-anchor-id="classical-anova-model"><span class="header-section-number">28.4</span> Classical ANOVA Model</h2>
 <p>We have discussed three conditions we could place on the stochastic portion of the data generating process. Placing all three conditions on the error term is what we refer to as the “Classical ANOVA Model.”</p>
 <div id="def-classical-anova" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.1 (Classical ANOVA Model) </strong></span>For a quantitative response and single categorical predictor with <span class="math inline">\(k\)</span> levels, the classical ANOVA model assumes the following data generating process:</p>
+<p><span class="theorem-title"><strong>Definition 28.1 (Classical ANOVA Model)</strong></span> For a quantitative response and single categorical predictor with <span class="math inline">\(k\)</span> levels, the classical ANOVA model assumes the following data generating process:</p>
 <p><span class="math display">\[(\text{Response})_i = \sum_{j=1}^{k} \mu_j (\text{Group } j)_i + \varepsilon_i\]</span></p>
 <p>where</p>
 <p><span class="math display">\[
@@ -565,12 +603,25 @@ Normality
 <p>are indicator variables and where</p>
 <ol type="1">
 <li>The error in the response for one subject is independent of the error in the response for all other subjects.</li>
-<li>The errors are identically distributed for all groups. This is often stated as the variability in the error of the response within each group is the same across all groups.</li>
+<li>The variability in the error of the response within each group is the same across all groups.</li>
 <li>The errors follow a Normal Distribution.</li>
 </ol>
 <p>This is the default “ANOVA” analysis implemented in the majority of statistical packages.</p>
 </div>
-<p>We note that “ANOVA” need not require all three conditions imposed in <a href="#def-classical-anova">Definition&nbsp;<span>28.1</span></a>. Placing all three conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates. Changing the conditions changes the way we model the sampling distribution.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A “hidden” (typically unstated but should not be ignored) condition is that the sample is representative of the underlying population. In the one sample case (<a href="02c-meanmodels.html" class="quarto-xref"><span>Chapter 10</span></a>), we referred to this as the errors being “identically distributed.” We no longer use the “identically distributed” language for technical reasons; however, we still require that the sample be representative of the underlying population.</p>
+</div>
+</div>
+<p>We note that “ANOVA” need not require all three conditions imposed in <a href="#def-classical-anova" class="quarto-xref">Definition&nbsp;<span>28.1</span></a>. Placing all three conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates. Changing the conditions changes the way we model the sampling distribution.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -601,9 +652,9 @@ Note
 </section>
 <section id="imposing-the-conditions" class="level2" data-number="28.5">
 <h2 data-number="28.5" class="anchored" data-anchor-id="imposing-the-conditions"><span class="header-section-number">28.5</span> Imposing the Conditions</h2>
-<p>Let’s return to our model for the moral expectation score as a function of the food exposure group given in <a href="04f-anovamodel.html#eq-anovamodel-model">Equation&nbsp;<span>27.1</span></a>:</p>
+<p>Let’s return to our model for the moral expectation score as a function of the food exposure group given in <a href="04f-anovamodel.html#eq-anovamodel-model" class="quarto-xref">Equation&nbsp;<span>27.1</span></a>:</p>
 <p><span class="math display">\[(\text{Moral Expectations})_i = \mu_1 (\text{Comfort})_i + \mu_2 (\text{Control})_i + \mu_3 (\text{Organic})_i + \varepsilon_i,\]</span></p>
-<p>where we use the same indicator variables defined in <a href="04f-anovamodel.html"><span>Chapter&nbsp;27</span></a>. We were interested in the following research question:</p>
+<p>where we use the same indicator variables defined in <a href="04f-anovamodel.html" class="quarto-xref"><span>Chapter 27</span></a>. We were interested in the following research question:</p>
 <blockquote class="blockquote">
 <p>Does the average moral expectation score differ for at least one of the three food exposure groups?</p>
 </blockquote>
@@ -614,11 +665,15 @@ Note
 </blockquote>
 <p>Using the method of least squares, we constructed point estimates of the parameters in the model; this leads to the following estimates of the average moral expectation score for each exposure group:</p>
 <div class="cell">
+<div id="tbl-anovaconditions-fit" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anovaconditions-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;28.1: Estimated average moral expectation score for participants exposed to one of three food groups.
+</figcaption>
+<div aria-describedby="tbl-anovaconditions-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-anovaconditions-fit" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;28.1: Estimated average moral expectation score for participants exposed to one of three food groups.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Exposure Group</th>
@@ -641,18 +696,24 @@ Note
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p>If we are willing to assume the data is consistent with the conditions for the classical ANOVA model, we are able to model the sampling distribution of these estimates and therefore construct confidence intervals. <a href="#tbl-anovaconditions-summary">Table&nbsp;<span>28.2</span></a> summarizes the results of fitting the model described in <a href="04f-anovamodel.html#eq-anovamodel-model">Equation&nbsp;<span>27.1</span></a> using the data available from the Organic Foods Case Study. In addition to the least squares estimates, it also contains the standard error (see <a href="01g-samplingdistns.html#def-standard-error">Definition&nbsp;<span>6.4</span></a>) of each statistic, quantifying the variability in the estimates. Finally, there is a 95% confidence interval for each parameter.</p>
+</figure>
+</div>
+</div>
+<p>If we are willing to assume the data is consistent with the conditions for the classical ANOVA model, we are able to model the sampling distribution of these estimates and therefore construct confidence intervals. <a href="#tbl-anovaconditions-summary" class="quarto-xref">Table&nbsp;<span>28.2</span></a> summarizes the results of fitting the model described in <a href="04f-anovamodel.html#eq-anovamodel-model" class="quarto-xref">Equation&nbsp;<span>27.1</span></a> using the data available from the Organic Foods Case Study. In addition to the least squares estimates, it also contains the standard error (see <a href="01g-samplingdistns.html#def-standard-error" class="quarto-xref">Definition&nbsp;<span>6.4</span></a>) of each statistic, quantifying the variability in the estimates. Finally, there is a 95% confidence interval for each parameter.</p>
 <div class="cell">
+<div id="tbl-anovaconditions-summary" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anovaconditions-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;28.2: Summary of the model fit relating the moral expectation score of college students to the type of food to which they were exposed.
+</figcaption>
+<div aria-describedby="tbl-anovaconditions-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-anovaconditions-summary" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;28.2: Summary of the model fit relating the moral expectation score of college students to the type of food to which they were exposed.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
@@ -687,12 +748,14 @@ Note
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p><a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a> described, in general, how confidence intervals are constructed. Under the classical ANOVA model, there is an analytical model for the sampling distribution, and it is known. As a result, the confidence interval can be computed from a formula.</p>
+</figure>
+</div>
+</div>
+<p><a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a> described, in general, how confidence intervals are constructed. Under the classical ANOVA model, there is an analytical model for the sampling distribution, and it is known. As a result, the confidence interval can be computed from a formula.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -726,7 +789,7 @@ Warning
 <h2 data-number="28.6" class="anchored" data-anchor-id="recap"><span class="header-section-number">28.6</span> Recap</h2>
 <p>We have covered a lot of ground in this chapter, and it is worth taking a moment to summarize the big ideas. In order to compare the mean response in each group, we took a step back and modeled the data generating process. Such a model consists of two components: a deterministic component explaining the response as a function of the predictor, and a stochastic component capturing the noise in the system.</p>
 <p>Certain conditions are placed on the distribution of the noise in our model. With a full set of conditions (classical ANOVA model), we are able to model the sampling distribution of the least squares estimates analytically. We can also construct an empirical model for the sampling distribution of the least squares estimates assuming the data is consistent with fewer conditions.</p>
-<p>In general, the more conditions we are willing to impose on the data generating process, the more tractable the analysis; however, the most important aspect is that the data come from a process which is consistent with the conditions we impose, which is discussed in <a href="04i-anovaassessment.html"><span>Chapter&nbsp;30</span></a>.</p>
+<p>In general, the more conditions we are willing to impose on the data generating process, the more tractable the analysis; however, the most important aspect is that the data come from a process which is consistent with the conditions we impose, which is discussed in <a href="04i-anovaassessment.html" class="quarto-xref"><span>Chapter 30</span></a>.</p>
 
 
 </section>
@@ -811,10 +874,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -824,8 +904,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -837,7 +926,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -881,6 +1093,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -906,6 +1119,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -967,17 +1206,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04f-anovamodel.html" class="pagination-link">
+      <a href="./04f-anovamodel.html" class="pagination-link" aria-label="Building the Statistical Model">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Building the Statistical Model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04h-anovateststat.html" class="pagination-link">
+      <a href="./04h-anovateststat.html" class="pagination-link" aria-label="Quantifying the Evidence">
         <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quantifying the Evidence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

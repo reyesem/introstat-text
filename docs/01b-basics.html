@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,14 +82,16 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="mystyles.css">
@@ -94,12 +103,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01b-basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01b-basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +118,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -469,7 +478,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -485,7 +494,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01b-basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-basics" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Statistical Process</span></span></h1>
 </div>
@@ -500,7 +509,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>Is driving while texting as dangerous as driving while intoxicated? Is there evidence that my measurement device is calibrated inappropriately? How much force, on average, can our concrete blocks withstand before failing? Regardless of your future career path, you will eventually need to answer a question. The discipline of statistics is about using data to address questions by converting that data into valuable information.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -518,7 +529,7 @@ Big Idea
 </div>
 <p>It might be natural at this point to ask “do I really need an entire class about answering questions with data? Isn’t this simple?” Sometimes, it is simple; other times, it can be far from it. Let’s illustrate with the following example from <span class="citation" data-cites="Tintle2015">Tintle et al. (<a href="references.html#ref-Tintle2015" role="doc-biblioref">2015</a>)</span>.</p>
 <div id="exm-basics-organ-donation" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.1 (Organ Donation) </strong></span>Even though organ donations save lives, recruiting organ donors is difficult. Interestingly, surveys show that about 85% of Americans approve of organ donation in principle and many states offer a simple organ donor registration process when people apply for a driver’s license. However, only about 38% of licensed drivers in the United States are registered to be organ donors. Some people prefer not to make an active decision about organ donation because the topic can be unpleasant to think about. But perhaps phrasing the question differently could affect a person’s willingness to become a donor.</p>
+<p><span class="theorem-title"><strong>Example 1.1 (Organ Donation)</strong></span> Even though organ donations save lives, recruiting organ donors is difficult. Interestingly, surveys show that about 85% of Americans approve of organ donation in principle and many states offer a simple organ donor registration process when people apply for a driver’s license. However, only about 38% of licensed drivers in the United States are registered to be organ donors. Some people prefer not to make an active decision about organ donation because the topic can be unpleasant to think about. But perhaps phrasing the question differently could affect a person’s willingness to become a donor.</p>
 <p><span class="citation" data-cites="Johnson2003">Johnson and Goldstein (<a href="references.html#ref-Johnson2003" role="doc-biblioref">2003</a>)</span> recruited 161 participants for a study, published in the journal <em>Science</em>, to address the question of organ donor recruitment. The participants were asked to imagine they had moved to a new state and were applying for a driver’s license. As part of this application, the participants were to decide whether or not to become an organ donor. Participants were presented with one of three different default choices:</p>
 <ul>
 <li>Some of the participants were forced to make a choice of becoming a donor or not, without being given a default option (the “neutral” group).</li>
@@ -527,13 +538,17 @@ Big Idea
 </ul>
 <p>The study found that 79% of those in the neutral group, 42% of those in the opt-in group, and 82.0% of those in the opt-out group agreed to become donors.</p>
 </div>
-<p>The results of the study are presented in <a href="#fig-basics-organ-plot">Figure&nbsp;<span>1.1</span></a>. It seems obvious that using the “opt-in” strategy results in fewer people agreeing to organ donation. However, does the “opt-out” strategy, in which people are by default declared organ donors, result in more people agreeing to organ donation compared to the “neutral” strategy? On the one hand, a higher percentage did agree to organ donation under the “opt-out” (82% compared to 79%). However, since this study involved only a subset of Americans, is this enough evidence to claim the “opt-out” strategy is really superior compared to the “neutral” strategy in the broader population? The discipline of statistics provides a framework for addressing such ambiguity.</p>
+<p>The results of the study are presented in <a href="#fig-basics-organ-plot" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>. It seems obvious that using the “opt-in” strategy results in fewer people agreeing to organ donation. However, does the “opt-out” strategy, in which people are by default declared organ donors, result in more people agreeing to organ donation compared to the “neutral” strategy? On the one hand, a higher percentage did agree to organ donation under the “opt-out” (82% compared to 79%). However, since this study involved only a subset of Americans, is this enough evidence to claim the “opt-out” strategy is really superior compared to the “neutral” strategy in the broader population? The discipline of statistics provides a framework for addressing such ambiguity.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-basics-organ-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-basics-organ-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the percentage of participants agreeing to organ donation in each of three cohorts; the bar associated with the opt-in strategy is lower than that for the other cohorts."></p>
-<figcaption class="figure-caption">Figure&nbsp;1.1: Summary of the responses for the Organ Donation Study described in <a href="#exm-basics-organ-donation">Example&nbsp;<span>1.1</span></a>.</figcaption>
+<div id="fig-basics-organ-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Bar chart of the percentage of participants agreeing to organ donation in each of three cohorts; the bar associated with the opt-in strategy is lower than that for the other cohorts.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-basics-organ-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-basics-organ-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Bar chart of the percentage of participants agreeing to organ donation in each of three cohorts; the bar associated with the opt-in strategy is lower than that for the other cohorts.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-basics-organ-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Summary of the responses for the Organ Donation Study described in <a href="#exm-basics-organ-donation" class="quarto-xref">Example&nbsp;<span>1.1</span></a>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -542,12 +557,12 @@ Big Idea
 <h2 data-number="1.1" class="anchored" data-anchor-id="overview-of-drawing-inference"><span class="header-section-number">1.1</span> Overview of Drawing Inference</h2>
 <p>Let’s begin by taking a step back and considering the big picture of how data is turned into information. Every research question we pose, at its heart, is trying to characterize a <strong>population</strong>, the group of subjects of ultimate interest.</p>
 <div id="def-population" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.1 (Population) </strong></span>The collection of subjects we would like to say something about.</p>
+<p><span class="theorem-title"><strong>Definition 1.1 (Population)</strong></span> The collection of subjects we would like to say something about.</p>
 </div>
-<p>In the Organ Donation study (<a href="#exm-basics-organ-donation">Example&nbsp;<span>1.1</span></a>), the researchers would like to say something about Americans who are of the age to consent to organ donation; in particular, they would like to quantify how likely it is that someone from this group agrees to organ donation. Therefore, the population is <em>all Americans who are of the age to consent to organ donation</em>.</p>
+<p>In the Organ Donation study (<a href="#exm-basics-organ-donation" class="quarto-xref">Example&nbsp;<span>1.1</span></a>), the researchers would like to say something about Americans who are of the age to consent to organ donation; in particular, they would like to quantify how likely it is that someone from this group agrees to organ donation. Therefore, the population is <em>all Americans who are of the age to consent to organ donation</em>.</p>
 <p>In general, the subjects (or units of observation) in a population need not be people; in some studies, the population could be a collection of screws, cell phones, sheet metal…whatever characterizes the objects from which we would <em>like to</em> obtain measurements. We use the phrase “like to” because in reality it is often impossible (or impractical) to observe the entire population. Instead, we make observations on a subset of the population; this smaller group is known as the <strong>sample</strong>.</p>
 <div id="def-sample" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.2 (Sample) </strong></span>The collection of subjects for which we actually obtain measurements (data).</p>
+<p><span class="theorem-title"><strong>Definition 1.2 (Sample)</strong></span> The collection of subjects for which we actually obtain measurements (data).</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -562,16 +577,20 @@ Note
 <p>Some readers may associate “subjects” with people; to avoid this confusion, you may prefer “unit of observation” to subject. In this text, we use subject to mean any unit on which observations could be taken.</p>
 </div>
 </div>
-<p>For each subject within the sample, we obtain a collection of measurements forming our set of data. The goal of statistical modeling is to use the sample (the group we actually observe) to say something about the population of interest (the group we wish we had observed); this process is known as <strong>statistical inference</strong> (illustrated in <a href="#fig-basics-statistical-process">Figure&nbsp;<span>1.2</span></a>).</p>
+<p>For each subject within the sample, we obtain a collection of measurements forming our set of data. The goal of statistical modeling is to use the sample (the group we actually observe) to say something about the population of interest (the group we wish we had observed); this process is known as <strong>statistical inference</strong> (illustrated in <a href="#fig-basics-statistical-process" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>).</p>
 <div id="def-inference" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.3 (Statistical Inference) </strong></span>The process of using a sample to characterize some aspect of the underlying population.</p>
+<p><span class="theorem-title"><strong>Definition 1.3 (Statistical Inference)</strong></span> The process of using a sample to characterize some aspect of the underlying population.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-basics-statistical-process" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/Basics-Stat-Process.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Illustration of the statistical process, in which a sample of units is taken from the population, represented by a blue blob, and enters the sample, represented by a green blob."></p>
-<figcaption class="figure-caption">Figure&nbsp;1.2: Illustration of the statistical process, using a sample to characterize some aspect of the underlying population.</figcaption>
+<div id="fig-basics-statistical-process" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Illustration of the statistical process, in which a sample of units is taken from the population, represented by a blue blob, and enters the sample, represented by a green blob.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-basics-statistical-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Basics-Stat-Process.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Illustration of the statistical process, in which a sample of units is taken from the population, represented by a blue blob, and enters the sample, represented by a green blob.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-basics-statistical-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Illustration of the statistical process, using a sample to characterize some aspect of the underlying population.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -581,14 +600,14 @@ Note
 <h2 data-number="1.2" class="anchored" data-anchor-id="anatomy-of-a-dataset"><span class="header-section-number">1.2</span> Anatomy of a Dataset</h2>
 <p>Once we have our sample, we take measurements on each of the subjects within this sample. These measurements form the data. When we hear the word “data,” most of us envision a large spreadsheet. In reality, data can take on many forms — spreadsheets, images, text files, unstructured text from a social media feed, etc. Regardless of the form, all datasets contain information for each subject in the sample; this information, the various measurements, are called <strong>variables</strong>.</p>
 <div id="def-variable" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.4 (Variable) </strong></span>A measurement, or category, describing some aspect of the subject.</p>
+<p><span class="theorem-title"><strong>Definition 1.4 (Variable)</strong></span> A measurement, or category, describing some aspect of the subject.</p>
 </div>
 <p>Variables come in one of two flavors. <strong>Categorical</strong> variables are those which denote a grouping to which the subject belongs. Examples include marital status, manufacturer, and experimental treatment group. <strong>Numeric</strong> variables are those which take on values for which ordinary arithmetic (e.g., addition and multiplication) makes sense. Examples include height, age of a product, and diameter. Note that sometimes numeric values are used to represent the levels of a categorical variable in a dataset; for example, 0 may indicate “No” and 1 may indicate “Yes” for a variable capturing whether a person is a registered organ donor. Therefore, just because a variable has a numeric value does not make it a numeric variable; the key here is that numeric variables are those for which arithmetic makes sense.</p>
 <div id="def-categorical" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.5 (Categorical Variable) </strong></span>Also called a “qualitative variable,” a measurement on a subject which denotes a grouping or categorization.</p>
+<p><span class="theorem-title"><strong>Definition 1.5 (Categorical Variable)</strong></span> Also called a “qualitative variable,” a measurement on a subject which denotes a grouping or categorization.</p>
 </div>
 <div id="def-numeric" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.6 (Numeric Variable) </strong></span>Also called a “quantitative variable,” a measurement on a subject which takes on a numeric value <em>and</em> for which ordinary arithmetic makes sense.</p>
+<p><span class="theorem-title"><strong>Definition 1.6 (Numeric Variable)</strong></span> Also called a “quantitative variable,” a measurement on a subject which takes on a numeric value <em>and</em> for which ordinary arithmetic makes sense.</p>
 </div>
 <p>While it may be natural to think of a dataset as a spreadsheet, not all spreadsheets are created equal.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -623,13 +642,17 @@ Warning
 <p>We note the above description eliminates a common method of storing data in engineering and scientific disciplines — storing each sample in a different column.</p>
 </div>
 </div>
-<p>To illustrate the above description, suppose we conduct a study comparing the lifetime (in hours) of two brands of batteries. We measure the lifetime of five batteries of Brand A and six of Brand B. It is common to see a dataset like that in <a href="#tbl-basics-poor-dataset">Table&nbsp;<span>1.1</span></a>; the problem here is that the first record of the dataset contains information on two different units of observation. We have the lifetime from a battery of Brand A in the same row as the lifetime from a battery of Brand B. This violates the second characteristic of datasets described above.</p>
+<p>To illustrate the above description, suppose we conduct a study comparing the lifetime (in hours) of two brands of batteries. We measure the lifetime of five batteries of Brand A and six of Brand B. It is common to see a dataset like that in <a href="#tbl-basics-poor-dataset" class="quarto-xref">Table&nbsp;<span>1.1</span></a>; the problem here is that the first record of the dataset contains information on two different units of observation. We have the lifetime from a battery of Brand A in the same row as the lifetime from a battery of Brand B. This violates the second characteristic of datasets described above.</p>
 <div class="cell">
+<div id="tbl-basics-poor-dataset" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-basics-poor-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.1: Example of a common data structure which does not correspond to the characteristics of well-structured data we recommend. The data is from a hypothetical study comparing battery lifetimes (hours).
+</figcaption>
+<div aria-describedby="tbl-basics-poor-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-basics-poor-dataset" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;1.1: Example of a common data structure which does not correspond to the characteristics of well-structured data we recommend. The data is from a hypothetical study comparing battery lifetimes (hours).</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Brand A</th>
@@ -664,18 +687,24 @@ Warning
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p>In order to adhere to the characteristics of well-structured data outlined above, we can reformat the data in <a href="#tbl-basics-poor-dataset">Table&nbsp;<span>1.1</span></a> to that shown in <a href="#tbl-basics-good-dataset">Table&nbsp;<span>1.2</span></a>. Here, each record represents a unique observation and each column is a different variable. We have also added a unique identifier.</p>
+</figure>
+</div>
+</div>
+<p>In order to adhere to the characteristics of well-structured data outlined above, we can reformat the data in <a href="#tbl-basics-poor-dataset" class="quarto-xref">Table&nbsp;<span>1.1</span></a> to that shown in <a href="#tbl-basics-good-dataset" class="quarto-xref">Table&nbsp;<span>1.2</span></a>. Here, each record represents a unique observation and each column is a different variable. We have also added a unique identifier.</p>
 <div class="cell">
+<div id="tbl-basics-good-dataset" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-basics-good-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.2: Example of a well-structured dataset. The data is from a hypothetical study comparing battery lifetimes (hours).
+</figcaption>
+<div aria-describedby="tbl-basics-good-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-basics-good-dataset" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;1.2: Example of a well-structured dataset. The data is from a hypothetical study comparing battery lifetimes (hours).</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Battery</th>
@@ -742,9 +771,11 @@ Warning
 </tbody>
 </table>
 </div>
+
+
 </div>
-
-
+</div>
+</figure>
 </div>
 </div>
 <p>It may take some time to get used to storing data in this format, but it makes analysis easier and avoids time spent managing the data later.</p>
@@ -753,12 +784,12 @@ Warning
 <h2 data-number="1.3" class="anchored" data-anchor-id="a-note-on-codebooks"><span class="header-section-number">1.3</span> A Note on Codebooks</h2>
 <p>A dataset on its own is meaningless if you cannot understand what the values represent. <em>Before</em> you access a dataset, you should always review any available <strong>codebooks</strong>.</p>
 <div id="def-codebook" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.7 (Codebook) </strong></span>Also called a “data dictionary,” these provide complete information regarding the variables contained within a dataset.</p>
+<p><span class="theorem-title"><strong>Definition 1.7 (Codebook)</strong></span> Also called a “data dictionary,” these provide complete information regarding the variables contained within a dataset.</p>
 </div>
 <p>Some codebooks are excellent, with detailed descriptions of how the variables were collected alongside appropriate units for the measurements. Other codebooks give only an indication of what each variable represents. Whenever you are working with previously collected data, reviewing a codebook is the first step; and, you should be prepared to revisit the codebook often throughout an analysis. When you are collecting your own dataset, constructing a codebook is essential for others to make use of your data.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Johnson2003" class="csl-entry" role="listitem">
 Johnson, Eric J, and Daniel Goldstein. 2003. <span>“Do Defaults Save Lives?”</span> <em>Science</em> 302: 1338–39.
 </div>
@@ -848,10 +879,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -861,8 +909,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -874,7 +931,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -918,6 +1098,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -943,6 +1124,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1004,17 +1211,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01a-language.html" class="pagination-link">
+      <a href="./01a-language.html" class="pagination-link" aria-label="Unit I: Language and Logic of Inference">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Unit I: Language and Logic of Inference</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01c-casedeepwater.html" class="pagination-link">
+      <a href="./01c-casedeepwater.html" class="pagination-link" aria-label="Case Study: Health Effects of the Deepwater Horizon Oil Spill">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study: Health Effects of the Deepwater Horizon Oil Spill</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

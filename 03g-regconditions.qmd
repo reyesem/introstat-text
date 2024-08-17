@@ -136,11 +136,11 @@ With just these first two conditions (that the average error is 0 for all values
 
 
 ## Same Degree of Precision
-The third condition that is typically placed on the distribution of the errors is that the errors are identically distributed.  Again, we introduced this condition in @sec-meanmodels.  However, in the context of regression, this is often described a bit differently.  Specifically, if the errors are not identically distributed, it is typically because the variability of the error differs for one value of the predictor compared to another.  Practically, this reveals itself as our response being more precise in one region than in another.  As a result of focusing on the variability of the response for each predictor, this condition is often referred to as _homoskedasticity_ (constant variance) instead of the errors being identically distributed.  
+The third condition that is typically placed on the distribution of the errors is that the variability of the errors is the same for all values of the predictor.  Practically, if this condition does not hold, our response will be more precise in one region than in another.  The technical term for this condition is _homoskedasticity_.  
 
 :::{.callout-note}
 ## Constant Variance
-Also called homoskedasticity, the constant variance condition states that the variability of the errors is the same for all values of the predictor.  While technically, the phrase "identically distributed" (@def-identically-distributed) is broader, in the context of regression, "identically distributed" is used interchangeably with "constant variance."
+Also called homoskedasticity, the constant variance condition states that the variability of the errors is the same for all values of the predictor.
 :::
 
 With this additional condition imposed, we are able to modify our bootstrap algorithm when constructing a model for the sampling distribution of the least squares estimates.  
@@ -311,10 +311,14 @@ where
 
   1. The error in the response has a mean of 0 for all values of the predictor.
   2. The error in the response for one subject is independent of the error in the response for all other subjects.
-  3. The errors are identically distributed for all values of the predictor.  This is often stated as the variability in the error of the response is the same for all values of the predictor.
+  3. The variability in the error of the response is the same for all values of the predictor.
   4. The errors follow a Normal Distribution.
   
 This is the default "regression" analysis implemented in the majority of statistical packages.
+:::
+
+:::{.callout-warning}
+A "hidden" (typically unstated but should not be ignored) condition is that the sample is representative of the underlying population.  In the one sample case (@sec-meanmodels), we referred to this as the errors being "identically distributed."  We no longer use the "identically distributed" language for technical reasons; however, we still require that the sample be representative of the underlying population.
 :::
 
 We note that "regression" need not require all four conditions imposed in @def-classical-regression.  Placing all four conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates.  Changing the conditions changes the way we model the sampling distribution.
@@ -360,7 +364,7 @@ If we are willing to assume the data is consistent with the conditions for the c
 
 fit.greece.slr |>
   estimate_parameters(confidence.level = 0.95,
-                      assume.identically.distributed = TRUE,
+                      assume.constant.variance = TRUE,
                       assume.normality = TRUE) |>
   rename(Term = term,
          Estimate = point.estimate,
@@ -401,7 +405,7 @@ Using the empirical model of the sampling distribution for each estimate, we can
 set.seed(20180706)
 fit.greece.slr |>
   estimate_parameters(confidence.level = 0.95,
-                      assume.identically.distributed = FALSE,
+                      assume.constant.variance = FALSE,
                       assume.normality = FALSE) |>
   rename(Term = term,
          Estimate = point.estimate,

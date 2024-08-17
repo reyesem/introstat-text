@@ -26,14 +26,16 @@ With just this condition, we can use a bootstrap algorithm in order to model the
 
 
 ## Same Degree of Precision
-The second condition that is typically placed on the distribution of the errors is that the errors are identically distributed.  Again, we introduced this condition in @sec-meanmodels and @sec-regconditions.  As in the context of regression, this is often described in terms of the variance.  Specifically, if the errors are not identically distributed, it is typically because the variability of the error differs for one value of the predictor compared to another.  Practically, this reveals itself as our response being more precise in one group than in another.  As a result of focusing on the variability of the response for each predictor, this condition is often referred to as _homoskedasticity_ (constant variance) instead of the errors being identically distributed.  
+The second condition that is typically placed on the distribution of the errors is that the variability of the errors is the same in each group.  We introduced this condition in @sec-regconditions.  Practically, this condition implies that the variability of the response within each group is the same for all groups.  
 
 :::{.callout-note}
 ## Constant Variance
-Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups.  While technically, the phrase "identically distributed" (@def-identically-distributed) is broader, in the context of ANOVA, "identically distributed" is used interchangeably with "constant variance."
+Also called homoskedasticity, the constant variance condition states that the variability of the errors within each group is the same across all groups.  
 :::
 
 With this additional condition imposed, we are able to modify our bootstrap algorithm when constructing a model for the sampling distribution of the least squares estimates.
+
+At this point, you might ask "if we assume constant variance in the classical ANOVA model and in the classical regression model, why did we not consider this assumption in the single response case (@sec-meanmodels)?"  Remember, the condition is not that the errors are the same; the condition is that the _variability_ of the errors _within each group_ is the _same for every group_.  In @sec-meanmodels, our model for the data generating response did not have a predictor; therefore, there was only a single group to which the response belonged.  The variability in the response cannot vary across the predictor if there is no predictor; so, this condition could not be violated in that setting!
 
 
 ## Specific Form of the Error Distribution
@@ -70,10 +72,14 @@ $$
 are indicator variables and where
 
   1. The error in the response for one subject is independent of the error in the response for all other subjects.
-  2. The errors are identically distributed for all groups.  This is often stated as the variability in the error of the response within each group is the same across all groups.
+  2. The variability in the error of the response within each group is the same across all groups.
   3. The errors follow a Normal Distribution.
   
 This is the default "ANOVA" analysis implemented in the majority of statistical packages.
+:::
+
+:::{.callout-warning}
+A "hidden" (typically unstated but should not be ignored) condition is that the sample is representative of the underlying population.  In the one sample case (@sec-meanmodels), we referred to this as the errors being "identically distributed."  We no longer use the "identically distributed" language for technical reasons; however, we still require that the sample be representative of the underlying population.
 :::
 
 We note that "ANOVA" need not require all three conditions imposed in @def-classical-anova.  Placing all three conditions on the error term results in a specific analytical model for the sampling distribution of the least squares estimates.  Changing the conditions changes the way we model the sampling distribution.
@@ -131,7 +137,7 @@ If we are willing to assume the data is consistent with the conditions for the c
 
 fit.organic |>
   estimate_parameters(confidence.level = 0.95,
-                      assume.identically.distributed = TRUE,
+                      assume.constant.variance = TRUE,
                       assume.normality = TRUE) |>
   rename(Term = term,
          Estimate = point.estimate,

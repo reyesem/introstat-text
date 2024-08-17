@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,14 +62,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02e-teststat.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02e-teststat.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -464,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02e-teststat.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-teststat" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quantifying the Evidence for a Single Mean</span></span></h1>
 </div>
@@ -479,9 +517,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>Consider the Birth Weight Case Study described in <a href="02b-casebabies.html"><span>Chapter&nbsp;9</span></a>. In the previous chapter, we introduced focused on estimating the mean response of a variable; in this chapter, we consider testing a set of hypotheses involving the mean response.</p>
+
+<p>Consider the Birth Weight Case Study described in <a href="02b-casebabies.html" class="quarto-xref"><span>Chapter 9</span></a>. In the previous chapter, we introduced focused on estimating the mean response of a variable; in this chapter, we consider testing a set of hypotheses involving the mean response.</p>
 <p>In 2004, when the data for the Birth Weight Case Study was collected, an infant was considered “full term” if it was born anytime between 37 and 42 weeks. However, in 2013 the American College of Obstetricians and Gynecologists redefined “full term”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to mean an infant born anytime between 39 and 40 weeks. Consider the following research question:</p>
 <blockquote class="blockquote">
 <p>Does our study provide evidence that the average gestation time for infants born in North Carolina exceeds 38 weeks (so that, on average, babies are born full term by the new definition)?</p>
@@ -492,50 +532,49 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[(\text{Gestation Period})_i = \theta + \varepsilon_i.\]</span></p>
 <p>We will assume that the gestation period for one infant is independent of the gestation period for any other infant and that this data is representative of all infants born in North Carolina; this implies we can assume the errors are independent and identically distributed.</p>
 <p>We can estimate the parameter <span class="math inline">\(\theta\)</span> with the average gestation period for the babies in our sample: 39.11 weeks. We seek to quantify the evidence against the null hypothesis summarized by this data.</p>
-<p>In <a href="01h-nulldistns.html"><span>Chapter&nbsp;7</span></a>, we discussed the concept of the null distribution of the statistic. Here, we are interested in modeling the null distribution of the sample mean gestation for a sample of 1009 infants. Notice, just like when modeling the sampling distribution, incorporating the sample size is an important aspect of our model. Assuming the data is consistent with the above two conditions on the distribution of the errors in the model for the data generating process, we can construct a model of the null distribution using a bootstrap procedure. <a href="#fig-teststat-null-mean">Figure&nbsp;<span>12.1</span></a> illustrates this model based on 5000 bootstrap replications.</p>
+<p>In <a href="01h-nulldistns.html" class="quarto-xref"><span>Chapter 7</span></a>, we discussed the concept of the null distribution of the statistic. Here, we are interested in modeling the null distribution of the sample mean gestation for a sample of 1009 infants. Notice, just like when modeling the sampling distribution, incorporating the sample size is an important aspect of our model. Assuming the data is consistent with the above two conditions on the distribution of the errors in the model for the data generating process, we can construct a model of the null distribution using a bootstrap procedure. <a href="#fig-teststat-null-mean" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> illustrates this model based on 5000 bootstrap replications.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-teststat-null-mean" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-teststat-null-mean-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of bootstrap statistics under the null hypothesis; the distribution is centered on 38 and ranges from 37.85 to 38.15."></p>
-<figcaption class="figure-caption">Figure&nbsp;12.1: Model of the null distribution of the sample mean gestation period for a sample of 1009 infants. The model is based on 5000 bootstrap replications under the null hypothesis that the average gestation period is 38 weeks.</figcaption>
+<div id="fig-teststat-null-mean" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of bootstrap statistics under the null hypothesis; the distribution is centered on 38 and ranges from 37.85 to 38.15.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-teststat-null-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-teststat-null-mean-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of bootstrap statistics under the null hypothesis; the distribution is centered on 38 and ranges from 37.85 to 38.15.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-teststat-null-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Model of the null distribution of the sample mean gestation period for a sample of 1009 infants. The model is based on 5000 bootstrap replications under the null hypothesis that the average gestation period is 38 weeks.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-teststat-null-mean">Figure&nbsp;<span>12.1</span></a> was constructed using the following procedure:</p>
+<p><a href="#fig-teststat-null-mean" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> was constructed using the following procedure:</p>
 <ol type="1">
 <li>Alter the sample to be representative of having come from a population in which the null hypothesis is true; in this case, the data was recentered to have a sample mean of 38.</li>
 <li>Randomly sample, with replacement, 1009 records from the altered original sample.</li>
 <li>For this bootstrap resample, compute the mean gestation period and retain this value.</li>
 <li>Repeat steps 2 and 3 many (say 5000) times.</li>
 </ol>
-<p>The resulting simulated data is illustrated in <a href="#tbl-teststat-bootstrap-mean">Table&nbsp;<span>12.1</span></a>. Each row represents the gestation periods for a single resample taken with replacement from the altered original data. The final column is the computed (and retained), sample mean from each resample. This is the bootstrap statistic <em>under the null hypothesis</em>.</p>
+<p>The resulting simulated data is illustrated in <a href="#tbl-teststat-bootstrap-mean" class="quarto-xref">Table&nbsp;<span>12.1</span></a>. Each row represents the gestation periods for a single resample taken with replacement from the altered original data. The final column is the computed (and retained), sample mean from each resample. This is the bootstrap statistic <em>under the null hypothesis</em>.</p>
 <div class="cell">
+<div id="tbl-teststat-bootstrap-mean" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-teststat-bootstrap-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12.1: Partial printout of first 10 bootstrap resamples under the null hypothesis and the resulting bootstrap statistic.
+</figcaption>
+<div aria-describedby="tbl-teststat-bootstrap-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-teststat-bootstrap-mean" class="anchored">
-<table class="table table-sm table-striped small">
-<caption>Table&nbsp;12.1: Partial printout of first 10 bootstrap resamples under the null hypothesis and the resulting bootstrap statistic.</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 17%">
-</colgroup>
+<div class="table-responsive">
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Value 1</th>
-<th style="text-align: right;">Value 2</th>
-<th style="text-align: right;">Value 3</th>
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Value 1007</th>
-<th style="text-align: right;">Value 1008</th>
-<th style="text-align: right;">Value 1009</th>
-<th style="text-align: right;">Boostrap Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 3</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 1007</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 1008</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value 1009</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Boostrap Mean</th>
 </tr>
 </thead>
 <tbody>
@@ -543,7 +582,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">39.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
@@ -553,7 +592,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">37.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">39.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">35.88503</td>
@@ -563,7 +602,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">37.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">39.88503</td>
@@ -573,7 +612,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">35.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">37.88503</td>
@@ -583,7 +622,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">40.88503</td>
@@ -593,7 +632,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">39.88503</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">36.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">37.88503</td>
@@ -603,7 +642,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">36.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">38.88503</td>
@@ -613,7 +652,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">35.88503</td>
 <td style="text-align: right;">39.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">38.88503</td>
 <td style="text-align: right;">37.88503</td>
@@ -623,7 +662,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">37.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">35.88503</td>
 <td style="text-align: right;">35.88503</td>
@@ -633,7 +672,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">39.88503</td>
 <td style="text-align: right;">37.88503</td>
 <td style="text-align: right;">35.88503</td>
-<td style="text-align: left;">…</td>
+<td style="text-align: left;">...</td>
 <td style="text-align: right;">36.88503</td>
 <td style="text-align: right;">35.88503</td>
 <td style="text-align: right;">36.88503</td>
@@ -642,6 +681,11 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
+
+
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>Notice that the null distribution is centered on 38; this is not an accident. Recall that sampling distributions are centered on the true value of the parameter; since a null distribution is just the sampling distribution of a statistic when the parameter is equal to the null value (in this case 38), the null distribution should be centered on the null value. That is, the null distribution is designed to be centered on the null value in the hypotheses. In order to determine if our sample is consistent with our expectations, we overlay our observed sample mean (<span class="math inline">\(\widehat{\theta} = 39.11\)</span>) on our model for the null distribution. Since this value is in the far right tail of the null distribution (off the edge of the graph in this case), our sample is <em>inconsistent</em> with the null distribution. This tells us that if the average gestation period of an infant was only 38 weeks, we would not have expected to observe a sample mean of <span class="math inline">\(\widehat{\theta} = 39.11\)</span> or higher in a sample of 1009 infants. Since our data is not consistent with our expectations, our study provides evidence that the population from which our sample was drawn has an average gestation period larger than 38 weeks.</p>
@@ -688,17 +732,21 @@ Note
 <p>That is, we are computing the total amount (summation) that the observed responses deviate (the squared difference) from the proposed mean of 38. For Model 1, the amount of variability can be quantified by</p>
 <p><span class="math display">\[SS_1 = \sum_{i=1}^{n} \left[(\text{Gestation Period})_i - \widehat{\theta}\right]^2\]</span></p>
 <p>where <span class="math inline">\(\widehat{\theta} = 39.11\)</span>, the observed sample mean. Here, we are computing the total amount (summation) that the observed responses deviate (the squared difference) from the “best” estimate for the unknown mean response. Since Model 1 does not place any constraints on the value of the parameter, we use our estimate from the sample.</p>
-<p>Notice that these sums of squared (SS) terms are similar to the definition of sample variance discussed in <a href="01f-summaries.html"><span>Chapter&nbsp;5</span></a>, without the scaling factor. The rationale for using these to assess predictive ability of the model will be further discussed in <a href="03h-regquality.html"><span>Chapter&nbsp;19</span></a>. Here, we simply note that they are measuring a distance the observed data is from a mean; the difference is whether that mean is unrestricted (and therefore estimated from the data, Model 1) or restricted under the null hypothesis (Model 0). If <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> were similar, then it would suggest that <span class="math inline">\(\widehat{\theta}\)</span> is close to the null value of 38, and <span class="math inline">\(\widehat{\theta}\)</span> differs from the null value only due to sampling variability, which would be in line with the null hypothesis. If, on the other hand, <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> differ substantially from one another, it suggests <span class="math inline">\(\widehat{\theta}\)</span> differs from the null value more than we would expect due to variability alone. That is, if <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> differ substantially from one another, it suggests that our data is not something we would expect to observe under the null hypothesis. Therefore, the difference in these two sums of squares gives us a measure of the signal in the data against the null hypothesis. The larger this difference, the stronger the signal.</p>
+<p>Notice that these sums of squared (SS) terms are similar to the definition of sample variance discussed in <a href="01f-summaries.html" class="quarto-xref"><span>Chapter 5</span></a>, without the scaling factor. The rationale for using these to assess predictive ability of the model will be further discussed in <a href="03h-regquality.html" class="quarto-xref"><span>Chapter 19</span></a>. Here, we simply note that they are measuring a distance the observed data is from a mean; the difference is whether that mean is unrestricted (and therefore estimated from the data, Model 1) or restricted under the null hypothesis (Model 0). If <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> were similar, then it would suggest that <span class="math inline">\(\widehat{\theta}\)</span> is close to the null value of 38, and <span class="math inline">\(\widehat{\theta}\)</span> differs from the null value only due to sampling variability, which would be in line with the null hypothesis. If, on the other hand, <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> differ substantially from one another, it suggests <span class="math inline">\(\widehat{\theta}\)</span> differs from the null value more than we would expect due to variability alone. That is, if <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> differ substantially from one another, it suggests that our data is not something we would expect to observe under the null hypothesis. Therefore, the difference in these two sums of squares gives us a measure of the signal in the data against the null hypothesis. The larger this difference, the stronger the signal.</p>
 <p>However, the same signal can be more difficult to detect (or discern) in the presence of a lot of background noise. Think about having a radio on in the background of a party, and suppose the radio is set to a specific volume. If there are not many people talking at the party, it is easy to hear the radio; the signal is strong relative to the background noise. However, if there are a lot of people talking at the party, the radio is difficult to hear <em>even though its volume hasn’t changed</em>; the signal is weak <em>relative</em> to the background noise. A signal is more difficult to locate if the background noise is elevated. The same principle holds in data analysis.</p>
-<p>Consider <a href="#fig-teststat-signal-to-noise">Figure&nbsp;<span>12.2</span></a>. Suppose we want to use each of these datasets (both containing a sample of size <span class="math inline">\(n = 20\)</span>) to test the hypotheses:</p>
+<p>Consider <a href="#fig-teststat-signal-to-noise" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>. Suppose we want to use each of these datasets (both containing a sample of size <span class="math inline">\(n = 20\)</span>) to test the hypotheses:</p>
 <p><span class="math display">\[H_0: \mu = 0 \qquad \text{vs.} \qquad H_1: \mu \neq 0\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is the population mean. Both datasets have <em>exactly</em> the same observed sample mean response (the black diamond in the figure). Therefore, it can be shown that the difference between <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> is exactly the same for both datasets. However, just visually, it should be clear that Dataset A provides stronger evidence against the null hypothesis than Dataset B; that is, Dataset A is more inconsistent with a mean of 0. The difference is the variability — the background noise.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-teststat-signal-to-noise" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-teststat-signal-to-noise-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two boxplots, each representing a different hypothetical dataset.  A diamond is placed on each distribution representing the sample mean; the diamond is at the same place for both datasets, but one boxplot exhibits less spread."></p>
-<figcaption class="figure-caption">Figure&nbsp;12.2: Illustration of the need to compare a signal to the noise in the data to assess its true strength.</figcaption>
+<div id="fig-teststat-signal-to-noise" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two boxplots, each representing a different hypothetical dataset.  A diamond is placed on each distribution representing the sample mean; the diamond is at the same place for both datasets, but one boxplot exhibits less spread.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-teststat-signal-to-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-teststat-signal-to-noise-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two boxplots, each representing a different hypothetical dataset.  A diamond is placed on each distribution representing the sample mean; the diamond is at the same place for both datasets, but one boxplot exhibits less spread.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-teststat-signal-to-noise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: Illustration of the need to compare a signal to the noise in the data to assess its true strength.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -709,7 +757,7 @@ Note
 <p><span class="math display">\[T^* = \frac{SS_0 - SS_1}{s^2} = 963.2\]</span></p>
 <p>for our example. Such signal to noise ratios are known as <strong>standardized statistics</strong>.</p>
 <div id="def-standardized-test-statistic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.1 (Standardized (Test) Statistic) </strong></span>Also, known as a test statistic, a standardized statistic is a ratio of the signal in the sample to the noise in the sample. The larger the standardized statistic, the stronger the evidence of a signal; said another way, the larger the standardized statistic, the stronger the evidence against the null hypothesis.</p>
+<p><span class="theorem-title"><strong>Definition 12.1 (Standardized (Test) Statistic)</strong></span> Also, known as a test statistic, a standardized statistic is a ratio of the signal in the sample to the noise in the sample. The larger the standardized statistic, the stronger the evidence of a signal; said another way, the larger the standardized statistic, the stronger the evidence against the null hypothesis.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -724,18 +772,22 @@ Note
 <p>A standardized statistic is often referred to as a “test statistic,” or a “standardized test statistic,” because they are heavily used in hypothesis testing.</p>
 </div>
 </div>
-<p>Of course, the natural question is “when does a standardized statistic become large enough?” Just as we constructed the null distribution for the observed sample mean in order to construct a distribution of our expectations under the null hypothesis, we can construct a null distribution of the standardized statistic to determine our expectations of this ratio under the null hypothesis. <a href="#fig-teststat-null">Figure&nbsp;<span>12.3</span></a> provides a model for the null distribution of our standardized statistic for the Birth Weight Case Study. This model for the null distribution is constructed in the same way we constructed the model for the null distribution of the sample mean except that instead of retaining the sample mean from each resample, we compute and retain the standardized statistic from each resample.</p>
+<p>Of course, the natural question is “when does a standardized statistic become large enough?” Just as we constructed the null distribution for the observed sample mean in order to construct a distribution of our expectations under the null hypothesis, we can construct a null distribution of the standardized statistic to determine our expectations of this ratio under the null hypothesis. <a href="#fig-teststat-null" class="quarto-xref">Figure&nbsp;<span>12.3</span></a> provides a model for the null distribution of our standardized statistic for the Birth Weight Case Study. This model for the null distribution is constructed in the same way we constructed the model for the null distribution of the sample mean except that instead of retaining the sample mean from each resample, we compute and retain the standardized statistic from each resample.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-teststat-null" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-teststat-null-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of standardized statistics from bootstrap resamples; the histogram is skewed toward the right."></p>
-<figcaption class="figure-caption">Figure&nbsp;12.3: Model of the null distribution of the standardized statistic for a sample of 1009 infants. The model is based on 5000 bootstrap replications under the null hypothesis that the average gestation period is 38 weeks.</figcaption>
+<div id="fig-teststat-null" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of standardized statistics from bootstrap resamples; the histogram is skewed toward the right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-teststat-null-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-teststat-null-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of standardized statistics from bootstrap resamples; the histogram is skewed toward the right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-teststat-null-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: Model of the null distribution of the standardized statistic for a sample of 1009 infants. The model is based on 5000 bootstrap replications under the null hypothesis that the average gestation period is 38 weeks.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Notice that using <a href="#fig-teststat-null">Figure&nbsp;<span>12.3</span></a> we reach the same conclusions as when we used <a href="#fig-teststat-null-mean">Figure&nbsp;<span>12.1</span></a>. In <a href="#fig-teststat-null">Figure&nbsp;<span>12.3</span></a>, we see that our observed standardized statistic of 963.2 is in the far right tail of the null distribution. Therefore, our data is inconsistent with the null hypothesis. That is, if the null hypothesis were true, it would be very unlikely to obtain a sample which produced a standardized statistic this extreme or more so due to sampling variability alone.</p>
+<p>Notice that using <a href="#fig-teststat-null" class="quarto-xref">Figure&nbsp;<span>12.3</span></a> we reach the same conclusions as when we used <a href="#fig-teststat-null-mean" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>. In <a href="#fig-teststat-null" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>, we see that our observed standardized statistic of 963.2 is in the far right tail of the null distribution. Therefore, our data is inconsistent with the null hypothesis. That is, if the null hypothesis were true, it would be very unlikely to obtain a sample which produced a standardized statistic this extreme or more so due to sampling variability alone.</p>
 <p>If our conclusions do not change, why the two different approaches? It turns out there is some theory that says bootstrapping standardized statistics tends to be a bit more stable computationally, and these standardized statistics are a bit easier to model analytically using probability theory (as we will later see). However, we introduce them because it again provides a nice overarching framework that unifies several of the approaches discussed in the text.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -751,8 +803,8 @@ Big Idea
 </div>
 </div>
 <p>Before moving on, we should note that there is not a unique standardized statistic. Other standardized statistics are often reported; for example, for hypothesis testing of a single mean response, the ratio</p>
-<p><span class="math display">\[\frac{\sqrt{n}\left(\widehat{\theta} - 38\right)}{s}\]</span></p>
-<p>is often reported.</p>
+<p><span class="math display">\[\frac{\sqrt{n}\left(\widehat{\theta} - \theta_0\right)}{s}\]</span></p>
+<p>is often reported, where <span class="math inline">\(\theta_0\)</span> is the value of the mean response assumed under the null hypothesis.</p>
 <p>It can be shown that many standardized statistics are related to one another (for example, the one given here is the square root of the standardized statistic reported previously). When the same conditions are applied to the data generating process, various standardized statistics yield the same conclusions. Again, we opt for the one described earlier because it will provide continuity in the text.</p>
 </section>
 <section id="computing-the-p-value" class="level2" data-number="12.2">
@@ -760,8 +812,8 @@ Big Idea
 <p>Now that we have a model for the null distribution of the standardized statistic, we can compute a p-value. The p-value is the probability of observing a sample as or more extreme due only to sampling variability. Our standardized statistic has the form</p>
 <p><span class="math display">\[T^* = \frac{SS_0 - SS_1}{s^2}\]</span></p>
 <p>If the sample were more extreme — that is, if it produced a larger signal — then we would expect the difference between <span class="math inline">\(SS_0\)</span> and <span class="math inline">\(SS_1\)</span> to be even larger. Therefore, larger values of the standardized statistic present stronger evidence against the null hypothesis. When looking at the null distribution of the standardized statistic, computing the p-value corresponds to computing the area to the right of the observed standardized statistic.</p>
-<p>Looking back at <a href="#fig-teststat-null">Figure&nbsp;<span>12.3</span></a>, our observed standardized statistic is not even on the graphic, meaning the p-value (the tail area) is essentially 0. The data therefore provides strong evidence that the average gestation period of infants born in North Carolina exceeds 38 weeks.</p>
-<p>As stated in <a href="01h-nulldistns.html"><span>Chapter&nbsp;7</span></a>, we should never report a p-value in isolation. We estimated the average gestation period of infants born in North Carolina to be 39.11 weeks. Our p-value tells us that we are able to statistically discern a difference between 39.11 and the 38 weeks from the null hypothesis. This ability to statistically discern this difference is in part due to the sample size of 1009 infants. To know whether this difference is meaningful, we would want to discuss the results with an obstetrician. However, informally, the increase of one week in the gestation period of an infant has a significant impact on both the health of the infant and the life of the mother (ask anyone who is 9 months pregnant!).</p>
+<p>Looking back at <a href="#fig-teststat-null" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>, our observed standardized statistic is not even on the graphic, meaning the p-value (the tail area) is essentially 0. The data therefore provides strong evidence that the average gestation period of infants born in North Carolina exceeds 38 weeks.</p>
+<p>As stated in <a href="01h-nulldistns.html" class="quarto-xref"><span>Chapter 7</span></a>, we should never report a p-value in isolation. We estimated the average gestation period of infants born in North Carolina to be 39.11 weeks. Our p-value tells us that we are able to statistically discern a difference between 39.11 and the 38 weeks from the null hypothesis. This ability to statistically discern this difference is in part due to the sample size of 1009 infants. To know whether this difference is meaningful, we would want to discuss the results with an obstetrician. However, informally, the increase of one week in the gestation period of an infant has a significant impact on both the health of the infant and the life of the mother (ask anyone who is 9 months pregnant!).</p>
 <p>Finally, we take this opportunity to remind you that our conclusion is only about the <em>average</em> gestation period of infants. We make no claim about how long any individual infant will be carried prior to labor.</p>
 
 
@@ -853,10 +905,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -866,8 +935,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -879,7 +957,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -923,6 +1124,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -948,6 +1150,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1009,17 +1237,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02d-confint.html" class="pagination-link">
+      <a href="./02d-confint.html" class="pagination-link" aria-label="Estimating with Confidence a Single Mean">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03a-regression.html" class="pagination-link">
+      <a href="./03a-regression.html" class="pagination-link" aria-label="Unit III: Modeling the Average Response as a Function of a Continuous Predictor">
         <span class="nav-page-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

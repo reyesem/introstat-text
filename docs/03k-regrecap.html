@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,17 +62,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -77,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03k-regrecap.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03k-regrecap.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -452,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -469,7 +504,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03k-regrecap.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-regrecap" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></span></h1>
 </div>
@@ -484,7 +519,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>For the Seismic Activity Case Study, consider the following question:</p>
 <blockquote class="blockquote">
@@ -493,13 +530,17 @@ ul.task-list li input[type="checkbox"] {
 <p>While we have touched on this question in previous chapters, we investigate this question more fully in this chapter.</p>
 <section id="graphical-summary" class="level2" data-number="22.1">
 <h2 data-number="22.1" class="anchored" data-anchor-id="graphical-summary"><span class="header-section-number">22.1</span> Graphical Summary</h2>
-<p>Before developing a statistical model to address our question, we summarize the data graphically. The question suggests the bracketed duration is the response variable and the epicentral distance is the predictor. <a href="#fig-regrecap-plot">Figure&nbsp;<span>22.1</span></a> illustrates the relationship between the bracketed duration and the epicentral distance. We note that the axis for the epicentral distance takes logarithmic steps to better illustrate the relationship. That is, moving from 1 to 10 kilometers has roughly the same effect as moving from 10 to 100 kilometers from the earthquake.</p>
+<p>Before developing a statistical model to address our question, we summarize the data graphically. The question suggests the bracketed duration is the response variable and the epicentral distance is the predictor. <a href="#fig-regrecap-plot" class="quarto-xref">Figure&nbsp;<span>22.1</span></a> illustrates the relationship between the bracketed duration and the epicentral distance. We note that the axis for the epicentral distance takes logarithmic steps to better illustrate the relationship. That is, moving from 1 to 10 kilometers has roughly the same effect as moving from 10 to 100 kilometers from the earthquake.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regrecap-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale."></p>
-<figcaption class="figure-caption">Figure&nbsp;22.1: Relationship between the bracketed duration and the distance from the epicenter of an earthquake for locations measuring seismic activity in Greece.</figcaption>
+<div id="fig-regrecap-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regrecap-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regrecap-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regrecap-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.1: Relationship between the bracketed duration and the distance from the epicenter of an earthquake for locations measuring seismic activity in Greece.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -507,7 +548,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="development-of-statistical-model" class="level2" data-number="22.2">
 <h2 data-number="22.2" class="anchored" data-anchor-id="development-of-statistical-model"><span class="header-section-number">22.2</span> Development of Statistical Model</h2>
-<p>In order to address our primary question of interest, we must develop a statistical model which explains the data generating process and embeds our question of interest in terms of the parameters of the model. Based on the question of interest, and our observations in the graphical exploration above, our model explaining the generation of the bracketed duration should depend on the epicentral distance. Further, this relationship should be on a logarithmic scale to account for the “stretched” scale in <a href="#fig-regrecap-plot">Figure&nbsp;<span>22.1</span></a>.</p>
+<p>In order to address our primary question of interest, we must develop a statistical model which explains the data generating process and embeds our question of interest in terms of the parameters of the model. Based on the question of interest, and our observations in the graphical exploration above, our model explaining the generation of the bracketed duration should depend on the epicentral distance. Further, this relationship should be on a logarithmic scale to account for the “stretched” scale in <a href="#fig-regrecap-plot" class="quarto-xref">Figure&nbsp;<span>22.1</span></a>.</p>
 <p>At first, it may seem that the logarithmic scale prevents our use of the “linear” model we discussed in this unit, but the model is flexible enough to accommodate this development. We propose the following model for the data generating process:</p>
 <p><span id="eq-regrecap-model"><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1 \log_{10}(\text{Epicentral Distance})_i + \varepsilon_i. \tag{22.1}\]</span></span></p>
 <p>Notice that instead of just the epicentral distance, our predictor is the base-10 logarithm of the epicentral distance. This transformed variable enters the model just as any other predictor. In addition to modeling the deterministic portion of the data generating process, we must also place conditions on the stochastic portion in order to make inference. We consider the conditions of the classical regression model:</p>
@@ -521,37 +562,49 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="assessment-of-conditions" class="level2" data-number="22.3">
 <h2 data-number="22.3" class="anchored" data-anchor-id="assessment-of-conditions"><span class="header-section-number">22.3</span> Assessment of Conditions</h2>
-<p>Before making inference regarding our question of interest, we should determine if our data is consistent with the conditions on the error term we have specified. <a href="#fig-regrecap-normality">Figure&nbsp;<span>22.2</span></a> is a probability plot of the residuals used to assess whether the data is consistent with the Normality condition.</p>
+<p>Before making inference regarding our question of interest, we should determine if our data is consistent with the conditions on the error term we have specified. <a href="#fig-regrecap-normality" class="quarto-xref">Figure&nbsp;<span>22.2</span></a> is a probability plot of the residuals used to assess whether the data is consistent with the Normality condition.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-normality" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regrecap-normality-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution."></p>
-<figcaption class="figure-caption">Figure&nbsp;22.2: Normal probability plot of the residuals corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.</figcaption>
+<div id="fig-regrecap-normality" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regrecap-normality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regrecap-normality-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regrecap-normality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.2: Normal probability plot of the residuals corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>The plot reveals some departure from the linear relationship we would expect if the errors followed a Normal distribution. It seems unreasonable to impose the Normality condition.</p>
-<p><a href="#fig-regrecap-indep">Figure&nbsp;<span>22.3</span></a> is a plot of the residuals for the observations in the order in which they were collected. Since the data was collected over time, this plot could reveal potential patterns among the residuals which suggest a departure from independence among the errors. As there are no trends in either the location or spread of the residuals, the data is consistent with the independence conditions.</p>
+<p><a href="#fig-regrecap-indep" class="quarto-xref">Figure&nbsp;<span>22.3</span></a> is a plot of the residuals for the observations in the order in which they were collected. Since the data was collected over time, this plot could reveal potential patterns among the residuals which suggest a departure from independence among the errors. As there are no trends in either the location or spread of the residuals, the data is consistent with the independence conditions.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-indep" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regrecap-indep-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time exhibiting no pattern in location or spread."></p>
-<figcaption class="figure-caption">Figure&nbsp;22.3: Time-series plot of the residuals corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.</figcaption>
+<div id="fig-regrecap-indep" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals over time exhibiting no pattern in location or spread.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regrecap-indep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regrecap-indep-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time exhibiting no pattern in location or spread.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regrecap-indep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.3: Time-series plot of the residuals corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-regrecap-mean0">Figure&nbsp;<span>22.4</span></a> is a plot of the residuals against the predicted values from the deterministic portion of the model. There are no obvious trends in the location of the residuals; that is, the residuals balance out around 0 for all predicted values. Therefore, we are willing to the data is consistent with the condition that the mean of the errors is 0 for each combination of the predictors. We note that while the points balance out around 0 (as indicated by a smoother that remains near 0), they tend to have a larger range on the positive side compared to the negative side; this relates back the observation we made earlier that the residuals do not behave like a sample from a Normal distribution.</p>
+<p><a href="#fig-regrecap-mean0" class="quarto-xref">Figure&nbsp;<span>22.4</span></a> is a plot of the residuals against the predicted values from the deterministic portion of the model. There are no obvious trends in the location of the residuals; that is, the residuals balance out around 0 for all predicted values. Therefore, we are willing to the data is consistent with the condition that the mean of the errors is 0 for each combination of the predictors. We note that while the points balance out around 0 (as indicated by a smoother that remains near 0), they tend to have a larger range on the positive side compared to the negative side; this relates back the observation we made earlier that the residuals do not behave like a sample from a Normal distribution.</p>
 <p>We also note that the spread of the residuals is larger on the right side of the graphic compared to the left side. As the predicted values increase, the spread of the residuals also increases. This suggests that for larger bracketed durations, the model is not as precise. Therefore, we are not willing to impose the constant variance condition.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-mean0" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regrecap-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic."></p>
-<figcaption class="figure-caption">Figure&nbsp;22.4: Plot of the residuals against the predicted values corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.</figcaption>
+<div id="fig-regrecap-mean0" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regrecap-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regrecap-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regrecap-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.4: Plot of the residuals against the predicted values corresponding to a model for the bracketed duration of seismic events in Greece as a function of the epicentral distance.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -565,13 +618,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="summary-of-model-fit" class="level2" data-number="22.4">
 <h2 data-number="22.4" class="anchored" data-anchor-id="summary-of-model-fit"><span class="header-section-number">22.4</span> Summary of Model Fit</h2>
-<p>The parameters in our model are estimated via the method of least squares. The variability in these estimates is quantified using an empirical model of the sampling distribution based on 5000 bootstrap replications. <a href="#tbl-regrecap-model-fit">Table&nbsp;<span>22.1</span></a> summarizes the estimates for the parameters in <a href="#eq-regrecap-model">Equation&nbsp;<span>22.1</span></a>.</p>
+<p>The parameters in our model are estimated via the method of least squares. The variability in these estimates is quantified using an empirical model of the sampling distribution based on 5000 bootstrap replications. <a href="#tbl-regrecap-model-fit" class="quarto-xref">Table&nbsp;<span>22.1</span></a> summarizes the estimates for the parameters in <a href="#eq-regrecap-model" class="quarto-xref">Equation&nbsp;<span>22.1</span></a>.</p>
 <div class="cell">
+<div id="tbl-regrecap-model-fit" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regrecap-model-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;22.1: Summary of the model characterizing the bracketed duration of seismic events in Greece as a function of the epicentral distance.
+</figcaption>
+<div aria-describedby="tbl-regrecap-model-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-regrecap-model-fit" class="anchored">
 <div class="table-responsive">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>Table&nbsp;22.1: Summary of the model characterizing the bracketed duration of seismic events in Greece as a function of the epicentral distance.</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
@@ -599,18 +656,24 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
-</div>
 
 
 </div>
 </div>
-<p>The results suggests that for each 10-fold increase in the number of kilometers a location is from the epicenter of an earthquake (1-unit increase in the base-10 logarithm), the bracketed duration increases between 0.347 and 4.248 seconds, on average. This result is counter-intuitive; it suggests that the further a location is from an earthquake, the longer it is subjected to major ground motion. First, remember that this is data from an observational study; so, the result is not suggesting a causal relationship. Indeed, confounding is playing a role here. <a href="#fig-regrecap-multivariable">Figure&nbsp;<span>22.5</span></a> examines the relationship between the bracketed duration and the epicentral distance in addition to the magnitude of the earthquake and the soil conditions of the location. While it is somewhat difficult to see, note that earthquakes with the largest magnitudes also tended to be recorded further away. While we would need to confirm with a discipline expert, it suggests that the major fault line is approximately 100 kilometers away from the Greek observation stations. As a result, the recording locations in the study experienced the largest amount of major motion when these large quakes occurred. A more robust analysis using the general form of the linear regression model of the previous chapter would reveal that after accounting for these additional terms, the data is consistent with decreases in the bracketed durations, on average, for locations further from the center of an earthquake.</p>
+</figure>
+</div>
+</div>
+<p>The results suggests that for each 10-fold increase in the number of kilometers a location is from the epicenter of an earthquake (1-unit increase in the base-10 logarithm), the bracketed duration increases between 0.347 and 4.248 seconds, on average. This result is counter-intuitive; it suggests that the further a location is from an earthquake, the longer it is subjected to major ground motion. First, remember that this is data from an observational study; so, the result is not suggesting a causal relationship. Indeed, confounding is playing a role here. <a href="#fig-regrecap-multivariable" class="quarto-xref">Figure&nbsp;<span>22.5</span></a> examines the relationship between the bracketed duration and the epicentral distance in addition to the magnitude of the earthquake and the soil conditions of the location. While it is somewhat difficult to see, note that earthquakes with the largest magnitudes also tended to be recorded further away. While we would need to confirm with a discipline expert, it suggests that the major fault line is approximately 100 kilometers away from the Greek observation stations. As a result, the recording locations in the study experienced the largest amount of major motion when these large quakes occurred. A more robust analysis using the general form of the linear regression model of the previous chapter would reveal that after accounting for these additional terms, the data is consistent with decreases in the bracketed durations, on average, for locations further from the center of an earthquake.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-multivariable" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-regrecap-multivariable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type."></p>
-<figcaption class="figure-caption">Figure&nbsp;22.5: Relationship between the bracketed duration and the distance from the epicenter of an earthquake for locations measuring seismic activity in Greece. The relationship is presented for various soil types.</figcaption>
+<div id="fig-regrecap-multivariable" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regrecap-multivariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-regrecap-multivariable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regrecap-multivariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.5: Relationship between the bracketed duration and the distance from the epicenter of an earthquake for locations measuring seismic activity in Greece. The relationship is presented for various soil types.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -700,10 +763,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -713,8 +793,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -726,7 +815,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -770,6 +982,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -795,6 +1008,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -856,17 +1095,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03j-regextensions.html" class="pagination-link">
+      <a href="./03j-regextensions.html" class="pagination-link" aria-label="Extending the Regression Model">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04a-anova.html" class="pagination-link">
+      <a href="./04a-anova.html" class="pagination-link" aria-label="Unit IV: Comparing the Average Response Across Groups">
         <span class="nav-page-text">Unit IV: Comparing the Average Response Across Groups</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

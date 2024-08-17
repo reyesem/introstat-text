@@ -203,9 +203,9 @@ Quantifying evidence to compare two models for the data generating process can b
 
 Before moving on, we should note that there is not a unique standardized statistic.  Other standardized statistics are often reported; for example, for hypothesis testing of a single mean response, the ratio
 
-$$\frac{\sqrt{n}\left(\widehat{\theta} - 38\right)}{s}$$
+$$\frac{\sqrt{n}\left(\widehat{\theta} - \theta_0\right)}{s}$$
 
-is often reported.
+is often reported, where $\theta_0$ is the value of the mean response assumed under the null hypothesis.
 
 It can be shown that many standardized statistics are related to one another (for example, the one given here is the square root of the standardized statistic reported previously).  When the same conditions are applied to the data generating process, various standardized statistics yield the same conclusions.  Again, we opt for the one described earlier because it will provide continuity in the text.
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -64,6 +71,33 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="mystyles.css">
 </head>
@@ -74,12 +108,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01h-nulldistns.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01h-nulldistns.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -89,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Modeling</a> 
         <div class="sidebar-tools-main">
-    <a href="./ma223-text.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ma223-text.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -449,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -467,7 +501,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01h-nulldistns.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-nulldistns" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quantifying the Evidence (Rejecting Bad Models)</span></span></h1>
 </div>
@@ -482,15 +516,17 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>Again, the goal of statistical inference is to use the sample as a snapshot of the underlying population (<a href="01b-basics.html#fig-basics-statistical-process">Figure&nbsp;<span>1.2</span></a>). Recall that there are essentially two categories of questions we ask when trying to perform inference:</p>
+
+<p>Again, the goal of statistical inference is to use the sample as a snapshot of the underlying population (<a href="01b-basics.html#fig-basics-statistical-process" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>). Recall that there are essentially two categories of questions we ask when trying to perform inference:</p>
 <ul>
 <li>Estimation: for example, what <em>proportion</em> of volunteers who clean wildlife following an oil spill experience adverse respiratory symptoms?</li>
 <li>Hypothesis Testing: is it reasonable no more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms; or, is there evidence more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?</li>
 </ul>
-<p>In <a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a>, we addressed these questions through the use of confidence intervals — by specifying reasonable values of the parameters through a model of the sampling distribution. However, when our goal is testing a specific hypothesis, there is a second approach; this latter approach is useful when the research question involves multiple parameters and creating a confidence interval is challenging (see Unit III).</p>
-<p>In <a href="01d-questions.html"><span>Chapter&nbsp;3</span></a>, we described hypothesis testing as being similar to performing a trial in a course of law. Once the prosecution and defense have each presented their case, the jury deliberates and makes one of two decisions:</p>
+<p>In <a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a>, we addressed these questions through the use of confidence intervals — by specifying reasonable values of the parameters through a model of the sampling distribution. However, when our goal is testing a specific hypothesis, there is a second approach; this latter approach is useful when the research question involves multiple parameters and creating a confidence interval is challenging (see Unit III).</p>
+<p>In <a href="01d-questions.html" class="quarto-xref"><span>Chapter 3</span></a>, we described hypothesis testing as being similar to performing a trial in a course of law. Once the prosecution and defense have each presented their case, the jury deliberates and makes one of two decisions:</p>
 <ol type="1">
 <li>Vote “guilty.” This happens when the jury believes the facts of the case are not consistent with an innocent defendant; therefore, the prosecution has convinced the jury (“beyond reasonable doubt”) that their initial assumption of innocence is not warranted.</li>
 <li>Vote “not guilty.” This happens when the jury believes the facts of the case are consistent with an innocent defendant; that is, while the prosecution presented a case that may have been consistent with a guilty defendant, it is still “reasonable” that the defendant is innocent. That is, the prosecution has not convinced the jury that their initial assumption of innocence is unwarranted.</li>
@@ -500,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.1" class="anchored" data-anchor-id="some-subtleties"><span class="header-section-number">7.1</span> Some Subtleties</h2>
 <p>We have described hypothesis testing as being similar to a U.S. trial. That analogy is also helpful in pointing out some subtleties in how we interpret our results. We take a moment to discuss those subtleties before discussing the process itself in order to avoid erroneous interpretations.</p>
 <p>The jury weighs the case <em>under the assumption of innocence</em>. That is, they first develop a working hypothesis (the defendant is innocent). Then, the likelihood of the case against the defendant <em>under this assumption</em> is determined. For example, if a defendant were innocent of murder, it is unlikely to have five eye witnesses stating the defendant was seen standing over the victim, holding the murder weapon, and screaming “I killed him!” Since that case against the defendant does not jive with innocence, the jury convicts. If, however, the only case presented is that five eye witnesses place the defendant in the same city as the victim and the defendant matches the description of someone seen fleeing the crime scene, then the jury would not convict. Why? Because the case presented, while pointing toward guilt, is not overwhelming; these things could have happened by chance alone. Therefore, the case, while <em>consistent</em> with guilt does not provide <em>evidence</em> for guilt.</p>
-<p>As in <a href="01g-samplingdistns.html"><span>Chapter&nbsp;6</span></a>, we are making a distinction between “evidence for” a hypothesis and the data being “consistent with” a hypothesis. Evidence for a particular claim is only established by providing evidence against the opposite statement. However, consistency can be established without disqualifying any other statement; that is, data can be consistent with two opposing claims, but data cannot provide evidence for two opposing claims.</p>
+<p>As in <a href="01g-samplingdistns.html" class="quarto-xref"><span>Chapter 6</span></a>, we are making a distinction between “evidence for” a hypothesis and the data being “consistent with” a hypothesis. Evidence for a particular claim is only established by providing evidence against the opposite statement. However, consistency can be established without disqualifying any other statement; that is, data can be consistent with two opposing claims, but data cannot provide evidence for two opposing claims.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -532,11 +568,11 @@ Big Idea
 </section>
 <section id="assuming-the-null-hypothesis" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="assuming-the-null-hypothesis"><span class="header-section-number">7.2</span> Assuming the Null Hypothesis</h2>
-<p>Consider the question we have been asking regarding the Deepwater Horizon Case Study discussed in <a href="01c-casedeepwater.html"><span>Chapter&nbsp;2</span></a>:</p>
+<p>Consider the question we have been asking regarding the Deepwater Horizon Case Study discussed in <a href="01c-casedeepwater.html" class="quarto-xref"><span>Chapter 2</span></a>:</p>
 <blockquote class="blockquote">
 <p>Is there evidence that more than 1 in 5 volunteers assigned to clean wildlife develop adverse respiratory conditions?</p>
 </blockquote>
-<p>Remember, we framed this question through statements about a parameter in <a href="01d-questions.html"><span>Chapter&nbsp;3</span></a>:</p>
+<p>Remember, we framed this question through statements about a parameter in <a href="01d-questions.html" class="quarto-xref"><span>Chapter 3</span></a>:</p>
 <blockquote class="blockquote">
 <p><span class="math inline">\(H_0:\)</span> the proportion of volunteers assigned to clean wildlife that develop adverse respiratory symptoms is no more than 0.20.<br>
 <span class="math inline">\(H_1:\)</span> the proportion of volunteers assigned to clean wildlife that develop adverse respiratory symptoms exceeds 0.20.</p>
@@ -545,9 +581,9 @@ Big Idea
 <p>As we discussed in the previous chapter, we expect our estimate to vary to some degree from one sample to another. Essentially, we need to know if 27.8% of volunteers experiencing symptoms is a strong signal that the rate within the population is larger than 0.2 (1 in 5) or whether 27.8% is simply a fluke that might happen due to sampling variability. While we are going to be attacking the question differently in this chapter than the previous, we see that the key is still variability in the estimate. That is, we are back to the <em>Fourth Fundamental Idea of Inference</em>. As stated above, in order to determine evidence for one statement (captured by the alternative hypothesis), we begin by assuming the opposite statement (captured by the null hypothesis) as our working assumption. That is, if we want to know if 27.8% of volunteers experiencing adverse symptoms is “evidence,” we need to figure out what we <em>expect</em> to happen <em>if only 1 in 5 volunteers actually develop adverse respiratory symptoms</em> (the statement represented by the equality portion of the null hypothesis).</p>
 <p>Consider this last statement. It is equivalent to saying “what type of actions would we expect of an innocent person?” Only when we know what to expect can we determine if the case in front of us is extreme enough to convict. Only when we know what to expect can we determine if the observed sample provides <em>evidence</em> in favor of the alternative. Our strategy is to enter a fake world…a world in which exactly 1 in 5 volunteers actually develop respiratory symptoms. That is, we enter a world in which the null hypothesis is true. Now, in this world, how do we know what to expect? We construct the sampling distribution for the proportion under this assumption that the null hypothesis is true; this is known as the <strong>null distribution</strong>.</p>
 <div id="def-null-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7.1 (Null Distribution) </strong></span>The sampling distribution of a statistic <em>when</em> the null hypothesis is true.</p>
+<p><span class="theorem-title"><strong>Definition 7.1 (Null Distribution)</strong></span> The sampling distribution of a statistic <em>when</em> the null hypothesis is true.</p>
 </div>
-<p>The null distribution, the last in our <em>Distributional Quartet</em>, is a sampling distribution; it is just a sampling distribution for a world in which the null hypothesis is true. As a result, the process for constructing the null distribution is very similar to the process for constructing the sampling distribution (illustrated in <a href="#fig-nulldistns-null-distribution">Figure&nbsp;<span>7.1</span></a>):</p>
+<p>The null distribution, the last in our <em>Distributional Quartet</em>, is a sampling distribution; it is just a sampling distribution for a world in which the null hypothesis is true. As a result, the process for constructing the null distribution is very similar to the process for constructing the sampling distribution (illustrated in <a href="#fig-nulldistns-null-distribution" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>):</p>
 <ol type="1">
 <li>Sample randomly from a fake population where the null hypothesis is true.</li>
 <li>For each sample, compute the statistic of interest.</li>
@@ -556,10 +592,14 @@ Big Idea
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nulldistns-null-distribution" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/NullDistns-Null-Distribution.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A blue blob indicates the null world; several arrows extend from the null world to green blobs, each indicating a sample from the null world."></p>
-<figcaption class="figure-caption">Figure&nbsp;7.1: Illustration of constructing a null distribution. Notice the similarity to constructing the sampling distributon.</figcaption>
+<div id="fig-nulldistns-null-distribution" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A blue blob indicates the null world; several arrows extend from the null world to green blobs, each indicating a sample from the null world.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistns-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/NullDistns-Null-Distribution.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A blue blob indicates the null world; several arrows extend from the null world to green blobs, each indicating a sample from the null world.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistns-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Illustration of constructing a null distribution. Notice the similarity to constructing the sampling distributon.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -567,7 +607,7 @@ Big Idea
 <p>Notice that these are the same steps as constructing a sampling distribution with the exception that instead of sampling from the population of interest, we sample from a hypothetical population in which the null distribution is true.</p>
 <p>Since the null distribution is a sampling distribution when a particular hypothesis is true, we are constrained by the same limitations as before. Namely, we are generally unable to construct the actual the null distribution; instead, we must construct a model for it. More, since the null distribution is a sampling distribution, the same techniques we use for modeling the sampling distribution can be modified to model the null distribution. The key is to enforce the null hypothesis to be true. As with sampling distributions, we emphasize the empirical model approach.</p>
 <p>Using the computer, we first create a virtual world in which the null hypothesis is true. This often involves adjusting the original sample in order to make it consistent with having been drawn from a population in which the null hypothesis were true. The augmented data becomes the null world. We are then able to bootstrap from the augmented data to simulate repeated sampling when the null hypothesis is true. The details of this procedure are beyond the scope of our current discussion; it is more important to understand the conceptual idea of a null distribution at this point.</p>
-<p><a href="#fig-nulldistns-deepwater-null">Figure&nbsp;<span>7.2</span></a> represents a model for the null distribution of the proportion of volunteers in a sample of 54 assigned to clean wildlife which would develop adverse symptoms when the we assume the actual proportion is 0.20.</p>
+<p><a href="#fig-nulldistns-deepwater-null" class="quarto-xref">Figure&nbsp;<span>7.2</span></a> represents a model for the null distribution of the proportion of volunteers in a sample of 54 assigned to clean wildlife which would develop adverse symptoms when the we assume the actual proportion is 0.20.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,31 +623,39 @@ Note
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nulldistns-deepwater-null" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-nulldistns-deepwater-null-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers experiencing adverse symtoms with a peak at the null value of 0.20."></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Null distribution for the proportion of volunteers assigned to clean wildlife experiencing adverse respiratory symptoms. The null hypothesis is that the proportion is 0.20; this model is based on a sample size of 54.</figcaption>
+<div id="fig-nulldistns-deepwater-null" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 54 volunteers experiencing adverse symtoms with a peak at the null value of 0.20.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistns-deepwater-null-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-nulldistns-deepwater-null-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers experiencing adverse symtoms with a peak at the null value of 0.20.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistns-deepwater-null-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Null distribution for the proportion of volunteers assigned to clean wildlife experiencing adverse respiratory symptoms. The null hypothesis is that the proportion is 0.20; this model is based on a sample size of 54.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As we are introducing the concept of a null distribution, we will stick to modeling the null distribution of a statistic. Often times in a statistical analysis, the null distribution is computed for a numerical quantity known as a standardized statistic (see <a href="02e-teststat.html"><span>Chapter&nbsp;12</span></a>).</p>
+<p>As we are introducing the concept of a null distribution, we will stick to modeling the null distribution of a statistic. Often times in a statistical analysis, the null distribution is computed for a numerical quantity known as a standardized statistic (see <a href="02e-teststat.html" class="quarto-xref"><span>Chapter 12</span></a>).</p>
 </section>
 <section id="using-the-null-distribution" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="using-the-null-distribution"><span class="header-section-number">7.3</span> Using the Null Distribution</h2>
-<p>From <a href="#fig-nulldistns-deepwater-null">Figure&nbsp;<span>7.2</span></a>, we see that <em>if the null hypothesis were true</em> — if only 1 in 5 volunteers assigned to clean wildlife experienced symptoms — then in a sample of 54 individuals, we would expect the proportion who experienced symptoms to be somewhere between 0.1 and 0.3. So, we can think of the null distribution as setting up our expectations of what we should have observed <em>if the null hypothesis were true</em>. For example, <em>if the null hypothesis were true</em>, it would be nearly impossible that half of the individuals experienced symptoms. We are able to say that since 0.5 is way off in the tail region of the distribution, and we know that values in the tail region are more extreme. The question is then how extreme is <em>our</em> sample? Again, the null distribution is just setting up expectations; to determine if our sample provides evidence against the null hypothesis, we have to weigh the data against those expectations.</p>
-<p>In our sample, we observed 27.8% of volunteers experience symptoms. Since 0.278 is towards the center of the distribution, we would say that it is not an extreme sample. In order to quantify how extreme (or not extreme) it is, we compute the fraction of values which are more extreme (larger in this case) than the value observed; that is, we compute the fraction of values that appear further to the right than 0.278 in the null distribution. <a href="#fig-nulldistns-deepwater-pvalue">Figure&nbsp;<span>7.3</span></a> illustrates this computation. Based on the null distribution, there is a 10.6% chance that <em>if the null hypothesis were true</em> — only 1 in 5 volunteers actually experienced symptoms — that in a random sample of 54 volunteers we would obtain data this extreme or more so (an observed proportion of 0.278 or larger) by chance alone (due to sampling variability). This area is known as the <strong>p-value</strong>.</p>
+<p>From <a href="#fig-nulldistns-deepwater-null" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, we see that <em>if the null hypothesis were true</em> — if only 1 in 5 volunteers assigned to clean wildlife experienced symptoms — then in a sample of 54 individuals, we would expect the proportion who experienced symptoms to be somewhere between 0.1 and 0.3. So, we can think of the null distribution as setting up our expectations of what we should have observed <em>if the null hypothesis were true</em>. For example, <em>if the null hypothesis were true</em>, it would be nearly impossible that half of the individuals experienced symptoms. We are able to say that since 0.5 is way off in the tail region of the distribution, and we know that values in the tail region are more extreme. The question is then how extreme is <em>our</em> sample? Again, the null distribution is just setting up expectations; to determine if our sample provides evidence against the null hypothesis, we have to weigh the data against those expectations.</p>
+<p>In our sample, we observed 27.8% of volunteers experience symptoms. Since 0.278 is towards the center of the distribution, we would say that it is not an extreme sample. In order to quantify how extreme (or not extreme) it is, we compute the fraction of values which are more extreme (larger in this case) than the value observed; that is, we compute the fraction of values that appear further to the right than 0.278 in the null distribution. <a href="#fig-nulldistns-deepwater-pvalue" class="quarto-xref">Figure&nbsp;<span>7.3</span></a> illustrates this computation. Based on the null distribution, there is a 10.6% chance that <em>if the null hypothesis were true</em> — only 1 in 5 volunteers actually experienced symptoms — that in a random sample of 54 volunteers we would obtain data this extreme or more so (an observed proportion of 0.278 or larger) by chance alone (due to sampling variability). This area is known as the <strong>p-value</strong>.</p>
 <p>Essentially, this tail area is quantifying the strength of the evidence. The smaller this area, the further in the tail region our observed statistic is; that is, the smaller this area, the more unexpected our data. Therefore, small areas indicate that the data (our case) does not jive with our expectations under the null hypothesis (innocence), forcing us to conclude the data provides <em>evidence against</em> the null hypothesis (guilty verdict). On the other hand, the larger this area, the closer toward the center our observed statistic is; that is, the larger this area, the less unexpected our data. Therefore, large areas indicate that the data (our case) is consistent with our expectations under the null hypothesis (innocence), forcing us to conclude the data is <em>consistent with</em> the null hypothesis (not guilty verdict).</p>
 <div id="def-pvalue" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7.2 (P-Value) </strong></span>The probability, assuming the null hypothesis is true, that we would observe a statistic, from sampling variability alone, as extreme or more so as that observed in our sample. The p-value quantifies the strength of evidence against the null hypothesis, with smaller values indicating stronger evidence.</p>
+<p><span class="theorem-title"><strong>Definition 7.2 (P-Value)</strong></span> The probability, assuming the null hypothesis is true, that we would observe a statistic, from sampling variability alone, as extreme or more so as that observed in our sample. The p-value quantifies the strength of evidence against the null hypothesis, with smaller values indicating stronger evidence.</p>
 </div>
 <p>For the Deepwater Horizon Case Study, we observed 27.8%, which is towards the center of the null distribution, and our p-value is quite large. Therefore, our data is consistent with what we might expect if the null hypothesis were true, and we conclude that there is no evidence that the rate of those experiencing symptoms exceeds 1 in 5.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nulldistns-deepwater-pvalue" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/fig-nulldistns-deepwater-pvalue-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms; a vertical line and shading are added to denote the computation of the p-value."></p>
-<figcaption class="figure-caption">Figure&nbsp;7.3: Likelihood of obtaining a statistic as extreme or moreso as that of the original sample when the parameter of interest is the proportion of volunteers assigned to clean wildlife experiencing adverse respiratory symptoms. The null hypothesis is that the proportion is 0.20; this is based on a sample of size 54.</figcaption>
+<div id="fig-nulldistns-deepwater-pvalue" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms; a vertical line and shading are added to denote the computation of the p-value.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistns-deepwater-pvalue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/fig-nulldistns-deepwater-pvalue-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms; a vertical line and shading are added to denote the computation of the p-value.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistns-deepwater-pvalue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Likelihood of obtaining a statistic as extreme or moreso as that of the original sample when the parameter of interest is the proportion of volunteers assigned to clean wildlife experiencing adverse respiratory symptoms. The null hypothesis is that the proportion is 0.20; this is based on a sample of size 54.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -844,10 +892,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -857,8 +922,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -870,7 +944,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -914,6 +1111,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -939,6 +1137,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1000,17 +1224,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01g-samplingdistns.html" class="pagination-link">
+      <a href="./01g-samplingdistns.html" class="pagination-link" aria-label="Assessing the Evidence (Quantifying the Variability in Estimates)">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01i-recaplanguage.html" class="pagination-link">
+      <a href="./01i-recaplanguage.html" class="pagination-link" aria-label="Using the Tools Together">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Using the Tools Together</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

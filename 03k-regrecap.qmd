@@ -113,13 +113,13 @@ The parameters in our model are estimated via the method of least squares.  The 
 #| label: regrecap-bootstrap
 set.seed(201709)
 samp.distn <- estimate_parameters(fit.greece, confidence.level = 0.95,
-                                  assume.identically.distributed = FALSE,
+                                  assume.constant.variance = FALSE,
                                   assume.normality = FALSE)
 
 fit.greece.h0 <- lm(BD02 ~ 1, data = greece.df)
 
 null.distn <- compare_models(fit.greece, fit.greece.h0,
-                             assume.identically.distributed = FALSE,
+                             assume.constant.variance = FALSE,
                              assume.normality = FALSE)
 ```
 
