@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 20&nbsp; Assessing the Modeling Conditions</title>
+<title>20&nbsp; Assessing the Modeling Conditions – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -108,13 +108,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03i-regassessment.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assessing the Modeling Conditions</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,7 +154,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -213,7 +213,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -248,7 +248,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -319,7 +319,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -384,7 +384,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -453,9 +453,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -566,7 +566,7 @@ Big Idea
 <p>It is tempting to read this condition and believe that a rational way to assess this condition is to determine if the average of the residuals is 0. However, while the difference is subtle, the condition is <em>not</em> that the average error is 0; the condition is that the average error is 0 for <em>all values of the predictor</em>. It would seem we need to determine if, for each value of the predictor possible, if the residuals average to 0. This is infeasible numerically because we do not generally have multiple responses for each value of the predictor. We can, however, assess whether the data is consistent with this condition graphically. That is, in order to assess this condition, we need to graphically assess how the average behaves over a range of predictor values. We capture this by looking at the <em>predicted (or fitted) values</em>. <a href="#fig-regassessment-mean0" class="quarto-xref">Figure&nbsp;<span>20.1</span></a> shows the relationship between the residuals and the associated predicted values for the observations in the data set.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-mean0" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends.">
+<div id="fig-regassessment-mean0" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals and predicted values; two wide vertical regions are shaded in green.  These &quot;windows&quot; help to examine trends.">
@@ -626,7 +626,7 @@ Graphically Assessing the Independence Condition
 <p><a href="#fig-regassessment-independence-violations" class="quarto-xref">Figure&nbsp;<span>20.2</span></a> shows two hypothetical datasets. In Panel A, the residuals display a trend in the location over time. Knowing that a response was below average suggests the next response will also be below average. In Panel B, the results display a trend in the spread over time. This suggests that measurements taken later in the study were less precise. Both panels are examples of patterns which would suggest the data is not consistent with the condition of independence.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence-violations" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right.">
+<div id="fig-regassessment-independence-violations" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-independence-violations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-independence-violations-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two line plots are shown of the residuals over time; in the first, the line plot is increasing left to right, and in the second, the line plot becomes more variable from left to right.">
@@ -641,7 +641,7 @@ Figure&nbsp;20.2: Examples of trends in a time-series plot of the residuals. Suc
 <p>Instead, if the data were consistent with the condition of independence on the error terms, we would expect to see a plot similar to <a href="#fig-regassessment-independence-reasonable" class="quarto-xref">Figure&nbsp;<span>20.3</span></a>. Notice there are no trends in the location or spread of the residuals.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence-reasonable" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals over time; there are no trends in the location or spread.">
+<div id="fig-regassessment-independence-reasonable" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot of residuals over time; there are no trends in the location or spread.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-independence-reasonable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-independence-reasonable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time; there are no trends in the location or spread.">
@@ -656,7 +656,7 @@ Figure&nbsp;20.3: Example of a time-series plot of residuals which shows no tren
 <p>For the Seismic Activity Case Study, the data was actually collected over time as earthquakes occurred. More, as technology has changed over time, it is reasonable to fear that the errors in our observations are related over time. In order to assess this, consider the time-series plot of the residuals from our model for the data generating process in which the bracketed duration is modeled as a linear function of the magnitude of the earthquake (<a href="#fig-regassessment-independence" class="quarto-xref">Figure&nbsp;<span>20.4</span></a>). Based on the figure, there are no clear trends in either the <em>location</em> or <em>spread</em> of the residuals over time (the figure resembles noise with no patterns). As a result, it is reasonable to assume the data is consistent with the errors being independent of one another.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-independence" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals against time; no clear trends in the location or spread are visible.">
+<div id="fig-regassessment-independence" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot of residuals against time; no clear trends in the location or spread are visible.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-independence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-independence-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals against time; no clear trends in the location or spread are visible.">
@@ -719,7 +719,7 @@ Graphically Assessing the Normality Condition
 <p><a href="#fig-regassessment-normal" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> shows the Normal probability plot of the residuals from our model for the data generating process of the bracketed duration.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-normal" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution.">
+<div id="fig-regassessment-normal" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A scatterplot of residuals against the theoretical quantiles we would expect if the residuals were drawn from a Normal distribution.">
@@ -736,7 +736,7 @@ Figure&nbsp;20.5: Probability plot of the residuals for a model predicting brack
 <p>For comparison, <a href="#fig-regassessment-normal-comparison" class="quarto-xref">Figure&nbsp;<span>20.6</span></a> illustrates a hypothetical dataset for which the residuals suggest the Normality condition of the errors is unreasonable as well as an example of when the residuals are consistent with the Normality condition on the errors.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regassessment-normal-comparison" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line.">
+<div id="fig-regassessment-normal-comparison" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regassessment-normal-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regassessment-normal-comparison-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two scatterplots of the sample quantiles against the theoretical quantiles are given; in Panel A, there is clear curvature, and in Panel B, the points form a relatively straight line.">
@@ -809,18 +809,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -852,7 +841,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -860,7 +871,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

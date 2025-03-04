@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 16&nbsp; Summarizing Multivariable Data</title>
+<title>16&nbsp; Summarizing Multivariable Data – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -108,13 +108,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03e-regsummaries.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarizing Multivariable Data</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,7 +154,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -213,7 +213,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -248,7 +248,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -319,7 +319,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -384,7 +384,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -453,9 +453,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -533,7 +533,7 @@ window.Quarto = {
 <p>This question is about the overall (marginal) relationship between these two quantitative variables. Graphically, we can examine the relationship between these two variables using a <em>scatter plot</em>. The response is placed on the y-axis and the predictor along the x-axis. <a href="#fig-regsummaries-magnitude" class="quarto-xref">Figure&nbsp;<span>16.1</span></a> illustrates the relationship between the bracketed duration at a location and the magnitude of the corresponding earthquake.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regsummaries-magnitude" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the magnitude of earthquakes in Greece showing a slight upward trend; two points have been highlighted in blue.">
+<div id="fig-regsummaries-magnitude" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the magnitude of earthquakes in Greece showing a slight upward trend; two points have been highlighted in blue.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regsummaries-magnitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regsummaries-magnitude-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude of earthquakes in Greece showing a slight upward trend; two points have been highlighted in blue.">
@@ -549,7 +549,7 @@ Figure&nbsp;16.1: Relationship between the bracketed duration at a location in G
 <p>A nice visual tool when exploring the relationship between two quantitative variables is a <em>smoothing spline</em>. The details of its construction are beyond the scope of this text, but we can think of it as representing where the average observed response is located for a particular value of the predictor; when computing the average response, information is borrowed form nearby points smoothing out the relationship (hence the name). We do want to point out that this is an exploratory device; we should be cautious about over-emphasizing relationships we observe from the smoother. <a href="#fig-regsummaries-spline" class="quarto-xref">Figure&nbsp;<span>16.2</span></a> illustrates a smoother relating the length of the bracketed duration with the magnitude of the earthquake. The addition of the spline confirms what we had previously stated about the relationship appearing fairly linear (as the magnitude of the earthquake increases so does the bracketed duration at a location). In addition to the spline, there is a confidence band (generalization of a confidence interval) around the line in order to convey the variability in the estimated smoother.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regsummaries-spline" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the magnitude of the earthquake; a smoothing spline has been overlayed.">
+<div id="fig-regsummaries-spline" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the magnitude of the earthquake; a smoothing spline has been overlayed.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regsummaries-spline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regsummaries-spline-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude of the earthquake; a smoothing spline has been overlayed.">
@@ -564,7 +564,7 @@ Figure&nbsp;16.2: Illustrating the use of a smoothing spline to explore the rela
 <p>As we have seen, supplementing graphical summaries with numerical summaries can help convey our message. As an example, <a href="#fig-regsummaries-spline" class="quarto-xref">Figure&nbsp;<span>16.2</span></a> suggests there is a positive, linear relationship between the bracketed duration and the magnitude of the corresponding earthquake. But, can we quantify that relationship? Consider <a href="#fig-regsummaries-correlation" class="quarto-xref">Figure&nbsp;<span>16.3</span></a>, which consists of two hypothetical datasets. Both datasets illustrated exhibit a positive, linear relationship between the response and predictor; however, that relationship is much stronger (or more apparent) for Dataset A compared to Dataset B. It would be nice to have a numeric summary which captured this; such a metric is known as the <strong>correlation coefficient</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regsummaries-correlation" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two scatterplots corresponding to hypothetical datasets.  The plot corresponding to Dataset A has a more tightly clustered cloud of points.">
+<div id="fig-regsummaries-correlation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots corresponding to hypothetical datasets.  The plot corresponding to Dataset A has a more tightly clustered cloud of points.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regsummaries-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regsummaries-correlation-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Two scatterplots corresponding to hypothetical datasets.  The plot corresponding to Dataset A has a more tightly clustered cloud of points.">
@@ -613,7 +613,7 @@ Properties of the Correlation Coefficient
 <p>That is, we want to determine the impact that a third variable (soil condition) has on the relationship we have observed. While the bulk of this unit will focus on inferential methods for the marginal relationship, graphically assessing questions isolating a single predictor or about the interplay of two predictors is fairly intuitive. In order to add more depth to our graphical representations, we make use of various features of the graphic — the color, shape, and/or size of the points used in plotting — as well as facets (multiple graphics each with a different subset of the data). <a href="#fig-regsummaries-color" class="quarto-xref">Figure&nbsp;<span>16.4</span></a> uses color to distinguish between the three possible types of soil conditions at each measurement location. Notice the graphic allows us to both visualize the relationship between the bracketed duration and the magnitude for each soil condition but also facilitates our comparing these relationships across soil conditions.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regsummaries-color" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and magnitude with points corresponding to different soil conditions being indicated with different colors.">
+<div id="fig-regsummaries-color" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and magnitude with points corresponding to different soil conditions being indicated with different colors.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regsummaries-color-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regsummaries-color-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and magnitude with points corresponding to different soil conditions being indicated with different colors.">
@@ -667,18 +667,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -710,7 +699,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -718,7 +729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

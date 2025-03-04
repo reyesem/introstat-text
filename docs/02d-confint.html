@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 11&nbsp; Estimating with Confidence a Single Mean</title>
+<title>11&nbsp; Estimating with Confidence a Single Mean – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,13 +112,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02a-onesample.html">Unit II: Inference on the Overall Mean Response</a></li><li class="breadcrumb-item"><a href="./02d-confint.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimating with Confidence a Single Mean</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -217,7 +217,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +252,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -323,7 +323,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -457,9 +457,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -489,7 +489,7 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
@@ -529,7 +529,7 @@ window.Quarto = {
 <p>We can construct a point estimate of the parameter <span class="math inline">\(\mu\)</span> with the average birth weight of infants in our sample: 3448.26 g. The data is graphically summarized in <a href="#fig-confint-histogram" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-confint-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the weight, in grams, of infants born in North Carolina; the peak is near 3500 grams.">
+<div id="fig-confint-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the weight, in grams, of infants born in North Carolina; the peak is near 3500 grams.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confint-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-confint-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the weight, in grams, of infants born in North Carolina; the peak is near 3500 grams.">
@@ -549,7 +549,7 @@ Figure&nbsp;11.1: Weight of a sample of full-term infants born in North Carolina
 </ol>
 <p>This process is illustrated in <a href="#tbl-confint-bootstrap" class="quarto-xref">Table&nbsp;<span>11.1</span></a>. Each row represents the birth weights for a single resample taken with replacement from the original data. The final column is the computed (and retained), sample mean from each resample (the bootstrap statistic).</p>
 <div class="cell">
-<div id="tbl-confint-bootstrap" class="cell quarto-float anchored">
+<div id="tbl-confint-bootstrap" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-confint-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;11.1: Partial printout of first 10 bootstrap resamples and the resulting bootstrap statistic.
@@ -684,7 +684,7 @@ Table&nbsp;11.1: Partial printout of first 10 bootstrap resamples and the result
 <p>A plot of the resulting bootstrap sample means is shown in <a href="#fig-confint-samp-distn" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>. Notice that the x-axis is different from that of <a href="#fig-confint-histogram" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>. While a graphical summary of the raw data is summarizing the weight of individual infants, the model for the sampling distribution is summarizing the statistic we compute in various resamples of the same size. In <a href="#fig-confint-samp-distn" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>, we are not keeping track of individual infant weights but average weights for collections of 1009 infants.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-confint-samp-distn" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of bootstrap statistics centered on 3450 and ranging from 3400 to 3500.">
+<div id="fig-confint-samp-distn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of bootstrap statistics centered on 3450 and ranging from 3400 to 3500.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confint-samp-distn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-confint-samp-distn-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of bootstrap statistics centered on 3450 and ranging from 3400 to 3500.">
@@ -738,18 +738,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -781,7 +770,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -789,7 +800,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

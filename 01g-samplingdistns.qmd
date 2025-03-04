@@ -92,7 +92,7 @@ Re-read the description of a sampling distribution several times, and return to 
 ## Example of a Sampling Distribution
 Since this idea is so critical to grasping statistical inference, we are going to walk through the process of generating a sampling distribution for a known data generating process.  
 
-:::{#ex-samplingdistns-dice}
+:::{#exm-samplingdistns-dice}
 ## Dice Experiment
 Consider an ordinary six-sided die; we are interested in the proportion of times that rolling the die will result in a 1.  Putting this in the language of the statistics, we have the following:
 

@@ -2,7 +2,7 @@
   "hash": "41148efe886639ceea04c8d3e38a1996",
   "result": {
     "engine": "knitr",
-    "markdown": "# References {.unnumbered}\n\n\n\n\n\n::: {#refs}\n:::\n",
+    "markdown": "# References {.unnumbered}\n\n\n\n\n\n\n\n\n\n\n\n\n\n::: {#refs}\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

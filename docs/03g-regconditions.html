@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 18&nbsp; Conditions on the Error Term of a Regression Model</title>
+<title>18&nbsp; Conditions on the Error Term of a Regression Model – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,13 +112,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03g-regconditions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditions on the Error Term of a Regression Model</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -217,7 +217,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +252,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -323,7 +323,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -457,9 +457,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -735,7 +735,7 @@ Big Idea
 <p><a href="#fig-regconditions-iris-histogram" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> is a histogram of the sepal width for the iris plants observed by Edgar Anderson; overlayed is the density plot for the same dataset, which we have described as a smoothed histogram. Both the histogram and the density plot are empirical models of the distribution of the sepal width.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of sepal widths for irises; overlayed is a density plot.">
+<div id="fig-regconditions-iris-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of sepal widths for irises; overlayed is a density plot.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regconditions-iris-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regconditions-iris-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; overlayed is a density plot.">
@@ -751,7 +751,7 @@ Figure&nbsp;18.1: Summary of the distribution of sepal widths for a sample of ir
 <p><span class="math display">\[f(x) = \frac{1}{\sqrt{0.380\pi}} e^{-\frac{1}{0.380}(x - 3.057)^2}.\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-normal" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of sepal widths for irises; a specific functional model is overlayed.">
+<div id="fig-regconditions-iris-normal" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of sepal widths for irises; a specific functional model is overlayed.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regconditions-iris-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regconditions-iris-normal-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of sepal widths for irises; a specific functional model is overlayed.">
@@ -771,7 +771,7 @@ Figure&nbsp;18.2: Summary of the distribution of the sepal widths for a sample o
 <p>While the value on the y-axis is not directly meaningful, density functions provide a link between the value of the variable and the likelihood of it occurring. Specifically, the probability that a variable falls in a specific range corresponds to the area under the curve in that region. For example, based on the analytical model described above (the blue curve in <a href="#fig-regconditions-iris-normal" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>), the probability that an iris has a sepal width between 3.5 and 4 centimeters is 0.14, illustrated in <a href="#fig-regconditions-iris-prob" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>. That is, there is a 14% chance a randomly selected iris will have a sepal width between 3.5 and 4 centimeters based on this model.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-iris-prob" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded.">
+<div id="fig-regconditions-iris-prob" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regconditions-iris-prob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regconditions-iris-prob-1.png" class="img-fluid figure-img" style="width:80.0%" alt="A density function is shown with the area under the curve between 3.5 and 4.0 shaded.">
@@ -870,7 +870,7 @@ Big Idea
 <p>We have stressed the implications of each condition individually. <a href="#fig-regconditions-assumptions" class="quarto-xref">Figure&nbsp;<span>18.4</span></a> illustrates these conditions working together. The mean-0 condition implies that for a given value of the predictor, the average response is given by the line (shown as the dark green dot in the figure). The Normality condition implies that for a given value of the predictor, the response is distributed evenly about the regression line according to a Normal distribution; further, the shape of the Normal distribution implies that these responses will cluster about the line. The constant variance condition implies that while the responses vary around the line, they do so to the same degree, regardless of the value of the predictor; therefore, the model is just as precise for all values of the predictor. Finally, the independence condition implies the amount one observation deviates from the line is unrelated to the amount any other observation deviates from the line.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-assumptions" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points.">
+<div id="fig-regconditions-assumptions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regconditions-assumptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/RegConditions-Assumptions.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A line with points scattered vertically about the line in three locations; at each location, there is an identical Normal curve overlayed across the points.">
@@ -900,7 +900,7 @@ Figure&nbsp;18.4: Illustration of the conditions on the error term for the class
 <p><span class="math display">\[(\text{Brackted Duration}) = -19.19 + 4.48(\text{Magnitude}).\]</span></p>
 <p>If we are willing to assume the data is consistent with the conditions for the classical regression model, we are able to model the sampling distribution (see <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>) of these estimates analytically and therefore construct confidence intervals. <a href="#tbl-regconditions-slr-summary" class="quarto-xref">Table&nbsp;<span>18.1</span></a> summarizes the fit for the above model. In addition to the least squares estimates, it also contains the standard error (see <a href="01g-samplingdistns.html#def-standard-error" class="quarto-xref">Definition&nbsp;<span>6.4</span></a>) of each statistic, quantifying the variability in the estimates. Finally, there is a 95% confidence interval for each parameter. Notice that based on the confidence interval for the slope, 0 is not a reasonable value for this parameter. Therefore, we have evidence that the slope coefficient associated with the magnitude differs from 0; that is, the sample provides evidence the average bracketed duration depends on the magnitude of the corresponding earthquake.</p>
 <div class="cell">
-<div id="tbl-regconditions-slr-summary" class="cell quarto-float anchored">
+<div id="tbl-regconditions-slr-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regconditions-slr-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;18.1: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event.
@@ -966,7 +966,7 @@ Formula for Confidence Interval Under Classical Regression Model
 <p>Since the conditions for the model of the data generating process have been altered, the model for the sampling distribution of the estimates will change, and therefore the corresponding confidence intervals will also change. Under these reduced conditions, we can appeal to a bootstrapping algorithm. Specifically, we could resample (with replacement) 119 earthquakes from the original data; for each resample, we compute the least squares fit (<a href="#fig-regconditions-bootstrap" class="quarto-xref">Figure&nbsp;<span>18.5</span></a>). Since the observations selected change with each resample, the least squares estimates will also change. By repeating this process over and over again, we can obtain a model for how the estimates would change in repeated sampling.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regconditions-bootstrap" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations.">
+<div id="fig-regconditions-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regconditions-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/RegConditions-Bootstrap.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Two tables are shown above graphics representing the same data; on the left, the table shows the original sample of 10 observations; on the right, the table shows a bootstrap resample of 10 observations.">
@@ -980,7 +980,7 @@ Figure&nbsp;18.5: Illustration of a single iteration of a bootstrap procedure to
 </div>
 <p>Using the empirical model of the sampling distribution for each estimate, we can construct a confidence interval for each parameter. These updated confidence intervals are shown in <a href="#tbl-regconditions-slr-summary-alt" class="quarto-xref">Table&nbsp;<span>18.2</span></a>.</p>
 <div class="cell">
-<div id="tbl-regconditions-slr-summary-alt" class="cell quarto-float anchored">
+<div id="tbl-regconditions-slr-summary-alt" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regconditions-slr-summary-alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;18.2: Summary of the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event. This summary only assumes the mean-0 and independence conditions.
@@ -1070,18 +1070,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1113,7 +1102,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1121,7 +1132,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

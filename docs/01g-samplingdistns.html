@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 6&nbsp; Assessing the Evidence (Quantifying the Variability in Estimates)</title>
+<title>6&nbsp; Assessing the Evidence (Quantifying the Variability in Estimates) – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -108,13 +108,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a-language.html">Unit I: Language and Logic of Inference</a></li><li class="breadcrumb-item"><a href="./01g-samplingdistns.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assessing the Evidence (Quantifying the Variability in Estimates)</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,7 +154,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -213,7 +213,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -248,7 +248,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -319,7 +319,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -384,7 +384,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -453,9 +453,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -492,11 +492,10 @@ window.Quarto = {
   <ul>
   <li><a href="#conceptualizing-the-sampling-distribution" id="toc-conceptualizing-the-sampling-distribution" class="nav-link active" data-scroll-target="#conceptualizing-the-sampling-distribution"><span class="header-section-number">6.1</span> Conceptualizing the Sampling Distribution</a></li>
   <li><a href="#example-of-a-sampling-distribution" id="toc-example-of-a-sampling-distribution" class="nav-link" data-scroll-target="#example-of-a-sampling-distribution"><span class="header-section-number">6.2</span> Example of a Sampling Distribution</a></li>
-  <li><a href="#dice-experiment" id="toc-dice-experiment" class="nav-link" data-scroll-target="#dice-experiment"><span class="header-section-number">6.3</span> Dice Experiment</a></li>
-  <li><a href="#modeling-the-sampling-distribution" id="toc-modeling-the-sampling-distribution" class="nav-link" data-scroll-target="#modeling-the-sampling-distribution"><span class="header-section-number">6.4</span> Modeling the Sampling Distribution</a></li>
-  <li><a href="#using-a-model-for-the-sampling-distribution-confidence-intervals" id="toc-using-a-model-for-the-sampling-distribution-confidence-intervals" class="nav-link" data-scroll-target="#using-a-model-for-the-sampling-distribution-confidence-intervals"><span class="header-section-number">6.5</span> Using a Model for the Sampling Distribution (Confidence Intervals)</a></li>
-  <li><a href="#incorrect-interpretations-of-a-confidence-interval" id="toc-incorrect-interpretations-of-a-confidence-interval" class="nav-link" data-scroll-target="#incorrect-interpretations-of-a-confidence-interval"><span class="header-section-number">6.6</span> Incorrect Interpretations of a Confidence Interval</a></li>
-  <li><a href="#bringing-it-all-together" id="toc-bringing-it-all-together" class="nav-link" data-scroll-target="#bringing-it-all-together"><span class="header-section-number">6.7</span> Bringing it All Together</a></li>
+  <li><a href="#modeling-the-sampling-distribution" id="toc-modeling-the-sampling-distribution" class="nav-link" data-scroll-target="#modeling-the-sampling-distribution"><span class="header-section-number">6.3</span> Modeling the Sampling Distribution</a></li>
+  <li><a href="#using-a-model-for-the-sampling-distribution-confidence-intervals" id="toc-using-a-model-for-the-sampling-distribution-confidence-intervals" class="nav-link" data-scroll-target="#using-a-model-for-the-sampling-distribution-confidence-intervals"><span class="header-section-number">6.4</span> Using a Model for the Sampling Distribution (Confidence Intervals)</a></li>
+  <li><a href="#incorrect-interpretations-of-a-confidence-interval" id="toc-incorrect-interpretations-of-a-confidence-interval" class="nav-link" data-scroll-target="#incorrect-interpretations-of-a-confidence-interval"><span class="header-section-number">6.5</span> Incorrect Interpretations of a Confidence Interval</a></li>
+  <li><a href="#bringing-it-all-together" id="toc-bringing-it-all-together" class="nav-link" data-scroll-target="#bringing-it-all-together"><span class="header-section-number">6.6</span> Bringing it All Together</a></li>
   </ul>
 </nav>
     </div>
@@ -584,7 +583,7 @@ Fundamental Idea IV
 <p>Now, we could take a third random sample of 54 volunteers and compute the fraction in this third sample which experienced adverse symptoms. This third sample also provides a good (and potentially unique) estimate of the parameter. In fact, we could continue this process <span class="math inline">\(m\)</span> times, for some large number <span class="math inline">\(m\)</span>, as illustrated in <a href="#fig-samplingdistns-sampling-distribution" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-sampling-distribution" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  An area to the right shows that each sample is summarized by a statistic.">
+<div id="fig-samplingdistns-sampling-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  An area to the right shows that each sample is summarized by a statistic.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-sampling-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/SamplingDistns-Sampling-Distribution.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  An area to the right shows that each sample is summarized by a statistic.">
@@ -622,18 +621,14 @@ Big Idea
 <section id="example-of-a-sampling-distribution" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="example-of-a-sampling-distribution"><span class="header-section-number">6.2</span> Example of a Sampling Distribution</h2>
 <p>Since this idea is so critical to grasping statistical inference, we are going to walk through the process of generating a sampling distribution for a known data generating process.</p>
-</section>
-<div id="ex-samplingdistns-dice">
-<section id="dice-experiment" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="dice-experiment"><span class="header-section-number">6.3</span> Dice Experiment</h2>
-<p>Consider an ordinary six-sided die; we are interested in the proportion of times that rolling the die will result in a 1. Putting this in the language of the statistics, we have the following:</p>
+<div id="exm-samplingdistns-dice" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.3 (Dice Experiment)</strong></span> Consider an ordinary six-sided die; we are interested in the proportion of times that rolling the die will result in a 1. Putting this in the language of the statistics, we have the following:</p>
 <ul>
 <li>The <em>population</em> of interest is all rolls of the die. Notice that this population is infinitely large as we could roll the die forever.</li>
 <li>The <em>variable</em> is the resulting value from the roll. Since this can take on only one of six values, this is a categorical variable.</li>
 <li>The <em>parameter</em> of interest is the proportion of rolls that result in a 1.</li>
 </ul>
 <p>Our goal is to construct the sampling distribution of the <em>sample proportion</em> of rolls that result in a 1 when the die is rolled 20 times.</p>
-</section>
 </div>
 <p>What makes this example unique is that we know the value of the parameter. Because of the physical properties of a die, we know that the probability a roll results in a 1 is <span class="math inline">\(\theta = 1/6\)</span>. So, statistical inference is not needed here. This example simply provides a vehicle for studying sampling distributions. Also, before going on, notice that the sampling distribution is for the statistic (the <em>sample proportion</em>) and not the parameter; and, it is constructed for a fixed sample size (in this case, <span class="math inline">\(n = 20\)</span> rolls). Going back to the steps for creating a sampling distribution described in the previous section, we have the following steps:</p>
 <ol type="1">
@@ -645,7 +640,7 @@ Big Idea
 <p>Notice that we are actually rolling a die 10000 times (20 rolls repeated 500 times); we only keep 500 values (one proportion for each set of 20 rolls). This is something you could physically do at home. For example, the first sample might look like that in <a href="#fig-samplingdistns-dice-example" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-dice-example" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Twenty dice are lined up; there is no pattern to the values shown on the dice.">
+<div id="fig-samplingdistns-dice-example" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Twenty dice are lined up; there is no pattern to the values shown on the dice.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-dice-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/SamplingDistns-Dice-Example.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Twenty dice are lined up; there is no pattern to the values shown on the dice.">
@@ -660,7 +655,7 @@ Figure&nbsp;6.2: Potential sample from rolling a die 20 times.
 <p>For this particular sample, the proportion in the sample (our statistic of interest) would be 0.25 (<span class="math inline">\(5/20\)</span>). That is the statistic we would record. We then repeat this 499 more times. You could try a few out yourself using <a href="https://www.random.org/dice/?num=20">an online simulator</a>. <a href="#fig-samplingdistns-dice-dotplot" class="quarto-xref">Figure&nbsp;<span>6.3</span></a> shows the resulting proportions for when we simulated this process with 500 samples, each sample consisting of 20 rolls.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-dice-dotplot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Dotplot of the proportion of 20 dice rolls resulting in a 1 from 500 simulations; the peak of the plot is at 0.167.">
+<div id="fig-samplingdistns-dice-dotplot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dotplot of the proportion of 20 dice rolls resulting in a 1 from 500 simulations; the peak of the plot is at 0.167.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-dice-dotplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-dice-dotplot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Dotplot of the proportion of 20 dice rolls resulting in a 1 from 500 simulations; the peak of the plot is at 0.167.">
@@ -675,7 +670,7 @@ Figure&nbsp;6.3: Sampling distribution for the proportion of 20 rolls of a die w
 <p>With modern computing power, there is no need to restrain ourselves to repeating the study 500 times. A simple computer program could replicate rolling the study (20 rolls of a die) thousands of times. <a href="#fig-samplingdistns-dice-histogram" class="quarto-xref">Figure&nbsp;<span>6.4</span></a> is the sampling distribution for the proportion of rolls that result in a 1 based on a sample of size 20, repeating the study 50000 times.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-dice-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 20 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
+<div id="fig-samplingdistns-dice-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the proportion of 20 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-dice-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-dice-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 20 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
@@ -720,7 +715,7 @@ Big Idea
 <p>Remember, our goal was to account for the variability in the statistic (how much it changes from one sample to another) <em>while accounting for the sample size</em>. How is this done? When forming the sampling distribution, we repeated the study, which included ensuring that for each replication, we obtained a new sample that <em>had the same size as the original sample</em>. So, the sample size is baked into the sampling distribution. To see the impact of taking a larger sample, consider rolling a six-sided die 60 times instead of 20 times. When we build the sampling distribution, each replication will then involve repeating the process with 60 new rolls. <a href="#fig-samplingdistns-dice-histogram2" class="quarto-xref">Figure&nbsp;<span>6.5</span></a> shows the sampling distribution of the proportion of 60 rolls which result in a 1, using 50000 replications. Notice that the distribution is still centered on the true parameter <span class="math inline">\(\theta = 1/6\)</span>. The primary difference between this figure and the last is that when we increased the sample size, the sampling distribution narrowed.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-dice-histogram2" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 60 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
+<div id="fig-samplingdistns-dice-histogram2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the proportion of 60 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-dice-histogram2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-dice-histogram2-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 60 dice rolls resulting in a 1 from 50000 simulations; the peak of the plot is at 0.167.">
@@ -773,8 +768,9 @@ Warning
 </div>
 </div>
 <p>We have briefly discussed the center and spread of the sampling distribution we constructed above. Before leaving this section, a note on the shape of the sampling distribution is also in order. Note that for this example, the resulting observations can take on one of only two values (heads or tails). A bar chart summarizing this distribution (that of the variable within the <em>population</em>) would consist of only two bars. However, the distribution of the statistic that we record (that is, the <em>sampling distribution</em>) is bell-shaped (fig-samplingdistns-dice-histogram2). While the sampling distribution will not always be bell-shaped, it is often the case for the statistics discussed in this text. The key thing to recognize is that the distribution of the variable and the distribution of the statistic are not the same.</p>
-<section id="modeling-the-sampling-distribution" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="modeling-the-sampling-distribution"><span class="header-section-number">6.4</span> Modeling the Sampling Distribution</h2>
+</section>
+<section id="modeling-the-sampling-distribution" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="modeling-the-sampling-distribution"><span class="header-section-number">6.3</span> Modeling the Sampling Distribution</h2>
 <p>Let’s return to the Deepwater Horizon Case Study. In particular, suppose we are trying to address the following question:</p>
 <blockquote class="blockquote">
 <p>What proportion of volunteers assigned to clean wildlife develop adverse respiratory symptoms?</p>
@@ -782,7 +778,7 @@ Warning
 <p>We have an estimate for this proportion (<span class="math inline">\(\widehat{p} = 0.278\)</span>) based on the observed sample. Based on the discussion in the previous section, we know the sampling distribution of this proportion can help us quantify the variability in the estimate. <a href="#fig-samplingdistns-deepwater-histogram" class="quarto-xref">Figure&nbsp;<span>6.6</span></a> represents the sampling distribution of this proportion. From the graphic, we would not expect the proportion of volunteers who experience adverse respiratory symptoms to move much beyond 0.15 and 0.4 if we were to repeat the study; it would almost certainly not move beyond 0.1 and 0.5 if we were to repeat the study.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-deepwater-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms created from a model of the sampling distribution.">
+<div id="fig-samplingdistns-deepwater-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms created from a model of the sampling distribution.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-deepwater-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-deepwater-histogram-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers experiencing adverse symptoms created from a model of the sampling distribution.">
@@ -810,7 +806,7 @@ Figure&nbsp;6.6: Sampling distribution for the proportion of volunteers assigned
 <p>That is, each resample produces a statistic which is a good estimate of the parameter from the underlying population. The benefit here is that the resamples are taken from the original sample, not the population, and can therefore be constructed in the computer. And, given today’s computing power, we are not limited by time or money (10000 resamples can often be taken in a matter of seconds). If you want to see this process in action, we encourage you to check out the free online app located at <a href="http://www.lock5stat.com/StatKey/bootstrap_1_cat/bootstrap_1_cat.html" class="uri">http://www.lock5stat.com/StatKey/bootstrap_1_cat/bootstrap_1_cat.html</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-bootstrap" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  All but one green blob hax an X over it, illustrating only one sample is chosen.  Several arrows extend from the one remaining sample to orange blobs, each representing a unique bootstrap resample.  An area to the right shows that each resample is summarized by a statistic.">
+<div id="fig-samplingdistns-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  All but one green blob hax an X over it, illustrating only one sample is chosen.  Several arrows extend from the one remaining sample to orange blobs, each representing a unique bootstrap resample.  An area to the right shows that each resample is summarized by a statistic.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/SamplingDistns-Bootstrap.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A blue blob represents the population; several arrows extend from the population to green blobs, each representing a unique sample.  All but one green blob hax an X over it, illustrating only one sample is chosen.  Several arrows extend from the one remaining sample to orange blobs, each representing a unique bootstrap resample.  An area to the right shows that each resample is summarized by a statistic.">
@@ -854,8 +850,8 @@ Big Idea
 <li>We plotted the distribution of the bootstrap statistics.</li>
 </ol>
 </section>
-<section id="using-a-model-for-the-sampling-distribution-confidence-intervals" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="using-a-model-for-the-sampling-distribution-confidence-intervals"><span class="header-section-number">6.5</span> Using a Model for the Sampling Distribution (Confidence Intervals)</h2>
+<section id="using-a-model-for-the-sampling-distribution-confidence-intervals" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="using-a-model-for-the-sampling-distribution-confidence-intervals"><span class="header-section-number">6.4</span> Using a Model for the Sampling Distribution (Confidence Intervals)</h2>
 <p>We began this chapter by arguing that quantifying the variability in our estimates was crucial to making inference on the parameters. A model for the sampling distribution of a statistic allows us to visualize the variability in our estimates, and we will capitalize on that in this section. A stepping stone in that direction is simply estimating the variability in the sampling distribution. In <a href="01f-summaries.html" class="quarto-xref"><span>Chapter 5</span></a>, we discussed various metrics for quantifying variability; one such metric was the standard deviation. While we could rely on any metric, the standard deviation is the most common metric used when quantifying the variability of a statistic; to distinguish that we are quantifying the variability of a <em>statistic</em> instead of a variable, we refer to this as the <strong>standard error</strong>.</p>
 <div id="def-standard-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6.4 (Standard Error)</strong></span> The standard error is the estimated standard deviation of a <em>statistic</em>; that is, it is the standard deviation from a <em>model</em> for the sampling distribution of a statistic. It quantifies the variability in the statistic across repeated samples.</p>
@@ -890,7 +886,7 @@ Big Idea
 <p>If we were to capture the middle 95% of statistics in our model of the sampling distribution, a 95% confidence interval, we would obtain an interval of (0.167, 0.407), as shown in Figure <a href="#fig-samplingdistns-deepwater-ci" class="quarto-xref">Figure&nbsp;<span>6.8</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-deepwater-ci" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Histogram of the proportion of 54 volunteers who report adverse symtoms; two vertical red lines represent the lower and upper bounds of a 95% confidence interval.">
+<div id="fig-samplingdistns-deepwater-ci" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the proportion of 54 volunteers who report adverse symtoms; two vertical red lines represent the lower and upper bounds of a 95% confidence interval.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-deepwater-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-deepwater-ci-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Histogram of the proportion of 54 volunteers who report adverse symtoms; two vertical red lines represent the lower and upper bounds of a 95% confidence interval.">
@@ -923,8 +919,8 @@ Process for Constructing a Confidence Interval
 </div>
 <p>Confidence intervals are often misinterpreted; this comes from their dependence on repeated sampling. When thinking about confidence intervals, think about playing a game of ring toss: you toss a ring in hopes of landing on top of a target. The target is the parameter characterizing the population. The confidence interval is like a ring. Since the confidence interval is constructed from a model of the sampling distribution, it changes with each sample; that is, the confidence interval itself is a statistic. Just like in ring toss where the ring moves with each toss, the confidence interval moves with each sample. However, the target (the parameter of interest) stays fixed. Because of this, there are many incorrect interpretations.</p>
 </section>
-<section id="incorrect-interpretations-of-a-confidence-interval" class="level2 callout-danger" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="incorrect-interpretations-of-a-confidence-interval"><span class="header-section-number">6.6</span> Incorrect Interpretations of a Confidence Interval</h2>
+<section id="incorrect-interpretations-of-a-confidence-interval" class="level2 callout-danger" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="incorrect-interpretations-of-a-confidence-interval"><span class="header-section-number">6.5</span> Incorrect Interpretations of a Confidence Interval</h2>
 <p>Suppose we have a <span class="math inline">\(k\)</span>% confidence interval; the following are incorrect interpretations of the interval:</p>
 <ul>
 <li>There is a <span class="math inline">\(k\)</span>% chance that individuals in the population have a value of the variable within the confidence interval.</li>
@@ -974,7 +970,7 @@ Note
 <p>This is a difficult concept to wrap our heads around; it seems natural to associate the percentage with the values we have obtained. However, our confidence is in the <em>process</em>, not the resulting interval itself (<a href="#fig-samplingdistns-ci-process" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>). That is, 95% confidence intervals work 95% of the time; however, this statement is about the process of constructing confidence intervals. Once we have computed a confidence interval, it has either worked or not; the problem is of course, that since we do not know the parameter, we will never know if it worked or not. For this reason, we prefer the interpretation of a confidence interval which avoids these subtleties: a confidence interval specifies the reasonable values of the parameter. The percentage (95% vs 99% for example) then just specifies what we mean by “reasonable.”</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samplingdistns-ci-process" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Density plot representing population, several histograms representing different samples, and several histograms representing different models for sampling distributions.">
+<div id="fig-samplingdistns-ci-process" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot representing population, several histograms representing different samples, and several histograms representing different models for sampling distributions.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-samplingdistns-ci-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-samplingdistns-ci-process-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot representing population, several histograms representing different samples, and several histograms representing different models for sampling distributions.">
@@ -1013,8 +1009,8 @@ Note
 <p>95% confidence intervals are the most common in practice; however, 90%, 98%, and 99% intervals are also used. It is extremely rare to use less than a 90% confidence interval.</p>
 </div>
 </div>
-<section id="bringing-it-all-together" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="bringing-it-all-together"><span class="header-section-number">6.7</span> Bringing it All Together</h2>
+<section id="bringing-it-all-together" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="bringing-it-all-together"><span class="header-section-number">6.6</span> Bringing it All Together</h2>
 <p>Consider the following question:</p>
 <blockquote class="blockquote">
 <p>Does the study provide evidence that more than 1 in 5 volunteers assigned to clean wildlife develop adverse respiratory symptoms?</p>
@@ -1063,18 +1059,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1106,7 +1091,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1114,7 +1121,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

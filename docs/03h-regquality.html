@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 19&nbsp; Quantifying the Quality of a Model Fit</title>
+<title>19&nbsp; Quantifying the Quality of a Model Fit – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ div.csl-indent {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -132,13 +132,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03h-regquality.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quantifying the Quality of a Model Fit</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -178,7 +178,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -237,7 +237,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -272,7 +272,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -343,7 +343,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -408,7 +408,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -477,9 +477,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -551,7 +551,7 @@ window.Quarto = {
 <p><span class="math display">\[(\text{Bracketed Duration})_i = \beta_0 + \beta_1(\text{Epicentral Distance})_i + \varepsilon_i.\]</span></p>
 <p>Using least squares to estimate the parameters, and assuming the data is consistent with the conditions for the classical regression model, the resulting model fit is summarized below in <a href="#tbl-regquality-fit" class="quarto-xref">Table&nbsp;<span>19.1</span></a>.</p>
 <div class="cell">
-<div id="tbl-regquality-fit" class="cell quarto-float anchored">
+<div id="tbl-regquality-fit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regquality-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.1: Summary of the model fit explaining the bracketed duration as a function of epicentral distance.
@@ -642,7 +642,7 @@ Big Idea
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regquality-partition-variability" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of hypothetical data with a best fit line overlayed; for one of the points, the distance the point is from the overall average response is decomposed to illustrate the components that feed into the regression and error sums of squares.">
+<div id="fig-regquality-partition-variability" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of hypothetical data with a best fit line overlayed; for one of the points, the distance the point is from the overall average response is decomposed to illustrate the components that feed into the regression and error sums of squares.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regquality-partition-variability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/RegQuality-Partitioning-Variability.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of hypothetical data with a best fit line overlayed; for one of the points, the distance the point is from the overall average response is decomposed to illustrate the components that feed into the regression and error sums of squares.">
@@ -674,7 +674,7 @@ Figure&nbsp;19.1: Illustration of partitioning the variability of a response usi
 <p>The idea here is that we know the model will not capture the data generating process precisely. Therefore, we should be skeptical of models which claim to be perfect. For example, consider the two models illustrated in <a href="#fig-regquality-overfit" class="quarto-xref">Figure&nbsp;<span>19.2</span></a>. The model represented by the black line has a perfect fit, but we argue the model represented by the blue line is better. While the black line captures all the variability in the response for this sample, it is certainly trying to do too much. In reality, the blue line captures the underlying relationship while not overcomplicating that relationship. We sacrifice a little quality in the fit for <em>this sample</em> in order to better represent the underlying structure of <em>the population</em>. The black line suffers from what is known as <em>overfitting</em>; the blue line is a more <em>parsimonious</em> (simple) model, balancing complexity with model fit.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regquality-overfit" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of hypothetical data with two models overlayed; a model represented by a black line connects all the points and has an R-squared of 1, and a model represented by a blue line captures the trend and has an R-squared of 0.94.">
+<div id="fig-regquality-overfit" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of hypothetical data with two models overlayed; a model represented by a black line connects all the points and has an R-squared of 1, and a model represented by a blue line captures the trend and has an R-squared of 0.94.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regquality-overfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regquality-overfit-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of hypothetical data with two models overlayed; a model represented by a black line connects all the points and has an R-squared of 1, and a model represented by a blue line captures the trend and has an R-squared of 0.94.">
@@ -829,7 +829,7 @@ Note
 <p>We should not lose sight of the fact that our standardized statistic is really a result of partitioning the variability and considering the variability explained by the predictor relative to the noise in the response. Underscoring that the standardized statistic is a result of this partitioning, the analyses of these sources of variability is often summarized in a table similar to that represented in <a href="#fig-regquality-ANOVA-table" class="quarto-xref">Figure&nbsp;<span>19.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regquality-ANOVA-table" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A table with three rows; the first captures the degrees of freedom, sum of squares, and mean square associated with the predictor.  The second captures the degrees of freedom, sum of squares, and mean square associated with the error.  These are the components necessary for computing a standardized statistic.">
+<div id="fig-regquality-ANOVA-table" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A table with three rows; the first captures the degrees of freedom, sum of squares, and mean square associated with the predictor.  The second captures the degrees of freedom, sum of squares, and mean square associated with the error.  These are the components necessary for computing a standardized statistic.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regquality-ANOVA-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/RegQuality-ANOVA-Table.jpg" class="img-fluid figure-img" style="width:80.0%" alt="A table with three rows; the first captures the degrees of freedom, sum of squares, and mean square associated with the predictor.  The second captures the degrees of freedom, sum of squares, and mean square associated with the error.  These are the components necessary for computing a standardized statistic.">
@@ -850,7 +850,7 @@ Figure&nbsp;19.3: Table summarizing the partitioning of variability in a regress
 <p><span class="math display">\[H_0: \beta_1 = 0 \qquad \text{vs.} \qquad H_1: \beta_1 \neq 0.\]</span></p>
 <p><a href="#tbl-regquality-anova" class="quarto-xref">Table&nbsp;<span>19.2</span></a> gives the table summarizing the partitioned sources of variability in the bracketed duration. We have a large p-value (computed assuming the data is consistent with the classical regression model). That is, the sample provides no evidence to suggest that locations further from the center of the earthquake experience a bracketed duration which differs, on average, from those closer to the center of the earthquake.</p>
 <div class="cell">
-<div id="tbl-regquality-anova" class="cell quarto-float anchored">
+<div id="tbl-regquality-anova" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regquality-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.2: Analysis of the sources of variability in the bracketed duration as a function of epicentral distance.
@@ -961,18 +961,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1004,7 +993,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1012,7 +1023,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

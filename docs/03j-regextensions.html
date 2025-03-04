@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 21&nbsp; Extending the Regression Model</title>
+<title>21&nbsp; Extending the Regression Model – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,13 +112,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03j-regextensions.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Extending the Regression Model</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -217,7 +217,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +252,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -323,7 +323,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -457,9 +457,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -536,7 +536,7 @@ window.Quarto = {
 <p>We have described the simple linear model (<a href="03f-regmodel.html#eq-slr" class="quarto-xref">Equation&nbsp;<span>17.3</span></a>) as one which relates two quantitative variables. However, this framework can be extended to make use of a categorical predictor. Specifically, we will consider a binary predictor which categorizes units into one of two groups. More general categorical predictors will be considered in the next unit.</p>
 <p>Continuing to work with the data from the Seismic Activity Case Study, <a href="#tbl-regextensions-soil" class="quarto-xref">Table&nbsp;<span>21.1</span></a> summarizes the bracketed duration at locations based on the soil conditions.</p>
 <div class="cell">
-<div id="tbl-regextensions-soil" class="cell quarto-float anchored">
+<div id="tbl-regextensions-soil" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regextensions-soil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;21.1: Numerical summaries of the bracketed duration for locations based on their soil conditions.
@@ -621,7 +621,7 @@ Interpretation of the Parameters
 <p>This shift in the mean response is illustrated in <a href="#fig-regextensions-ind-plot" class="quarto-xref">Figure&nbsp;<span>21.1</span></a>. The “line” is really connecting the sample mean response of each group.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regextensions-ind-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Side-by-side boxplots of the bracketed duration for two groups of location based on soil type.  A blue line connects the average response of each group.">
+<div id="fig-regextensions-ind-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Side-by-side boxplots of the bracketed duration for two groups of location based on soil type.  A blue line connects the average response of each group.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regextensions-ind-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regextensions-ind-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Side-by-side boxplots of the bracketed duration for two groups of location based on soil type.  A blue line connects the average response of each group.">
@@ -661,7 +661,7 @@ Figure&nbsp;21.1: Comparison of the bracketed duration between locations with ro
 <p><a href="#fig-regextensions-mlr-plot" class="quarto-xref">Figure&nbsp;<span>21.2</span></a> represents this graphically for a range of potential epicentral distances. Essentially, the relationship between the bracketed duration and the magnitude shifts depending on the epicentral distance. The overall trend is similar (the lines are parallel), but where the line is located is really dependent upon the distance of the location from the earthquake. Note that while <a href="#fig-regextensions-mlr-plot" class="quarto-xref">Figure&nbsp;<span>21.2</span></a> chooses particular values for the epicentral distance, we could have easily made an analogous graphic which chooses values for the magnitude and envisions the relationship between the bracketed duration and the epicentral distance for each of these choices.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regextensions-mlr-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; four lines are overlayed, one for each of four different epicentral distance.">
+<div id="fig-regextensions-mlr-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; four lines are overlayed, one for each of four different epicentral distance.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regextensions-mlr-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regextensions-mlr-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; four lines are overlayed, one for each of four different epicentral distance.">
@@ -761,7 +761,7 @@ Interpretation of Parameters
 <p>The same processes that allowed us to model the sampling of the least squares estimates for the simple linear regression model, described in <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a>, are applicable for the general linear regression model as well. In particular, under the classical regression model (imposing all four conditions discussed in <a href="03g-regconditions.html" class="quarto-xref"><span>Chapter 18</span></a> on the error term), we can construct an analytical model of the sampling distribution of the least squares estimates (extensions of the results discussed in <a href="app-theory.html" class="quarto-xref"><span>Appendix A</span></a>). And, provided we are willing to impose the mean-0 condition and the independence condition, we can construct an empirical model of the sampling distribution using a bootstrapping algorithm. Once we have a model for the sampling distribution of our estimates, we can construct confidence intervals.</p>
 <p><a href="#tbl-regextensions-ci" class="quarto-xref">Table&nbsp;<span>21.2</span></a> provide a summary of using the data from the Seismic Activity Case Study to fit the model for the data generating process proposed in <a href="#eq-regextensions-mlr" class="quarto-xref">Equation&nbsp;<span>21.2</span></a>; the confidence intervals were computed assuming the data was consistent with all four conditions of the classical regression model.</p>
 <div class="cell">
-<div id="tbl-regextensions-ci" class="cell quarto-float anchored">
+<div id="tbl-regextensions-ci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regextensions-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;21.2: Summary the linear model fit relating the bracketed duration at locations in Greece following an earthquake with the magnitude of the event and the distance of the location from the center of the earthquake.
@@ -839,7 +839,7 @@ Table&nbsp;21.2: Summary the linear model fit relating the bracketed duration at
 <p>The standardized statistics in <a href="02e-teststat.html" class="quarto-xref"><span>Chapter 12</span></a> and in <a href="03h-regquality.html" class="quarto-xref"><span>Chapter 19</span></a> are special cases of the one presented here. The numerator captures the signal by examining the difference between what we expect the error sum of squares to be under the null hypothesis and what we actually observe; the denominator captures the background noise (relative to the estimated mean response from the full model). Larger values of this standardized statistic indicate more evidence in the sample against the null hypothesis.</p>
 <p><a href="#tbl-regextensions-p" class="quarto-xref">Table&nbsp;<span>21.3</span></a> provides a summary of partitioning the variability to test the hypotheses described above using the data from the Seismic Activity Case Study; the p-value was computed assuming the data was consistent with all four conditions of the classical regression model.</p>
 <div class="cell">
-<div id="tbl-regextensions-p" class="cell quarto-float anchored">
+<div id="tbl-regextensions-p" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regextensions-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;21.3: Analysis of the sources of variability in the bracketed duration as a function of the magnitude of the earthquake and the epicentral distance.
@@ -902,7 +902,7 @@ Table&nbsp;21.3: Analysis of the sources of variability in the bracketed duratio
 <p>where we use an indicator variable to capture whether the soil is rocky just as before. Just as we did before, we can graphically represent this model (see <a href="#fig-regextensions-ind-plot2" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>), and we find that it is captured by two parallel lines.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regextensions-ind-plot2" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
+<div id="fig-regextensions-ind-plot2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regextensions-ind-plot2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regextensions-ind-plot2-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
@@ -948,7 +948,7 @@ Big Idea
 <p>Visually, this revised model allows two completely different associations — depending on the soil type. This is shown in <a href="#fig-regextensions-int-plot" class="quarto-xref">Figure&nbsp;<span>21.4</span></a>. Notice that the lines are no longer parallel. The question of course is which of the two models is more appropriate. Is there actually evidence that the more complex model, which allows the relationship to differ for locations with different soil types, is required? Or, is the more simplistic model, which says the relationship is the same across all locations of different soil types, sufficient?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regextensions-int-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
+<div id="fig-regextensions-int-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regextensions-int-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regextensions-int-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the magnitude for earthquakes; two lines are overlayed, one for locations with rocky soil and one for locations with other types of soil.">
@@ -969,7 +969,7 @@ Figure&nbsp;21.4: Relationship between bracketed duration and the magnitude of a
 <p>Conceptually, comparing these two models is just like any other hypothesis test. By partitioning the variability as described in the previous section, we are able to compute a signal-to-noise ratio. We can essentially determine how much variability in the response is explained is by the inclusion of the interaction term. That is, we quantify how the unexplained variability decreases when we include the interaction term in the model for the data generating process.</p>
 <p>Specifically, <a href="#tbl-regextensions-fit" class="quarto-xref">Table&nbsp;<span>21.4</span></a> gives the estimates associated with each parameter, and <a href="#tbl-regextensions-anova" class="quarto-xref">Table&nbsp;<span>21.5</span></a> presents the corresponding partitioning of the sources of variability leading to the computation of the p-value. The confidence intervals and p-value are computed assuming the data is consistent with the conditions of the classical regression model.</p>
 <div class="cell">
-<div id="tbl-regextensions-fit" class="cell quarto-float anchored">
+<div id="tbl-regextensions-fit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regextensions-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;21.4: Summary of the model fit explaining the bracketed duration as a function of both magnitude and soil condition at the measurement location. The effect of the magnitude was allowed to differ across soil conditions.
@@ -1027,7 +1027,7 @@ Table&nbsp;21.4: Summary of the model fit explaining the bracketed duration as a
 </div>
 </div>
 <div class="cell">
-<div id="tbl-regextensions-anova" class="cell quarto-float anchored">
+<div id="tbl-regextensions-anova" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regextensions-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;21.5: Table partitioning the sources of variability corresponding to testing whether the effect of the magnitude of an earthquake on the resulting bracketed duration differs across soil conditions.
@@ -1114,18 +1114,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1157,7 +1146,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1165,7 +1176,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

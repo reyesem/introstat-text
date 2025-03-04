@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Modeling for Engineers and Scientists - 22&nbsp; Putting it All Together</title>
+<title>22&nbsp; Putting it All Together – Statistical Modeling for Engineers and Scientists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,13 +112,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03a-regression.html">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</a></li><li class="breadcrumb-item"><a href="./03k-regrecap.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Putting it All Together</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01a-language.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit I: Language and Logic of Inference</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -217,7 +217,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02a-onesample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit II: Inference on the Overall Mean Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +252,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03a-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit III: Modeling the Average Response as a Function of a Continuous Predictor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -323,7 +323,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04a-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit IV: Comparing the Average Response Across Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05a-blocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit V: Comparing the Average Response Across Correlated Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -457,9 +457,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -533,7 +533,7 @@ window.Quarto = {
 <p>Before developing a statistical model to address our question, we summarize the data graphically. The question suggests the bracketed duration is the response variable and the epicentral distance is the predictor. <a href="#fig-regrecap-plot" class="quarto-xref">Figure&nbsp;<span>22.1</span></a> illustrates the relationship between the bracketed duration and the epicentral distance. We note that the axis for the epicentral distance takes logarithmic steps to better illustrate the relationship. That is, moving from 1 to 10 kilometers has roughly the same effect as moving from 10 to 100 kilometers from the earthquake.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale.">
+<div id="fig-regrecap-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regrecap-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regrecap-plot-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the bracketed duration and the distance from the epicenter, the latter displayed on a logarithmic scale.">
@@ -565,7 +565,7 @@ Figure&nbsp;22.1: Relationship between the bracketed duration and the distance f
 <p>Before making inference regarding our question of interest, we should determine if our data is consistent with the conditions on the error term we have specified. <a href="#fig-regrecap-normality" class="quarto-xref">Figure&nbsp;<span>22.2</span></a> is a probability plot of the residuals used to assess whether the data is consistent with the Normality condition.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-normality" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution.">
+<div id="fig-regrecap-normality" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regrecap-normality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regrecap-normality-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of the residuals against the theoretical quantiles from a Normal distribution.">
@@ -581,7 +581,7 @@ Figure&nbsp;22.2: Normal probability plot of the residuals corresponding to a mo
 <p><a href="#fig-regrecap-indep" class="quarto-xref">Figure&nbsp;<span>22.3</span></a> is a plot of the residuals for the observations in the order in which they were collected. Since the data was collected over time, this plot could reveal potential patterns among the residuals which suggest a departure from independence among the errors. As there are no trends in either the location or spread of the residuals, the data is consistent with the independence conditions.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-indep" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Line plot of residuals over time exhibiting no pattern in location or spread.">
+<div id="fig-regrecap-indep" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot of residuals over time exhibiting no pattern in location or spread.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regrecap-indep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regrecap-indep-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Line plot of residuals over time exhibiting no pattern in location or spread.">
@@ -597,7 +597,7 @@ Figure&nbsp;22.3: Time-series plot of the residuals corresponding to a model for
 <p>We also note that the spread of the residuals is larger on the right side of the graphic compared to the left side. As the predicted values increase, the spread of the residuals also increases. This suggests that for larger bracketed durations, the model is not as precise. Therefore, we are not willing to impose the constant variance condition.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-mean0" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic.">
+<div id="fig-regrecap-mean0" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regrecap-mean0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regrecap-mean0-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Scatterplot of residuals against predicted values for which the spread increases as you move left to right across the graphic.">
@@ -620,7 +620,7 @@ Figure&nbsp;22.4: Plot of the residuals against the predicted values correspondi
 <h2 data-number="22.4" class="anchored" data-anchor-id="summary-of-model-fit"><span class="header-section-number">22.4</span> Summary of Model Fit</h2>
 <p>The parameters in our model are estimated via the method of least squares. The variability in these estimates is quantified using an empirical model of the sampling distribution based on 5000 bootstrap replications. <a href="#tbl-regrecap-model-fit" class="quarto-xref">Table&nbsp;<span>22.1</span></a> summarizes the estimates for the parameters in <a href="#eq-regrecap-model" class="quarto-xref">Equation&nbsp;<span>22.1</span></a>.</p>
 <div class="cell">
-<div id="tbl-regrecap-model-fit" class="cell quarto-float anchored">
+<div id="tbl-regrecap-model-fit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regrecap-model-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;22.1: Summary of the model characterizing the bracketed duration of seismic events in Greece as a function of the epicentral distance.
@@ -666,7 +666,7 @@ Table&nbsp;22.1: Summary of the model characterizing the bracketed duration of s
 <p>The results suggests that for each 10-fold increase in the number of kilometers a location is from the epicenter of an earthquake (1-unit increase in the base-10 logarithm), the bracketed duration increases between 0.347 and 4.248 seconds, on average. This result is counter-intuitive; it suggests that the further a location is from an earthquake, the longer it is subjected to major ground motion. First, remember that this is data from an observational study; so, the result is not suggesting a causal relationship. Indeed, confounding is playing a role here. <a href="#fig-regrecap-multivariable" class="quarto-xref">Figure&nbsp;<span>22.5</span></a> examines the relationship between the bracketed duration and the epicentral distance in addition to the magnitude of the earthquake and the soil conditions of the location. While it is somewhat difficult to see, note that earthquakes with the largest magnitudes also tended to be recorded further away. While we would need to confirm with a discipline expert, it suggests that the major fault line is approximately 100 kilometers away from the Greek observation stations. As a result, the recording locations in the study experienced the largest amount of major motion when these large quakes occurred. A more robust analysis using the general form of the linear regression model of the previous chapter would reveal that after accounting for these additional terms, the data is consistent with decreases in the bracketed durations, on average, for locations further from the center of an earthquake.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-regrecap-multivariable" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type.">
+<div id="fig-regrecap-multivariable" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regrecap-multivariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/fig-regrecap-multivariable-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Three scatterplots of the bracketed duration against the epicentral distance with the color of the points corresponding to the magnitude; each scatterplot is for locations of a different soil type.">
@@ -719,18 +719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -762,7 +751,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -770,7 +781,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
