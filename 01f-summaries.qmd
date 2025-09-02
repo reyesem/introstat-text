@@ -6,14 +6,14 @@ If you open any search engine and look up "data visualization," you will quickly
 
 :::{.callout-important}
 ## Fundamental Idea III
-The use of data for decision making requires that the data be summarized and presented in ways that address the question of interest and represent the variability present.
+Using data for decision-making requires summarizing and visualizing the distribution of the data towards addressing the research objective.
 :::
 
 Whether simple or complex, all graphical and numerical summaries should help turn the data into usable information.  Pretty pictures for the sake of pretty pictures are not helpful.  In this chapter, we will consider various simple graphical and numerical summaries to help build a case for addressing the question of interest.  The majority of the chapter is focused on summarizing a single variable; more complex graphics are presented in future chapters within a context that requires them.
 
 
 ## Characteristics of a Distribution (Summarizing a Single Variable)
-Remember that because of _variability_, the key to asking good questions is to not ask questions about individual values but to characterize the underlying _distribution_ (see @def-distribution).  Therefore, characterizing the underlying distribution is also the key to a good visualization or numeric summary.  For the Deepwater Horizon Case Study described in @sec-caseDeepwater, the response (whether a volunteer experienced adverse respiratory symptoms) is categorical.  As we stated previously, summarizing the distribution of a categorical variable reduces to showing the proportion of individual subjects that fall into each of the various groups defined by the categorical variable.  @fig-summaries-deepwater-barchart) displays a _bar chart_ summarizing the rate of respiratory symptoms for volunteers cleaning wildlife.
+Remember that because of _variability_, the key to asking good questions is to not ask questions about individual values but to characterize the underlying _distribution_ (see @def-distribution).  Therefore, characterizing the underlying distribution is also the key to a good visualization or numeric summary.  For the Deepwater Horizon Case Study described in @sec-caseDeepwater, the response (whether a volunteer experienced adverse respiratory symptoms) is categorical.  As we stated previously, summarizing the distribution of a categorical variable reduces to showing the proportion of individual subjects that fall into each of the various groups defined by the categorical variable.  @fig-summaries-deepwater-barchart displays a _bar chart_ summarizing the rate of respiratory symptoms for volunteers cleaning wildlife.
 
 ```{r}
 #| label: fig-summaries-deepwater-barchart
@@ -117,10 +117,10 @@ bl.summaries <- paper.df |>
 With any graphic, we tend to be drawn to three components:
 
   - _where_ the values tend to be, 
-  - _how tightly_ the values tend to be clustered there, and
-  - _the way_ the values tend to cluster.
+  - _the degree_ to which values tend to be clustered in a particular location, and
+  - _the way_ the values tend to cluster and deviate from one another.
   
-Notice that about half of the paper specimens in the sample had a breaking length longer than `r round(bl.summaries$Median, 2)` km.  Only about 25% of paper specimens had a breaking length less than `r round(bl.summaries$Q25, 2)` km.  These are measures of _location_.  In particular, these are known as __percentiles__, of which the __median__, __first quartile__ and __third quartile__ are commonly used examples.
+Notice that about half of the paper specimens in the sample had a breaking length longer than `r round(bl.summaries$Median, 2)` km.  Only about 25% of paper specimens had a breaking length less than `r round(bl.summaries$Q25, 2)` km.  These are measures of _location_ (or _center_, this is where the values tend to be).  In particular, these are known as __percentiles__; the __median__, __first quartile__ and __third quartile__ are commonly used examples.
 
 :::{#def-percentile}
 ## Percentile
@@ -143,9 +143,9 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i.$$
 When referencing the average for a population, the mean is also called the "Expected Value," and is often denoted by $\mu$.
 :::
 
-Clearly, the breaking length is not equivalent for all paper specimens; that is, there is variability in the measurements.  Measures of _spread_ quantify the variability of values within a distribution.  Common examples include the __standard deviation__ (related to __variance__) and __interquartile range__.  For the Paper Strength example, the breaking length varies with a standard deviation of `r round(bl.summaries$SD, 2)` km; the interquartile range for the breaking length is `r round(bl.summaries$IQR, 2)` km.  
+Clearly, the breaking length is not equivalent for all paper specimens; that is, there is variability in the measurements.  Measures of _spread_ quantify the variability of values within a distribution (that is, the degree to which values deviate from one another).  Common examples include the __standard deviation__ (related to __variance__) and __interquartile range__.  For the Paper Strength example, the breaking length varies with a standard deviation of `r round(bl.summaries$SD, 2)` km; the interquartile range for the breaking length is `r round(bl.summaries$IQR, 2)` km.  
 
-The standard deviation is often reported more often than the variance since it is on the same scale as the original data; however, as we will see later, the variance is useful from a mathematical perspective for derivations.  Neither of these values has a natural interpretation; instead, larger values of these measures simply indicate a higher degree of variability in the data.
+The standard deviation is often reported more often than the variance since it is on the same scale as the original data; however, as we will see later, the variance is useful from a mathematical perspective for derivations.  Neither of these values has a natural interpretation; but, when discussing measures of spread, larger values indicate a higher degree of variability in the data.
 
 :::{#def-variance}
 ## Variance
@@ -183,7 +183,14 @@ The measures we have discussed so far are illustrated in @fig-summaries-summarie
 knitr::include_graphics("./images/Summaries-Summaries.jpg")
 ```
 
-Finally, consider the _shape_ of the distribution of breaking length we have observed.  The breaking length tends to be clustered in two locations; we call this _bimodal_ (each mode is a "hump" in the distribution).  Other terms used to describe the shape of a distribution are _symmetric_ and _skewed_.  Symmetry refers to cutting a distribution in half (at the median) and the lower half being a mirror image of the upper half; skewed distributions are those which are not symmetric.
+Finally, consider the _shape_ of the distribution of breaking length we have observed.  The breaking length tends to be clustered in two locations; we call this _bimodal_ (each mode is a "hump" in the distribution).  Other terms used to describe the shape of a distribution are _symmetric_ and _skewed_.  Symmetry refers to cutting a distribution in half (at the median) and the lower half being a mirror image of the upper half; skewed distributions are those that are not symmetric.
+
+:::{.callout-note}
+## Direction of Skew
+We tend to focus on _skew_ meaning _not symmetric_.  Some authors like to describe the direction of the skew.  A distribution is said to be "right skewed" (or "positively skewed") if the spread in the upper half of the distribution is larger than the spread in the lower half of the distribution.  For example, this might be indicated by the difference between the third quartile and the median being larger than the difference between the median and the first quartile.
+
+Similarly, a distribution is said to be "left skewed" (or "negatively skewed") if the spread in the lower half of the distribution is larger than the spread in the upper half of the distribution.
+:::
 
 Observe that the dot plot above gives us some idea of the location, spread, and shape of the distribution, in a way that the table of values could not.  This makes it a useful graphic as it is characterizing the __distribution of the sample__ we have observed.  This is one of the four components of what we call the _Distributional Quartet_.
 
@@ -197,14 +204,14 @@ When the sample is not large, a dot plot is reasonable.  Other common visualizat
   - _jitter plot_: similar to a dot plot, each value observed is represented by a dot; the dots are "jittered" (shifted randomly) in order to avoid over-plotting when many subjects share the same value of the response.
   - _box plot_: a visual depiction of five key percentiles; the plot includes the minimum, first quartile, median, third quartile, and maximum value observed.  The quartiles are connected with a box, the median cuts the box into two components.  Occasionally, __outliers__ are denoted on the graphic.
   - _histogram_: can be thought of as a grouped dot plot in which subjects are "binned" into groups of similar values.  The height of each bin represents the number of subjects falling into that bin.
-  - _density plot_: a smoothed histogram in which the y-axis has been standardized so that the area under the curve has value 1.  The y-axis is not interpretable directly, but higher values along the y-axis indicate that the corresponding values on along the x-axis are more likely to occur.
+  - _density plot_: a smoothed histogram in which the y-axis has been standardized so that the area under the curve has value 1.  The y-axis is not interpretable directly, but higher values along the y-axis indicate that the corresponding values along the x-axis are more likely to occur.
   
 :::{#def-outlier}
 ## Outlier
 An individual observation which is so extreme, relative to the rest of the observations in the sample, that it does not appear to conform to the same distribution.
 :::
   
-To illustrate these graphics, the breaking length for the Paper Strength example is summarized using various methods in @fig-summaries-univariate.  The latter three visualizations are more helpful when the dataset is very large and plotting the raw values actually hides the distribution.  There is no right or wrong graphic; it is about choosing the graphic which addresses the question and adequately portrays the distribution.
+To illustrate these graphics, the breaking length for the Paper Strength example is summarized using various methods in @fig-summaries-univariate.  The latter three visualizations are more helpful when the dataset is very large and plotting the raw values actually hides the distribution.  There is no right or wrong graphic; it is about choosing the graphic that addresses the question and adequately portrays the distribution.
 
 ```{r}
 #| label: fig-summaries-univariate
@@ -248,7 +255,7 @@ The numeric summaries of a distribution are known as __statistics__.  While para
 
 :::{#def-statistic}
 ## Statistic
-Numeric quantity which summarizes the distribution of a variable within a _sample_.
+Numeric quantity that summarizes the distribution of a variable within a _sample_.
 :::
 
 Why would we compute numerical summaries in the sample if we are interested in the population?  Remember the goal of this discipline is to use the sample to say something about the underlying population.  As long as the sample is representative, the distribution of the sample should reflect the __distribution of the population__; therefore, summaries of the sample should be close to the analogous summaries of the population (statistics estimate their corresponding parameters).  Now we see the real importance of having a representative sample; it allows us to say that what we observe in the sample is a good proxy for what is happening in the population.
@@ -258,7 +265,7 @@ Why would we compute numerical summaries in the sample if we are interested in t
 The pattern of variability in values of a variable at the population level.  Generally, this is impossible to know, but we might model it.
 :::
 
-Statistics being a proxy for the corresponding parameter implies the mean in the sample should approximate (estimate) the mean in the population; the standard deviation of the sample should estimate the standard deviation in the population; and, the shape of the sample should approximate the shape of the population, etc.  The sample is acting as a representation in all possible ways of the population.
+Statistics being a proxy for the corresponding parameter implies the mean in the sample should approximate (estimate) the mean in the population; the standard deviation of the sample should estimate the standard deviation in the population; and, the shape of the distribution of the sample should approximate the shape of the distribution of the population, etc.  The sample is acting as a representation in all possible ways of the population.
 
 :::{.callout-tip}
 ## Big Idea
@@ -273,7 +280,7 @@ Again, in reality, the symbols themselves are not important.  The importance is 
 
 
 ## Summarizing Relationships
-The summaries discussed above are nice for examining a single variable.  In general, however, research questions of interest typically involve the relationship between two or more variables.  Most graphics are two-dimensional (though 3-dimensional graphics and even virtual reality are being utilized now); therefore, summarizing a rich set of relationships may require the use of both axes as well as color, shape, size, and even multiple plots in order to tell the right story.  We will explore these various features in upcoming units of the text.  Here, we focus on the need to tell a story that answers the question of interest instead of getting lost in making a graphic.  Consider the following question from the Deepwater Horizon Case Study described in #sec-caseDeepwater:
+The summaries discussed above are nice for examining a single variable.  In general, however, research questions of interest typically involve the relationship between two or more variables.  Most graphics are two-dimensional (though 3-dimensional graphics and even virtual reality are being utilized now); therefore, summarizing a rich set of relationships may require the use of both axes as well as color, shape, size, and even multiple plots in order to tell the right story.  We will explore these various features in upcoming units of the text.  Here, we focus on the need to tell a story that answers the question of interest instead of getting lost in making a graphic.  Consider the following question from the Deepwater Horizon Case Study described in @sec-caseDeepwater:
 
   > What is the increased risk of developing adverse respiratory symptoms for volunteers cleaning wildlife compared to those volunteers who do not have direct exposure to oil?
   

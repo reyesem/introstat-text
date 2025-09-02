@@ -2,9 +2,10 @@
 
 {{< include _setupcode.qmd >}}
 
-The discipline of statistics is about turning data into information in order to address some question.  While there may be no such thing as a stupid question, there are ill-posed questions --- those which cannot be answered as stated.  Consider the [Deepwater Horizon Case Study](01c-casedeepwater.qmd) (@sec-caseDeepwater).  It might seem natural to ask "if a volunteer cleans wildlife, will she develop adverse respiratory symptoms?"  Let's consider the data.  Of the 54 volunteers assigned to wildlife cleaning and rehabilitation, 15 reported experiencing adverse respiratory symptoms ("nose irritation, sinus problems, or sore throat"); while some volunteers developed symptoms, others did not.  It seems the answer to our question is then "it depends" or "maybe."  This is an example of an _ill-posed question_.  Such questions exist because of __variability__, the fact that every subject in the population does not behave in exactly the same way; that is, the value of a variable potentially differs from one observation to the next.  In our example not every volunteer had the same reaction when directly exposed to oil.
+The discipline of statistics is about turning data into information in order to address some research objective or question.  While there may be no such thing as a stupid question, there are ill-posed questions --- those that cannot be answered as stated.  Consider the [Deepwater Horizon Case Study](01c-casedeepwater.qmd) (@sec-caseDeepwater).  It might seem natural to ask "if a volunteer cleans wildlife, will she develop adverse respiratory symptoms?"  Let's consider the data.  Of the 54 volunteers assigned to wildlife cleaning and rehabilitation, 15 reported experiencing adverse respiratory symptoms ("nose irritation, sinus problems, or sore throat"); while some volunteers developed symptoms, others did not.  It seems the answer to our question is then "it depends" or "maybe."  This is an example of an _ill-posed question_.  Ill-posed questions are troublesome because of __variability__, the fact that every subject in the population does not behave in exactly the same way; that is, the value of a variable potentially differs from one observational unit to the next.  In our example not every volunteer had the same reaction when directly exposed to oil.
 
-It is variability that creates a need for the discipline of statistics; in fact, you could think of statistics as the study and characterization of variability.  We must therefore learn to ask the _right_ questions --- those which can be answered in the presence of variability.
+It is variability that creates a need for the discipline of statistics; in fact, you could think of statistics as the study and characterization of variability.  We must therefore learn to ask the _right_ questions --- those that can be answered in the presence of variability.
+
 
 :::{#def-variability}
 ## Variability
@@ -13,22 +14,22 @@ The notion that measurements differ from one observation to another.
 
 :::{.callout-tip}
 ## Big Idea
-The presence of variability makes some questions ill-posed; statistics concerns itself with how to address questions in the presence of variability.
+The presence of variability makes some questions ill-posed; statistics is the discipline of using data into information in the presence of variability.
 :::
 
 
 ## Characterizing a Variable
-Recall that the goal of statistical inference is to say something about the population; as a result, any question we ask should then be about on this larger group.  The first step to constructing a well-posed question is then to identify the population of interest for the study.  For the [Deepwater Horizon Case Study](01c-casedeepwater.qmd), it is unlikely that we are only interested in these 54 observed volunteers assigned to wildlife cleaning.  In reality, we probably want to say something about volunteers for any oil spill.  The 54 volunteers in our dataset form the sample, a subset from all volunteers who clean wildlife following an oil spill.  Our population of interest is comprised of all volunteers who clean wildlife following an oil spill. 
+Recall that the goal of statistical inference is to say something about the population; as a result, our research objectives should be about the population.  The first step to constructing a well-posed question is then to identify the population of interest for the study.  For the [Deepwater Horizon Case Study](01c-casedeepwater.qmd), it is unlikely that we are only interested in these 54 observed volunteers assigned to wildlife cleaning.  In reality, we probably want to say something about volunteers for any oil spill.  The 54 volunteers in our dataset form the sample, a subset from all volunteers who clean wildlife following an oil spill.  Our population of interest is comprised of all volunteers who clean wildlife following an oil spill. 
 
 :::{.callout-note}
-When identifying the population of interest for a research question you have, be specific!  Suppose you are trying to estimate the average height of trees.  Are you really interested in _all_ trees?  Or, are you interested in Maple trees within the city limits of Terre Haute, Indiana?
+When identifying the population of interest for a research objective, be specific!  Suppose you are trying to estimate the average height of trees.  Are you really interested in _all_ trees?  Or, are you interested in Maple trees within the city limits of Terre Haute, Indiana?  This distinction impacts how we collect the data.
 :::
 
 Since we expect that the reaction to oil exposure --- the primary variable of interest for this study, sometimes called the __response__ --- to vary from one individual to another, we cannot ask a question about the _value_ of the reaction (whether they experienced symptoms or not).  Instead, we want to characterize the __distribution__ of the response.
 
 :::{#def-response}
 ## Response
-The primary variable of interest within a study.  This is the variable you would either like to explain or estimate.
+The primary variable of interest within a study.  This is the variable you would either like to explain or predict.
 :::
 
 :::{#def-distribution}
@@ -36,7 +37,12 @@ The primary variable of interest within a study.  This is the variable you would
 The pattern of variability corresponding to a set of values.
 :::
 
-Notice that in this case, the response is a categorical variable; describing the distribution of such a variable is equivalent to describing how individuals are divided among the possible groups.  With a finite number of observations, we could present the number of observations, the __frequency__, within each group.  For example, of the 54 volunteers, 15 experienced adverse symptoms and 39 did not.  This works well within the sample; however, as our population is infinitely large (all volunteers cleaning wildlife following an oil spill), reporting the frequencies is not appropriate.  In this case, we report the fraction of observations, the __relative frequency__, falling within each group; this helps convey information about the distribution of this variable.  That is, the relative frequencies give us a sense of which values of the variable are more or less common in the sample.
+:::{.callout-tip}
+## Big Idea
+Research questions need to focus on characterizing the _distribution_ of the variable.
+:::
+
+In this case, the response is a categorical variable; describing the distribution of such a variable is equivalent to describing how individuals are divided among the possible groups.  With a finite number of observations, we could present the number of observations, the __frequency__, within each group.  For example, of the 54 volunteers, 15 experienced adverse symptoms and 39 did not.  This works well within the sample; however, as the population becomes infinitely large (all volunteers cleaning wildlife following an oil spill), reporting frequencies is no longer appropriate.  As a result, even in small samples, it is common to report the fraction of observations, the __relative frequency__, falling within each group in addition to the frequency; this helps convey information about the distribution of this variable.  That is, the relative frequencies give us a sense of which values of the variable are more or less common in the sample.
 
 :::{#def-frequency}
 ## Frequency
@@ -48,19 +54,19 @@ The number of observations in a sample falling into a particular group (level) d
 Also called the "proportion," the fraction of observations falling into a particular group (level) of a categorical variable.
 :::
 
-Numeric quantities, like the proportion, which summarize the distribution of a variable within the population are known as __parameters__.
+Numeric quantities, like the proportion, that summarize the distribution of a variable within the population are known as __parameters__.
 
 :::{#def-parameter}
 ## Parameter
-Numeric quantity which summarizes the distribution of a variable within the _population_ of interest.  Generally denoted by Greek letters in statistical formulas.
+Numeric quantity that summarizes the distribution of a variable within the _population_ of interest.  Parameters are generally denoted by Greek letters in statistical formulas.
 :::
 
-While the _value_ of a variable may vary across the population, the _parameter_ is a single fixed constant which summarizes the variable for that population.  For example, the grade received on an exam varies from one student to another in a class; but, the _average exam grade_ is a fixed number which summarizes the class as a whole.  Well-posed questions can be constructed if we limit ourselves to questions about the parameter.  The second step in constructing well-posed questions is then to identify the parameter of interest.  
+While the value of a _variable_ may vary across subjects in the population, the _parameter_ is a single fixed constant that summarizes the distribution of the variable across that population.  For example, the grade received on an exam varies from one student to another in a class; but, the _average exam grade_ is a fixed number that summarizes the exam grade across the entire class.  Well-posed questions are then those that acknowledge variability and focus on the _distribution_ of the variable instead of the value of the variable for an individual subject.  And, since parameters characterize distributions, well-posed questions are formed by focusing on parameters.  The second step in constructing well-posed questions is then to identify the parameter of interest.  
 
-The questions we ask generally fall into one of two categories:
+Most scientific questions generally fall into one of two categories:
 
-  - Estimation: what _proportion_ of volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?
-  - Hypothesis Testing: is it reasonable no more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms; or, is there evidence more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?
+- Estimation: what _proportion_ of volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?
+- Hypothesis Testing: is it reasonable no more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms; or, is there evidence more than 1 in 5 volunteers who clean wildlife following an oil spill will experience adverse respiratory symptoms?
   
 :::{#def-estimation}
 ## Estimation
@@ -83,14 +89,14 @@ It turns out, the vast majority of research questions can be framed in terms of 
 
 :::{.callout-important}
 ## Fundamental Idea I
-A research question can often be framed in terms of a parameter that characterizes the population.  Framing the question should then guide our analysis.
+A research objective can often be framed in terms of a parameter that characterizes the distribution of a variable across the population.
 :::
 
-We now have a way of describing a well-posed question, a question which can be addressed using data.  Well posed questions are about the population and can be framed in terms of a parameter which summarizes that population.  We now describe how these questions are typically framed.
+We now have a way of describing a well-posed question, a question which can be addressed using data.  Well-posed questions are about the population and are framed in terms of a parameter.  Such questions guide the analysis.  
 
 
 ## Framing the Question
-In engineering and scientific applications, many questions fall under the second category of __hypothesis testing__, which is a form of model comparison in which data is collected to help the researcher choose between two competing theories for the parameter of interest.  In this section, we consider the terminology surrounding specifying such questions.
+In engineering and scientific applications, many questions fall under the second category of __hypothesis testing__, which is a form of model comparison where data is collected to help the researcher choose between two competing theories for the parameter of interest.  In this section, we consider the terminology surrounding specifying such questions.
 
 For the [Deepwater Horizon Case Study](01c-casedeepwater.qmd) suppose we are interested in addressing the following question:
 
@@ -120,12 +126,12 @@ Consider the above question for the [Deepwater Horizon Case Study](01c-casedeepw
 
 :::{#def-null-hypothesis}
 ## Null Hypothesis
-The statement (or theory) about the parameter that we would like to _disprove_.  This is denoted $H_0$, read "H-naught" or "H-zero".
+The statement (or theory) about the parameter that we would like to _disprove_.  This is denoted $H_0,$ read "H-naught" or "H-zero".
 :::
 
 :::{#def-alternative-hypothesis}
 ## Alternative Hypothesis
-The statement (or theory) about the parameter capturing what we would like to provide evidence _for_; this is the opposite of the null hypothesis.  This is denoted $H_1$ or $H_a$, read "H-one" and "H-A" respectively.
+The statement (or theory) about the parameter capturing what we would like to provide evidence _for_; this is the opposite of the null hypothesis.  This is denoted $H_1$ or $H_a,$ read "H-one" and "H-A" respectively.
 :::
 
 For the [Deepwater Horizon Case Study](01c-casedeepwater.qmd), we write:
@@ -139,14 +145,14 @@ Each hypothesis is a well-posed statement (about a parameter characterizing the 
 When framing your questions, be sure your null hypothesis and alternative hypothesis are exact opposites of one another, and ensure the "equality" component _always_ goes in the null hypothesis.
 :::
 
-We can now collect data and determine if it is _consistent_ with the null hypothesis (a statement similar to "not guilty") or if the data provides _evidence_ against the null hypothesis and in favor of the alternative (a statement similar to "guilty").
+We can now collect data and determine if it is _consistent_ with the null hypothesis (a statement similar to "not guilty") or if the data provides _evidence_ against the null hypothesis and therefore _evidence_ in favor of the alternative hypothesis (a statement similar to "guilty").
 
 :::{.callout-warning}
 ## Consistent vs. Evidence
-The term "consistent" and "reasonable" will be used interchangeably throughout the text; however, these terms differ substantially from the term "evidence."  The data is said to be consistent with a statement if the data is aligned with that statement.  We have evidence for a statement when the data is aligned with that statement _and_ it is not aligned with the opposite of the statement (when we can disprove something).  We will see this develop more in Chapters [-@sec-samplingdistns] and [-@sec-nulldistns].
+The term "consistent" and "reasonable" will be used interchangeably throughout the text; however, these terms differ substantially from the term "evidence."  The data is said to be consistent with a statement if the data is aligned with that statement.  We have evidence against a statement ("disproving" a statement) when the data is not aligned with that statement.  We have evidence for a statement ("proving" the statement) when the data is aligned with that statement, _and_ the data is not aligned with the opposite of the statement.  We will see this developed more in Chapters [-@sec-samplingdistns] and [-@sec-nulldistns].
 :::
 
-Often these statements are written in a bit more of a mathematical structure in which a Greek letter is used to represent the parameter of interest.  For example, we might write
+Hypotheses are often written in a more mathematical structure in which a Greek letter is used to represent the parameter of interest.  For example, we might write
 
   > Let $\theta$ represent the proportion of volunteers (assigned to clean wildlife following an oil spill) who experience adverse respiratory symptoms.  
   > $H_0: \theta \leq 0.20$  
@@ -156,19 +162,19 @@ In the above statements, $\theta$ represents the parameter of interest; the valu
 
 :::{#def-null-value}
 ## Null Value
-The value associated with the equality component of the null hypothesis; it forms the threshold or boundary between the hypotheses.  Note: not all questions of interest require a null value be specified.
+The value associated with the equality component of the null hypothesis; it forms the threshold or boundary between the hypotheses.  Not all questions of interest require a null value be specified.
 :::
 
 :::{.callout-tip}
 ## Big Idea
-Hypothesis testing is a form of statistical inference in which we quantify the evidence _against_ a working theory (captured by the null hypothesis).  We essentially argue that the data supports the alternative if it is not consistent with the working theory.
+Hypothesis testing is a form of statistical inference where we quantify the evidence _against_ a working theory (captured by the null hypothesis).  We essentially argue that the data supports the alternative if it is not consistent with the working theory.
 :::
 
 This section has focused on developing the null and alternative hypothesis when our question of interest is best characterized as one of comparing models or evaluating a particular statement.  If our goal is estimation, a null and alternative hypothesis are not applicable.  For example, we might have the following goal:
 
   > Estimate the proportion of volunteers (assigned to clean wildlife following an oil spill) who experience adverse respiratory symptoms.
   
-In this version of our research "question" there is no statement which needs to be evaluated.  We are interested in estimation, not hypothesis testing and thus there is no corresponding null and alternative hypothesis.
+In this research objective, we are not comparing two competing theories.  We are interested in estimation, not hypothesis testing and thus there is no corresponding null and alternative hypothesis.
 
 :::{.callout-note}
 ## Process for Framing a Question

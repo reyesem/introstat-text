@@ -2,26 +2,21 @@
 
 {{< include _setupcode.qmd >}}
 
-Is driving while texting as dangerous as driving while intoxicated?  Is there evidence that my measurement device is calibrated inappropriately?  How much force, on average, can our concrete blocks withstand before failing?  Regardless of your future career path, you will eventually need to answer a question. The discipline of statistics is about using data to address questions by converting that data into valuable information.
+Is driving while texting as dangerous as driving while intoxicated?  Is there evidence that my measurement device is calibrated inappropriately?  What is the average force our concrete blocks can withstand before failing?  Regardless of your future career path, you will eventually need to answer a question. The discipline of statistics is about using data to address questions by converting that data into valuable information.
 
-:::{.callout-tip}
-## Big Idea
-Statistics is the discipline of converting data into information.
-:::
-
-It might be natural at this point to ask "do I really need an entire class about answering questions with data?  Isn't this simple?"  Sometimes, it is simple; other times, it can be far from it.  Let's illustrate with the following example from @Tintle2015.
+It is natural to ask "do I really need an entire class about answering questions with data?  Isn't this simple?"  Sometimes, it is simple; other times, it can be far from it.  Let's illustrate with the following example [taken from @Tintle2015].
 
 :::{#exm-basics-organ-donation}
 ## Organ Donation
-Even though organ donations save lives, recruiting organ donors is difficult.  Interestingly, surveys show that about 85% of Americans approve of organ donation in principle and many states offer a simple organ donor registration process when people apply for a driver's license.  However, only about 38% of licensed drivers in the United States are registered to be organ donors.  Some people prefer not to make an active decision about organ donation because the topic can be unpleasant to think about.  But perhaps phrasing the question differently could affect a person's willingness to become a donor.
+Even though organ donations save lives, recruiting organ donors is difficult.  Interestingly, surveys show that about 85% of Americans approve of organ donation in principle, and many states offer a simple organ donor registration process when people apply for a driver's license.  However, only about 38% of licensed drivers in the United States are registered to be organ donors.  Some people prefer not to make an active decision about organ donation because the topic can be unpleasant to think about.  But perhaps phrasing the question differently could affect a person's willingness to become a donor.
 
-@Johnson2003 recruited 161 participants for a study, published in the journal _Science_, to address the question of organ donor recruitment.  The participants were asked to imagine they had moved to a new state and were applying for a driver's license. As part of this application, the participants were to decide whether or not to become an organ donor.  Participants were presented with one of three different default choices:
+@Johnson2003 recruited 161 participants for a study, published in _Science_, to address the question of organ donor recruitment.  The participants were asked to imagine they had moved to a new state and were applying for a driver's license. As part of this application, the participants were to decide whether or not to become an organ donor.  Participants were presented with one of three different default choices:
 
   - Some of the participants were forced to make a choice of becoming a donor or not, without being given a default option (the "neutral" group).
   - Other participants were told that the default option was not to be a donor but that they could choose to become a donor if they wished (the "opt-in" group).
   - The remaining participants were told that the default option was to be a donor but that they could choose not to become a donor if they wished (the "opt-out" group).
 
-The study found that 79% of those in the neutral group, 42% of those in the opt-in group, and 82.0% of those in the opt-out group agreed to become donors.
+The study found that 79% of those in the neutral group, 42% of those in the opt-in group, and 82% of those in the opt-out group agreed to become donors.
 :::
 
 The results of the study are presented in @fig-basics-organ-plot.  It seems obvious that using the "opt-in" strategy results in fewer people agreeing to organ donation.  However, does the "opt-out" strategy, in which people are by default declared organ donors, result in more people agreeing to organ donation compared to the "neutral" strategy?  On the one hand, a higher percentage did agree to organ donation under the "opt-out" (82% compared to 79%).  However, since this study involved only a subset of Americans, is this enough evidence to claim the "opt-out" strategy is really superior compared to the "neutral" strategy in the broader population?  The discipline of statistics provides a framework for addressing such ambiguity.
@@ -50,7 +45,7 @@ ggplot(data = organ.df,
 
 
 ## Overview of Drawing Inference
-Let's begin by taking a step back and considering the big picture of how data is turned into information.  Every research question we pose, at its heart, is trying to characterize a __population__, the group of subjects of ultimate interest.
+Let's begin by taking a step back and considering the big picture of how data is turned into information.  Every research question we pose, at its heart, is trying to characterize a __population__, the group of things (or "subjects") of ultimate interest.
 
 :::{#def-population}
 ## Population
@@ -67,7 +62,9 @@ The collection of subjects for which we actually obtain measurements (data).
 :::
 
 :::{.callout-note}
-Some readers may associate "subjects" with people; to avoid this confusion, you may prefer "unit of observation" to subject.  In this text, we use subject to mean any unit on which observations could be taken.
+Some readers may associate "subjects" with people; to avoid this confusion, you may prefer "unit of observation" (or "observational unit") to subject.  In this text, we use subject to mean any unit on which observations could be taken.  
+
+For those that prefer "observational unit," care should be taken to distinguish between the observational unit (the thing we are taking measurements on) and the units of the resulting measurements (meters, gallons, etc.).
 :::
 
 For each subject within the sample, we obtain a collection of measurements forming our set of data.  The goal of statistical modeling is to use the sample (the group we actually observe) to say something about the population of interest (the group we wish we had observed); this process is known as __statistical inference__ (illustrated in @fig-basics-statistical-process).
@@ -80,7 +77,7 @@ The process of using a sample to characterize some aspect of the underlying popu
 ```{r}
 #| label: fig-basics-statistical-process
 #| fig-cap: Illustration of the statistical process, using a sample to characterize some aspect of the underlying population.
-#| fig-alt: Illustration of the statistical process, in which a sample of units is taken from the population, represented by a blue blob, and enters the sample, represented by a green blob.
+#| fig-alt: A collection of objects outlined in a blue blob represents the population with an arrow to a smaller collection of objects outlined in a green blob representing the sample.
 
 knitr::include_graphics("images/Basics-Stat-Process.jpg")
 ```
@@ -94,16 +91,20 @@ Once we have our sample, we take measurements on each of the subjects within thi
 A measurement, or category, describing some aspect of the subject.
 :::
 
-Variables come in one of two flavors.  __Categorical__ variables are those which denote a grouping to which the subject belongs.  Examples include marital status, manufacturer, and experimental treatment group.  __Numeric__ variables are those which take on values for which ordinary arithmetic (e.g., addition and multiplication) makes sense.  Examples include height, age of a product, and diameter.  Note that sometimes numeric values are used to represent the levels of a categorical variable in a dataset; for example, 0 may indicate "No" and 1 may indicate "Yes" for a variable capturing whether a person is a registered organ donor.  Therefore, just because a variable has a numeric value does not make it a numeric variable; the key here is that numeric variables are those for which arithmetic makes sense.
+Variables come in one of two flavors.  __Categorical__ variables are those that denote a grouping to which the subject belongs.  Examples include marital status, manufacturer, and experimental treatment group.  __Numeric__ variables are those that take on values for which ordinary arithmetic (e.g., addition and multiplication) makes sense.  Examples include height, age of a product, and diameter.  
+
+:::{.callout-note}
+Sometimes numeric values are used to represent the levels of a categorical variable in a dataset; for example, 0 may indicate "No" and 1 may indicate "Yes" for a variable capturing whether a person is a registered organ donor.  Just because a variable has a numeric value does not make it a numeric variable; the key here is whether that value represents a grouping (categorical variable) or not (numeric variable).
+:::
 
 :::{#def-categorical}
 ## Categorical Variable
-Also called a "qualitative variable," a measurement on a subject which denotes a grouping or categorization.
+Also called a "qualitative variable," a measurement on a subject that denotes a grouping or categorization.
 :::
 
 :::{#def-numeric}
 ## Numeric Variable
-Also called a "quantitative variable," a measurement on a subject which takes on a numeric value _and_ for which ordinary arithmetic makes sense.
+Also called a "quantitative variable," a measurement on a subject that takes on a numeric value _and_ for which ordinary arithmetic makes sense.
 :::
 
 While it may be natural to think of a dataset as a spreadsheet, not all spreadsheets are created equal.
@@ -113,18 +114,18 @@ While it may be natural to think of a dataset as a spreadsheet, not all spreadsh
 
 A well-structured dataset should adhere to the following characteristics:
 
-  - Each column contains a unique variable.
-  - Each record (row in the dataset) corresponds to a different observation of the variables.
-  - If you have multiple datasets, they should include a column in the table that allows them to be linked (subject identifier).
+- Each column contains a unique variable.
+- Each record (row in the dataset) corresponds to a single, and unique, observation of the variables.
+- Related datasets include a column that allows them to be linked (subject identifier).
 :::
 
 These characteristics ensure the data is properly formatted for an analysis.  Even unstructured data such as images or text files must be processed prior to performing a statistical analysis.  
 
 :::{.callout-warning}
-We note the above description eliminates a common method of storing data in engineering and scientific disciplines --- storing each sample in a different column.
+The above description eliminates a common method of storing data in engineering and scientific disciplines --- storing different samples in different columns.
 :::
 
-To illustrate the above description, suppose we conduct a study comparing the lifetime (in hours) of two brands of batteries.  We measure the lifetime of five batteries of Brand A and six of Brand B.  It is common to see a dataset like that in @tbl-basics-poor-dataset; the problem here is that the first record of the dataset contains information on two different units of observation.  We have the lifetime from a battery of Brand A in the same row as the lifetime from a battery of Brand B.  This violates the second characteristic of datasets described above.
+To illustrate the above description, suppose we conduct a study comparing the lifetime (in hours) of two brands of batteries.  We measure the lifetime of five batteries of Brand A and six of Brand B.  It is common to see a dataset like that in @tbl-basics-poor-dataset; the problem here is that the first record of the dataset contains information on two different units of observation.  We have the lifetime from a battery of Brand A in the same row as the lifetime from a battery of Brand B.  In a well-structured dataset, each record should correspond to a single observation of the variables.  
 
 ```{r}
 #| label: tbl-basics-poor-dataset
@@ -139,7 +140,7 @@ poor.df <- tibble(
 mykable(poor.df, align = 'c')
 ```
 
-In order to adhere to the characteristics of well-structured data outlined above, we can reformat the data in @tbl-basics-poor-dataset to that shown in @tbl-basics-good-dataset.  Here, each record represents a unique observation and each column is a different variable.  We have also added a unique identifier.
+In order to adhere to the characteristics of well-structured data outlined above, we can reformat the data in @tbl-basics-poor-dataset to that shown in @tbl-basics-good-dataset.  Here, each record represents a unique observation and each column is a different variable.  We have also added a variable that uniquely identifies each record.
 
 ```{r}
 #| label: tbl-basics-good-dataset
@@ -168,4 +169,4 @@ A dataset on its own is meaningless if you cannot understand what the values rep
 Also called a "data dictionary," these provide complete information regarding the variables contained within a dataset.
 :::
 
-Some codebooks are excellent, with detailed descriptions of how the variables were collected alongside appropriate units for the measurements.  Other codebooks give only an indication of what each variable represents.  Whenever you are working with previously collected data, reviewing a codebook is the first step; and, you should be prepared to revisit the codebook often throughout an analysis.  When you are collecting your own dataset, constructing a codebook is essential for others to make use of your data.
+Some codebooks are very thorough, with detailed descriptions of how the variables were collected alongside appropriate units for the measurements.  Other codebooks give only an indication of what each variable represents.  Whenever you are working with previously collected data, reviewing the codebook is the first step; and, you should be prepared to revisit the codebook often throughout an analysis.  When you are collecting your own dataset, constructing a codebook is essential for others to make use of your data.

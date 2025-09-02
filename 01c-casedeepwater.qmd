@@ -7,7 +7,7 @@ On the evening of April 20, 2010, the _Deepwater Horizon_, an oil drilling platf
 ```{r}
 #| label: fig-casedeepwater-nytclip
 #| fig-cap: _New York Times_ coverage of the _Deepwater Horizon_ oil spill.
-#| fig-alt: Screenshot of New York Times website with an article entitled _Search Continues After Oil Rig Blast_.
+#| fig-alt: Screenshot of New York Times website with an article entitled "Search Continues After Oil Rig Blast".
 
 knitr::include_graphics("./images/Case-Deepwater-NYTclip.png")
 ```
@@ -18,5 +18,5 @@ While a larger fraction of volunteers cleaning wildlife _in the study_ reported 
 
 In the first part of this text, we use this motivating example as the context for discussing how research questions should be framed, methods for data collection, summarizing and presenting data clearly, quantifying the variability in an estimate, and quantifying the degree to which the data disagrees with a proposed model.  We capture these ideas in what we call the _Five Fundamental Ideas of Inference_.  We will also see that any statistical analysis moves between the components of what we call the _Distributional Quartet_.  These two frameworks allow us to describe the language and logic of inference, serving as a foundation for the statistical thinking and reasoning needed to address more complex questions encountered later in the text.
 
-[^NYtimes]: <http://www.nytimes.com/2010/04/22/us/22rig.html?rref=collection%2Ftimestopic%2FOil%20Spills&action=click&contentCollection=timestopics&region=stream&module=stream_unit&version=search&contentPlacement=1&pgtype=collection>
+[^NYtimes]: <http://www.nytimes.com/2010/04/22/us/22rig.html?rref=collection%2Ftimestopic%2FOil%20Spills>
 
